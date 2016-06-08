@@ -256,6 +256,26 @@
 % Added packages
 %
 
+
+%editing commands
+\definecolor{DarkGreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{DarkKhaki}{rgb}{0.74, 0.72, 0.42}
+\definecolor{DarkRed}{rgb}{0.7, 0.2, 0.2}
+\definecolor{DarkOrange}{rgb}{1, 0.6, 0.05}
+\newcommand{\inlinecomment}[3][]{$\lceil$\textbf{#1}~\textit{\textcolor{#2}{#3}}$\rfloor$}
+
+\newcommand{\todo}[1]{\noindent \inlinecomment[TODO]{DarkRed}{#1}}
+\newcommand{\kmC}[1]{\noindent \inlinecomment[KM]{DarkGreen}{#1}}
+\newcommand{\kmE}[1]{\textcolor{DarkKhaki}{#1}}
+\newcommand{\osC}[1]{\noindent \inlinecomment[OS]{DarkOrange}{#1}}
+\newcommand{\osE}[1]{\textcolor{DarkOrange}{#1}}
+% \newcommand{\todo}[1]{}
+%\newcommand{\kmC}[1]{}
+%\newcommand{\kmE}[1]{}
+% \newcommand{\osC}[1]{}
+% \newcommand{\osE}[1]{}
+
+
 %tables used in HA
 \usepackage[usenames]{xcolor}
 \usepackage{colortbl}
@@ -380,8 +400,8 @@
 \cleardoublepage
 
 %    3. Preface - DISABLED-FOR-PROPOSAL
-%\include{Chapter00-Pre/preface}
-%\cleardoublepage
+\include{Chapter00-Pre/preface}
+\cleardoublepage
 
 %    4. Table of contents (mandatory - list all items in the preliminary pages
 %    starting with the abstract, followed by chapter headings and
@@ -390,12 +410,12 @@
 \cleardoublepage	% required by tocloft package
 
 %    5. List of tables (mandatory if thesis has tables)
-%\listoftables
-%\cleardoublepage	% required by tocloft package
+\listoftables
+\cleardoublepage	% required by tocloft package
 
 %    6. List of figures (mandatory if thesis has figures)
-%\listoffigures
-%\cleardoublepage	% required by tocloft package
+\listoffigures
+\cleardoublepage	% required by tocloft package
 
 %    7. List of illustrations (mandatory if thesis has illustrations)
 %    8. Lists of symbols, abbreviations or other (optional)
@@ -406,7 +426,7 @@
 \textspacing		% begin one-half or double spacing
 
 %   10. Acknowledgements (optional)
-%\include{Chapter00-Pre/ack}
+\include{Chapter00-Pre/ack}
 
 %   11. Dedication (optional)
 
@@ -417,7 +437,16 @@
 
 
 %point towards graphics
-\graphicspath{{Chapter01-Intro/images/}{Chapter03-HI/images/}{Chapter04-HA/}{Chapter04-HA/images/}{Chapter05-HEx/images/}{Chapter06-HaXD/figures/}{Chapter07-Timeline/images/}}
+\graphicspath{
+{Chapter01-Intro/images/}
+{Chapter03-HI/images/}
+{Chapter04-TA/}
+{Chapter04-TA/images/}
+{Chapter05-Macaron/images/}
+{Chapter06-HapTurk/figures/}
+{Chapter07-Applications/figures/}
+{Chapter08-HapticianInterviews/figures/}
+{Chapter09-Conclusion/images/}}
 
 
 %    1. Introduction
@@ -430,13 +459,17 @@
 
 \include{Chapter03-HI/hapticinstrument}
 
-\include{Chapter04-HA/hapticanimation}
+\include{Chapter04-TA/tactileanimation}
 
-\include{Chapter05-HEx/hapticexamples}
+\include{Chapter05-Macaron/macaron}
 
-\include{Chapter06-HaXD/haxd}
+\include{Chapter06-HapTurk/hapturk}
 
-\include{Chapter07-Timeline/timeline}
+\include{Chapter07-Applications/applications}
+
+\include{Chapter08-HapticianInterviews/hapticianinterviews}
+
+\include{Chapter09-Conclusion/conclusion}
 
 %\include{Chapter08-Conclusion/conclusion}
 
