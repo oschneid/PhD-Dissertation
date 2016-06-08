@@ -256,6 +256,28 @@
 % Added packages
 %
 
+%Macaron chapter
+\usepackage{xspace}
+
+\newcommand{\interfaceVersion}[1]{{\tt{#1}}\xspace}
+\newcommand{\hi}{\interfaceVersion{hi}}
+\newcommand{\lo}{\interfaceVersion{lo}}
+\newcommand{\select}{\interfaceVersion{sample}}
+\newcommand{\vis}{\interfaceVersion{vis}}
+\newcommand{\none}{\interfaceVersion{none}}
+
+
+%Quoting participants
+%quoting participants
+%terms or quotes on their own
+\newcommand{\qqterm}[1]{\emph{#1}}
+\newcommand{\qqquote}[1]{\emph{``#1"}}
+%terms or quotes w/ participant
+\newcommand{\qquote}[2]{\qqquote{#2} (#1)}
+\newcommand{\qterm}[2]{\qqterm{#2} (#1)}
+
+%Organization commands
+\newcommand{\inlineHeading}[1]{\emph{\textbf{#1}} --}
 
 %editing commands
 \definecolor{DarkGreen}{rgb}{0.0, 0.5, 0.0}
@@ -443,7 +465,7 @@
 {Chapter03-HI/images/}
 {Chapter04-TA/}
 {Chapter04-TA/images/}
-{Chapter05-Macaron/images/}
+{Chapter05-Macaron/figures/}
 {Chapter06-HapTurk/figures/}
 {Chapter07-Applications/figures/}
 {Chapter08-HapticianInterviews/figures/}
