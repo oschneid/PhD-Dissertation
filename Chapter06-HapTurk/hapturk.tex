@@ -13,10 +13,10 @@
    In modern handheld and wearable devices, vibrotactile (VT) feedback can provide unintrusive, potentially meaningful cues through wearables in on-the-go contexts~\cite{Brunet2013a}.
     With % trend-setting 
     consumer wearables like Pebble and the Apple Watch featuring high-fidelity actuators, VT feedback is becoming standard  in more user tools.
-    \affect{Today, VT designers seek to provide sensations with various perceptual and emotional connotations to support the growing use cases for VT feedback (everyday apps, games, etc.).}
+    Today, VT designers seek to provide sensations with various perceptual and emotional connotations to support the growing use cases for VT feedback (everyday apps, games, etc.).
     Although low-level design guidelines exist and are helpful for addressing perceptual requirements \cite{maclean2003perceptual,InwookHwang2013,Ternes2008,Brewster2004,Brown2006a},  higher-level concerns and design approaches to increase their usability and information capacity (e.g., a user's desired affective response, or affective or metaphorical interpretation) have only recently received study and are far from solved \cite{Obrist2013,Arab2015,Seifi2014,Israr2014,Jansson-Boyd2011,Okamoto2013}.
-    Tactile design thus relies heavily on iteration and user feedback \cite{Schneider2014}. \affect{Despite its importance \cite{Seifi2014,Seifi2015}, collecting user feedback on perceptual and emotional (i.e., affective) properties  of tactile sensations in small-scale lab studies is undermined by noise due to individual differences (IDs). %can result in large variation in ratings and inconclusive results.
-    }
+    Tactile design thus relies heavily on iteration and user feedback \cite{Schneider2014}. Despite its importance \cite{Seifi2014,Seifi2015}, collecting user feedback on perceptual and emotional (i.e., affective) properties  of tactile sensations in small-scale lab studies is undermined by noise due to individual differences (IDs). %can result in large variation in ratings and inconclusive results.
+    
 
     In other design domains, crowdsourcing  enables collecting feedback at scale.
     Researchers and designers use platforms like Amazon's Mechanical Turk %(MTurk,
@@ -43,18 +43,18 @@
     In this way, designers can receive high-volume, rapid feedback to use in tandem with costly in-lab studies, for example, to guide initial designs or to generalize findings from smaller studies with a larger sample.
     
     
-    \concept{To this end, we must first establish  feasibility of this approach, with specific goals: 
+    To this end, we must first establish  feasibility of this approach, with specific goals: 
     \textbf{(G1)} {Do proxy modalities work?} Can they effectively communicate both physical VT properties (e.g., duration), and high-level affective properties (roughness, pleasantness)? 
       \textbf{(G2)} {Can proxies be deployed remotely?}
       \textbf{(G3)} {What modalities work}, and 
       \textbf{(G4)} {what obstacles must be overcome to make this approach practical?}
-    }
+    
       
     %   \concept{To this end, first we need to establish the feasibility of the concept (VT proxies). In particular, we need to know: 1) Whether proxy modalities are viable. i.e., Can they effectively communicate physical properties of vibrations (e.g., duration)? what about high-level affective properties (e.g., roughness, pleasantness)? (Goal1), 2) whether these proxies can be effectively administered/deployed remotely, (G2) 3) What modalities are promising for this approach (G3), and 4) what challenges designers can face for crowdsourcing VT sensations (G4).}
           
       
-    \concept{This paper describes a proof-of-concept for  proxy modalities for tactile crowdsourcing, and identifies  challenges throughout the workflow pipeline. 
-    We describe and assess}  
+    This paper describes a proof-of-concept for  proxy modalities for tactile crowdsourcing, and identifies  challenges throughout the workflow pipeline. 
+    We describe and assess 
     %In this paper, we describe and assess
     two modalities' development,  translation process, validation with a test set translation, and MTurk deployment.  
     Our two modalities are a new  technique to graphically visualize high-level traits, and the low-fidelity actuators on users' own commodity smartphones. 
@@ -66,7 +66,7 @@
     \setlength\itemsep{0px}
         \item  A way to crowdsource tactile sensations (vibration proxies), with a technical proof-of-concept.
         % we deploy not just visualizations, but vibrations remotely on MTurk.  
-        \item A visualization method that communicates high-level \affect{affective} features more effectively than the current tactile visualization standard (vibration waveforms).
+        \item A visualization method that communicates high-level affective features more effectively than the current tactile visualization standard (vibration waveforms).
         \item Evidence that both proxy modalities can represent high-level affective features, with lessons about which features work best with which modalities.
         \item Evidence that our proxy modalities are consistently rated in-lab and remotely, with initial lessons for compliance.  
     \end{itemize}
@@ -117,7 +117,7 @@ In this paper, we chose our methodology so that the results are informative for 
 \subsection{Affective Haptics}
 VT designers have the challenge of creating perceptually salient icon sets that convey meaningful content. A full range of expressiveness means manipulating not only 
 a vibration's physical characteristics but also its perceptual and %affective
-\affect{emotional} properties, and collecting feedback on this. \affect{Here, we refer to all these properties as affective characteristics.} 
+emotional properties, and collecting feedback on this. Here, we refer to all these properties as affective characteristics. 
 
 %;then, based on Multi-Dimensional Scaling... to 
 %(New sentence)Using Multi-Dimensional Scaling (MDS) analysis of similarity ratings, it was proposed... (the same)
@@ -159,7 +159,7 @@ Techniques to broadcast haptic effects to video \cite{Modhrain2001,Kim2009}, e.g
 the same applies to social protocols developed for remote use of high-quality vibrations, e.g. in collaborative turn taking \cite{Chan2008}. 
 Elsewhere, studies of VT use in consumer devices need larger samples: e.g., 
 perceivability~\cite{Kaaresoja2005}, encoding of caller parameters \cite{Brown2006b}, including caller
-\affect{emotion} and physical presence collected from pressure on another handset~\cite{Hoggan2012}, and usability of expressive, customizable VT icons in social messaging~\cite{Israr2015}.
+emotion and physical presence collected from pressure on another handset~\cite{Hoggan2012}, and usability of expressive, customizable VT icons in social messaging~\cite{Israr2015}.
 %
 % Phone vibrations have been examined for perceptual qualities \cite{Kaaresoja2005}, caller identity and  urgency \cite{Brown2006b},
 % and used to represent %affection
@@ -212,7 +212,7 @@ To our knowledge, this is the first attempt to run a haptic study on a crowdsour
 We required a set of exemplar source vibrations on which to base our proxy modalities. 
 This set needed to
 1) vary in physical, perceptual, and %affective
-\affect{emotional} characteristics,
+emotional characteristics,
 2) represent the variation in a larger source library, and
 3) be small enough for experimental feasibility.
 
@@ -248,8 +248,8 @@ To evaluate our proxies, we adapted six rating scales from the tactile literatur
 Seifi \etal~\cite{Seifi2015} proposed five taxonomies for describing vibrations including  physical, sensory, emotional, metaphors, and use examples.
 Three taxonomies comprise quantitative metrics and adjectives; two use descriptive words. 
 
-We chose six quantitative metrics from \cite{Seifi2015} that capture important \affect{affective} (physical, perceptual, and %affective
-\affect{emotional}) VT qualities:
+We chose six quantitative metrics from \cite{Seifi2015} that capture important affective (physical, perceptual, and %affective
+emotional) VT qualities:
 %\kmC{HASTI, can you include the ranges for these? %low/hi, long/short, smooth/rough?
  1) \textit{duration} [low-high], 
  2) \textit{energy} [low-high], 
@@ -359,7 +359,7 @@ It should be attainable, bootstrapped by the up-scaling of crowdsourcing itself.
 
     % After developing a set of visualization candidates, 
     Four participants were informally interviewed and asked to feel \hifi~vibrations, describe their reactions, and compare them to several visualization  candidates.
-         Participants differed in their responses, and  had difficulties in understanding VT emotional characteristics from the graphic \affect{(i.e. pleasantness, urgency)}, and in reading the circular patterns. 
+         Participants differed in their responses, and  had difficulties in understanding VT emotional characteristics from the graphic (i.e. pleasantness, urgency), and in reading the circular patterns. 
        We simplified the designs, eliminating representation of emotional characteristics (color, texture), while retaining more objective mappings for physical and sensory characteristics. % \affect{in our proxy design}.
        % \affect{I don't understand the previous sentence. Does it mean that we did not focus on emotional characteristics in our design, but still evaluated these characteristics ?!} 
        
@@ -486,7 +486,7 @@ As with \linear, we developed \lofi~vibrations iteratively, first with team feed
 
 
 \hspace{0.2in}
-\section{Study 1: In-lab Proxy Vibration Validation \concept{(G1)}} 
+\section{Study 1: In-lab Proxy Vibration Validation (G1)} 
 %\kmC{FRAME MISSING - SLC} % clarify (heading, text) that this is a local study. You're holding everything constant except the vibrations, AND you're making sure you can watch and see what people are actually doing, what problems they have. But you also are aware that people will behave differently in this setting than on MTurk so it's not perfect.
 % ALSO, I feel that well before now I needed to hear that you were going to do a local study followed by an MTurk study to compare the results. What is your validation approach?
 %
@@ -666,7 +666,7 @@ We refer to the number of \textit{equivalents} and \textit{differents} in a give
     %
     In addition, 16/20 participants (80\%) preferred \linear\ to \original.
     Although not always clear-cut, these comparisons overall indicate that our \linear\ visualization method communicated these %perceptual
-    \affect{affective} qualities more effectively than the status quo.
+    affective qualities more effectively than the status quo.
     This supports our approach to emphasized visualization, and motivates the future pursuit of other visualizations.
     
     \subsubsection{V4,V10 difficult, V9 easy to translate}
@@ -707,9 +707,9 @@ Though we were able to represent several features using proxy modalities within 
 All results from Study 1 were gathered in-lab, a more controlled environment than over MTurk.
 We thus ran a second study to validate our proxy modality ratings when deployed remotely.
 
-\section{Study 2: Deployment Validation with MTurk \concept{(G2)}}
+\section{Study 2: Deployment Validation with MTurk (G2)}
 To determine whether rating of a proxy is similar when gathered locally or remotely, we deployed the same computer-run proxy modality surveys on MTurk.
-We wanted to discover the challenges all through the pipeline for running a VT study on MTurk, including larger variations in phone actuators and experimental conditions \concept{(G4)}. 
+We wanted to discover the challenges all through the pipeline for running a VT study on MTurk, including larger variations in phone actuators and experimental conditions (G4). 
 We purposefully did not iterate on our proxy vibrations or survey, despite identifying many ways to improve them, to avoid creating a confound in comparing results of the two studies. 
 % Otherwise, we might have optimized the proxies for the local study to later find out that they do not translate to a remote study 
 
@@ -752,7 +752,7 @@ We draw similar conclusions: that proxy modalities can still be viable when depl
 % We discuss these results and their implications, combined with the results of Study 1, in the next section.
 		
 \section{Discussion}
-Here we discuss high level implications from our findings \concept{and relate them to our study goals (G1-G4 in Introduction)}.
+Here we discuss high level implications from our findings and relate them to our study goals (G1-G4 in Introduction).
 %	    Vibration	Duration
 %V5	V10 8-24 		13.5
 %V1	V7  4-20 		3.6
@@ -765,7 +765,7 @@ Here we discuss high level implications from our findings \concept{and relate th
 %V9	V5  6-27		1.1
 %V7	V8  7-26		4.4
 
-    \subsection{Proxy modalities are viable for crowdsourcing \concept{(G1,G2:feasibility)}} % feasibility
+    \subsection{Proxy modalities are viable for crowdsourcing (G1,G2:feasibility)} % feasibility
    Our studies showed that proxy modalities can represent %both physical and 
    affective qualities of vibrations within reasonably chosen error bounds, depending on the vibration.
    These results largely translate to deployment on MTurk.
@@ -773,7 +773,7 @@ Here we discuss high level implications from our findings \concept{and relate th
    This evidence also suggests that we may be able to deploy directly to MTurk for future validation.
    Our two-step validation was important as a first look at whether ratings shift dramatically; and we saw no indications of bias or overall shift between locally running proxy modalities and remotely deploying them.
    \vspace{0.35in}
-    \subsection{Triangulation \concept{(G3:promising directions/proxies)}}
+    \subsection{Triangulation (G3:promising directions/proxies)}
 	Most vibrations received equivalent ratings for most scales in at least one proxy modality.
 	Using proxy modalities in tandem might help improve response accuracy.
 	For example, V6 could be rendered with \lofi~for a pleasantness rating, then as \linear~for Urgency.
@@ -781,7 +781,7 @@ Here we discuss high level implications from our findings \concept{and relate th
 %	Taken in tandem, this might improve response accuracy.
 	
 
-    \subsection{Animate visualizations \concept{(G3:promising directions)}}
+    \subsection{Animate visualizations (G3:promising directions)}
     Speed and Urgency were not as effectively transmitted with our visualizations as with our vibration.
     Nor was Duration well portrayed with  \original, which had a shorter time axis than the exaggerated \linear.
     It may be more difficult for visual representations to portray time effectively: perhaps it is hard for users to distinguish Speed/Urgency, or the time axis is not at an effective granularity.
@@ -789,7 +789,7 @@ Here we discuss high level implications from our findings \concept{and relate th
     As with triangulation, this might also be accomplished through multimodal proxies which augment a visualization with a time-varying sense using sounds or vibration.
     Note, however, that Duration was more accurately portrayed by \linear, suggesting that direct representation of physical features \textit{can} be translated.
     
-    \subsection{Sound could represent Energy \concept{(G3:promising directions)}}
+    \subsection{Sound could represent Energy (G3:promising directions)}
 Our high-fidelity reference is a voice-coil actuator, also used in audio applications.
 Indeed, in initial pilots we played vibration sound files through speakers. Sound is the closest to vibration in the literature, and a vibration signal's sound output is correlated with the vibration energy and sensation. 
 
@@ -798,7 +798,7 @@ However, in our pilots, sometimes the vibration sound did not match the sensatio
 Thus, while the raw sound files are not directly translatable, a sound proxy definitely has potential. It could, for example, supplement where the \original~\ waveform failed to perform well on any metric (aside from Duration) but a more expressive visual proxy (\linear) performed better.
 
 
-    \subsection{\concept{Device dependency and need for} Energy model for Vibrations \concept{(G4:challenges)}}
+    \subsection{Device dependency and need for Energy model for Vibrations (G4:challenges)}
      Energy did not translate well.
      This could be a linguistic confusion, but also a failure to translate this feature.
      For the visualization proxies, it may be a matter of finding the right representation, which we continue to work on.
@@ -825,25 +825,25 @@ Thus, while the raw sound files are not directly translatable, a sound proxy def
         %Developing an energy model for vibrations on MTurk is critical -> provides motivation for  Oliverâ??s earlier MTurk project proposal!!		
 		
 	\subsection{VT %Perceptual
-	\affect{affective} ratings are generally noisy \concept{(G4:challenges)}}
+	affective ratings are generally noisy (G4:challenges)}
    Taken as a group, participants were not highly consistent among one another when rating these %perceptual
-   \affect{affective} studies, whether local or remote.
+   affective studies, whether local or remote.
   This is in line with previous work \cite{Seifi2015}, and highlights a need to further develop rating scales for affective touch.
    Larger sample sizes, perhaps gathered through crowdsourcing, may help reduce or characterize this error. Alternatively, it gives support to the need to develop mechanisms for individual customization. If there are ``types'' of users who do share preferences and interpretations, crowdsourcing can help with this as well.
    
-\subsection{Response \& data quality for MTurk \lofi\ vibrations \concept{(G4:challenges)}}
+\subsection{Response \& data quality for MTurk \lofi\ vibrations (G4:challenges)}
 When deploying vibrations over MTurk, 8/29 participants (approximately 31\%) completed the survey using non-Android based OSes (Mac OS X, Windows 7,8.1, NT) despite these requirements being listed in the HIT and the survey. One participant reported not being able to feel the vibrations despite using an Android phone. 
 This suggests that enforcing a remote survey to be taken on the phone is challenging, and that additional screens are needed to identify participants not on a particular platform.
 Future work might investigate additional diagnostic tools to ensure that vibrations are being generated, through programmatic screening of platforms, well-worded questions and instructions, and (possibly) ways of detecting vibrations actually being played, perhaps through the microphone or accelerometer).
 
 
 
-\subsection{Automatic translation \concept{(G4:challenges)}}
+\subsection{Automatic translation (G4:challenges)}
 Our proxy vibrations were developed by hand, to focus on the feasibility of crowdsourcing.
 However, this additional effort poses a barrier for designers that might negate the benefits of using a platform of MTurk.
 As this approach becomes better defined, we anticipate automatic translation heuristics for proxy vibrations using validated algorithms.
 Although these might be challenging to develop for %affective
-\affect{emotional} features, physical properties like amplitude, frequency, or measures of energy and roughness would be a suitable first step.
+emotional features, physical properties like amplitude, frequency, or measures of energy and roughness would be a suitable first step.
 Indeed, crowdsourcing itself could be used to create these algorithms, as several candidates could be developed, their proxy vibrations deployed on MTurk, and the most promising algorithms later validated in lab.
 
 
@@ -910,9 +910,9 @@ Indeed, crowdsourcing itself could be used to create these algorithms, as severa
 In this paper, we crowdsourced high-level parameter feedback on VT sensations using a new method of \emph{proxy vibrations}.
 We translated our initial set of high-fidelity vibrations, suitable for wearables or other haptic interactions, into two proxy modalities: a new VT visualization method, and low-fidelity vibrations on phones.
 
-\concept{We established the most high-risk aspects of VT proxies, namely feasibility in conveying affective properties, and consistent local and remote deployment with two user studies.}
+We established the most high-risk aspects of VT proxies, namely feasibility in conveying affective properties, and consistent local and remote deployment with two user studies.
 %Our two-stage evaluation (first locally testing our proxies for producing similar results as a high-fidelity reference, then deploying those same proxies in a crowdsource format and checking for similarity of results) validated the idea. It showed that proxy vibrations have the potential to gather VT feedback that is consistent with high-fidelity vibrations, even when deployed remotely over MTurk. 
-\concept{Finally, we highlighted promising directions and challenges of VT proxies, to guide}
+Finally, we highlighted promising directions and challenges of VT proxies, to guide
 %These studies provide lessons for 
 future tactile crowdsourcing developments, targeted to empower VT designers with the benefits crowdsourcing brings.
 
