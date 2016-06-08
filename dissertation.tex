@@ -267,6 +267,27 @@
 \newcommand{\none}{\interfaceVersion{none}}
 
 
+%HapTurk chapter
+\newcommand{\concept}[1]{\textcolor{DarkGreen}{#1}}
+\newcommand{\affect}[1]{\textcolor{DarkRed}{#1}}
+\newcommand{\purple}[1]{\textcolor{black}{#1}}
+\newcommand{\magenta}[1]{\textcolor{black}{#1}}
+\newcommand{\blue}[1]{\textcolor{black}{#1}}
+\newcommand{\local}{LOC}
+\newcommand{\remote}{REM}
+\newcommand{\proxyText}[1]{\textsc{#1}}
+%\newcommand{\etal}{\textit{et al.}}
+\newcommand{\proxySubText}{\proxyText}
+\newcommand{\hifi}{\proxyText{Ref}}  % hifi;  c2
+\newcommand{\lofi}[1][]{\proxyText{LofiVib$^{#1}$}} % Lofi
+\newcommand{\original}[1][]{\proxyText{Vis$_{\proxySubText{dir}}^{#1}$}} % original
+\newcommand{\linear}[1][]{\proxyText{Vis$_{\proxySubText{emph}}^{#1}$}} % original
+    % also consider: VIS:designed, emph, new
+\newcommand{\lofiref}{\hifi$_{\proxyText{LofiVib}}$\xspace}  % hifi;  c2
+\newcommand{\visref}{\hifi$_{\proxyText{Vis}}$\xspace}  
+
+
+
 %Quoting participants
 %quoting participants
 %terms or quotes on their own
@@ -291,6 +312,8 @@
 \newcommand{\kmE}[1]{\textcolor{DarkKhaki}{#1}}
 \newcommand{\osC}[1]{\noindent \inlinecomment[OS]{DarkOrange}{#1}}
 \newcommand{\osE}[1]{\textcolor{DarkOrange}{#1}}
+\newcommand{\gmE}[1]{%\textcolor{purple}
+{#1}}
 % \newcommand{\todo}[1]{}
 %\newcommand{\kmC}[1]{}
 %\newcommand{\kmE}[1]{}
@@ -305,6 +328,12 @@
 
 \usepackage{subcaption}
 \usepackage[normalem]{ulem}
+
+
+%HandsOn
+\newcommand{\SpringSim}{\textit{SpringSim}\xspace}
+\newcommand{\HandsOn}{\textit{HandsOn}\xspace}
+\newcommand{\HandsOnCM}{\textit{HandsOn}\xspace}
 
 
 %multirow tables, HaXD
@@ -467,6 +496,7 @@
 {Chapter04-TA/images/}
 {Chapter05-Macaron/figures/}
 {Chapter06-HapTurk/figures/}
+{Chapter06-HapTurk/figures/camera-ready/}
 {Chapter07-Applications/figures/}
 {Chapter08-HapticianInterviews/figures/}
 {Chapter09-Conclusion/images/}}

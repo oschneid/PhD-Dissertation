@@ -1,14 +1,14 @@
 
-\chapter{Synthesize: Generalization and Grounding}
-\label{ch:haxd}
+\chapter{Applications}
+\label{ch:applications}
 
-
-\begin{figure}[h] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=0.7\textwidth]{HaXDTheoryOutline-2015-05-22} 
-   \caption{Planned synthesis of data for a preliminary theory of haptic experience design.}
-   \label{fig:haxd:theoryoutline}
-\end{figure}
+%
+%\begin{figure}[h] %  figure placement: here, top, bottom, or page
+%   \centering
+%   \includegraphics[width=0.7\textwidth]{HaXDTheoryOutline-2015-05-22} 
+%   \caption{Planned synthesis of data for a preliminary theory of haptic experience design.}
+%   \label{fig:haxd:theoryoutline}
+%\end{figure}
 
 
 The three case studies provide rich but focused data on how to create vibrotactile (VT) experience design tools.
@@ -31,910 +31,1054 @@ This theory will also draw from a literature review of design theory, summarized
 %This will provide information about non-haptic design disciplines and general theory of design to help frame our inquiry.
 
 
+\section{FeelCraft}
+\label{sec:applications:feelcraft}
+In recent years, haptic feedback has shown promise to enhance user experience in movies, games, rides, virtual simulations, and social and educational media [1?3]. However, current mainstream media has yet to use the richness of haptic modality within its content. The lack of haptic authoring tools, production infrastructure,
+standardized playback protocols, and skilled and trained workers has contributed to the difficulty of integrating haptic content with accompanying media. To reduce the gap between haptics and mainstream communication, haptic feedback must be expressive, coherent, and synchronized with the content of the media, and also meet user expectations. We believe that allowing end users to access, customize, and share haptic media will create an intimate, engaging, and personalized experience, and proliferate the use of haptics. In this paper, we propose and implement an architecture that channels media
+content to dynamic and expressive tactile sensations. We introduce FeelCraft, a media plugin that monitors events and activities in the media, and associates them to user-defined haptic content in a seamless, structured way. The FeelCraft plugin allows novice users to generate, recall, save, and share haptic content, and play and broadcast them to other users to feel the same haptic experience, without having any skill in haptic content generation. In the current implementation, we concentrate on the vibrotactile array as the source of sensation and the back as the surface for stimulation; however, the FeelCraft architecture can be easily adapted for other haptic feedback modalities. We begin by presenting relevant background work related to haptic media
+infrastructure. We then present the FeelCraft architecture and describe in detail each component of the system. Finally, we conclude the paper with our envisioned application ecosystem.
+
+\subsection{Related Work}
+Infrastructures to integrate haptic feedback in media have been primarily derived from media type and user interactions associated with the content. These infra- structures fall into two categories: event triggers and direct mappings. In the event triggers scheme, haptic information is embedded in the media and
+played back using predefined protocols [4]. A common example is a video game controller that rumbles on predefined triggers embedded in the games. This tech- nique is complex and requires a proper production infrastructure that is expensive. Another disadvantage of this technique is that media designers would require access to tools and libraries for creating expressive haptic effects, similar to the libraries for visual and sound effects [5]. Direct mappings use cues from existing media and directly maps them to haptic
+effects. For example, a typical way to enhance movies and other visual content with haptics is to monitor activity in a video feed [6] and map these activities to haptic transducers arranged along the seat [1, 7]. This way, movements in a visual scene are mapped to gross motion collocated with events seen in 4D movies and rides (www.d-box.com). Similarly, sound has been used to derive haptic cues for video games and music [8, 9]. For example, Buttkicker technology (Guitammer, USA) shakes the entire seat using low-pass filtered sound. The Vybe Haptic Gaming Pad (Comfort Research) divides sound into three bands and maps them to transducers located in the seat and back. The advantage of the direct mapping scheme is that no change is required in the current media production process. However, each tech- nique is limited to its media type.
+
+A FeelCraft plugin maps media to haptic sensations in a modular fashion, supporting arbitrary media types and output devices. By using a FeelCraft plugin, users can:
+\begin{itemize}
+	\item link existing and new media to the haptic feedback technology,
+	
+	\item use an FE library to find appropriate semantically defined effects,
+	
+	\item author, customize, and share a common, evolving repository of FEs, and
+	
+	\item play and broadcast haptic experiences to one or more user(s).
+\end{itemize}
 
 
-%%%%%%%%%%%%%%%%
-%
-% Section: Data Collection
-%
-%%%%%%%%%%%%%%%%
-\section{Data Collection}
-In this section, I list the different sources I intend to use to collect data for theory design.
+\subsection{FeelCraft Plugin and Architecture}
 
-\subsection{Vibrotactile design case studies}
-Each of the  design case studies previously described investigates a specific user group working on a specific VT device with a specific software tool.
-Through my experience of gathering requirements, creating tools (through design and development), and evaluating them, I will have first-hand knowledge of supporting aspects of VT sensation design.
-Each also produces a small vignette of haptic design in action, giving us glimpses of the design process.
+A pictorial description of the FeelCraft architecture is shown in Fig. 1 archi- tecture. The conceptual framework of FeelCraft revolves around the FE library introduced in [17]. The FE library provides a structured and semantically correct association of media events with haptic feedback. By using the authoring interface to tailor FE parameters, a repository of FEs can remain general while being used for unique, engaging, and suitable sensations for different media. The playback system, authoring and control interface, Event2Haptic mappings, and media plugin support seamless flow of the media content to the haptic feedback hardware.
 
-\subsection{Side projects}
-In addition to the three design case studies that form this proposal, several side-projects are planned or underway as collaborative efforts.
-In these side-projects, I take an organizational or supervisory role, often as summer projects conducted by undergraduates.
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\textwidth]{feelcraft/FeelCraftArchitecture2-2014-07-23-1805} 
+   \caption{FeelCraft architecture. The FeelCraft plugin is highlighted in green. The FE library can connect to shared feel effect repositories to download or upload new FEs. A screenshot of our combined authoring and control interface is on the right.}
+   \label{fig:feelcraft:architecture}
+\end{figure}
 
 \begin{description}
-	\item[FeelCraft and Feel Messenger] are collaborations with Disney Research members Ali Israr and Siyan Zhao, looking at distributing and customizing haptic effects in a consumer setting with low-fidelity rumble motor devices.
-	I take a haptic designer role to gain a personal understanding of the process, and a software engineer role to understand relevant architectures. % for distributing haptic media.
+	\item[Media (1)] can be entertaining, such as video games, movies, and music, or
+social and educational.
+The media can also be general user activity or embedded events in applications. In our implementation, we use the popular sandbox indie game Minecraft (https://minecraft.net).
 
-	\item[CyberHap] is a collaboration between UBC and Stanford looking at force-feedback devices in education; a large team is involved with undergraduate Gordon Minaker leading development of a teaching interface since February 2015, co-supervised by PI Dr. Karon MacLean and me.
-%	I co-supervise Gordon with PI Dr. Karon MacLean in this project looking at force-feedback devices in an education setting.
-	
-	\item[CuddleBit] is a project inspired by the Haptic Creature and CuddleBot project. A small, breathing and vibrating robot will be designed along with a behaviour prototyping tool in summer 2015.
-	I supervise undergraduate Paul Bucci in this project exploring multiple modalities and potential for receiving input through a sensor.
+	\item[Media Plugin (2)] is a software plugin that communicates with the media and
+outputs events and activities. This plugin can be as simple as receiving messages from the media or as complicated as extracting events and activities from a sound stream. With existing media, common plugin systems are automatic capture of semantic content from video frames [6], camera angles [1], or sounds [8, 9], or the interception of input devices (such as game controllers or keyboard events). We use a CraftBukkit Minecraft server modification to capture in-game events.
 
-	\item[HapTurk] is a collaboration with PhD candidate Hasti Seifi on different techniques to crowdsource feedback on VT icons. Master's student Salma Kashani and undergraduate Matthew Chun are developing visualizations and low-fidelity VT icons during summer 2015.
-%	This project looks at a formal mechanism for doing large-scale feedback, and tackles the problem of cross-device and cross-modal equivalency (can a sensation be rendered in some fidelity on both low- and high-fidelity devices?).
+	\item[Event2Haptic (3)] mappings associate events to FEs, which are designed, tuned,
+and approved by users using the FE library. This critical component links the media plugin?s output to the haptic playback system. Currently, six FEs are triggered by six recurring in-game events: the presence of rain, low player health, movement on horse, strike from a projectile, in-game explosions, and player falls. Our imple- mentation provides the option to store this mapping directly in the source code, or in a text-based JavaScript Object Notation (JSON) file
 
-	\item[RoughSketch] is a painting application for the TPad Phone, a variable-friction mobile device, for the World Haptics 2015 Student Innovation Challenge. Undergraduates Brenna Li, Paul Bucci, and Gordon Minaker are all fellow team members. Variable friction is a significant contrast to VT sensations as it is intrinsically connected to input: no sensation can be felt without active movement by the user.
+	\item[FE Library (4)] is a collection of FEs. A key feature of an FE is that it correlates
+the semantic interpretation of an event with the parametric composition of the sensation in terms of physical variables, such as intensity, duration, and temporal onsets [17]. Each FE is associated with a family, and semantically, similar FEs are associated with the same family. For example, the Rain family contains FEs of light rain and heavy rain; as well that that of sprinkle, drizzle, downpour, and rain.In our implementation, each FE family is represented as a Python source file that defines parametric composition of the FE and playback sequences for the FeelCraft Playback system, and each FE is coded as preset parameters in a JSON file. FE family files are necessary to play corresponding FEs in the family, and new FE families can be developed or downloaded through the shared FE repository. The FE can also be created, stored, and shared. FE family and FE files are stored in a local directory of the plugin and loaded into FeelCraft on startup.
+
+	\item[Authoring and Control Interfaces (5, 6)] allow users to create and save new
+FEs and tune, edit, and play back existing FEs. Users modify an FE by varying sliders labeled as common language phrases instead of parameters such as duration and intensity (Fig. 1). Therefore, users can design and alter FEs by only using the semantic logic defining the event. The interface also allows users to map game events to new FEs and broadcast to other users, supporting a What-You-Feel- Is-What-I-Feel (WYFIWIF) interface [15].
+
+	\item[Playback and Communication Protocols (7)] render FEs using the structure
+defined in FE family files and outputs them through a communication method (8) to one or more devices (9). Our implementation includes an API controlling the commercially available Vybe Haptic Gaming Pad via USB.
 \end{description}
 
 
+\subsection{Application Ecosystem}
 
-\subsection{Grounded Data}
-A corpus of interviews with professional haptic designers has already been collected by UBC alumni Colin Swindells during his PhD, but has never been published.
-I will analyze these interviews to further ground our findings with real-world haptic designers.
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\textwidth]{feelcraft/FeelCraftEcosystem-2014-07-23-1822} 
+   \caption{ Application ecosystem for FeelCraft and an FE repository}
+   \label{fig:feelcraft:ecosystem}
+\end{figure}
 
-To complement this %, and because professional haptic designers are rare and difficult to find,
-we turn to the research community who do design as part of their work.
-The planned Workshop on Haptic Experience Design (http://oliverschneider.ca/HaXD) at World Haptics 2015 will also provide a data source.
-At this workshop, 4 experts of haptic experience design will speak, participants will reveal their own design challenges in a brainstorming activity, and the ensuing panel discussion should help illuminate practices and paths for future work.
+FeelCraft plugins are designed to make haptics accessible to end users using existing media and technology. For example, a user may want to assign a custom vibration to a friend?s phone number, or add haptics to a game. In this case, a user would download a FeelCraft plugin for their device, browse FEs on an online feel repository, and download FE families they prefer. Once downloaded, the FeelCraft authoring inter- face allows for customization, as a rain FE for one video game may not quite suit another game. The user could create a new FE for their specific application, and once they were happy with it, upload their customFE for others to use. If the user wanted to show a friend their FE, they could use the playback system to drive output to multiple devices, or export the FE to a file and send it to them later. Figure 2 illustrates this ecosystem with application areas. Just like the Noun Project for visual icons (http:// thenounproject.com) and downloadable sound effect libraries, we envision online repositories of FEs that can be continually expanded with new FEs by users. Our current FErepository includes six original families described in [17] and an additional four new families: Ride, Explosion, Fall, and Arrow.
 
-%%%%%%%%%%%%%%%%
-%
-% Section: Possible Format
-%
-%%%%%%%%%%%%%%%%
-\section{Possible Format}
-While the theory can take many forms, I hope to characterize haptic experience design and contrast it with other design fields, especially graphic and audio design.
-I hope to find both descriptive and prescriptive results, including current practices, an identification of challenges uniquely facing haptic designers, and guidelines for designers and developers of haptic design support tools.
-
-\subsection{Descriptive Contributions: HaXD Process as Requirements}
-My first goal is to describe the \textbf{processes} employed by haptic designers.
-This could manifest, for example, as a catalogue of 
-existing haptic design tools,
-appropriated tools (e.g., using a sound editor to create VT icons),
-techniques (e.g., design philosophies like Haptic Sketching),
-resources (e.g., libraries and APIs),
-platforms (what devices designers are using),
-practices in haptics education (undergraduate or graduate level courses),
-and tasks undertaken by haptic designers.
-
-For example, to share of haptic experiences, haptic designers create demos
-to spread awareness of haptic research and gain feedback from peers.
-%One colleague, upon being introduced to the Haptics Symposium conference, said that the haptics community gets demos right.
-This is so ingrained into the culture of haptic research that recently a demo-only conference was launched: Asia Haptics.
-
-Once collecting a description of current practices, I expect we might be able to identify \textbf{challenges} and \textbf{strategies} to addressing those strategies, including the ecosystem of available tools: what is working well, and what is broken.
-Using our example of collaboration and demos, we might see that in-person demos are effective, but
-remote collaboration or asynchronous sharing is challenging. %, but could offer more frequent collaboration between designers.
-Available tools include videos and visualizations of demos to explain concepts in lieu of the demo itself.
-%Other challenges might include the great variety of different devices, non-haptic tools appropriated for haptic design, the implementation complexity of dealing with hardware, low-level software, and application logic simultaneously, or the strong influence of other modalities (vision, hearing) on perceived touch sensations.
-
-\subsection{Prescriptive Contributions: Guidelines for HaXD Software Tools}
-After describing HaXD as a set of requirements, I will then develop guidelines for how to built supportive interactive software tools.
-Right now, I plan to organize this into three aspects: how to \textbf{design} tools, including important features relevant to different stages of HaXD; how to \textbf{build} tools, including relevant software architectures and ways to address technical challenges; and how to \textbf{evaluate} tools, methods to capture designer experience and inform future design.
-
-Hypothetical use cases might best explain this contribution.
-One examples is using these guidelines for knowledge transfer to industry.
-I could use these guidelines to advise or create design software for companies developing haptic hardware platforms (such as the TPad team and UltraHaptics) or software platforms (such as Immersion and Phidgets), bridging the gap from research to industry application.
-Another example could be dissemination through haptics education.
-Developing a module for a haptic design course, such as CPSC 543, is an accessible way to encapsulate and test these ideas.
-This could also manifest in a multi-day workshop, similar to Camille Moussette's Haptic Sketching workshops, to validate ideas at different institutions.
+\subsection{Conclusion}
+In this paper, we have presented FeelCraft, a software plugin that allows users to author, customize, share, and broadcast dynamic tactile experiences with media and user activities. The plugin uses FEs, semantically structured haptic patterns.
+We integrated the FeelCraft plugin with a popular sandbox game, MineCraft. Users can associate six events in the game to corresponding FE, and modify and broadcast to other users to share the haptic experience. The newly authored FEs are saved and shared with other users for communal use via an online FE repository. The pro- posed plugin can also be used with a wide range of entertaining, social, and edu- cational media. Future work includes expanding the FE repository, networked communication and sharing, and supporting output to different haptic device types while maintaining semantic meaning, connecting end users to haptics in an even more accessible manner.
 
 
 
-\section{Deliverables and Risk}
-There are two expected deliverables from this theory development.
-First, the HaXD'15 workshop on Haptic Experience design is planned, piloted, and scheduled for World Haptics in June, 2015. 
-To get the most out of this workshop, photographs and notes will be recorded.
-Afterwards, a very small digest piece debriefing the workshop is planned in winter 2016; this may be submitted on its own as an short paper if an appropriate venue is available (e.g., a special journal issue similar to \cite{Jones2014}), or subsumed into the second deliverable.
+\section{Feel Messenger}
+\label{sec:applications:feelmessenger}
 
-The second deliverable is a retrospective piece on our findings from all the data sources found here, but with a focus on data from haptic designer interviews.
-This interview data has already been collected by UBC alumnus Colin Swindells.
-I plan to digest and analyze those interviews in winter 2016 to generate requirements grounded in designer experience.
-This will likely be combined with synthesized findings from the three design studies and several side projects.
-To mitigate risk, we can combine interview findings to a greater or lesser extent with other data sources.
-If the interviews have a great deal of information, they could be a valuable contribution on their own.
-If not, I expect them to supplement our other data sources.
-This document will likely be submitted as a full paper to a peer-reviewed conference or journal.
+Touch is particularly significant in interpersonal communication [3].
+Ranging from mutual user interactions, such as handshakes and hugs, to directing a user's attention by poking or tapping on the shoulder; the channel of touch has also been used in children games in which one child draws patterns on another child's body usin ga finger, and the recipient child guesses what is drawn on the body [7].
+Many authors have explored the haptic channel to artificially communicate, enhance and augment interactions on custom-made handheld and wearable devices [3, 4, 5, 16]. This paper explores the use of haptic feedback in social interactions, such as instant messaging, social networking and everyday social use on embedded mobile devices.
 
-Within each project, we mitigate risk through strategic planning and study design;
-many of these projects do not have to be successful to provide input.
-For example, HapTurk may never actually be deployed, but could still articulate the challenge of a large-scale, remote haptic user study.
-In addition,
-risk is partially managed through sheer attrition: one or two side projects or data sources could provide limited feedback and we would still have a diverse set of information. 
-However, I will note that initial investigation has already been useful.
+Current consumer devices, such as mobile devices, watches and hand controllers, are equipped with a single vibrotactile (VT) motor that usually alerts users for incoming calls or messages, and/or for text entry and ?clicks? [8]. These actuators are popular due to low cost and power requirements, small size and weight, convenient packaging and simple control electronics. The challenge is to create meaningful, expressive and interactive haptic feedback in-between users using only a single low-bandwidth VT motor and with limited computational resources in embedded devices.
 
-%
-%To ground our other findings with our target end users, and identify challenges that may not emerge from the literature alone.
-%The goal is to develop an initial proposed theory of haptic experience design from multiple sources, which characterizes the unique process that can or could support designers.
-%I plan to gather information from a variety of sources, including interviews with professional designers, informal interviews with peers during conferences, and the literature.
+Recently, Israr and colleagues [9] have demonstrated that a class of haptic patterns, called feel effects (FEs), could be defined in a parametric structure, called a family. By tuning parameters of these families, users control the semantic interpretation of haptic patterns using the same logic as they would use in normal language. This interpretation of haptic patterns not only allows users to communicate more expressive haptic content, but also to personalize the right haptic pattern for social and interpersonal communication. Such feel effects have also shown to improve early reading comprehension scores in [18].
 
+In this paper, we implement Feel Messenger, a social and instant messaging (IM) application that allows users to share, express and communicate haptic patterns in a structured and economical way on current consumer devices (i.e., using the embedded VT motor). We introduce ?feelbits? and ?feelgits?, haptic structures that allow succinct and eloquent network communication and reduce bandwidth and latency between devices. By allowing users to share and personalize haptic content, we hope to extend the capabilities of handheld and wearable devices for more interactive use among consumers.
 
-%The main source of data will be from interviews with professional designers, several of which have been collected already by researcher Colin Swindells.
-%These will be analyzed using qualitative techniques like grounded theory and phenomenology \cite{Creswell2013, Moustakas1994}.
-%
-%A second source of data will be reflection on our own projects and those of our peers and collaborators.
-%
-%
-%Currently, much of the literature review has already been conducted for this document, 
-%
+This paper is organized as follows: After a brief background, we present the Feel Messenger application. Next, we explore the vocabulary of haptic patterns and present a pilot study to evaluate the usability of the application.
+
+\subsection{Background}
+The idea of haptic feedback for instant messaging and social networking has been demonstrated in the past, however, previous work lacked expressive and meaningful haptic interactions connected to a semantic language. In these studies, user gestures, pre- programmed tactile patterns and ?feels? were transmitted using custom devices and through multiple actuators [2, 11-14, 17].
+
+Force feedback devices are not applicable for mobile applications, as they need to be coupled with the ground. Shape-changing features and vibratory grids have been explored to convey emotions, textures and directional cues on handheld devices [6, 8]. A few commercial libraries and APIs are also available to add haptics experiences in current mobile devices [1].
+
+These libraries allow programmers to select from a predefined list of haptic patterns and embed them in their application. All patterns are stored in the device?s memory and users have limited flexibility in personalizing haptic patterns for rich and expressive communication. Recently, Seifi and colleagues [15] have shown that participants preferred customization of VT patterns in social settings, and did not prefer predefined patterns.
+
+Therefore, we present a compact and expressive haptic authoring and sharing protocol and implement it on a typical mobile device. The protocol can be extended for other social networking apps, such as twitter, emails, etc., running on tablets, watches, controllers and other embedded devices.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\textwidth]{feelmessenger/Figure1} 
+   \caption{Users exchanging expressive haptic messages on consumer embedded devices.}
+   \label{fig:feelmessenger:fig1}
+\end{figure}
 
 
+\subsection{Feel Messenger Application}
+In this section, we present the architecture (backend) and user interface (frontend) of a messenger application that allows users to create and share haptic content through a network connection. The critical components of the application are shown in Figure 2.
+
+Architecture
+To account for the limited computation, storage and communication capabilities of a simple microcontroller unit, we introduce feelbits and feelgits. Feelgits (short from ?feel widgets?) are installed piece of software that define parametric compositions of a set of haptic patterns (called a family). Feelbits are parametric settings of a feelgit to produce a particular haptic pattern (called a feel effect [9]). For example, the feelgit of pulse is defined as two successive onsets of vibration, separated by a timing parameter. The feelbits are timing and intensity of onset parameters. Therefore, by varying feelbits, a user can personalize the haptic effect to be calm (low intensity, long temporal separation) or racing (high intensity, short temporal separation) heartbeat.
+
+A library of haptic patterns is stored as parametric models (feelgits) with preset parameters (feelbits). New feelgits and feelbits can be downloaded, personalized and saved. The haptic engine idly waits for incoming haptic messages and renders haptic patterns on demand. Once the message is received, the corresponding feelgit is executed with parameters defined as feelbits. Once the pattern is completely rendered, the engine waits idly for the next message.
+
+Additionally, the response characteristics of the VT motor are also stored in the memory. These characteristics are generally represented by simple first-order functions relating the digital value (such as data byte) to the perceived intensity judged by users [10], which could be used to maintain the quality of experience across wide variety of mobile phones and hardware technologies.
+
+Finally, we introduce a communication protocol that shares feelgits and feelbits along with text messages. For example, the frontend application sends a function playpattern(?pulse?, p1, p2) to play the feelgit pulse with parameters defined as feelbits p1 and p2; or playpulse(?soft?) plays a predefine soft pulse. Note that in order for the device to play a haptic pattern, the corresponding feelgit must be stored in the device; the communication packet includes feelbits and the name or id of the corresponding feelgit.
+
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=0.5\textwidth]{feelmessenger/fig2} 
+   \caption{The backend software architecture and the frontend user interface of the Feel Messenger app.}
+   \label{fig:feelmessenger:fig2}
+\end{figure}
 
 
 
-%% KM - for comments
-%\newcommand{\inlinecomment}[3][]{$\lceil$\textbf{#1}~\textit{\textcolor{#2}{#3}}$\rfloor$}
-%\definecolor{DarkGreen}{rgb}{0.0, 0.5, 0.0}
-%\definecolor{DarkRed}{rgb}{0.7, 0.2, 0.2}
-%\definecolor{DarkOrange}{rgb}{1, 0.5, 0}
-%\definecolor{Orange}{rgb}{1, 0.75, 0}
-%\newcommand{\kmC}[1]{\noindent \inlinecomment[KM]{DarkGreen}{#1}}
-%\newcommand{\kmE}[1]{\textcolor{DarkRed}{#1}}
-%\newcommand{\osC}[1]{\noindent \inlinecomment[OS]{Orange}{#1}}
-%%\newcommand{\osC}[1]{}
-%\newcommand{\osE}[1]{\textcolor{DarkOrange}{#1}}
-%
-%%Organization commands
-%\newcommand{\inlineHeading}[1]{\emph{#1} --}
-%
-%%\newcounter{pathwayCounter}
-%\newcommand{\challenge}[1]{\textbf{Pathway: #1} --}
-%
-%
-%Although haptic technologies have become commonplace in end-user experiences, there are still few established processes to guide designers, who face special challenges that arise out of the relative youth of the field and from qualities intrinsic to the sense of touch.
-%Design guidelines, toolkits, and authoring interfaces exist as disparate pieces of knowledge rather than a unified perspective, 
-%hobbling the creativity and efficiency needed to create new haptic experiences. 
-%In this paper, we assemble key elements of the haptic design process and its
-%needs
-%into a generalized
-% framework and vocabulary, 
-%to promote
-% a more fluid, extendable, and transferrable understanding of the practice, 
-%guide development of effective tools, and 
-%promote a discourse around both. 
-%We begin with haptic versions of three primary
-% design activities identified in
-% design theory, creativity support tools, and other fields of design: problem preparation, hands-on design, and collaboration.
-%These activities form a framework by which we can organize the haptic design literature and our own experience 
-%into specifically defined
-%pathways for design, identifying areas for future research and implications for tool development.
-%
-%
-%
-%
-%\begin{table*}
-%\caption{Design Activities, Sub-Activities, and Pathways Synthesized from the Literature}
-%\label{tab:designactivities}
-%
-%%
-%%
-%%% Old version - horizontally laid out
-%%
-%%\begin{center}
-%%	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-%%	\hline
-%%		
-%%		
-%%	\multicolumn{3}{|c|}{\bf Problem Preparation (\Cref{sec:problempreparation}) }
-%%		& \multicolumn{3}{|c|}{\bf Hands-on-Design (\Cref{sec:handsondesign})}
-%%		& \multicolumn{3}{|c|}{\bf Collaboration (\Cref{sec:collaboration})} \\
-%%		
-%%		\multicolumn{3}{|c|}{\emph{Use the Designer's Experience}}
-%%		& \multicolumn{3}{|c|}{\emph{Navigate a Design Space}}
-%%		& \multicolumn{3}{|c|}{\emph{Design together}} \\
-%%		
-%%	\hline
-%%		
-%%	Framing
-%%		& Repertoire
-%%		& Examples
-%%	& Ideation
-%%		& Evaluation
-%%		& Sketching
-%%	& Relate
-%%		& Feedback
-%%		& Donate \\
-%%		
-%%	%sub-activities
-%%	\emph{Defining}
-%%		& \emph{Internal}
-%%		& \emph{External}
-%%	& \emph{Generation}
-%%		& \emph{Filtering}
-%%		& \emph{Rapid, flexible,}
-%%	& \emph{Informal talks}
-%%		& \emph{Formal studies}
-%%		& \emph{Dissemination} \\
-%%		
-%%	\emph{the problem}
-%%		& \emph{experience}
-%%		& \emph{resources}
-%%	& \emph{of ideas}
-%%		& \emph{of ideas}
-%%		& \emph{ambiguous notation}
-%%	& \emph{with peers, mentors}
-%%		& \emph{with users}
-%%		& \emph{to community} \\
-%%		
-%%%	\hline	
-%%%	%Challenges
-%%%	\emph{Flexible interfaces,}
-%%%		& \emph{Accessible}
-%%%		& \emph{Example}
-%%%	& \multicolumn{2}{|c|}{Support multiple}
-%%%		& \emph{Support ambiguity,}
-%%%	& \multicolumn{3}{|c|}{Challenge: \emph{investigate asynchronous,}} \\
-%%%		
-%%%	\emph{multiple views}
-%%%		& \emph{knowledge}
-%%%		& \emph{management}
-%%%	& \multicolumn{2}{|c|}{parallel designs}
-%%%		& \emph{commenting, abstraction}
-%%%	& \multicolumn{3}{|c|}{ \emph{distributed collaboration}} \\	
-%%		
-%%	\hline
-%%	\end{tabular}
-%%\end{center}
-%%\end{table*}
-%%
-%
-%
-%\begin{center}
-%	\begin{tabular}{lll}
-%	\toprule
-%		
-%
-%%	\rowcolor [gray]{.8}
-%	\textbf{Activity}
-%		& \textbf{Sub-Activity}
-%		& \textbf{Pathways for Design}
-%		\\
-%	\midrule
-%	
-%	\multirow{3}{1.7in}{\textbf{Problem Preparation (\Cref{sec:problempreparation})} \emph {Use the Designer's Experience}}
-%		& Framing -- Defining the problem
-%		& Flexible interfaces, multiple views, powerful language
-%		\\
-%	\cmidrule{2-3}
-%		& Repertoire -- Internal experience
-%		& Task-based knowledge source
-%		\\
-%	\cmidrule{2-3}
-%		& Examples -- External resources
-%		& Manage examples: capture, find, access, transform
-%		\\
-%	\midrule
-%	
-%	\multirow{3}{1.7in}{\textbf{Hands-on Design (\Cref{sec:handsondesign})} \emph {Navigate a Design Space}}
-%		& Ideation -- Generate ideas
-%		& \multirow{2}{*}{Explore multiple design candidates in parallel}
-%		\\
-%	\cmidrule{2-2}
-%		& Evaluation -- Filter ideas
-%		&
-%		\\
-%	\cmidrule{2-3}
-%		& Sketching -- Rapid, flexible, ambiguous notation
-%		& Support speed, ambiguity, commenting, abstraction
-%		\\
-%	\midrule
-%	
-%	
-%	\multirow{3}{1.5in}{\textbf{Collaboration (\Cref{sec:collaboration})} \emph {Design Together}}
-%		& Relate -- Informal talks with peers, mentors
-%		& \multirow{3}{*}{Explore asynchronous and distributed interactions}
-%		\\
-%	\cmidrule{2-2}
-%		& Feedback -- Formal studies with users
-%		&
-%		\\
-%	\cmidrule{2-2}
-%		& Donate -- Dissemination to community
-%		&
-%		\\
-%	
-%		
-%%	\multicolumn{3}{|c|}) }
-%%		& \multicolumn{3}{|c|}{\bf Hands-on-Design (\Cref{sec:handsondesign})}
-%%		& \multicolumn{3}{|c|}{\bf Collaboration (\Cref{sec:collaboration})} \\
-%%		
-%%		\multicolumn{3}{|c|}{\emph{Use the Designer's Experience}}
-%%		& \multicolumn{3}{|c|}{\emph{Navigate a Design Space}}
-%%		& \multicolumn{3}{|c|}{\emph{Design together}} \\
-%%		
-%%	\hline
-%%		
-%%	Framing
-%%		& Repertoire
-%%		& Examples
-%%	& Ideation
-%%		& Evaluation
-%%		& Sketching
-%%	& Relate
-%%		& Feedback
-%%		& Donate \\
-%%		
-%%	%sub-activities
-%%	\emph{Defining}
-%%		& \emph{Internal}
-%%		& \emph{External}
-%%	& \emph{Generation}
-%%		& \emph{Filtering}
-%%		& \emph{Rapid, flexible,}
-%%	& \emph{Informal talks}
-%%		& \emph{Formal studies}
-%%		& \emph{Dissemination} \\
-%%		
-%%	\emph{the problem}
-%%		& \emph{experience}
-%%		& \emph{resources}
-%%	& \emph{of ideas}
-%%		& \emph{of ideas}
-%%		& \emph{ambiguous notation}
-%%	& \emph{with peers, mentors}
-%%		& \emph{with users}
-%%		& \emph{to community} \\
-%		
-%%	\hline	
-%%	%Challenges
-%%	\emph{Flexible interfaces,}
-%%		& \emph{Accessible}
-%%		& \emph{Example}
-%%	& \multicolumn{2}{|c|}{Support multiple}
-%%		& \emph{Support ambiguity,}
-%%	& \multicolumn{3}{|c|}{Challenge: \emph{investigate asynchronous,}} \\
-%%		
-%%	\emph{multiple views}
-%%		& \emph{knowledge}
-%%		& \emph{management}
-%%	& \multicolumn{2}{|c|}{parallel designs}
-%%		& \emph{commenting, abstraction}
-%%	& \multicolumn{3}{|c|}{ \emph{distributed collaboration}} \\	
-%		
-%	\bottomrule
-%	\end{tabular}
-%\end{center}
-%\end{table*}
-%
-%
-%
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Introduction}
-%Haptic technology has become a 
-%standard ingredient of user interactions with technology, with the potential to add engagement to media experiences \cite{Modhrain2001, Danieau2014} and ``calm'' everyday interactions \cite{MacLean2009}.
-%% No longer restricted to research labs or theme park rides, 
-%Carefully designed and expressive haptic feedback is finding its way into commercial devices, most recently the Apple Watch (www.apple.com/watch).
-%
-%
-%
-%\begin{figure}[tbp] %  figure placement: here, top, bottom, or page
-%	\centering
-%	\begin{subfigure}[b]{0.23\textwidth}
-%		   \includegraphics[height=2.3in]{figures/HIVE-photo} 
-%		   \caption{Early hardware sketch}
-%		   \label{fig:example:hardware}
-%	\end{subfigure}
-%	\quad
-%	\begin{subfigure}[b]{0.22\textwidth}
-%		\includegraphics[height=2.3in]{figures/mHIVE-earlysketch-photo-cropped} 
-%		\caption{Early paper sketch}
-%		\label{fig:example:paper}
-%	\end{subfigure}
-%	\caption{Early sketches for mHIVE \cite{Schneider2014} in hardware (a) and on paper (b), showing a \emph{framed} approach (instrument metaphor), inspiration from the designer's \emph{repertoire} (musical experience), and extension of \emph{examples} (dials and buttons adapted from the keyboard).}
-%	 \label{fig:example}
-%\end{figure}
-%
-%
-%% Despite this growth, 
-%Nevertheless, there is no established process for haptic experience design (``HaXD").
-%% (HaXD) %OS: We never reuse this, but may want to in future drafts
-%% has no established design process.
-%% One culprit is the small and fragmented user base:
-%Culprits abound. The user base is small and fragmented:
-%professional haptic designers are still rare, often share engineering or scientific duties, and tend to be sequestered in companies whose business needs preclude broader interactions % with other designers.
-%and complicate observation of design practices by researchers.
-%%\kmE{They lack both training in an articulated user-experience design approach, and an interlinked community through which they can consolidate vocabulary and share best practices.}
-%It is difficult to translate guidelines from other fields, in absence of analogies to % graphic design's 
-%colour % theory 
-%or musical theory. % for touch.
-%Designing for the sense of touch entails % brings intrinsic design challenges, such as  %as it involves 
-%hard-to-prototype hardware and context-sensitive perception~\cite{Hayward2008}.
-%
-%%However, when attempting to get that ineffable quality of getting something to ``feel right" in a given context, a robust design process can help when prescriptive guidelines fail.
-%
-%Recently, design thinking applied to haptics \cite{Moussette2012} has added to the literature on HaXD process \cite{Swindells2006}.
-%Toolkits \cite{Minamizawa2012,Ledo2012}, effect libraries \cite{Israr2014},  collaborative software \cite{Ruthenbeck2014,Cha2009} and interfaces themselves \cite{Schneider2014} ease production of haptic \emph{effects}.
-%However, a systematic, convergent procedure by which haptic \textit{experiences} can be developed
-%to meet specific requirements -- which themselves may be hard to articulate -- is elusive, % not well defined, 
-%with previous work providing only % isolated elements. % 
-%pieces of the puzzle.
-%
-%In this paper, we aim to situate
-%haptic design tasks in a common framework.
-%Synthesizing insights from design and creativity literature, we describe
-% three critical activities conducted during many types of design: 
-% \textit{problem preparation}, \textit{hands-on design}, and \textit{collaboration}, each with
-% sub-activities.
-%We discuss each in the haptic context to discover what activities are supported and which are not,
-%with examples drawn from literature and our personal experience as designers and observers of other designers.
-%This design lens
-%reveals not only a process, but pathways for more focused investigation, informing the creation of HaXD support tools.
-%
-%
-%
-%%\inlineHeading{Design Activities}
-%
-%
-%%\begin{table}
-%%\caption{Problem Preparation Sub-Activities}
-%%\label{tab:problem:preparation}
-%%\begin{center}
-%%	\begin{tabular}{|l|p{2cm}|p{2cm}|p{2cm}|}
-%%	\hline
-%%		&Description	&Haptics so far	& Haptics next	\\
-%%	
-%%	
-%%%	\hline
-%%%	\textbf{Problem Preparation}	&	&	&	\\
-%%	
-%%		\hline
-%%		\emph{Framing}
-%%			& transforming the problem into a manageable form
-%%			& Ongoing investigation of haptic language, perceptual dimensions
-%%			& Flexible, adaptable tools; multiple views	\\
-%%
-%%		\hline
-%%		\emph{Repertoire}
-%%			& building the designer's internal experience
-%%			& Haptics education (e.g., HapKit,  Twiddler), DIY haptics, haptic illusions
-%%			& Handbook, wiki, or other more elaborate compendium of knowledge	\\
-%%		\hline
-%%		\emph{Examples}
-%%			& Drawing from external resources and designs
-%%			& Haptic camera, libraries (Immersion, Upenn, FeelEffects), haptic search engine
-%%			& Capture \& upload, find (search/explore/visualize), use (design galleries, editable data types)	\\
-%%	\hline
-%%	\end{tabular}
-%%\end{center}
-%%\end{table}
-%
-%
-%
-%%\subsection{Challenge: Difficult Problem Framing}
-%%The CHALLENGES (unfilled holes):
-%%
-%%1. Problem Gathering:
-%%No Language, limited theory (framing)
-%%Complex sense (hard to understand, need to be expert in multiple domains
-%%) (repertoire+framing)
-%%No language/theory
-%%limited ways to capture, render, maintain examples
-%
-%
-%\challenge{Multiple metaphors}
-%Despite a steady progression of research on perception,
-%there is no agreed upon language for working with haptics \cite{Obrist2013,Okamoto2013,Jansson-Boyd2011}.
-%Most authoring tools have relied on fixed metaphors and devices, limiting \emph{framing}.
-%Allowing  multiple metaphors or views on a haptic design is one way in which a designer can % would allow the designer to 
-%reshape a problem to be easier to solve (reframe it so it matches their \emph{repertoire} or found \emph{examples}).
-%Future authoring tools should pursue flexibility or improved abstractness.
-%%Abstract metaphors could apply to multiple device classes, .
-%
-%%Examples:
-%%?	Haptic Camera
-%%?	Kuchenbecker?s haptic textures
-%%?	Libraries
-%%?	Feel Effects/FeelCraft
-%%?	Ultrasound Examples from Keisuke Hasegawa?s HaptoMime at AsiaHaptics:
-%%o	Tried a bunch of waveforms extracted from sound sources in the Komplete audio packagewith my own palm. It?s a pity that there was no systematic procedure to determine what waveform to pick up. My only advice is that it would be good and efficient to construct an experimental system which allows you to test many kinds of stimuli promptly at an early stage in y our researches.
-%%?	Need examples from industry
-%
-%
-%
-%%\kmC{Isn't this a library not an education problem? SLC} % Not following the focus on haptics education here, as related to repertoire. Can you strengthen the connection? I thought this particular challenge would be more about how designers can capture, organize, find, reuse externally sourced inspiration and examples - essentially, the library problem. Education, and communication with one another, is an important but different challenge.}
-%% That said, I am still fuzzy on distinction between repertoire and examples. They both need libraries, don't they? Because there are a lot of them, and the point is re-use. 
-%\challenge{Task-based knowledge}
-%To build their \emph{repertoire}, haptic designers must learn essential haptics concepts and begin solving relevant problems.
-%Haptics courses \cite{Okamura2012, Jones2014} often provide a HaXD practitioner with initial experience.
-%Brief, cogent outlines  of haptics knowledge (e.g., \cite{Hayward2007,MacLean2008,Hayward2008,Karam2013}) allow designers to expand their experience in an accessible way, and resources like EduHaptics (eduhaptics.org) link designers to content.
-%However, knowledge is still framed with disparate perspectives. 
-%The next step is to understand the low-level tasks conducted in HaXD.
-%This would enable development of a more focused ``how-to" compendium of knowledge uniting perception, hardware, and software knowledge bases.
-%%Ideally, this will link directly to HaXD tasks, but more research is needed to understand the .
-%%, but still accessible, source of knowledge; a handbook of haptics knowledge that summarizes perceptual research, lists prominent examples of design, and guidelines for design and development.
-%%This need not be a traditional handbook, but could be an online tool, such as a wiki or online course.
-%%A proposed handbook might have more content internalized, structured to be handy and self contained, featuring design case studies.
-%
-%%\emph{Examples}
-%\challenge{Manage examples}
-%Currently, \emph{examples} exist in several libraries (e.g., \cite{Culbertson2014, Israr2014}), but capturing, organizing, accessing, and transforming them poses a greater challenge for haptic design than for more visually oriented, or even auditory, domains.
-%%Excluding progress made by expanding these libraries in scale or in device support, there are key areas we can look for future progress.
-%Capturing with a haptic camera  \cite{MacLean1996} is useful, but limited to that camera's target phenomenon.
-%Integration of library uploads into authoring tools (e.g., as suggested in \cite{SchneiderAsiaHaptics2014}), would make it easier to grow a set of \emph{examples}.
-%Visualizations, searching techniques (like a haptic search engine \cite{Adi2010,Hanamitsu2014}), and browsing techniques will facilitate access.
-%%One demoer at a recent conference described his approach to create a tactile effect.
-%%He tried waveforms extracted from sound sources in the Komplete audio package, stating ``It's a pity that there was no systematic procedure to determine what waveform to pick up" and wishing for a system to try stimuli at an early stage.
-%%with my own palm. It?s a pity that there was no systematic procedure to determine what waveform to pick up. My only advice is that it would be good and efficient to construct an experimental system which allows you to test many kinds of stimuli promptly at an early stage in y our researches.
-%%In haptics, we have already done some work on capturing examples, for example, the haptic camera \cite{MacLean1996}, or empirically gather libraries \cite{Culbertson2014}.
-%% Some examples or templates are often shipped with toolkits (Verify!), and recently vibrotactile libraries have been developed: Immersion, Feel Effects, or the UPenn surface toolkit \cite{Culbertson2014}.
-%%The haptic search engine (asia haptics) is one way of recalling examples.
-%Finally, current \emph{examples} are static -- the designer chooses one and adds it to their application.
-%%Novel techniques of using examples to create new designs.
-%Open, manipulatable formats beyond parameters (like those in \cite{Ledo2012,Israr2014}) or through design galleries \cite{Lee2010a,Marks1997} is an exciting avenue to allow designers to work hands-on with \emph{examples}.
-%
-%%Originating in the graphics literature, design galleries provide a set of designs similar or different from your current design, letting users take interesting parameters and apply them to their design \cite{Marks1997}.
-%%This idea has since been applied to other design fields like web design \cite{Lee2010a}.
-%%Given the difficulty of framing with no fixed haptic parameters or language \cite{Jansson-Boyd2011}, example-based design could be a promising avenue for future design tools.
-%%It's also been recommended that focusing on rapid prototyping can get around language barriers in haptics \cite{Fogg1998}.
-%%To do this, we need to focus on hands-on design of haptics, the second major design activity.
-%
-%
-%
-%%Rapid iteration is essential for being able to think by doing; creativity support tools must have a low threshold, high ceiling, and wide walls: accessible to beginners, powerful for complete solutions, and support a wide range of explorations \cite{Resnick2008}.
-%%A sketch can have many purposes, but is distinguished from a prototype by being more generative, less complete, and characteristic of earlier design \cite{Buxton2007}.
-%
-%
-%
-%
-%%Donald Sch\"{o}n's seminal book, The Reactive Practitioner, describes the process of
-%%learning skills to be one of reflection-in-action. That is, a pitcher in a baseball game must be able to find their groove. Through a process of subtle adjustment and experimentation, a pitcher adjusts her technique to fit the current, myriad conditions the wind, the current batter, the sun; the list goes on. This process is implicit, and often people find it impossible to articulate. Like the poor centipede, we sometimes find it difficult to realize that knowledge is embedded in our action, and in fact it can ruin our stride. Verbal overshadowing, articulating a wine's taste or a person's face, often weakens our memory unless we've been trained to verbalize those notions \cite{Schooler1990}. Similarly, a haptic designer must adapt to her design project to the current conditions.
-%
-%%Idea generation vs Idea evaluation. Sketching.
-%
-%
-%%\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-%%   \centering
-%%   \includegraphics[width=0.48\textwidth]{figures/HandsOnDesignSubProcessesPlaceHolder} 
-%%   \caption{Hands-on design sub-activities. Designers iterate between ideation and evaluation, representing this process through sketches.\textbf{(PLACEHOLDER)}}
-%%   \label{fig:hands:on:sub:activities}
-%%\end{figure}
-%
-%
-%\challenge{Multiple, parallel designs}
-%Ideation and evaluation are partially supported by existing tools.
-%Parallel development of interfaces has been applied to physical UIs with Arduino \cite{Hartmann2008}.
-%Brainstorming and techniques like A/B testing, comparing two designs side-by-side, have been employed in haptics design tools \cite{Swindells2014}.
-%Rapid ideation and evaluation are also supported through better framing tools like design galleries, described in the previous section.
-%
-%\challenge{Ambiguity, commenting, \& ad-hoc use}
-%%Haptic design suffers from slow iteration.
-%%Developing a haptic sensation often requires custom hardware, software, and coordination between the two.
-%%Further, other senses must be considered, meaning a full stack of hardware to high-level GUI software must be developed and maintained.
-%Haptics, involving software and hardware, can require time to iterate.
-%Haptic sketching prioritizes rapidly exploring ideas through physical sketches \cite{Moussette2011,Moussette2012}.
-%%Sketchinghas been explored recently with haptic design.
-%%Sketches are  conducted with whatever material is at hand, often using only lightweight programming or no programming at all.
-%Interfaces that capture the spirit of sketching have been shown to support real-time feedback \cite{Hong2013, Schneider2014}.
-%%Toolkits provide support for certain tools, but inhibit flexibility and ambiguity, key aspects of sketching.
-%While the community is working to use rapid development with more, sophisticated hardware setups, 
-%sketching requires other features to be truly useful.
-%Ambiguous sketches show only necessary detail or relevant view points, helping a designer work with half-formed ideas questions. %problems, and supports initial framing to final refinement.
-%Unfortunately, a haptic sensation requires a physical implementation, which must be exactly specified.
-%Good defaults or randomized tools might be valuable - allow designers to specify constraints they understand, and let other details be filled in automatically.
-%Sketching should also support annotation and editing -- circling problem areas, writing down related ideas -- and ad-hoc use.  
-%With a pen, any napkin is a canvas. Haptics needs napkins too.
-%% To truly support brainstorming and feedback, however, collaborative design must be considered.
-%
-%%Supporting a mobile context with compact tools could benefit sketching.
-%
-%%\emph{Ideation and Evaluation}
-%
-%
-%
-%%%%%%%
-%% Groupware design space
-%%%%%%%%
-%\begin{table*}[ht]
-%\centering
-%	\caption{Collaboration Sub-Activities Across Groupware Dimensions}
-%	\label{tab:collaboration}
-%	
-%	\begin{tabular}{lccc}
-%	
-%	%\cmidrule{2-4}
-%	\multicolumn{1}{l}{} & \textbf{Relate} & \textbf{Feedback} & \textbf{Donate} \\
-%	
-%	\midrule
-%
-%	Face-to-Face 
-%		& \emph{Informal demo}
-%		& \emph{Typical user study}
-%		& \emph{Demo}
-%		\\
-%	\midrule
-%	Asynchronous
-%		& \emph{Installation \& commenting system}
-%		& \emph{Self-running user study}
-%		& \emph{Demo installation}
-%		\\
-%	\midrule
-%	Distributed Synchronous
-%		& \emph{Video chat with two devices}
-%		& \emph{User study-at-a-distance}
-%		& \emph{Live broadcast}
-%		\\
-%	\midrule
-%	Distributed Asynchronous
-%		& \emph{Email, wikis, source code management}
-%		& \emph{Crowd sourced study}
-%		& \emph{Tutorials, haptic video}
-%		\\
-%	\midrule
-%	\end{tabular}
-%
-%\end{table*}
-%
-%
-%%Examples:
-%%Haptic Sketching (Moussette)
-%%Haptic Instrument
-%%Need some maker culture examples
-%%NEED HAPTICS EXAMPLES/ANECDOTES FROM DEMOs
-%
-%%	
-%%		
-%%		\hline
-%%		\textbf{Hands-on Design} &	&	&	\\
-%%		
-%%		\hline
-%%		\emph{Idea generation}
-%%			& \emph{todo}
-%%			& \emph{todo}
-%%			& \emph{todo} \\
-%%		
-%%		\hline
-%%		\emph{Idea evaluation}
-%%			& \emph{todo}
-%%			& \emph{todo}
-%%			& \emph{todo} \\
-%%			
-%%		\hline
-%%		\emph{Sketching}
-%%			&Ambiguous, rapid representations of ideas at varying levels of abstraction
-%%			& Haptic sketching (Moussette), 3Doodler (Kickstarter), Haptic Instrument (Schneider \& MacLean), Demonstration based tool (Choi's lab)
-%%
-%%			& Ambiguity, abstraction, annotation \\
-%%		
-%%		
-%%		\hline
-%%		\textbf{Collaboration}&	&	&	\\
-%%		\hline
-%%		\emph{Relate}
-%%			& Frequent, informal feedback from colleagues, peers, family, friends
-%%			& Already the case in collocated, synchronous situations
-%%			& Expand to distributed or asynchronous collaboration \\
-%%			
-%%		\hline
-%%		\emph{Donate}
-%%			& Sharing a creation with the general world; publishing it
-%%			& We can write and provide pictures/videos; some file formats for given tool kits
-%%			& Need ways to be able to share haptics more generally; publishing mechanism that works on different devices (or provides the "gist" of a haptic effect)\\
-%%			
-%%		\hline
-%%		\emph{Feedback}
-%%			& User studies, experiments, and other ways of more formal feedback
-%%			& There's a lot of experiments done and written up to be replicable; some authoring tools (Swindells)support A/B testing
-%%			& Expand to asynchronous, distributed feedback (mechanical turk and other crowd sourced platforms); add streamlined framework for experiements (right now most are custom built, but maybe they have to be)
-%%	\\
-%
-%%
-%
-%
-%
-%
-%
-%%Larger movements in force-feedback devices can be shared by video, e.g., demonstrating instability.
-%%Smaller actuation, such as skin stretch, vibrotactile devices, and
-%
-%
-%%Collocated asynchronous - installations like the Lega, where tactile impressions attach to art exhibits, felt by mobile device \cite{Laaksolahti2011}
-%
-%%\kmC{what about device generalization? May have missed. Also a prototyping challenge}
-%
-%
-%%%%%%%
-%% Groupware dimensions
-%%%%%%%%
-%%\begin{table}
-%%\centering
-%%	\caption{Groupware Dimensions}
-%%\kmC{this table needs to do more work, or be dropped - SLC}
-%%%  It's been often-published, so consider carefully whether it merits the space here as opposed to a single sentence description. It would be more valuable if you could add haptics-relevant detail to each of the 4 cells?
-%%	\label{tab:groupware}
-%%	
-%%	\begin{tabular}{r|l|l|}
-%%		\multicolumn{1}{r}{} & \multicolumn{1}{c}{Same Time} & \multicolumn{1}{c}{Different Times} \\
-%%		\cline{2-3}
-%%	Same Place & Face-to-face  & Asynchronous  \\
-%%		\cline{2-3}
-%%	Different Places & Synchronous distributed  & Asynchronous distributed  \\
-%%		\cline{2-3}
-%%	\end{tabular}
-%%
-%%\end{table}
-%
-%
-%
-%
-%%Examples:
-%%Sile Modhrain haptic broadcasting -> donating
-%%MPEG5 -> donating
-%%Haptic Instrument, FeelCraft
-%%Haptic cinematography?
-%%NEED MORE
-%%One example is Cyberhap – the problem of verifying remote kits have been assembled correctly.
-%
-%%\section{Haptic Challenges for Design}
-%%Each of these 3 design activities are important to use in haptic design, however,  they are difficult to accomplish. In this section, we describe N challenges specifically related to haptics, and how they impact each of the 3 design activities.
-%%
-%%\textbf{Treat this section as a series of LEMMAS for challenge section, or, roll into challenges (next section)}
-%%
-%%
-%%
-%%\subsection{Touch is a complex sense}
-%%Non-localized, fusion of multiple senses (tactile, kinesthetic), influenced by other sense (vision, audio) and other cognitive processes (attention, emotion?).
-%%
-%%
-%%
-%%
-%%
-%%
-%%
-%%%Framing
-%%%-	designers must have an understanding of this complicated sense
-%%%-	complex to model examples
-%%%-	
-%%%Hands-on
-%%%-	??
-%%%Collaboration
-%%%-	???
-%%
-%%
-%%\subsection{Context}
-%%Individual differences, multimodal effects, attention (merge with touch as a complex sense)?
-%%
-%%%Framing
-%%%-	???
-%%%Hands-on
-%%%-	??
-%%%Collaboration
-%%%-	Hard to match the design environment to that which is shared (donation, evaluation)
-%%%-	Example: Allison Okamura and the Stanford
-%%
-%%
-%%\subsection{Many Device paradigms}
-%%The technological dual to Challenge 1 (Touch is a Complex Sense), the devices we use for actuation vary dramatically. Unlike graphics, where we have an established pipeline resolving to a 2-dimensional matrix of colour values, and audio, where  a waveform is eventually rendered (possibly in multiple channels for surround sound), there is no standard paradigm. Every device is necessarily different, as it has a different physical mechanism.
-%%Traditionally, haptic devices are separated into force-feedback devices and tactile output, roughly corresponding to proprioception and tactile mechanoreceptors. Both of these paradigms require a different rendering model, with force feedback devices typically real-time virtual environments, while tactile devices are simpler. Within these two classes of devices, paradigms still vary - skin stretch devices [] may require different rendering pipelines than vibrotactile mechanisms. Finally, complexity compounds when multiple devices are used, such as skin stretch with force feedback [cite Okamura lab demo?], multiple devices.
-%%The resulting challenge for designers is that, for almost any output device, the designer has to think in a different way, and has to enable the necessary infrastructure – load the right software, etc.. If a switch ever needs to be made to another device, this incurs heavy costs, meaning a device decision must be chosen early and, quite possibly, without feeling the fully developed result.
-%%There are paradigms that have an established or possibly simple output paradigm (namely, 3 degree-of-freedom force feedback devices like the Phantom or Falcon), but this only represents one class of output device; this is exactly the challenge that haptic designers and their supporters must face.
-%%
-%%Framing
-%%-	Designers must change their framing for every device they work with, making it difficult to work on multiple projects, transfer knowledge from previous projects on different devices, or organize their data/deliverables.
-%%Hands-on
-%%-	Simply trying out an idea to choose a device becomes a serious investment. Designers are locked into a platform early on, making it hard to convince stakeholders that, force feedback really isn’t working for an application but a skin stretch device would be better.
-%%Collaboration
-%%-	???
-%%
-%%
-%%\subsection{Complexity}
-%%Not only are there many device paradigms, each one needs software, communication protocols, and different ways of interacting with the control flow of the application. Architectural decisions, like choosing whether to have server, client, or mixed control, must be made for every application case and limit generalization. Similar to the Multiple Device challenge, this adds to initial startup costs, meaning rapid ideation or dramatic changes are challenging. Hardware is often custom or in active development. Ultimately, to create a haptic experience, designers must consider everything from hardware, control and rendering techniques, perceptual considerations, communication protocols, software architecture, GUIs and other multimodal concerns, and the overall experience in spite of that. A full stack needs to be created or maintained when creating a haptic experience, slowing iteration.
-%%
-%%Framing
-%%-	Because of the complexity of running a haptic system, the designer may not be able to change their model for design. Data types need to be shared between different levels of the system, hardware is difficult to swap out.
-%%Hands-on
-%%-	It’s difficult to try out ideas rapidly, as implementations need to be fully described (sketching relies on partial description)
-%%-	Changes to a design are either slow and error prone (if complexity is not handled well), or incur significant initial time and effort constraints (if complexity is handled well at the beginning). If custom software is needed, designers must choose whether to have flexibility or to try ideas out quickly early in the design.
-%%Collaboration
-%%-	Adding support for collaboration adds additional complexity. Eliciting feedback often needs logging (a cross-cutting concern difficult to add to a system [cite aspect-oriented design]) or multiple versions (something only rarely addressed in today’s software systems [cite juxtapose]); networking for distributed systems only increases complexity.
-%%-	Donation can be challenging as well, as a correct build environment needs to be established
-%%-	Relation is actually kinda supported well if people are collocated, as you can invite colleagues to try your demo when it works (ignoring the perceived “demo effect” where things break down when you show them to an audience).
-%%
-%%
-%%\subsection{Tight technical bounds}
-%%1kHz, mechanical control, synchronized with other multimodal output
-%%
-%%Framing
-%%-	???
-%%Hands-on
-%%-	??
-%%Collaboration
-%%-	???
-%%
-%%
-%%\subsection{No language or theory}
-%%There is no way to talk about haptics, either linguistically, visually, or … . Also
-%%In Mindstorms [4], Seymour Papert tells the story of Jim:
-%%Consider the case of a child I observed through his eighth and ninth years. Jim was a highly verbal and mathophobic\footnote{Papert uses the term ``mathophobic" for two overlapping concepts: a fear of mathematics (especially
-%%in a school environment), and more generally a fear of learning (especially a fear of one or more specific
-%%subjects because of a preconception of ineptitude). In this case, he is favouring the first meaning.} child from a professional family. His love for words and for talking showed itself very early, long before he went to school. The mathophobia developed at school. My theory is that it came as a direct result of his verbal precocity. I learned from his parents that Jim had developed an early habit of describing in words, often aloud, whatever he was doing as he did it. This habit caused him minor difficulties with parents and preschool teachers. The real trouble came when he hit the arithmetic class. By this time he had learned to keep “talking aloud" under control, but I believe that he still maintained his inner running commentary on his activities. In his math class he was stymied: He simply did not know how to talk about doing sums. He lacked a vocabulary (as most of us do) and a sense of purpose. Out of this frustration of his verbal habits grew a hatred of math, and out of the hatred grew what the tests later confirmed as poor aptitude.
-%%With adult experts in a field, we can assume that they do not lack a purpose. This leaves the vocabulary as a major obstacle, a vernacular of touch that enables us to more clearly talk and think about haptic sensation.
-%%Framing
-%%-	No language or theory to thinking in when framing the problem
-%%-	Hard to organize examples, search them
-%%-	
-%%Hands-on
-%%-	Structuring hands-on transformations is challenging
-%%Collaboration
-%%-	Can’t talk about haptics, either with collaborators (relating) or providing feedback (evaluation)
-%%
-%%
-%%\subsection{No Cultural idioms}
-%%Combine with language/theory point above? Example: There’s no pinch-to-zoom style idiom that’s familiar. Also, no visual idioms beyond waveforms.
-%%
-%%Repertoire
-%%-	??
-%%Framing/Problem Definition
-%%-	???
-%%Hands-on
-%%-	??
-%%Collaboration
-%%-	???
-%%
-%%
-%%\subsection{Perceptual and Meaning dimensions aren't understood}
-%%Still establishing what perceptual dimensions there are
-%%
-%%Repertoire
-%%-	??
-%%Framing/Problem Definition
-%%-	???
-%%Hands-on
-%%-	??
-%%Collaboration
-%%-	???
-%
-%
-%
-%
-%%\section{Designing Haptic Experiences}
-%%With these concepts in mind, we review work made to supporting haptic experience design.
-%%Through the design lens, we can see progress on some fronts, and outline next steps for future research.
-%
-%
-%\section{Discussion}
-%In this section, we illustrate the value of this framework in two ways: articulating scope for a hypothetical tool (``haptic mechanical turk"), and general design implications for a haptic authoring interfaces.
-%
-%1) Haptic mechanical turk is a hypothetical scenario where Mechanical Turk users can participate in a vibrotactile perception study.
-%The users download a mobile app and respond to vibrations, then the app sends the data back to a experimental server.
-%This project targets a distributed, asynchronous system to gather \emph{feedback} on vibrotactile sensations.
-%It articulates one pathway through the design space, sidestepping some known challenges but confronting others:
-% there is no need for synchronous communication or collocated interaction, for problem preparation or hands-on design.
-% This guides the HaXD process, presenting device generality as the (non-trivial) problem to be solved.
-% %This leaves just device generality as the (sadly non-trivial) problem to be solved,  guiding our process
-%
-%2) The pathways naturally inform design guidelines, each one advising how to support its corresponding activity.
-%For example, we suggest that a haptic design tool should have multiple views, each corresponding to a different mental model (\emph{framing});
-%have good default values to support ambiguous specification of sensations (\emph{sketching});
-%and have a publishing system in place to distribute sensations (\emph{donate}).
-%%So what's the upshot of seeing haptics through the design lens?
-%%It....
-%%\textbf{todo:} \emph{Here I want to propose two or three projects that are made easier by a good task definition. For example, haptic mechanical turk (like, distributing a VT study over mechanical turk) to support distributed, asynchronous feedback. This is the money section, showing what this framework can do}.
-%
-%%\textbf{Summarize previous section, synthesize together a little bit} into THINGS THAT ARE GOOD and THINGS THAT ARE BAD AND NEED TO BE IMPROVED; it's a little split up in the previous section
-%%
-%%Much remains to be done to support the design of haptic experiences.
-%%Although perhaps intimidating, there is hope.
-%%Progress has been made on isolated fronts.
-%%Our hope is that, by applying a design lens to haptics, we can identify new paths for progress that could facillitate the transfer of haptics from research labs to commercial applications.
-%%
-%%Indeed, haptics practitioners are uniquely strengthened by these challenges.
-%%Cross documents the idea of ``design thinking", noting that designers operate seamlessly across different levels of abstraction, from high-level systemic goals to low-level physical properties \cite{Cross2011}.
-%%In a recent meeting with interdisciplinary experts, our software engineering colleague was amazed at the way haptics researchers flitted from low-level concerns (USB bandwidth and protocols) to high-level goals (brainstorming interaction design), describing it as giving him a sense of vertigo.
-%%With a little inspiration drawn from other design fields, we can turn these obstacles into a unique strength to create a new wave of user experiences.
-%
-%
-%\section{CONCLUSION}
-%
-%In this paper, we presented a framework of activities important for haptic experience design (HaXD), which organizes previous work into a united perspective, provides a vocabulary for design discourse, and illuminates pathways for future research and tools. 
-%In future work, we plan on validating this proposed framework in two ways.
-%First, we plan on adopting it in our own work, using it to help define future studies, and using those studies to amend or expand this framework.
-%Second, we plan on looking to professional designers to provide empirical validation and improvement of the model.
-%This is the first step towards a validated model of haptic design tasks and body of knowledge on how to support those tasks through design tools.
-%Right now we have proposed a model, now the task is to validate it and also to use it to support the design of engaging haptic experiences.
+User Interface
+The frontend of the application is shown in Figure 2. In addition to conventional text and image entries, the Feel Messenger interface allows users to play, personalize and share haptic patterns. The components of the interface are explained below.
+
+Messenger Interface
+The message interface, Figure 2 (1), is kept almost the same as a typical IM interface on current devices. However, this can be easily adapted to emails, Twitter feeds or other social media timelines. Aligned to the left are received messages and those aligned to the right are the sent or entered messages. Along with the message is an icon indicating that a haptic effect has been attached to the message. Once the message is received, the application triggers the haptic engine to play the haptic pattern. The user can replay the message by clicking on the message or the accompanying icon. Multiple patterns can also be embedded in a single message. Simultaneous effects are sent by using ?|? (vertical bar) between two icons, otherwise the effects are played in the same order as the icons in the message.
+
+Below the message interface are three icons buttons, shown in Figure 2 (2). The leftmost icon allows users to attach a predefined FE (Figure 3A). The center icon opens a Feel Editor display (Figure 3B), and the right most buttons connects to the users (Figure 3C).
+
+Predefined Patterns
+
+The predefined patterns (Figure 3A) allow users to quickly attach a haptic pattern to the IM. These patterns can be stored from incoming messages or created by using stored haptic families. Each pattern is defined by a set of feelbits that plays when the corresponding feelgit is executed. These presets can be shown as text, images or emotion icons.
+
+Authoring interface
+
+The Feel Editor displays available FE families (feelgits) and allows users to personalize, play, save and share haptic patterns (Figure 3B). By clicking a FE icon, sliders corresponding to parameters (feelbits) are enabled. These sliders may have labels corresponding to physical parameters, such as amplitude or duration of vibration; however, we have used semantic labeling that may correspond to single or multiple parameters. Once the sliders are adjusted, the user can play, save or attach the haptic pattern to the IM.
+
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\textwidth]{feelmessenger/fig3} 
+   \caption{Program flow diagram of the Feel Messenger application.}
+   \label{fig:feelmessenger:fig3}
+\end{figure}
+
+
+
+\subsection{Haptic Vocabulary}
+The vocabulary of haptic effect is critical for expressive and precise communication between users. In this preliminary implementation, we explore three types of haptic vocabularies. Type 1 is adapted from feel effects defined in [9], where haptic patterns are semantically characterize by a phrase. Type 2 is change in physical parameters as in [4, 12] but can also be simultaneously played with feel effects. Type 3 predefined coded patterns. Figure 4 shows the icons for haptic language. Note, that the two feel effects cannot be simultaneously played. This will result is overflow of the user?s bandwidth, especially with a low-fidelity VT actuator.
+
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=0.4\textwidth]{feelmessenger/fig4} 
+   \caption{Graphical representation of haptic vocabularies and icons.}
+   \label{fig:feelmessenger:fig4}
+\end{figure}
+
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=0.4\textwidth]{feelmessenger/fig5} 
+   \caption{Some examples of expressive haptic messages embedded with normal text messages.}
+   \label{fig:feelmessenger:fig5}
+\end{figure}
+
+
+Type 1: Feel Effects
+
+A set of feel effects is defined that delivers emotional, attentional and contextual effects. They are:
+\begin{description}
+	\item[Pulse:] Two successive onsets of vibration; speed (slow/fast) and intensity (weak/strong). Used as pulsation and heartbeat (calm/racing).
+	\item[Motor:] A 4-second modulated vibration; intensity (soft/loud) and speed (slow/fast) are parameters. Used as snoring, breathing, purring, engine rumble, etc.
+	\item[Strike:] A single onset of vibration; duration (short/long) and intensity of vibration are parameters. Used for tap, poke, jab and punch.
+	\item[Urgency:] a burst of vibrations; intensity (weak/strong) and temporal separation between pulses (low/high urgency) are parameters. Used for alerting users and expressing urgency.
+\end{description}
+
+Type 2: Physical Effects
+
+These effects are associated with direct variation in tactile patterns. Previous studies (e.g. [1, 4, 12]) have used variation in amplitude, duration as typical variation. Our library includes:
+
+\begin{description}
+	\item[Ramp-up:] gradual increase in intensity; parameters are peak intensity and the rate of increase.
+	\item[Ramp-down:] gradual decrease in intensity; parameters are peak intensity and the rate of decrease.
+	\item[Spacer:] keeps steady intensity; parameters are intensity and duration. This can be used for putting a delay (or spaces) between two haptic effects.
+\end{description}
+
+These effects create new haptic effects and can also be combined with feel effects. Such as the message Ramp-up | Motor followed by Ramp-down creates a new pattern that gradually increases the rumbling and then decays linearly as shown in Fig 5.
+
+Type 3: Coded Effects
+
+This type demonstrates symbolic vocabularies, such as one adapted from International Morse Code that consists of pre-stored pulses of dots and dashes. Other examples can be vibratese language [16], emoticon, and input from peripheral sensors.
+
+\subsection{Implementation and Preliminary Study}
+As a preliminary mockup, we developed an Android application on a Samsung S5 smartphone running Android 4.4.2. The Android API allows ON/OFF control of the embedded VT motor. A rough relationship between the duty cycle and perceived intensity was determined to create effects.
+
+In a pilot, authors set parameters of three FEs defined by phrases ?racing pulse?, ?calm pulse? and ?high urgency?. These set parametric spaces for FEs defined by families pulse and urgency. From these families, new FEs were generated using the same logic as would in the normal language. For example, parameters for phrase ?hey, call me quick!!? are set same as that of high urgency (synonym) and parameters for phrase ?normal heartbeat? are inferred in-between those for calm and racing heartbeats.
+
+We asked thirteen participants (8 males, 19-52 years old) to rate the haptic effects and associated phrase generated in the pilot on a scale from 0-5 (0: No agreement, 1: strong disagreement, 2: disagreement, 3: neutral, 4: agreement, 5: strong agreement). Participants could feel the haptic message as long as they wanted. The average (and standard deviation) ratings for calm, racing and urgency were 4.2 (0.7), 3.6 (1.6) and 4.2 (1.0) out of the scale of 5. We then asked the same participants to go through a mockup conversation that had five messages with both text and haptics. Participants played the haptics by tapping on the messages. Afterwards, they were asked to rate ?if available, will you use this application? and ?Does it communicate expressions?. Participants rated from ?yes? (1), ?not sure? (0), and ?no? (-1). The average (std. dev.) rating of usefulness was 0.77 (0.6) and that for expressiveness was 0.62 (0.5).
+
+\subsection{Concluding Remarks}
+In this early exploration, we implement and evaluate the use of haptic feedback in a messenger application on a typical mobile device. The application allows users to send and receive text and haptic messages, and to personalize haptic effects. The overall user ratings were positive, however a comprehensive study to analyze the effectiveness of feel effects for social networking is left for future. Our previous work has shown that feel effects improve users vocabulary and associate them to events in stories for adults and kids [9, 18]. Sharing personalized haptic messages in social interactions will be stimulating and exciting addition to the current networking tools.
+
+
+\section{RoughSketch}
+
+todo
+
+\section{HandsOn}
+
+\begin{figure} [bt]
+  \centering
+  \includegraphics[width=0.6\textwidth]{handson/CyberHap-ConceptualModel-page1_PB_crop}
+  \caption{Students, teachers, and researchers can explore \gmE{science, technology, engineering, and math} (STEM) abstractions through low-fidelity haptics, incorporating elements into system designs.}
+  % \caption{HandsOn conceptual model:  students, teachers, and researchers can incorporate low-fidelity haptics to learn or design.} 
+  % at different levels of exploration.}
+  \label{fig:conceptOverview}
+\end{figure}
+
+
+Recognition of the value of a hands-on, embodied approach to learning dates to 1907, when
+Maria Montessori opened a school where she used \emph{manipulatives} to teach a wide array of concepts ranging from mathematics to reading, e.g., by introducing the alphabet through children tracing their finger along large, cut-out letters~\cite{montessori_advanced_1917}.
+Constructivist learning theories posit that well-designed manipulatives can assist understanding by grounding abstract concepts in concrete representations ~\cite{papert1980,piaget_science_1970},
+%Their use today is 
+and are an accepted core principle in early math and science education, confirmed empirically~\cite{carbonneau_meta-analysis_2013}. 
+
+More recently, digital technologies are radically altering learning environments.
+Massive Open Online Courses (MOOCs) expand access, games motivate, and with graphical simulations (e.g., PhET~\cite{wieman_phet:_2008}), students can interact with abstractions to develop their understanding.
+However, these experiences are disembodied. Indirect contact via keyboard, mouse and screen introduces a barrier of abstraction that undermines the connection and path to understanding. 
+% that the interaction aims to promote. 
+
+
+Haptic (touch-based) technology should bring %able to bring
+ benefits of physicality and embodied learning~\cite{dourish_where_2004} to interactive virtual environments. 
+It adds a sensory channel as another route to understanding~\cite{calvert_crossmodal_1998}; when deployed appropriately, active exploration can improve understanding~\cite{martin_physically_2005} and memory~\cite{glenberg_activity_2004} of new concepts. 
+Haptic tools have already shown promising results in many specializations, demographics and age groups, both
+to enhance lesson fidelity 
+% (e.g., physics and medical simulations)  -- don't have room for citations!
+and to increase engagement and motivation through tangibility and interactivity; e.g., with devices like Geomagic Touch\footnote{Prev. Sensable Phantom \url{www.geomagic.com/en/products/phantom-omni/overview}}~\cite{williams_implementation_2004} and SPIDAR-G~\cite{sato_haptic_2008}.
+
+Unfortunately, %t
+%These 
+%Sadly, 
+existing approaches have %suffer from 
+both hardware and software limitations.
+Actuated learning tools introduce physical issues of cost, storage, and breakage;
+devices are  too bulky, complex, or expensive for schools or self-learners.
+For software, it is hard for users to construct and explore their own haptic environments. Typically, users load a virtual system to interact with it haptically. This sidelines the rich learning potential of involving users with model construction~\cite{papert1980}.
+We address hardware with the HapKit~\cite{martinez_2016}, a \$50, simple, low-fidelity device constructed from 3d printed materials.  
+
+Our focus here is on software, with a new learning environment that lets users both construct and explore haptic systems. Until now, the only way for a user to construct a haptic system was by programming it herself. Our approach, inspired by Logo ~\cite{papert1980} and Scratch ~\cite{maloney2010}, is to ultimately % KM notes: currently we don't provide much power compared to programming. But it's planned for.
+provide much of the power of a programming language while hiding distracting complexity. 
+
+
+% The rise of open-sourced DIY methods are enabling low-cost, compact, simple designs (e.g., the HapKit \cite{martinez_2016}) which can mitigate these factors, but at the cost of rendering fidelity. 
+% Requirements for display resolution and accuracy are imposed by lessons' perceptual demands, e.g., comparisons needed to assess a hypothesis.
+
+
+
+% \subsubsection{Challenges of Haptic Technology in the Classroom:}
+%
+%  Actuated learning tools introduce obvious physical issues of cost, storage, and breakage. 
+% Devices are often too bulky, complex, or expensive for either schools or self-learners.
+
+% The rise of open-sourced DIY methods are enabling low-cost, compact, simple designs (e.g., the HapKit \cite{martinez_2016}) which can mitigate these factors, but at the cost of rendering fidelity. 
+% Requirements for display resolution and accuracy are imposed by lessons' perceptual demands, e.g., comparisons needed to assess a hypothesis.
+% hypothesis examination and problem solving.
+
+%Unfortunately, hardware is just one layer of the learning experience. 
+%The HapKit, for example, is controlled through an 
+%Arduino\footnote{\url{https://www.arduino.cc}} development environment (IDE). 
+% The problem is not just that 
+%Programming a haptic virtual model is beyond most students in an introductory physics class and thus a massive distraction; worse, procedural programming % , particularly procedural styles, 
+%is a highly abstracted activity that removes  students from the direct-interaction, embodied aspects of the learning environment. 
+
+% Current software that accompanies haptic devices in an educational context can be restrictive \todo{RD: CITE}. An educational haptic-enabled interface must be suitable for immediate interactive use by a broad range of lessons and learners, while supporting engaging educational tasks. %
+% More engaging activities will be creative and design-oriented \rdC{1cite} , building upon more structured introductory exercises; but the coding this eventually entails must remain direct and object-based -- as exemplified by Papert's Logo~\cite{papert1980} and the Scratch visual programming environment~\cite{maloney2010}.
+%
+%Lessons (structured or open-ended) must scale to conventional class sizes, which will be delivered and perhaps designed by teachers themselves non-expert in haptics or programming. 
+
+% \paragraph{Requirements:}  % Note - there's another "requirements" under Apparatus.
+\subsubsection{Approach and Present Objectives:}
+To study \textit{how} to unlock the potential of hapticized virtual environments in STEM education, we need a viable front-end.
+%
+% Here, we take the first step towards these requirements with a graphical learning interface which presents a \textit{single} lesson as an evaluation instrument with several purposes. It must allow us to 
+%
+To this end, we first established a \textit{conceptual model} (\HandsOn):
+central interface concepts, supported operations and language  \cite{johnson_conceptual_2002} that can be employed in a broad range of lessons involving physical exploration and design. 
+
+Next, we implemented the \HandsOn conceptual model (CM) in \SpringSim, a first-generation learning interface prototype narrowly focused in a module on mechanical springs and targeted at high school physics students.
+To render forces we used the HapKit, a simple device with a 3D-printable handle providing affordable, self-assembled 1 DOF force-feedback for about \$50 USD.
+%
+As an evaluation instrument, this single-lesson implementation allows us to 
+(a) measure a given hardware platform's fidelity for a representative perceptual task; 
+(b) attain insight into the kinds of lessons such a system can  leverage; and
+(c) assess its learning-outcome efficacy relative to conventional methods.
+With these answers, we will be able to design a more powerful tool.
+
+We report results from two user studies: 
+(1) the HapKit's ability to display differentiable springs with and without graphical reinforcement, and 
+(2) a qualitative evaluation of \SpringSim for a carefully designed set of  educational tasks.
+We confirm that the \SpringSim interface and its conceptual model \HandsOnCM %substantively supported physical feedback in these tasks, 
+%We confirmed that the \SpringSim interface and its conceptual skeleton  \HandsOnCM incorporate physical forces substantively into these tasks, 
+%and \osE{compared input device use (mouse vs. HapKit)}.
+%investigated the comparative use of mouse versus Hapkit as input devices. 
+are understandable and usable, 
+%We report our findings on participants' comprehension of the CM, 
+describe the role of haptics compared to mouse input, and
+%Finally, we 
+provide %guidance and
+recommendations
+for future evaluation, lesson and tool design.
+%for next evaluation steps and next-generation lesson and tool design.
+
+
+% ============================================
+\subsection{Tool Development: Conceptual Model and Interface}
+Our goal was to find a software model to use and evaluate low-cost force feedback in an educational setting.
+We began by choosing a device, establishing requirements, and exploring capabilities through use cases and prototypes.
+From this, we defined %a conceptual model, 
+\HandsOn.
+We then implemented  essential features in a medium-fidelity prototype, \SpringSim, for our user studies.
+
+% % \subsubsection{Overview:}
+% We developed \HandsOn as a conceptual framework for educational software tools providing a flexible, exploratory front-end to an accessible, 1-DOF haptic device such as the Hapkit. 
+
+% We followed the following design process.
+% Requirements gathered from educators and students fed extensive iteration on a extensible underlying conceptual model (CM -- the core concepts and operations supported by the tool, and their representation to the user), around which we implemented a medium fidelity prototype. 
+% % \springSim's CM is capable of supporting educational lesson plans beyond its current implementation. 
+% Currently, \SpringSim includes one lesson module in which students can explore properties of springs and spring systems.
+% In future implementations, its comprehensive CM can support more complex and abstract education topics, such as lessons on electrical circuits or trigonometry.
+
+
+\subsubsection{Initial design (requirements):}
+We established six guiding requirements. % for our model.
+%Early piloting motivated and suggested an approach for an exploratory interface structured within a lesson plan. 
+First, we developed initial prototypes with HapKit 2.0
+through two pilot studies with middle school students (described in \cite{martinez_2016}).
+These highlighted two aspects of a practical, accessible approach for junior students: 1) no programming; instead 2) a graphical implementation of an exploratory interface within a lesson plan.
+%These established 1) a confirmation that programming provided significant barriers to students, and 2) that graphical interfaces were most practical as an exploratory interface within a lesson plan.
+%While we first planned for open-ended design tasks to promote engagement, we here realized that a single structured lesson focused on a small number of tangible concepts was more appropriate for future comparative evaluation of the haptic feedback's educational utility. 
+We also needed to build on known benefits of traditional classroom practices, and enable learning-outcome comparison.
+% came from previous interfaces and features of using a haptics.
+We must 3) 
+support the same \textit{types} of traditional education tasks, e.g., let students  compare and assemble spring networks as easily as in a hands-on physics lab; 
+but also 4) \textit{extend} them, to leverage the flexibility offered by a manipulative that is also virtual.
+Similarly, to support future formal comparisons, %to pursue inquiry into the learning benefit of haptics,
+%, we need to assess the learning benefit added by rendered forces to an educational simulation over the  graphics-based status quo. 
+our model needs to 5) support both haptic and non-haptic (mouse) inputs.
+Finally, to ensure generality we also needed to 6) support diverse STEM topics, like physics, biology, and mathematics.
+Further design yielded a model that addressed these requirements: \HandsOn.
+% This model had to work both with Hapkit, and without it. 
+% Subsequent low-fidelity prototyping around these constraints yielded a conceptual model based on exploration: \HandsOn.
+
+% From this we established initial requirements:
+% We assessed interface requirements during pilot studies and classroom visits in collaboration with education researchers  and
+% iteratively with low-fidelity prototyping (paper and software mockups) which were evaluated informally both with team members and representative students, % GM, for the students I'm thinking the middle school studies. Legit to say this?
+% This culminated in a CM and then a medium fidelity prototype of the spring simulation element. \SpringSim with HapKit (fully functional but minimally featured, with simply rendered but carefully planned screen elements) was piloted with volunteers, and iterated once more prior to formal evaluation.
+%to conduct comparative studies that more closely investigate Hapkit's utility. 
+% Our initial evaluation-platform lesson had to expose insight into user preferences for and strategies in using haptic support in an education task.
+
+% \paragraph{Process:}
+% Tool design was preceded by and then intertwined with educational task design, both taking input from education researchers. We considered and even prototyped a broad set of candidate domains, learning goals and task style (e.g., structured versus open-ended) before  realizing that a first ``studyable'' lesson must be relatively simple and structured, and focusing on spring simulation. 
+
+
+
+% -----------------------------
+\subsubsection{Conceptual Model:}%: \HandsOn.}
+
+%02.07 BEGIN NEW CM SECTION
+%Our conceptual model (CM) is primarily based on our first two requirements (R1 \& R2):
+%\gmC{Noticing that we don't go through all of R1-R6 in this section. Not sure if its necessary?}
+\HandsOn is a programming-free (R1) graphical interface supporting learner exploration (R2), with a number of key \emph{concepts}: \textit{Interactive Playground}, \textit{Hands}, \textit{Design Palette}, \textit{Objects}, \textit{Properties}, \textit{Haptic} and \textit{Visual Controls}.
+Exploration is supported at various levels (Figure~\ref{fig:conceptObjects}).
+
+\begin{figure} [b]
+  \centering
+  \includegraphics[width=\textwidth]{handson/CyberHap-ConceptualModel-2016-02-08b}
+  \caption{The \HandsOn CM enables three kinds of exploration based on requirements.}
+  \label{fig:conceptObjects}
+\end{figure}
+
+%``How does it feel to interact with a spring-mass-damper system?''
+The \emph{Interactive Playground} provides a virtual sandbox where
+users can interact with virtual environments (VE). % using \emph{Hands}. 
+\emph{Hands} allow users to select, move, and manipulate components in the Interactive Playground. %The \emph{Hands} can be
+Control occurs with either the mouse or a haptic device to receive force-feedback (Figure~\ref{fig:conceptObjects}A) \osE{(R5)}. In the design and modification phase, users can add or remove \emph{objects} like springs, masses, gears, or electrons by dragging them to and from a \emph{Design Palette} \gmE{(R3)}. Once added to the scene, users can modify their physical properties (e.g., a spring constant k) and make changes to the VE (Figure~\ref{fig:conceptObjects}B). After construction, the user can customize their interaction with their VE by adjusting \emph{Visual Controls} and \emph{Haptic Controls} options that extend interactions in new ways afforded by haptics (R4) (Figure~\ref{fig:conceptObjects}C). Because of the flexibility afforded by having multiple \emph{objects} in the playground with multiple \emph{Hands} for interaction points, and customization of interaction and feedback, \HandsOn can support different STEM topics (R6), from biology to mathematics.
+To confirm the viability of this approach, we built an initial prototype with essential features: \SpringSim.
+
+
+%Most essentially, users simply interact with a virtual system in the \emph{Interactive Playground}, receiving feedback, e.g., from manipulating a spring-mass-damper system and feeling and seeing state like output forces (Figure~\ref{fig:conceptObjects}A). %``How does it feel to interact with a spring-mass-damper system?''
+%A \emph{Hand} is the boundary between real and virtual spaces (what the user is currently feeling and manipulating).
+%\emph{Hands} allowing users to interact with different parts of a system by being \underline{selected}, \underline{moved} (e.g., stretched), \underline{connected} \osC{?} and the result \underline{measured} -- e.g., in the context of a lesson plan, a learner can use a ruler object to  measure spring displacement to understand stiffness.
+%Based on previous educational interfaces (R3), we also include the ability to add  or remove \emph{objects} to a structure to create new scenarios, and modify properties, e.g., adding a new mass to a system.
+%This is analogous to students trying different spring systems in a physics lab, or modifying simulations in PhET \cite{wieman_phet:_2008}.
+%In \HandsOn, this is done through a \emph{design palette}, a set of possible objects and operations to modify them (Figure~\ref{fig:conceptObjects}B).
+
+%To understand how to extend possible interaction in new ways afforded by haptics (R4), we include customization controls for interaction feedback: \textit{Visual Controls} and \textit{Haptic Controls} (Figure~\ref{fig:conceptObjects}C).
+%Learners, teachers, and researchers can change
+%``How does it feel when you add a spring to a mass, and change the mass/spring ratio?''
+%Finally, they can customize
+%\textit{how} interaction happens, e.g., toggling display modalities or increasing force gain.
+%This also enables comparison between haptic and non-hapti
+%c controls (R5), possible through \emph{Hands}, which can be represent a 1-DOF force-feedback device or a standard computer mouse.
+%Because of the flexibility afforded by having multiple \emph{objects} in the playground with multiple \emph{Hands} for interaction points, and customization of interaction and feedback, \HandsOn can support different STEM topics (R6), from biology to mathematics.
+%To confirm the viability of this approach, we built an initial prototype with essential features: \SpringSim.
+
+%We included interaction customization for experiment control, but later realized this feature has learning uses. 
+
+
+% You can 
+% 1) Interact with model: manipulate its state, i.e. providing input and receiving feedback (stretch spring, feel its force, drag ruler to measure the springs). Objects: Hand, Springs, Ruler,  - the hand.
+% 2) Modify model: edit/design the model (which springs, how connected, their K-constants)
+% 3) Modify interaction itself - e.g., mapping from input to output, gain of haptic feedback (including off), what parameters you can see visually. Originally for development purposes, may be useful for teachers or even students later (ind. differences).
+
+
+% \HandsOn includes a small number of key  \textit{concepts}. 
+% A selected \textit{Hand} is the boundary between real and virtual spaces (what the user is currently feeling and manipulating).  
+% \textit{Objects} (e.g., virtual springs and masses, and measurement tools)   have \textit{Object Properties} (e.g., stiffness constant and weight).
+% In an \textit{Interactive Playground}, \textit{Objects} can be (via the active \textit{Hand}) \underline{selected}, \underline{moved} (e.g., stretched), \underline{connected} and the result \underline{measured} -- e.g., in the context of a lesson plan, a learner can use a ruler object to  measure spring displacement to understand stiffness. 
+% When the object attachment is moved with the \textit{Hand}, the virtual model is recomputed and the resultant model force at that point displayed through the haptic device, if present and turned on.
+% % A \textit{Design Palette} provides these operations (e.g., with an object creator and/or a property editor).
+% A \textit{Design Palette} is a source of new objects for the playground and editing mechanisms for existing objects. 
+% % The graphic and haptic objects have a small number of low-level parameters accessible through the \textit{Visual Controls} and \textit{HapKit Controls} boxes.
+
+% %This exploration is meant to happen within 
+% The \HandsOn model extends naturally to many complex lesson domains explored in prototyping, including physical systems, chemistry, and biology.
+
+
+%
+% 02.07 BEGIN OLD CM SECTION
+%
+% At the highest level, our CM supports exploration at varying levels of initiative (Figure~\ref{fig:conceptObjects}). 
+% Most essentially, users simply interact with a model, receiving feedback: ``How does it feel to interact with a spring-mass-damper system?''
+% Next, they can add  objects to a structure to create new scenarios, and modify properties: 
+% ``How does it feel when you add a spring to a mass, and change the mass/spring ratio?''
+% Finally, they can customize \textit{how} interaction happens, by enabling or adjusting input and output (e.g., control/display  or  force gain).
+% We included interaction customization for experiment control, but later realized this feature has learning uses. 
+
+% \begin{figure} [b]
+%   \centering
+%   \includegraphics[width=1.05\textwidth]{CyberHap-ConceptualModel-sketch}
+%   \caption{HandsOn conceptual model.}
+%   \label{fig:conceptObjects}
+% \end{figure}
+% % You can 
+% % 1) Interact with model: manipulate its state, i.e. providing input and receiving feedback (stretch spring, feel its force, drag ruler to measure the springs). Objects: Hand, Springs, Ruler,  - the hand.
+% % 2) Modify model: edit/design the model (which springs, how connected, their K-constants)
+% % 3) Modify interaction itself - e.g., mapping from input to output, gain of haptic feedback (including off), what parameters you can see visually. Originally for development purposes, may be useful for teachers or even students later (ind. differences).
+
+
+% \HandsOn includes a small number of key  \textit{concepts}. 
+% A selected \textit{Hand} is the boundary between real and virtual spaces (what the user is currently feeling and manipulating).  
+% \textit{Objects} (e.g., virtual springs and masses, and measurement tools)   have \textit{Object Properties} (e.g., stiffness constant and weight).
+% In an \textit{Interactive Playground}, \textit{Objects} can be (via the active \textit{Hand}) \underline{selected}, \underline{moved} (e.g., stretched), \underline{connected} and the result \underline{measured} -- e.g., in the context of a lesson plan, a learner can use a ruler object to  measure spring displacement to understand stiffness. 
+% When the object attachment is moved with the \textit{Hand}, the virtual model is recomputed and the resultant model force at that point displayed through the haptic device, if present and turned on.
+% % A \textit{Design Palette} provides these operations (e.g., with an object creator and/or a property editor).
+% A \textit{Design Palette} is a source of new objects for the playground and editing mechanisms for existing objects. 
+% % The graphic and haptic objects have a small number of low-level parameters accessible through the \textit{Visual Controls} and \textit{HapKit Controls} boxes.
+
+% %This exploration is meant to happen within 
+% The \HandsOn model extends naturally to many complex lesson domains explored in prototyping, including physical systems, chemistry, and biology.
+
+%
+% 02.06 END OLD CM section
 %
 
 
+% Spring generator is PART of the design palette (only part for SpringSim) \\
+% Design palette includes both spring generator (right) spring properties (left) and deletion. Modfy AND design -
+
+
+% Possible \textit{operations} on these object are revealed by key screen elements (Figure~\ref{fig:conceptOperations}): 
+
+%
+% \begin{figure} [bt]
+%   \centering
+%   \includegraphics[width=\textwidth]{CyberHap-CM-2}
+%   \caption{\todo{add caption}}
+%   \label{fig:conceptObjects}
+% \end{figure}
+% %
+% \begin{figure} [bt]
+%   \centering
+%   \includegraphics[width=\textwidth]{CyberHap-CM-1}
+%   \caption{\todo{add caption}}
+%   \label{fig:conceptOperations}
+% \end{figure}
+
+
+% \paragraph{SpringSim Prototype Implementation}
+% In this first instantiation, \SpringSim is a principally a tool for education researchers to compare novel educational strategies and utility to conventional alternatives. We therefore technically support both HapKit and mouse as input devices. 
+% This model had to work both with Hapkit, and without it. 
+% Note: GM says this version has amplified screen controls - for experimenter use. E.g. turning hapkit on/off, but it might also be helpful for students exploration, and/or teachers. 
+
+% -----------------------------
+\subsubsection{Implemented Prototype: }
+Our first \HandsOn interface is \SpringSim
+(Figure~\ref{fig:springsim}),
+%We chose springs systems for our proof-of-concept implementation 
+which supports  a spring lesson -- spring systems are natural as a virtual environment of
+ easily-controlled complexity. 
+%(from single springs to a serial or parallel assembly), 
+%allowing the user to create and
+%interact with a wide variety of
+%configurations.
+%for scalable task difficulty; a set of tasks of escalating challenge can be built around them; and they
+%
+%
+%
+%
+%
+\begin{figure} [bt]
+   \centering
+   \includegraphics[width=0.9\textwidth]{handson/SpringSim-cropped}
+   \caption{\SpringSim interface, a \HandsOn sandbox for a single lesson module on springs.}
+   \label{fig:springsim}
+\end{figure}
+In \SpringSim, \emph{objects} include single springs and parallel spring systems, with properties
+%In \SpringSim, 
+% users can choose a single spring or build a parallel spring system, and for each element, specify a stiffness value (N/m), rest length (cm) and label.
+%users interact with spring \textit{Objects} using \textit{Hands} in the \textit{Interactive Playground},
+%and can update
+spring rest length (cm), stiffness (N/m) and label.
+The \emph{Design Palette} includes the \textit{Spring Properties} and \textit{Spring Generator} UI components.
+Implemented \emph{Visual Controls} are toggling numerical displays of spring stiffness and force; \emph{Haptic Controls}  toggle HapKit feedback and output amplification. \gmE{The open-source repository for SpringSim is available at https://github.com/gminaker/SpringSim.}
+%They can add, combine (into parallel assemblies), delete and measure springs at rest or deflected.
+%
+ %Adjusting haptic feedback gain, and which information is displayed in a visual format (e.g., spring constants, and numerical value of the force exerted by the \textit{Hands}) are additional ways to observe spring dynamics.
+
+
+
+
+
+% \begin{itemize}
+%     \item Task 1: Rank three springs in order from least to most stiff
+%     \item Task 2: Plot the relationship between displacement and force for two springs.
+%     \item Task 3: Estimate the stiffness of an unknown spring, given two reference springs with known stiffness value. 
+%     \item Task 4: Predict the behaviour of springs in parallel. 
+%     \item Task 5: Design a parallel spring system that uses two springs to behave like an individual spring of stiffness 55 n/m.
+%     \item Task 6: Predict the behaviour of springs in series. 
+%     \item Task 7: Describe any relationships you have noticed between spring force, displacement, and stiffness.
+% \end{itemize}
+
+% \section{Evaluation of SpringSim for Perceptual Transparency and Usability}
+
+% We conduct two studies of our medium fidelity \SpringSim\ prototype. 
+% First, we conduct a perceptual study to characterize the perceptibility of SpringSim and Hapkit; specifically designed to validate a students’ ability to distinguish between pre-selected springs that would be used in our second user study. Current literature does provided some insight on perceptual properties of computer-controlled actuators \cite{jones_1990}, however, the perceptual properties of springs rendered virtually on the HapKit have yet to be fully characterized. Additionally, current literature describes the human ability to resolve force and compliance of springs (\gmC{TODO: CITE}), however, we were unable to find literature that considers both the virtual rendering and visualization of springs, as is the case with SpringSim and Hapkit.
+
+% Following the completion of our perceptual study, user studies were conducted on students to investigate (a) the usability of SpringSim, (b) the effectiveness of our designed educational tasks for investigating haptics-based educational intervention studies in future work, and (c) provide preliminary insights into the effect of Hapkit on students’ educational strategies. 
+
+\subsection{Study 1: Perceptual Transparency}
+Before evaluating \SpringSim, we needed to confirm that the HapKit could render spring values sufficiently for our qualitative analysis.
+%Our goal was to identify spring values that were distinguishable to ensure our Study 2 results were not overwhelmed by perceptual failures of the device.
+
+\subsubsection{Methods:}
+
+14 non-STEM undergraduate students (8 females) participated in a two-alternative, forced choice test with two counterbalanced within-subject conditions:
+%Participants completed an entrance survey before being presented with pre-selected spring pairs across two counterbalanced conditions:
+\textit{HapKit + Dynamic Graphics}, and \textit{HapKit + Static Graphics} (Figure \ref{fig:study1-hapkit}).
+%In the \textit{HapKit + Static Graphics} condition, a static graphical rendering indicated which spring was being rendered on the Hapkit (Figure \ref{fig:conceptOverview}).
+%In contrast, the \textit{HapKit + Dynamic Graphics} condition displayed a dynamic graphical representation of a spring in addition to the spring being rendered on the Hapkit.
+Three spring pairs (15/35, 35/55 and 55/75 N/m) were each presented five times per condition, in random order.
+For each  pair, participants %were asked to %interact with the springs at their will,
+indicated which spring felt more stiff, and rated task difficulty %of distinction using
+on a 20-point scale. % on a paper response sheet.
+Following each condition, participants rated overall condition difficulty, mental demand, effort, and frustration on 20-point scales % using a paper response form. These questions were also
+derived from the NASA TLX~\cite{hart_1988}.
+Following the completion of both conditions, a semi-structured interview was conducted to address any critical incidents. %perceptible sources of confusion and difficulty during the task. 
+Each session lasted 20-30 minutes.
+
+
+%
+\subsubsection{Results:}
+%We recruited 14 non-STEM university undergraduates with only 1st year physics training (8 female) for study 1.
+% We report results  for Accuracy, Task Time, and Difficulty Rating.
+All tests used a 5\% level of significance and passed test assumptions.
+%\todo{GM: Did we analyze condition difficulty?}
+
+\paragraph{Accuracy:}
+A logistical regression model was trained on task accuracy with spring-pair and condition as factors. %\todo{OS assumption tests.}
+No interaction was detected; spring-pair was the only significant factor.
+Post-hoc analysis revealed that spring-pair \#1 (15/35 N/m) was significantly less accurate than spring-pair \#2 (35/55; p=0.0467). %  no other differences were significant.
+Performance averaged 88.57\% (15/35), 96.49\% (35/55), and 94.45\% (55/75). 
+
+
+\paragraph{Time:}
+Task time ranged from 3-160s (median 117s, mean 96.41s, sd 47.57s).
+In a 3-way ANOVA (participant, spring-pair, and visualization condition) 
+%on task time failed to reject assumptions (Shapiro-Wilk W=0.97936 p=1.079e-05, but Q-Q norm test revealed no major non-normality; Levene’s Test F(83, 336)=1.0203, p = 0.4401). 
+% detected no interactions; 
+only participant was significant  ($F(13,336)= 4.17$ $p=1.947e-06$).
+
+
+\paragraph{Difficulty rating:}
+A 3-way ANOVA (factors: participant, spring-pair, and visualization condition) %on difficulty rating failed to reject assumptions (Shapiro-Wilk W=0.99324 p=0.05638, Levene’s Test F(83, 336)=0.6369, p = 0.9928).
+detected one two-way interaction between participant and spring pair ($F(26,336)= 2.10$, $p=0.00165$).
+%, visualization condition had no effect. 
+
+
+% \subsubsection{Summary}
+% Overall, visualization condition (haptics-only vs haptics+graphics) had no effect on any metric. Thus, visualizations are not significantly influence accuracy. Individual differences were found for two metrics: difficulty rating and task time. For difficulty rating, it depended on the participant and the spring pair; task time only depended on the participant. Accuracy only depended on the spring pair, with spring-pair #1 found as less accurate than spring-pair #2.
+
+\begin{figure} [tb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{handson/cyberhap-interface_pb}
+  \caption{In the \textit{Hapkit+Dynamic Graphics} condition, graphical springs responded to input (left); static images were rendered in the \textit{Hapkit+Static Graphics} condition (right); in both, HapKit 3.0\cite{martinez_2016} was used as an input/force-feedback device (far right).}
+  \label{fig:study1-hapkit}
+\end{figure}
+
+\subsubsection{Discussion:}
+Study 1 revealed that (a) for stiffness intervals 15/35/55/75 N/m, the HapKit  provides  distinguishability equivalent to  dynamic graphics.
+%, lending promise to the hapkit’s use even without visual reinforcement. 
+Individual differences influenced difficulty and speed, 
+%adding to the literature on individual differences for haptic perception and 
+ suggesting that learning interfaces may need to accommodate this variability. % in user responses. 
+(b) Accuracy was not dependent on individual differences, suggesting that learning interfaces can consider task time and perceived difficulty separately from accuracy when using the HapKit (at least, for these force ranges).
+%We also found 
+(c) Performance was mostly above 90\%, and confidence intervals for our small sample size estimate no lower than 82\% accuracy at the lowest (15/35). 
+%Although the low value for spring pair 1 was initially unexpected (Weber’s law (cite?) predicts that spring pairs 2 and 3 should be more difficult because of a lower proportional difference), 
+We speculate that the HapKit's natural dynamics are more pronounced at lower rendered forces, and may interfere with perceptibility. 
+%This is a targeted area for future improvement.
+%
+\subsection{Study 2: Tool Usability and Educational Insights}
+
+%
+\subsubsection{Methods:}
+%\paragraph{Participants}
+10 non-STEM participants (1st and 2nd year university undergrads with up to first year  physics training, 6 female, 17-20 years) volunteered for 45-60 minute sessions.
+%\paragraph{Protocol}
+After an introductory survey, participants were randomly assigned to one of two conditions, \textit{Mouse} (4 participants, M1-4) or \textit{Hapkit} (H1-6).
+%The assigned condition determined the input device used to manipulate virtual springs in SpringSim.
+HapKit 3.0 was calibrated for force consistency between participants.
+After allowing participants to freely explore \SpringSim, % for several minutes, 
+a survey assessed % participant's 
+understanding and usability of various \SpringSim interface components;
+misunderstood components were clarified.
+%The facilitator conducted a debrief following the survey to avoid the interference of usability issues while assessing learning strategies and use cases of HapKit 3.0 during the education tasks.
+%Participants then worked through 7 education-based tasks on springs and spring properties,
+%each followed by a brief interview. 
+Three exit surveys elicited 
+value of \SpringSim components on 7-point Likert scales, 
+cognitive load~\cite{jones_1990}, understanding, and curiosity on 20-point scales,
+and preferred learning modality~\cite{vark}, respectively.
+
+%Interview followed each task; after the last task, three exit surveys were conducted:
+%one evaluating value of \SpringSim components,
+%one cognitive load \cite{jones_1990},
+%the last preferred learning modality \cite{vark}
+%the first of which assessed the value of \HandsOn components. This assessment of conceptual components, as opposed to interface components, was possible due to the usability debrief that reasonably removed the interface implementation as a confound to the value of \HandsOn components. The following exit surveys assessed cognitive load \cite{jones_1990} and preferred learning modality (CITE VARK), respectively
+%A closing, semi-structured interview fielded information on HapKit 3.0, SpringSim, and participant insights during the
+%Sessions lasted 45-60 minute session.
+
+\subsubsection{Learning Tasks:}
+We iteratively designed and piloted a task battery of escalating learning-goal sophistication~\cite{bloom1969taxonomy} to
+ %; when carried out, they must
+expose strategies for force feedback use and general problem-solving (Table~\ref{tab:SpringTasks}).
+Tasks did not require physics knowledge,
+ % more generally.
+% As with \SpringSim, they
+and were suitable for both mouse and HapKit input.
+%as input device, without overtly favoring either one.
+%Participants in Study 2 were asked to sequentially carry out the tasks in .
+
+%\todo{OS: how do you use both 'c' and 'p' in tabular?}
+% https://en.wikibooks.org/wiki/LaTeX/Tables
+%\osC{slc}
+%02.07 OS: I don't think you can use c and p. You can achieve finer control by using multirows and multicolumns, but it gets trick.
+\begin{table}[tb] \footnotesize
+    \begin{tabular}{|p{0.40in}|p{1.00in}|p{3.3in}|}
+    \hline
+    \textbf{Task} & \textbf{Bloom} &  \textbf{Description} \\ \hline
+    1    & Understand (2) &  Rank three springs in order from least to most stiff  \\ \hline
+    2    & Understand (2) & Plot the relationship between displacement and force for two springs. \\    \hline
+    3    & Apply (3) & Estimate the stiffness of an unknown spring, given two reference springs with known stiffness value \\ \hline
+    4    & Analyze (4) & Predict the behaviour of springs in parallel. \\ \hline
+    5    & Create (6) & Design a parallel spring system that uses two springs to behave like an individual spring of stiffness 55 N/m. \\ \hline
+    6    & Apply (3)  & Predict the behaviour of springs in series. \\ \hline
+    7    & \gmE{Evaluate (5)} & Describe any relationships you have noticed between spring force, displacement, and stiffness. \\ \hline
+    \end{tabular}
+    
+    
+    \caption{Learning tasks used with \SpringSim in Study 2. \textit{Bloom} level is a measure of learning goal sophistication \cite{bloom1969taxonomy} %, \textit{Input} = anticipated input device, Mouse/HapKit.
+%        \caption{Learning tasks used with \SpringSim in Study 2. Diff $=$ relative difficulty, Input = anticipated input device, M = mouse, H = hapkit.}
+%    \kmC{Impt: Table needs to list ''Bloom level (a measure of task sophistication [CITE]'')} 
+ %   \gmC{Karon, can do, but do we feel it is important, valuable enough to replace the current difficulty column? Explaining blooms will take some space...}
+   % \kmC{(1) I believe Bloom is better to list. I hope this description in caption is sufficient.}  
+   % \kmC{(2) want to drop  input type?} (was impt at one point) 
+   }
+   % GM: yes, dropping input. was impt when we were considering adding tasks that favored one condition over another. we never did move forward with that. 
+   
+    \label{tab:SpringTasks}
+\end{table}
+
+%
+\subsubsection{Analysis:}
+%Through both quantitative and qualitative analyses, common themes have been identified.
+We conducted t-tests on self-reported understanding, cognitive load, engagement, understanding, curiosity; and on objective metrics of time-on-task and number of spring interactions.
+Qualitative analysis of video and interview data used grounded theory methods of memoing and open \& closed coding \cite{Corbin2008}.
+Together, these  yielded insight into the usability of \SpringSim and the \HandsOn CM, and several themes %(reflecting the \HandsOn conceptual model).several themes
+describing the role of haptics in our tasks. Two participants were excluded from analysis of Task 1 due to technical failure. %\osC{GM, put reason in comments please} \gmC{slc}
+% GM: The participant either misunderstood, or I forgot to instruct them to turn the 'stiffness display' off, which spoiled the question.
+%OS: Thanks. Leaving here for posterity.
+
+
+%\kmC{Some left out of analysis??} % later you reference 'participants included in analysis'.
+%, observations about our tasks,
+
+%First we present the major findings that provide initial insight into the use of a haptic-enabled interface for education tasks. Later, we outline the effectiveness of the educational task set and present usability results of \SpringSim and its conceptual model \HandsOn. 
+
+ %Paired t-tests were performed to analyze changes in participants' self-reported understanding throughout educational tasks. Two-sample t-tests were performed to determine effects of condition (Hapkit or Mouse) on self-reported cognitive load metrics, engagement, understanding, curiosity, time spent exploring, and spring interactions. Qualitative methods included analyzing screen recordings, video data, and interviews using grounded theory methods; primarily memoing, open, and closed coding techniques (CITE). \gmC{OS, we should perhaps have brief discussion to ensure this is being described appropriately.} 
+ 
+ 
+\subsubsection{Results - Usability:}
+%\paragraph{\SpringSim \& \HandsOn provided robust learning environment}
+%\SpringSim and its conceptual counterpart \HandsOn provided a platform on which students were able to successfully attempt all presented tasks in both HapKit and Mouse conditions with few. 
+%
+%Following the completion of free, exploratory interaction with \SpringSim, participants were asked to indicate wether or not they understood the intended functionality of each
+%\kmC{?? SLC} % what is the 100\%? are these # of respondents, binary response? clarify. Consider reporting out of x/n instead of %.}
+
+After free exploration of \SpringSim, participants rated their understanding of CM objects (yes/no) and their ease-of-use [1-7]:
+\emph{Ruler} (10/10, 7.0),
+\emph{Numerical Force Display} (10/10, 6.5),
+\emph{Playground} (10/10, 6.0), 
+\emph{Hand} (9/10, 6.0),
+\emph{Spring Properties} (9/10, 6.0), 
+\emph{Spring Generator} (\textbf{\textbf{7/10}, 5.0}),  
+\emph{HapKit} (6/6, \textbf{4.5}), and
+\emph{Haptic Feedback Controls} (5/6, \textbf{4.5}). 
+%
+While generally usability was good, interface clarity needed improvement in highlighted cases. 
+Participants specifically noted confusion on radio button affordances, %color scheme of %\kmC{??} 
+%ControlP5 radio buttons, where lighter shades of red counter-intuitively indicated an active selection
+and \emph{Spring Generator} input fields (due to redundant availability in \emph{Spring properties}).
+
+%After free exploration of \SpringSim, \kmE{most??} participants reported understanding most CM objects:
+% % \SpringSim components: 
+%\emph{ Force Display} (100\%), \emph{Playground} (100\%), \emph{Ruler} (100\%), \emph{HapKit} (100\%), \emph{Spring Properties} (90\%), and \emph{Hand} (88\%).
+%% Less understood were
+%\kmE{More had difficulty with} \emph{Haptic Feedback Controls} (83\%) and \emph{Spring Generator} (70\%).
+%% Participants rated 
+%Ease-of-use ratings [1-7] yielded median scores $>=6$ % or higher 
+%% for Force Display (6.5), Playground (6.0), Ruler, (7.0), Hapkit (7.0), Spring Properties (6.0), and Hand (6.0).
+%Median scores were lower for the Spring Generator (5.0) and HapKit Feedback (4.5).
+%Participants noted confusion on color scheme of ControlP5 radio buttons and input fields in the `spring generator' (also available in the `spring properties' component).
+
+%who made it unclear to some which selection was currently active. Sentiments such as "I'm not getting the colors" (H1) were commonly expressed.
+%Furthermore, some participants displayed confusion about what the text input fields in the `spring generator' would affect. 
+%This was likely due to having presented spring properties in two places: both in the âspring generatorâ and âspring propertiesâ. Future iterations should provide a better mapping of spring properties to existing springs, and settings in the spring generator to springs being designed. 
+
+%Once all visual and haptic feedback displays were enabled, no participants were observed manipulating either Numerical Forces or Hapkit Feedback.
+%attempting to turn off hapkit or numerical feedback displays, nor adjusting the gain of the hapkit device. 
+%Occasionally, participants would attempt an unpredicted exploratory behaviour that was not supported by \SpringSim. M2
+%, in his initial exploration of the system,
+%attempted to design a spring with K=10000 N/m.
+%In its current implementation, the software was capable of handling this value, however, the hapkit was not. \osC{not really sure what do about this factoid} \gmC{I added clarification, try now} \kmC{SpringSim did support it - don't say it didn't. SpringSim is not HapKit.}
+%type of exploration, however, what should  a K-constant of 10000 N/m feel like on the hapkit? To render such a force is unrealistic, and without limits in place, there is risk of damaging the HapKit hardware, or providing inaccurate feedback.
+
+\subsubsection{Results - Task Suitability for Haptic Research:}
+
+%\kmC{Is this section about task suitability? SLC}. % Suitability for what? In any case it's not about what they learned, which is what heading seems to suggest. but I'm not sure it will support a conclusion about suitability. Data describes that they're possible to do, and likely balanced between mouse/hapkit input. does not reveal engagement, too easy, relation to learning goals etc.
+
+Regardless of prior physics knowledge, all participants were able to complete education tasks 1-6 (Table \ref{tab:SpringTasks}) in the allotted 60 minutes. 
+%Further, all participants were able to attempt the tasks, regardless of their prior physics knowledge. 
+%Tasks intended to support multiple workflows (1,3) did so, and participants found an answer irrespective of condition. 
+%\kmC{?? SLC} % clarify. you say additional workflows were OBSERVED (not designed?) then imply 'other than these observations, none were DESIGNED.
+We found no evidence that any task favoured %Besides additional workflows having been observed in the HapKit condition, no tasks was designed to favor
+one condition over another.
+When participants in the mouse condition were asked how their workflow would change %have changed
+with physical springs, participants weren't sure: ``I don't know if that would've given me more information" (M4). 
+%``... I don't think that would make a difference... But, 
+%you know,
+%the last question, 
+%if it was two springs [in series], it would be easier to answer that question." (M3).
+%However, no participants in either condition had access to a serial spring system \gmE{to answer the question referenced by M3, which was intended to be elicit predictions.}% \kmC{Why relevant?} \gmC{try now}
+ 
+\subsubsection{Results - Haptics \& Learning Strategies:}
+We observed several themes relating to the influence of force feedback % haptics 
+on a student's learning strategy. %, elaborated below.
+
+%(1) Forces increased a participant's possible strategies, and \kmE{sometimes ?}created} \kmC{?? predominating?} new strategies.  % KM - I don't understand "created predominating new strategies".
+%(2) Haptic interactions with springs were impressionable and persuasive. 
+%(3) Participants in the haptics condition reported increases in curiosity & understanding throughout the lesson. 
+%(4) The issue of perceptual resolution in haptic devices for education.
+
+%\paragraph{Haptics changes and provides additional workflows}
+\paragraph{Haptics creates new, dominating strategies.} %\kmC{?? FIX, SLC} % i don't understand this sentence at all, nor 'predominating new strategies' in earlier statement. Not english.
+%
+Learning strategies used by participants %were employed between participants
+in the HapKit condition (H1-6) were more diverse than those in the mouse condition (M1-4).
+In Task 1, M1-4 all followed the same strategy, displacing all 3 springs the same distance and comparing the numerical force required to displace them. They then correctly inferred that higher forces are associated with stiffer springs (the \textit{displace-and-compare} strategy).
+
+By contrast, all 5 H participants included in analyses (H2 excluded due to technical failure) used force-feedback as part of their  approach to Task 1. 
+H1 describes applying the same force to the HapKit across all 3 springs, recording displacement to solve the task, while
+H5 described looking at the speed at which the HapKit was able to move back-and-forth in making his determination of stiffness, rather than through direct force-feedback of the device. Only H6 indicated that he ``looked at the numbers for a sec", but no participant fully used the \textit{displace-and-compare} strategy we observed for M participants. 
+
+%OS 02.08 make sure KM's comment below is handled in discussion.
+%\kmC{The single M strategy worked well. Why is diversity a benefit?}
+While the single-strategy approach worked for easy tasks, it was linked to errors and dead-ends in at least one instance in the mouse condition.
+In Task 5, M2-4 used  \textit{displace-and-compare}  to validate their newly designed spring; M1 did not seek verification of his design.
+In contrast, H1,2,5,6 used haptic feedback to verify their designs. % of a parallel spring system.
+They did this by comparing how stiff their parallel spring system felt to a target reference spring. 
+H4 guessed at an answer without verification.
+H3 used the \textit{displace-and-compare} strategy, checking that equal forces were required for equal displacement. %of each spring.
+
+
+% GM IS REMOVING THIS AT HIS DISCRETION 02.08:
+
+%\paragraph{Haptics allows students to test, revise hypotheses similarly to status-quo methods.}
+%\osC{Do we want to say ``similarly to status-quo methods" in the results?}
+%\osC{This section should go before "diverse workflows} \gmC{I'm not sure how valuable this is... RD, any opinions on keeping section:}
+%We found participants in both conditions followed a very similar hypothesis-testing process for Task 5, beginning with a hypothesis of what the spring system's components should be, implementing it, and reading feedback using the numerical force display in the mouse condition (3/4) or used either numerical force display or force-feedback in the hapkit condition (5/6). In each condition, there was one participant who developed a hypothesis, implemented it, and did not seek to verify their result. 
+%No significant differences were found between the number of iterations that participants performed for their design of a parallel spring system between HapKit and mouse conditions in Task 5. 
+
+%\paragraph{Haptic interactions with springs are impressionable.}
+\paragraph{Haptic impressions of springs are enduring and transferrable.}
+%\kmC{Impressionable?? or 'haptic impressions of springs are enduring and transferrable'.}
+HapKit participants were able to use their previous explorations to solve problems.
+In Task 3, M1-4 interacted with all three springs to find a ratio between force and stiffness.
+However, H participants interacted with springs fewer times (mean 1.5, sd 3.21) than M (6, sd 1) (p=0.018). %(t(6.5161)=3.1429; p=0.0179).
+H2-4,6 did not interact with any springs,
+%during the task,
+and H1 interacted with only one.
+This was because they had already 
+%Participants in the hapkit condition who did not interact with springs cited having already
+interacted with the springs in previous questions: 
+%``it was just kind of intuitive" (H2);
+``I remember spring C was less stiff" (H3).
+%H1: "I used what I did for the first one... I knew it was pretty not stiff [sic]",.
+ Further suggesting the strength of haptic impressions, % impressionability of haptics,
+ %is futher highlighted by
+ when H1 designed an inaccurate spring system for Task 5 (k=80N/m vs. expected k=55N/m), 
+ she described the haptics as overriding the visual feedback: %``when I felt it, they just felt similar.
+ ``they just felt similar.
+ Even though the numbers weren't really relating to what I thought."
+ Similarly, H2 arrived at an approximate result (k=40N/m), after using force-feedback and acknowledges ``... [it's] slightly less than the reference spring, but it's closer."
+  %but seems to %acknowledge andignore the fact it remains inaccurate:
+ %inaccurate but still a final answer: . \osC{could cut this last example if need be}
+ %She appeared  to use both the force-feedback from the hapkit, in addition to the strategy of using numerical force feedback commonly seen in the mouse condition: ââŠ when I felt it, they just felt similar. Even though the numbers werenât really relating to what I thought.â
+
+%GM: I do feel that there is something here, but we're really starting to tread on grounds of educational utility, which I think we should steer clear from.
+%\paragraph{Using haptics led to more approximate answers}
+%A common pattern observed in the hapkit condition is a tendency for participants to arrive at at answers that they cite as being approximate. H4, Task 2: "the numbers are just kind of random", P9, Task 5 "they kind of matched"; H2, Task 5: "its slightly less than the reference spring, but its closer", H6, Task 5: "I can't really confirm its correct, but they both feel about the same". In task 3, participants in the mouse condition were seen interacting with springs in a productive manner as they worked towards a calculation. This was not observed in the hapkit condition, as previously mentioned. For task 5, 3/6 participants in the hapkit condition arose at answers that were not accurate. This is compared to 3/3 in the mouse condition who all provided accurate answers. 
+
+\paragraph{Haptics associated with increases in self-reported curiosity and understanding.}
+%\kmC{earlier said 7-point scale?? clarify earlier}
+Participants' self-reported curiosity significantly increased over the course of HapKit sessions 
+from a mean of 6.3 (sd 3.83) %median, sd, min, max =  5/ 3.83/ 2 /12)
+to 10.8 (sd 3.92) in the Hapkit condition %t(5)=-2.7302; 
+(p=0.041). %0.04127.
+No significant changes in curiosity were detected in the mouse condition.
+Participants' self-reported understanding significantly increased over the course of HapKit sessions from a mean of 3.67 (sd 4.03) to 11.83 (sd 3.19) (p=0.014). %(t(5)=-3.6914, p=0.0142).
+No significant changes in understanding were detected in the mouse condition (before: 9.25, sd 5.32; after: 9.25, sd 5.32; p=0.77). % t(3)=0.31363; p=0.7743).
+%We acknowledge the discrepancy between conditions in participants' self-reported understanding at the beginning of the session. \todo{include more in discussion} \osC{Is this last sentence worth mentioning? Do we already have it in discussion? I recommend cutting}
+
+In interviews, participants commonly made references to how the HapKit influenced their understanding: ``I can use this thing for help if I really need some physical, real-world stimuli" (H5); % to help me solve questions on the sheet" (H5);  %``the question about parallel springs and regular springs and the stiffness, 
+%``[when] we looked at it mathematically I could find the answer if I was given a formula, but I think just having the hapkit and just physically testing it out was really, really helpful"% and made it very clear what the answer should beâ
+%(H2).
+``almost all of my thinking was based on how the spring [HapKit] ended up reacting to it" (H6).
+%\osC{another quote in comment; not sure which is better}
+%``Like, I wouldn't have figured out one of those tasks if I didn't have the spring [HapKit)]to test out if these two were similar or not" (H6).
+M2, who had a stronger physics background than others (IB Physics),  was the only user to report a drop in curiosity and understanding over the course of the physics tasks, despite initial excitement:
+%At first, M2 expresses his excitement and curiosity of the interface, which was presented in the mouse-only condition:
+``the fun part is messing around with  [SpringSim]," he exclaimed near the beginning of the exploratory phase. 
+%Throughout the lesson, he demonstrates a level of understanding about springs that was above other participants, and ponders several questions relating to the frequency of spring motion, the effect of angles on springs in parallel systems, and others [include concrete example] that SpringSim was never intended to support.
+
+%\paragraph{The issue of perceptual resolution seen in HapKit.}
+
+%\gmC{GM acknowledges a missing section presenting critical incidents of two separate participants that were 'misled' by the haptics due to its perceptual quality. Will insert data in am of 02.08. This data must have been inadvertantly cut in an edit}    
+
+
+%
+\subsection{Study 2 Discussion} 
+%
+% We discuss implications for design and implementation of haptics for e-learning tasks, including limitations and direction for future work. 
+%
+%Discussion:
+%    - Hapkit 3.0 -> perhaps for exploration over accuracy. 
+%        - discuss its impressionability, how that at times it appeared to suppress alternate workflows that would lead to a more accurate results than by feel alone.  
+%        - present it as a design challenge: students still have access to the tools and workflows that would help them arrive at a correct answer, but it currently seems to be suppressed. 
+
+%    -Why approximate answers -> impressionability and resolution of the hapkit together, create a situation where students are empowered to use haptics in their problem-solving, but are limited to the accuracy and resolution of their solution. This could have design considerations, and 
+    
+%    - Design consideration: "zooming in on haptics" -> solve limits on perceptual ability through recommending haptic "gain" or "zooming in on haptics".
+
+% ----------------------
+\subsubsection{Tool and Tasks: Suitability for Learning and as Study Platform}
+% -----
+\paragraph{Adequacy and comprehensibility of underlying model:} Overall,  \HandsOn  concepts proved an effective and comprehensible skeleton for \SpringSim. 
+% Concepts that shone through the interface were well received by participants. 
+Specific implementations rather than concepts themselves 
+ % There were no concepts, but rather specific implementations, that 
+ appeared to be the source of the reported confusions, and 
+ we observed that \HandsOn should be extended % needs to be modified slightly  to support the future incorporation of 
+ with additional measurement tools (e.g., protractors, scales, calculators, etc). 
+ % Here we briefly discuss the performance and limitations of \SpringSim.
+
+% -----
+\paragraph{\SpringSim performance:} %performance and limitations:} 
+This \SpringSim implementation adequately supported most students in finishing learning tasks; 
+extending available objects, properties and tasks will support advanced students as well.
+Future iterations should 
+%
+% resolve some concerns from participants; including 
+more clearly map \textit{Design Palette} elements to the objects they support, 
+% Spring Properties to the Springs, moving 
+increasing rendering fidelity and reconsider colors to avoid straightforward affordance issues.
+% (eg, participants were confused by the color scheme of the radio buttons). 
+While participants did not heavily use haptic and visual controls, we anticipate these will be important  for instructor and researcher use. 
+
+% -----
+\paragraph{Learning task suitability:}
+The learning tasks used here were fairly robust to time constraints of user-study conditions, did not require previous physics knowledge, avoided bias % contamination 
+from standardized physics lessons, and exposed haptics utilization strategies without penalizing non-haptic controls. 
+Currently, the task set ends 
+% with a cliff-hanger for participants, 
+by asking students to predict a serial system's behavior; some students found predicting new configurations a large jump.  % Gordon: is this because it was intrinsicly harder than parallel systems, or because they couldn't try it out?
+% \gmC{because its an instrically harder problem. It was a prediction question, so wasn't made more difficult by not being able to try it out - although that would've helped, too}
+%\kmC{GM: Does below capture?}
+% This seemed to be a much more difficult and less-intuitive problem for participants to think so, 
+% It would be beneficial for future iterations if
+Future task-set iterations could support integrative, prediction-type questions with interface elements that are successively exposed to allow prediction testing.
+% Am picturing a system that only lets them try out serial assemblies after they've thought about it and mcommitted to a guess. 
+
+% such leaps with an interface implementation to allow them to explore behavior.
+% should support more object-connection possibilities, to gather  such functionality to elicit further information about the use of haptics over an even greater range of task difficulty. 
+
+
+% ----------------------
+\subsubsection{Evidence of the Role of Force Feedback in Learning}
+
+% -----
+\paragraph{Curiosity and understanding leading to exploration:}
+Self-reported curiosity and understanding increased when forces were present. 
+%GM: In mouse condition, no significant increase was found for curiosity. However, participants in mouse condition started with a much higher self-reported curiosity than in hapkit condition. so we can't conclude that haptics increased curiosity while mouse did not... 
+ %KM: This is a statistical anomaly right? at start, an unbiased sample should have given same response to self-reported curiosity, or did the condition have a chance to influence this?
+%GM: Yes, a random number generator assigned conditions - statistical anomaly (... and exact same protocol in both conditions leading up to their responding to initial curiosity question)  
+%
+%
+% Due to the informal and self-reported nature of evaluating participant understanding, we leave any indication of significance to future research. 
+While these trends must be verified, curiosity is of interest since it can lead to more meaningful and self-driven interactions.
+% the observed increases in curiosity is an interesting finding with implications of its own. 
+%
+Iterations on both tasks and tool should support this urge with an interface and framing that supports curiosity-driven exploration.
+
+% -----
+\paragraph{Alternative strategies enabled by force feedback:}
+%
+The HapKit's additional feedback modality enabled alternative task workflows, e.g., %by providing another modality with which to receive feedback. 
+% (Table \ref{tab:SpringTasks}), 
+ estimations of force appeared to supplant mathematical strategies for stiffness estimation.
+% Perceived forces dominated several participants' strategies, % and seemed to provide non-specific feedback in participants' hypothesis testing. 
+While possibly risky as a crutch, force assessments might be a useful step for students not ready for technical approaches (e.g., M3/Task 3 when  stalled in attempting cross-multiplication).
+Future task-set iterations could encourage more \textit{balanced} strategy use, e.g. mathematical \textit{and} perceptual rather than primarily perceptual.
+
+%\kmC{GM: this might not be a BETTER strategy. comment? ``Future task-set iterations could more strongly encourage equal use of multiple strategies, e.g. mathematical \textit{and} perceptual rather than primarily just perceptual.}
+
+
+
+% -----
+\paragraph{HapKit salience, resolution \& implications:}
+Overall, HapKit 3.0's fidelity was enough to assist participants verify a correct hypothesis. 
+% It could point a \textit{direction} to revise one that proved to be incorrect, but 
+% While the feedback was helpful in guiding students towards a more accurate hypothesis, 
+%its rendering resolution and accuracy did not suffice to lead them all the way to an accurate result. Overall, 
+However, those who started with an \textit{incorrect} hypothesis and used only HapKit to test it generally arrived at solutions that improved but were still inaccurate. 
+Given the confidence that forces instilled, % impressionability of haptics that was observed, 
+this is an important consideration.
+%
+ A formal device characterization will allow us to keep tasks within viable limits; 
+ % to inform future design; 
+  we can also consider using low-fidelity forces more for reinforcement and exploratory scenarios. % or encouraging its use in accompaniment with other strategies.
+ % to avoid scenarios previously described (H1), in which a student over-rules her observation of what visual feedback is telling her, in favor of haptic feedback, which proves inaccurate.
+
+ 
+% -----
+%\paragraph{Is tool ready for a learning study?}
+
+% - Explain the kind of study it is currently suitable for (or not suitable for).
+ 
+% - two parts: (a) good so far (right direction); 
+% (b) does it need to be extended, more complex/engaging?
+
+
+% ----------------------
+\subsubsection{Limitations and Next Steps:}
+
+% -----
+% \paragraph{Limitations:}
+Our studies were small and used non-STEM university students as a proxy for high-school learners.
+Despite both limitations, they were useful for our current needs (rich, initial feedback establishing suitability and usability for \HandsOn through \SpringSim);  % but suggest future elaboration with larger, more targeted participants.
+%We feel this proxy sufficed for physics knowledge but
+but may overestimate general academic ability and maturity.
+%. This compromise served our purpose insofar as
+%eliciting feedback on tool suitability and haptics-enabled exploration strategies; a test that \SpringSim has largely passed.
+As we we move into evaluation of learning outcome impact, larger and more targeted studies are imperative.
+
+% but as we we move into evaluation of learning outcome impact, larger and more targeted studies will be imperative.}
+ 
+% -----
+% \paragraph{Future Use and Development:}
+
+ % This study largely validates \SpringSim for learning outcome assessment contains the components and task set that would support more comprehensive educational studies that should be carried out.
+%Beyond details noted above, 
+Future interfaces can both increase physical model complexity and breadth (e.g., complex mass-spring-damper systems), and extend \HandsOn for more abstract education topics, such as trigonometry. 
+ We also plan to extend the \textit{Playground} to support more engaging, open-ended student design challenges, such as obstacle courses using trigonometry concepts; this in turn requires new measurement tools and tasks that are more exploratory and open-ended.
+ % such as a protractors and grid rulers. A c
+% Accompanying challenge tasks must encompass exploratory and open-ended styles.
+ % and follow the requirements of the current task set to further support the study of haptic-enabled educational interfaces.
+ 
+ %Iterations of \SpringSim and its task set should implement the aforementioned usability modifications, include support for serial spring systems for a greater range of task difficulty, take into greater consideration the perceptual qualities of the HapKit, and better account for a student's desire to explore beyond the renderable range of haptic feedback devices. 
+
+% -----
+%\paragraph{Planned Interface Evolution} 
+%- future complexity; talk about how our CM can handle a very different interface (design playground to build, for example, obstacle courses, contests between friends, etc. New measurement and assessment tools.
+
+
+
+
+
+% -----
+%KM: \paragraph{Middleware to support flexible, dynamic haptic models} Very briefly allude %to need for new programming support for reconfigurable handles. No detail.
+%GM: moved to FW for now, until I find a relevant place in discussion
+
+
+
+
+
+% =========================================
+\subsection{Conclusions}
+%
+
+% We have presented initial insights into the influence of haptics in e-learning tasks. 
+Haptic feedback's potential in STEM education use can only be accessed with a comprehensible, extendable, and transparent front-end. 
+We present \HandsOn, a conceptual skeleton for interfaces incorporating virtual forces into learning tasks,
+%to access the posited benefits of tangibility with the accessibility, power and flexibility of virtual environments.
+and assess its first implementation, \SpringSim and task set. 
+Our findings (on interface usability, task effectiveness, and impact of haptic feedback on learning strategies, understanding and curiosity) underscore this approach's promise, as we proceed to study haptic influence on learning outcomes themselves.
+
+
+\section{CuddleBit}
 
 
 \endinput
