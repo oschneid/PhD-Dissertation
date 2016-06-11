@@ -275,11 +275,12 @@
 \begin{figure}[h] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=0.5\textwidth, height=2.3in]{haptic-instrument-concept-sketch-sax-small-traced-squarer} 
-   \caption{Concept sketch of a haptic instrument. Both users are experiencing the same sensation, controlled in real-time.}
+   \caption{Concept sketch of a haptic instrument. Both users experience the same sensation, controlled in real-time.}
    \label{fig:HapticInstrumentConceptSketch}
 \end{figure}
 
-The Haptic Instrument case study\footnote{Published in Haptics Symposium 2014 \cite{Schneider2014} and at a CHI 2014 workshop \cite{Schneider2014b}.} investigates the role of real-time feedback and synchronous collaboration on haptic experience design, using participants with some haptics experience, serving as proxies for haptic experience designers.
+The Haptic Instrument case study\footnote{Published in Haptics Symposium 2014 \cite{Schneider2014} and at a CHI 2014 workshop \cite{Schneider2014b}.} is a first exploration into building a vibrotactile design tool, looking at design activities of exploration and informal sharing.
+Through it, we investigate the role of real-time feedback and synchronous collaboration on haptic experience design, using participants with some haptics experience, serving as proxies for haptic experience designers.
 Conventional haptic design tools contain a slow iteration, requiring programming or rendering before playback.
 Using a music composition metaphor (as in~\cite{Lee2009}), we are writing music without ever playing a note: composing a work in its entirety, then listening to the result before making changes.
 In contrast, musicians often use their instruments as a tool for serendipitous exploration when designing music.
@@ -345,7 +346,7 @@ This allows for a dialogue that includes a haptic modality: haptic instruments c
 \begin{figure*}[Htb]
    \centering
    \includegraphics[width=\textwidth]{haptic-instrument-concept-horizontal4-small} 
-   \caption{The haptic instrument concept. One or more people can control the instrument, and receive real-time feedback from the device. Any number of audience members can feel the output in real time as well. Control methods can vary, from traditional musical control devices (such as the M-Audio Axiom 25, used in preliminary prototypes) to touchscreen tablets (used in mHIVE). Output devices vary as well.}
+   \caption{The haptic instrument concept. One or more people control the instrument, and receive real-time feedback from the device. Any number of audience members can feel the output in real time as well. Control methods can vary, from traditional musical control devices (such as the M-Audio Axiom 25, used in preliminary prototypes) to touchscreen tablets (used in mHIVE). Output devices vary as well.}
    \label{fig:HapticInstrumentConcept}
 \end{figure*}
 
@@ -423,7 +424,7 @@ Shared control could be collocated or distributed (\emph{e.g.}, a web interface 
 	\strongitem{Output mechanism} Each haptic instrument will control a haptic device, which has its own mechanism for providing a haptic sensation (\emph{e.g.}, vibrotactile sensations). Because haptic devices can be complex and combine multiple mechanisms, this is a large space in its own right. Characterizing the different display mechanisms is something that we must leave to future work. Suffice it to say, a haptic instrument will be different depending on its output device.
 
 	\strongitem{Number of haptic instruments or output devices}
-	One consideration is whether a haptic instrument is intended to operate alone, or with other haptic/multimodal instruments.
+	One consideration is whether a haptic instrument is intended to operate alone, or with other haptic or multimodal instruments.
 %	\kmEdit{slc} % Don't you need to mention also, multimodal design? jam the haptic channel along with the auditory?
 	One can imagine haptic jam sessions for inspiration and ideation, or even form haptic bands for artistic expression.
 	This is highly related to private/shared control -- there is a fine line between several identical haptic instruments with private control, and a single haptic instrument with shared control and several output devices. Note that a haptic instrument may involve several devices to produce shared-output.
@@ -461,9 +462,8 @@ Shared control could be collocated or distributed (\emph{e.g.}, a web interface 
 
 
 
-\subsection{mHIVE, a mobile Haptic Instrument for Vibrotactile Exploration}
-We developed mHIVE to begin to explore how a haptic instrument should work and what it should do % you've defined mHIVE already.
-(\autoref{fig:mHIVE}).
+\subsection{mHIVE}%, a mobile Haptic Instrument for Vibrotactile Exploration}
+We developed mHIVE, a mobile Haptic Instrument for Vibrotactile Exploration, to begin to explore how a haptic instrument should work and what it should do (\autoref{fig:mHIVE}).
 % , we  developed a prototype, mHIVE (mobile Haptic Instrument for Vibrotactile Exploration,
 %
 %\footnote{Our first, low-fidelity prototype was named HIVE, before we switched to developing on a mobile platform. }
@@ -471,7 +471,7 @@ We developed mHIVE to begin to explore how a haptic instrument should work and w
 % mHIVE is a collocated, synchronous, mostly private control haptic instrument that controls 2 vibrotactile actuators
 mHIVE is a collocated, synchronous haptic instrument for a single user. It accommodates shared display via dual
 Haptuators~\cite{Yao2010}
-and is operated with a single-touch tablet-based interface for direct manual control (\autoref{fig:StudySetup}). 
+and is operated with a single-touch tablet-based interface for direct manual control (\autoref{fig:hapticinstrument:StudySetup}). 
 mHIVE is designed for for VT
 % We chose this as a simple first attempt at a haptic instrument: vibrotactile 
 sensations, which are common, do not require interactive programming, are controlled through waveforms (analogous to music), and their low-level control parameters are well understood.
@@ -515,33 +515,10 @@ We conducted a qualitative study to investigate two questions.
 First, is mHIVE an effective tool for the expression, exploration, and communication of affective phenomena?
 Second, what language, mental models, and metaphors do people use to describe vibrotactile sensations, and how do they relate to mHIVE's low-level control parameters?
 
-% \noindent
-We collected and analyzed our data using the methodology of phenomenology, 
-% a standard method
-an established variant of qualitative inquiry used in psychology to investigate topics ranging from visual illusions to tactile experience \cite{Richer1978, Obrist2013, Creswell2013}.
-Phenomenology explores subjective experience, appropriate for an investigation into the more intangible qualities of pleasantness and affect.
-At this point, the rich, inductive data of qualitative analysis is more valuable than a controlled experiment with statistical analysis.
-%We chose this over more familiar statistical methods because we have no established interfaces or task examples for haptic design.
-%As such, any measures of error rate or time are meaningless.
-
-In particular, we use the Stevick-Colaizzi-Keen method as described by Moustakas \cite{Moustakas1994}.
-In-depth interviews are conducted with a small number of participants.
-The interviewer, Researcher 1 (R1), also documents his experience, as if he was interviewing himself.
-Then, R1 transcribes each interview, including his own.
-Transcripts are divided into non-overlapping, non-redundant statements about the phenomena known as Meaning Units (MUs).
-This considers every statement that the participants make, and does not discount any due to bias or selective searching.
-%
-Then, MUs are clustered into emergent themes. %through affinity diagrams.}%, writing and re-writing of thematic descriptions, and reflection guided by phenomenological philosophy.}
-% KM: can you expand (1 sentence) on this clustering and what follows? to address the concern of being biased or selective in comments. Need more transparency on what this part of process is.}
-%
-%Throughout the process, the philosophical principles of phenomenology are kept in mind; see \cite{Moustakas1994} for more detail.
-We interpret our themes in the Discussion.
-
-
 \begin{figure}[Htb]
 	\centering
 %	   \includegraphics[width=0.32\textwidth]{mHIVE-study-setup-cropped2} 
-	   \includegraphics[width= 0.42\textwidth]{mHIVE-study-setup-cropped2small} 
+	   \includegraphics[width= 0.65\textwidth]{mHIVE-study-setup-cropped2small} 
 	   \caption{
 	   Study setup. Both the participant (left) and the interviewer (right) feel the same sensation as the participant controls mHIVE.
 %	   The participant (left) controls mHIVE while feeling the sensation; the interviewer (right) feels the same sensation.
@@ -549,7 +526,8 @@ We interpret our themes in the Discussion.
 	   \label{fig:hapticinstrument:StudySetup}
 \end{figure}
 
-\subsection{Procedure}
+%\subsection{Procedure}
+One researcher collected and analyzed data using the Stevick-Colaizzi-Keen method as described by Moustakas \cite{Moustakas1994}.
 Our 1-hour open-ended interviews
 %with four participants, all with haptic experience.
 used the following protocol:
@@ -977,6 +955,7 @@ impatient foot tapping (P4).
 % 
 %%%%%%%%%%%%%%%%%%
 \section{Discussion}
+\osC{TODO: modify and link this discussion to other chapters, once they are better established.}
 Here we interpret these themes to draw implications for haptic design tools, and compare to research on the language of haptics.
 We then reflect upon our methodology and limitations.
 
