@@ -342,12 +342,12 @@ This allows for a dialogue that includes a haptic modality: haptic instruments c
 %%	\item social
 %%\end{itemize}
 
-%\begin{figure*}[Hb]
-%   \centering
-%   \includegraphics[width=\textwidth]{haptic-instrument-concept-horizontal4-small} 
-%   \caption{The haptic instrument concept. One or more people can control the instrument, and receive real-time feedback from the device. Any number of audience members can feel the output in real time as well. Control methods can vary, from traditional musical control devices (such as the M-Audio Axiom 25, used in preliminary prototypes) to touchscreen tablets (used in mHIVE). Output devices vary as well.}
-%   \label{fig:HapticInstrumentConcept}
-%\end{figure*}
+\begin{figure*}[Htb]
+   \centering
+   \includegraphics[width=\textwidth]{haptic-instrument-concept-horizontal4-small} 
+   \caption{The haptic instrument concept. One or more people can control the instrument, and receive real-time feedback from the device. Any number of audience members can feel the output in real time as well. Control methods can vary, from traditional musical control devices (such as the M-Audio Axiom 25, used in preliminary prototypes) to touchscreen tablets (used in mHIVE). Output devices vary as well.}
+   \label{fig:HapticInstrumentConcept}
+\end{figure*}
 
 
 
@@ -387,49 +387,56 @@ This allows for a dialogue that includes a haptic modality: haptic instruments c
 
 
 
+%%%%%%%%%%%%%%%%%%
+%
+% SECTION: mHIVE
+% 
+%%%%%%%%%%%%%%%%%%
+\section{Design}
+
 %%%%%
 %SubSection: Design Dimensions
 %%%%
 %\subsection{Design Dimensions}
-%%Though haptic instruments by definition provide real-time feedback have shared-output, there are several main design dimensions that can be considered in a haptic instrument (outlined in \autoref{fig:HapticInstrumentConcept}).
-%%Note that haptic instruments can occupy multiple positions on these dimensions.
-%% Though haptic instruments by definition provide real-time feedback \kmEdit{??} have shared-output, 
-%There are several main design dimensions that can be considered in a haptic instrument (outlined in \autoref{fig:HapticInstrumentConcept}).
-%A haptic instrument can occupy multiple positions on these dimensions.
-%%; a haptic instrument could allow for both synchronous and asynchronous collaboration.
-%
-%%\begin{description}
-%
-%	\strongitem{Asychronous/synchronous}
-%%	Because of the shared-output,
-%%A haptic instrument collaborative.
-%Though a haptic instrument must provide real-time feedback, its collaborative (shared-output) aspect could be either synchronous (by having multiple people experience the real-time output) or asynchronous (by allowing for recording and playback, important for design).
-%%Indeed, recording is critical when creating musical pieces.
-%
-%	\strongitem{Collocated/distributed} A haptic instrument's output could be present only for users in the same room, or be broadcast over a network to people around the world. For example, multiple mobile devices could all display identical output in a distributed manner.
-%
-%	\strongitem{Private/shared %KM suggested collaborative, not going with it because of our use of "collaborative" elsewhere
-%control} A haptic instrument's control % interface 
-% could be private (operated by a one person at a time) or shared (multiple users control the display). 
-%Shared control could be collocated or distributed (\emph{e.g.}, a web interface and shared object model).
-%	
-%	\strongitem{Output mechanism} Each haptic instrument will control a haptic device, which has its own mechanism for providing a haptic sensation (\emph{e.g.}, vibrotactile sensations). Because haptic devices can be complex and combine multiple mechanisms, this is a large space in its own right. Characterizing the different display mechanisms is something that we must leave to future work. Suffice it to say, a haptic instrument will be different depending on its output device.
-%
-%	\strongitem{Number of haptic instruments or output devices}
-%	One consideration is whether a haptic instrument is intended to operate alone, or with other haptic/multimodal instruments.
-%%	\kmEdit{slc} % Don't you need to mention also, multimodal design? jam the haptic channel along with the auditory?
-%	One can imagine haptic jam sessions for inspiration and ideation, or even form haptic bands for artistic expression.
-%	This is highly related to private/shared control -- there is a fine line between several identical haptic instruments with private control, and a single haptic instrument with shared control and several output devices. Note that a haptic instrument may involve several devices to produce shared-output.
-%
-%	\strongitem{Control mechanism} Similarly, a haptic instrument could be controlled in a variety of ways.
-%	From musically-inspired MIDI controllers to smartphone applications, we envision a wide variety of control methods.
-%%	Even a real-time programming environment might be appropriate for complex interactive sensations.
-%%	One should note that the control mechanism must work with the output device's paradigm.
-%	Even a real-time programming environment might be appropriate for complex interactive sensations,
-%	so long as the control mechanism works with the output device's paradigm.
-%%	 likely depend on the display mechanism, as many display mechanisms required their own paradigm for control.
-%
-%%\end{description}
+%Though haptic instruments by definition provide real-time feedback have shared-output, there are several main design dimensions that can be considered in a haptic instrument (outlined in \autoref{fig:HapticInstrumentConcept}).
+%Note that haptic instruments can occupy multiple positions on these dimensions.
+% Though haptic instruments by definition provide real-time feedback \kmEdit{??} have shared-output, 
+There are several main design dimensions that can be considered in a haptic instrument (outlined in \autoref{fig:HapticInstrumentConcept}).
+A haptic instrument can occupy multiple positions on these dimensions.
+%; a haptic instrument could allow for both synchronous and asynchronous collaboration.
+
+%\begin{description}
+
+	\strongitem{Asychronous/synchronous}
+%	Because of the shared-output,
+%A haptic instrument collaborative.
+Though a haptic instrument must provide real-time feedback, its collaborative (shared-output) aspect could be either synchronous (by having multiple people experience the real-time output) or asynchronous (by allowing for recording and playback, important for design).
+%Indeed, recording is critical when creating musical pieces.
+
+	\strongitem{Collocated/distributed} A haptic instrument's output could be present only for users in the same room, or be broadcast over a network to people around the world. For example, multiple mobile devices could all display identical output in a distributed manner.
+
+	\strongitem{Private/shared %KM suggested collaborative, not going with it because of our use of "collaborative" elsewhere
+control} A haptic instrument's control % interface 
+ could be private (operated by a one person at a time) or shared (multiple users control the display). 
+Shared control could be collocated or distributed (\emph{e.g.}, a web interface and shared object model).
+	
+	\strongitem{Output mechanism} Each haptic instrument will control a haptic device, which has its own mechanism for providing a haptic sensation (\emph{e.g.}, vibrotactile sensations). Because haptic devices can be complex and combine multiple mechanisms, this is a large space in its own right. Characterizing the different display mechanisms is something that we must leave to future work. Suffice it to say, a haptic instrument will be different depending on its output device.
+
+	\strongitem{Number of haptic instruments or output devices}
+	One consideration is whether a haptic instrument is intended to operate alone, or with other haptic/multimodal instruments.
+%	\kmEdit{slc} % Don't you need to mention also, multimodal design? jam the haptic channel along with the auditory?
+	One can imagine haptic jam sessions for inspiration and ideation, or even form haptic bands for artistic expression.
+	This is highly related to private/shared control -- there is a fine line between several identical haptic instruments with private control, and a single haptic instrument with shared control and several output devices. Note that a haptic instrument may involve several devices to produce shared-output.
+
+	\strongitem{Control mechanism} Similarly, a haptic instrument could be controlled in a variety of ways.
+	From musically-inspired MIDI controllers to smartphone applications, we envision a wide variety of control methods.
+%	Even a real-time programming environment might be appropriate for complex interactive sensations.
+%	One should note that the control mechanism must work with the output device's paradigm.
+	Even a real-time programming environment might be appropriate for complex interactive sensations,
+	so long as the control mechanism works with the output device's paradigm.
+%	 likely depend on the display mechanism, as many display mechanisms required their own paradigm for control.
+
+%\end{description}
 %
 %We expect that haptic instruments could provide both immediate and long-term value.
 %% In the short term, 
@@ -444,15 +451,17 @@ This allows for a dialogue that includes a haptic modality: haptic instruments c
 %
 %%User stories, requirements?
 
+\begin{figure}[Htb]
+   \centering
+%	   \includegraphics[width=0.43\textwidth]{mHIVE-screenshot-labeled-2013-08-13} 
+	   \includegraphics[width=0.7\textwidth]{mHIVE-screenshot-labeled-2013-08-13} 
+	   \caption{mHIVE interface. Primary interaction is through the amplitude-frequency view, where visual feedback is provided through a circle (current finger position) and a trail (interaction history).}
+	   \label{fig:mHIVE}
+    \end{figure}
 
-%%%%%%%%%%%%%%%%%%
-%
-% SECTION: mHIVE
-% 
-%%%%%%%%%%%%%%%%%%
 
 
-\section{mHIVE, a mobile Haptic Instrument for Vibrotactile Exploration}
+\subsection{mHIVE, a mobile Haptic Instrument for Vibrotactile Exploration}
 We developed mHIVE to begin to explore how a haptic instrument should work and what it should do % you've defined mHIVE already.
 (\autoref{fig:mHIVE}).
 % , we  developed a prototype, mHIVE (mobile Haptic Instrument for Vibrotactile Exploration,
@@ -472,13 +481,6 @@ sensations, which are common, do not require interactive programming, are contro
 %direct manual control, similar to most musical instruments. % of the control parameters.
 %: early desktop prototypes were awkward.
 
-\begin{figure}[tb]
-   \centering
-%	   \includegraphics[width=0.43\textwidth]{mHIVE-screenshot-labeled-2013-08-13} 
-	   \includegraphics[width=0.7\textwidth]{mHIVE-screenshot-labeled-2013-08-13} 
-	   \caption{mHIVE interface. Primary interaction is through the amplitude-frequency view, where visual feedback is provided through a circle (current finger position) and a trail (interaction history).}
-	   \label{fig:mHIVE}
-    \end{figure}
 
 
 mHIVE offers real-time control of frequency, amplitude, waveform, envelope, duration, and rhythm, identified as the most important parameters for VT sensations \cite{Gunther2002,Brown2006a,Brown2006,Brewster2004, Rovan2000}.
@@ -501,13 +503,42 @@ We deployed mHIVE on an Android Nexus 10 tablet running Android 4.2.1.
 %\clearpage
 \section{Study}
 
+%%%%%%%%%%%%%%%%%%
+%
+% SECTION: Study Methodology
+% 
+%%%%%%%%%%%%%%%%%%
+%\clearpage
 % With mHIVE built, 
-We conducted a preliminary qualitative study to investigate two questions.
+We conducted a qualitative study to investigate two questions.
 %\km{Q1/Q2?slc} % consider numbering them for more structered reference later. gives a bit of formalism.
 First, is mHIVE an effective tool for the expression, exploration, and communication of affective phenomena?
-Second, what language, mental models, and metaphors do people use to describe VT sensations, and how do they relate to mHIVE's low-level control parameters?
+Second, what language, mental models, and metaphors do people use to describe vibrotactile sensations, and how do they relate to mHIVE's low-level control parameters?
 
-\begin{figure}[tb]
+% \noindent
+We collected and analyzed our data using the methodology of phenomenology, 
+% a standard method
+an established variant of qualitative inquiry used in psychology to investigate topics ranging from visual illusions to tactile experience \cite{Richer1978, Obrist2013, Creswell2013}.
+Phenomenology explores subjective experience, appropriate for an investigation into the more intangible qualities of pleasantness and affect.
+At this point, the rich, inductive data of qualitative analysis is more valuable than a controlled experiment with statistical analysis.
+%We chose this over more familiar statistical methods because we have no established interfaces or task examples for haptic design.
+%As such, any measures of error rate or time are meaningless.
+
+In particular, we use the Stevick-Colaizzi-Keen method as described by Moustakas \cite{Moustakas1994}.
+In-depth interviews are conducted with a small number of participants.
+The interviewer, Researcher 1 (R1), also documents his experience, as if he was interviewing himself.
+Then, R1 transcribes each interview, including his own.
+Transcripts are divided into non-overlapping, non-redundant statements about the phenomena known as Meaning Units (MUs).
+This considers every statement that the participants make, and does not discount any due to bias or selective searching.
+%
+Then, MUs are clustered into emergent themes. %through affinity diagrams.}%, writing and re-writing of thematic descriptions, and reflection guided by phenomenological philosophy.}
+% KM: can you expand (1 sentence) on this clustering and what follows? to address the concern of being biased or selective in comments. Need more transparency on what this part of process is.}
+%
+%Throughout the process, the philosophical principles of phenomenology are kept in mind; see \cite{Moustakas1994} for more detail.
+We interpret our themes in the Discussion.
+
+
+\begin{figure}[Htb]
 	\centering
 %	   \includegraphics[width=0.32\textwidth]{mHIVE-study-setup-cropped2} 
 	   \includegraphics[width= 0.42\textwidth]{mHIVE-study-setup-cropped2small} 
@@ -515,80 +546,45 @@ Second, what language, mental models, and metaphors do people use to describe VT
 	   Study setup. Both the participant (left) and the interviewer (right) feel the same sensation as the participant controls mHIVE.
 %	   The participant (left) controls mHIVE while feeling the sensation; the interviewer (right) feels the same sensation.
 }
-	   \label{fig:StudySetup}
+	   \label{fig:hapticinstrument:StudySetup}
 \end{figure}
 
-% \noindent
-We collected and analyzed our data using the methodology of phenomenology, 
-% a standard method
-an established variant of qualitative inquiry used in psychology to investigate topics ranging from visual illusions to tactile experience \cite{Richer1978, Obrist2013, Creswell2013}, but always as a means to explore subjective experience.
-%In particular, we use the Stevick-Colaizzi-Keen method as described by Moustakas \cite{Moustakas1994}.
+\subsection{Procedure}
+Our 1-hour open-ended interviews
+%with four participants, all with haptic experience.
+used the following protocol:
+\begin{enumerate}
+	\item Ask the participant for their background: occupation, experience with touchscreens, haptics, music, and video games.
+	\item Demonstrate mHIVE to the user, and invite them to explore while thinking aloud to describe the sensations they feel.
+	\item Probe the design space by asking participants to explore different control parameters, and to explore their metaphors (\emph{e.g.}, if the participant describes a sensation as ``smooth", R1 would ask them to try to produce a ``rough" sensation).
+	\item Ask the participants to produce sensations for the six basic cross-cultural emotions documented by Ekman \cite{Ekman1992}, and rank how well they think their sensation represents the emotion on a 4-point semantic differential scale (Very Poorly, Somewhat Poorly, Somewhat Well, Well). This was done both as an elicitation device to gather a wider range of interactions with mHIVE, and to directly investigate a design task.
+	\item Set the Haptuators down, and ask the participants to describe their experience of working with mHIVE in as complete detail as possible to evaluate the device itself.
+\end{enumerate}
 
-Four participants were recruited through email lists and word-of-mouth (P1-4, three male, ages 26-35 with self-reported occupations including graduate students or post-docs in information visualization, HCI, and human-robot interaction).
-All had experience working with haptic technology.
-%, and (because of this requirement) all knew the main researcher in a professional capacity, although only P2 had seen earlier prototypes of the haptic instrument.
-The small sample size, typical for phenomenological studies \cite{Creswell2013}, was appropriate for the rich data we wanted.
-Data collection ended when we achieved saturation of new results, and had a clear direction for future iterations.
+\noindent
+R1 conducted the interviews and analysis, which required specialized knowledge of mHIVE.
+%, and inductive nature of analysis did not allow for other researchers to cluster separately.
+% Because clustering was conducted and not coding, 
+%\kmEdit{Because we conducted clustering rather than coding,??}
+Scores of inter-rater reliability common with other qualitative analyses (\emph{e.g.}, grounded theory \cite{Corbin2008}) are inappropriate and unavailable, as we did not conduct deductive, low-level coding.
+To improve reliability,  R1's documented experience was analyzed first, and then consulted during analysis to remove bias (\emph{e.g.}, to not use terms only used by the experimenter).
+%documented and analyzed his own experience with the device, which was considered when conducting analysis.
+%we present here separately from other results to clearly demarcate the researcher's biases and preconceptions.
+%Even so, results are grounded in empirical data, shown by quotations representing the clusters.
+%Participants will also be contacted after analysis to provide feedback on our initial conclusions \textbf{TODO}.
 
-
-\section{Results}
-
-
-
-%Phenomenology explores subjective experience, appropriate for an investigation into the more intangible qualities of pleasantness and affect.
-%At this point, the rich, inductive data of qualitative analysis is more valuable than a controlled experiment with statistical analysis.
-%We chose this over more familiar statistical methods because we have no established interfaces or task examples for haptic design.
-%As such, any measures of error rate or time are meaningless.
-
-%In particular, we use the Stevick-Colaizzi-Keen method as described by Moustakas \cite{Moustakas1994}.
-%In-depth interviews are conducted with a small number of participants.
-%The interviewer, Researcher 1 (R1), also documents his experience, as if he was interviewing himself.
-%Then, R1 transcribes each interview, including his own.
-%Transcripts are divided into non-overlapping, non-redundant statements about the phenomena known as Meaning Units (MUs).
-%This considers every statement that the participants make, and does not discount any due to bias or selective searching.
-%%
-%Then, MUs are clustered into emergent themes. %through affinity diagrams.}%, writing and re-writing of thematic descriptions, and reflection guided by phenomenological philosophy.}
-%% KM: can you expand (1 sentence) on this clustering and what follows? to address the concern of being biased or selective in comments. Need more transparency on what this part of process is.}
-%%
-%%Throughout the process, the philosophical principles of phenomenology are kept in mind; see \cite{Moustakas1994} for more detail.
-%We interpret our themes in the Discussion.
-
-%\subsection{Procedure}
-%Our 1-hour open-ended interviews
-%%with four participants, all with haptic experience.
-%used the following protocol:
-%\begin{enumerate}
-%	\item Ask the participant for their background: occupation, experience with touchscreens, haptics, music, and video games.
-%	\item Demonstrate mHIVE to the user, and invite them to explore while thinking aloud to describe the sensations they feel.
-%	\item Probe the design space by asking participants to explore different control parameters, and to explore their metaphors (\emph{e.g.}, if the participant describes a sensation as ``smooth", R1 would ask them to try to produce a ``rough" sensation).
-%	\item Ask the participants to produce sensations for the six basic cross-cultural emotions documented by Ekman \cite{Ekman1992}, and rank how well they think their sensation represents the emotion on a 4-point semantic differential scale (Very Poorly, Somewhat Poorly, Somewhat Well, Well). This was done both as an elicitation device to gather a wider range of interactions with mHIVE, and to directly investigate a design task.
-%	\item Set the Haptuators down, and ask the participants to describe their experience of working with mHIVE in as complete detail as possible to evaluate the device itself.
-%\end{enumerate}
-%
-%\noindent
-%R1 conducted the interviews and analysis, which required specialized knowledge of mHIVE.
-%%, and inductive nature of analysis did not allow for other researchers to cluster separately.
-%% Because clustering was conducted and not coding, 
-%%\kmEdit{Because we conducted clustering rather than coding,??}
-%Scores of inter-rater reliability common with other qualitative analyses (\emph{e.g.}, grounded theory \cite{Corbin2008}) are inappropriate and unavailable, as we did not conduct deductive, low-level coding.
-%To improve reliability,  R1's documented experience was analyzed first, and then consulted during analysis to remove bias (\emph{e.g.}, to not use terms only used by the experimenter).
-%%documented and analyzed his own experience with the device, which was considered when conducting analysis.
-%%we present here separately from other results to clearly demarcate the researcher's biases and preconceptions.
-%%Even so, results are grounded in empirical data, shown by quotations representing the clusters.
-%%Participants will also be contacted after analysis to provide feedback on our initial conclusions \textbf{TODO}.
-%
 %%%%%%%%%%%%%%%%%%
 %
 % SECTION: Results
 % 
 %%%%%%%%%%%%%%%%%%
-%\section{Results}
-%
-%We sought participants with experience designing haptics as a proxy for expert designers for our initial study.
-%Four participants were recruited through email lists and word-of-mouth (P1-4, three male), and were all in the age range of 26-35 with self-reported occupations including graduate students or post-docs in information visualization, HCI, and human-robot interaction).
-%All had experience working with haptic technology, and (because of this requirement) all knew the main researcher in a professional capacity, although only P2 had seen earlier prototypes of the haptic instrument.
-%The small sample size, typical for phenomenological studies \cite{Creswell2013}, was appropriate for the rich data we wanted.
-%Data collection ended when we achieved saturation of new results, and had a clear direction for our next iteration.
+\section{Results}
+
+We sought participants with experience designing haptics as a proxy for expert designers for our initial study.
+Four participants were recruited through email lists and word-of-mouth (P1-4, three male), and were all in the age range of 26-35 with self-reported occupations including graduate students or post-docs in information visualization, HCI, and human-robot interaction).
+All had experience working with haptic technology, and (because of this requirement) all knew the main researcher in a professional capacity, although only P2 had seen earlier prototypes of the haptic instrument.
+The small sample size, typical for phenomenological studies \cite{Creswell2013}, was appropriate for the rich data we wanted.
+Data collection ended when we achieved saturation of new results, and had a clear direction for our next iteration.
 
 %determined by saturation of new data: when we stopped encountering new data, we stopped recruiting participants.
 
@@ -636,71 +632,452 @@ Data collection ended when we achieved saturation of new results, and had a clea
 % Subsection: Themes
 %
 %\subsection{Themes}
-In this section, we outline the three major themes that emerged during analysis: % possibly: use this spot to help with the expansion on methodology, reinforcing that it was systematic not biased, clearly a concern of the reviewers.}
+Here we report the three major themes that emerged during analysis: % possibly: use this spot to help with the expansion on methodology, reinforcing that it was systematic not biased, clearly a concern of the reviewers.}
 %
  mHIVE's success as a haptic instrument, mHIVE's limitations that reveal more detail about the haptic design process, and the use of language in the study.
 
-%\theme{mHIVE Succeeds as a Haptic Instrument}
+\theme{mHIVE Succeeds as a Haptic Instrument}
 
-Our results suggest that mHIVE was well received and \textbf{succeeded as a haptic instrument}. %, and can be effective for exploration of a design space and communication in the haptic domain. % This section 
-Participants reported that mHIVE was best served to explore the design space, generate a number of ideas, and \nq{2}{accidentally stumble upon something} as they explored the device.
-mHIVE also
+%mHIVE achieved its goals of exploration and communication. 
+Our results suggest that mHIVE can be effective for exploration of a design space, and communication in the haptic domain. % This section does come across as one-sided. Being critical: the goal of exploration/communication is broad and loose (a low bar?) and many statements could be used in support of it. Can you balance with statements that either countered it (showed where improvement was needed) or establish limits? Most helpful now is that you break it down into sub-themes.
+Overall, mHIVE was well received, seen as a novel and promising tool.
+\nq{1}{I definitely liked it},
+\nq{2}{I think there should be more devices like this for designing haptic icons}.
+%\nq{3}{It was fine. I mean I guess at the high level, it's relatively easy -to-use}
+%\nq{4}{it's a nice, uh, nice sandbox to play in}
+
+
+\strongitem{Serendipitous exploration}
+Participants reported that mHIVE was best served to explore the design space, generate a number of ideas, and try things out.
+Serendipitous discoveries and exclamations of surprise were common.
+Participants were able to \nq{2}{accidentally stumble upon something} as they explored the device.
+%	\nq{1}{what's that going to be like},
+%	\sq{maybe something like this�}
+%	\nq{2}{it's not like you know, uh, everything in advance, it's not like you're trying to mimic something, you're trying to put random things together and see what meanings you can extract out of it}
+	\sq{I felt I could get a large variety},
+	\nq{3}{I could easily play around with the high-level to find out what was neat}.
+%	\nq{1}{Ooo, that's kinda cool}.
+
+%In addition, mHIVE let the participants "accidentally stumble upon something" (P2), revealed through expressions of surprise when feeling interesting sensations:
+
+
+%	\nq{2}{Yeah, you feel like, oh this is interesting}
+
+%	\nq{3}{That's an interesting kind of effect there}
+
+\strongitem{Communication}
+mHIVE %was not just a tool for exploration, but also communication as it 
 established an additional modality for dialogue.
-The dual outputs created a shared context, demonstrated by deictic phrases: the additional context of the VT sensation was required to make sense of the statements like  ``that" and ``there".
-%, reminiscent of the classic ``Put That There" multimodal interaction demo \cite{Bolt1980} indicate a shared reference point was established from the haptic instrument.
+%Participants referred to sensations as a deictic channel, essentially using the device in a manner analogous to gestures.
+The dual outputs created a shared context, demonstrated by deictic phrases: the additional context of the vibrotactile sensation was required to make sense of the statement.
+The use of ``that" and ``there", reminiscent of the classic ``Put That There" multimodal interaction demo \cite{Bolt1980} indicate a shared reference point was established from the haptic instrument.
+\nq{3}{So there'd be like, (creates a sensation on the device), which is pretty mellow}.
 
-%theme 2
-The second theme, \textbf{tweaking through visualization and modification}, established
-key directions for future design.
-Though mHIVE supported exploration and collaboration, we found 
+In particular, P4 successfully communicated the sensation of sleepiness to the R1, by asking whether R1 could guess the sensation.
+\nq{4}{Can you guess it?} \namedquote{R1}{Sleepy?} \nq{4}{Yeah. Pretty good}.
+The dialogue worked as a two way channel, as R1 was able to phrase questions using the device.
+%, and communicate the sensation of surprise to P4, or pose a question to P2.
+	\nq{2}{It was different} \namedquote{R1}{How was it different?} \nq{2}{You delayed the first part, it felt new}.%, but when you make random moves}
+
+Certain sensations, like a feeling of randomness, could only be felt when another person controlled mHIVE.
+	\nq{2}{When someone else does it, I feel better, it's like, you cannot tickle yourself}.
+
+
+%This was revealed especially when discussing a usability flaw in the device, a lag between touching the device and the output of the sensation:
+%	\nq{2}{(taps on the device, demonstrating delay) you feel the delay?}
+%In addition, the interviewer was able to phrase questions by using the device:
+	
+	
+%	\theme{ADSR envelope has a learning curve}
+
+%\strongitem{Learning curve}
+%Like a musical instrument, mHIVE also has a learning curve.
+%This is especially true with the ADSR envelope, which was unfamiliar to most participants.
+%P4, a musician who had encountered ADSR envelopes before, was more familiar with the concept, but still felt that he could become more expert with mHIVE.
+%Though a learning curve limits who can use the device, it might just mean a different target audience, such as experts rather than novices, or designers rather than end-users.
+%%ADSR especially required more expertise than the other features:
+%	\nq{1}{This little plot dude down here didn't make sense to me at all at first, once you explained it, it totally it did; I'm still not very confident in my ability to map between this plot and sensations, but I kinda get how it would work},
+%	\nq{4}{I think it does require a bit of a learning curve}.
+%%\nq{3}{I find this a bit harder just to perceptualize, but by the end I think I was starting to get a sense of how it worked, it took me longer than the other aspects to, clue into.}
+%%\nq{4}{So I don't know if most people would take the time to use a tool like this to develop a range of different haptic signals for their phone, but this would be a great tool for a designer to use}
+%%We suspect that ADSR would be used more heavily by expert users.
+%However, some designers might still not want to use ADSR at all.
+%\nq{3}{This attack and release, I find it the third most valuable thing [of four].}
+
+%% P2 and found the control confusing when the sustain was 0 (\q{(sustain $<0$), I can control how long it vibrates}, \q{(sustain 0), it's like it dies, and, seems like, um, I dunno I'm less in control of this one}).
+
+%%P4, with experience in digital music, immediately recognized the ADSR. TODO
+
+\theme{Tweaking through Visualization and Modification}
+
+During analysis, some key directions for future design emerged around visualization and control capabilities.
+
+\strongitem{Inability to tweak}
+Though mHIVE supported exploration and collaboration, we found % that mHIVE was not a general design tool on its own.
 it was inadequate as a standalone design tool.
-Few created sensations were considered to be final,
-%Many descriptions were hedged 
-%and in the design task, few sensations captured the emotional content well.
-%Part of mHIVE's inability to support tweaking was
-partly due to cognitive limitations for both memory and attention.
-Participants found it difficult to remember what they had tried before, 
-and to pay attention to the output 
-while simultaneously controlling it. 
-%Participants suggested that although 
-Participants suggested additional visualization and recording features, % helped somewhat
-%to overcome these limitations, more was needed.
-%All  requested greater emphasis on recording through
-such as repetition or looping, both to aid memory and allow for focus on the sensation independent of device control. 
-Allowing persistent, modifiable sensations % and alternative visualizations
-could also help participants overcome these limitations.
+Few created sensations were considered to be final.
+Many descriptions were hedged % with an ``I dunno," 
+and in the design task, few sensations captured the emotional content well.%(\autoref{fig:design:bar:plot})
+	\nq{1}{I dunno, maybe that's afraid?},
+%	\nq{1}{Not bad\ldots I feel that one could do better}, \sq{My angry is somewhat disgusted}
+	\nq{2}{Still felt that you can make them better},
+	\nq{3}{To me that's more fuming (laughing) than it is angry}.
+%	\nq{4}{I'm sure if I spent more time on this, I think we could play around a bit more with the design space.}
+On some occasions, participants were certain about their descriptions.
+\nq{1}{Sad, definitely down on the amplitude with sad\ldots oh that's totally sad. Yeah.}.
+%, \nq{2}{Yeah. This is afraid.}
+This was uncommon, and usually tied to discovering an ideal sensation during the design task.
+
+%\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+%   \centering
+%   \includegraphics[width=0.47\textwidth]{mHIVE-BarPlot} 
+%   \caption{Participant ratings of the confidence in their designs}
+%   \label{fig:design:bar:plot}
+%\end{figure}
 
 
-The final theme was that VT sensations have \textbf{a difficult language}.
+%\strongitem{Memory and attention barriers}
+\strongitem{More visualization and recording}
+%Though the participants were able to create initial designs for sensations, they were unable to develop them.
+Part of mHIVE's inability to support tweaking was due to cognitive limitations for both memory and attention.
+Participants found it difficult to remember what they had tried before, % and found it difficult 
+and to pay attention to the output % sensation 
+while simultaneously controlling it. %the device.
+%Participants found significant cognitive challenge in remembering what they had tried before
+%	\nq{2}{I tried to recreate that but I couldn't create it exactly as it felt the first time}
+\nq{3}{There's a lot of variables which, when I'm trying to compare between two configurations\ldots it was hard sometimes to remember what I had tried},
+%if I've done something,
+%\theme{Tactile Overshadowing, Looping is required}
+%Participants unanimously expressed a desire to feel sensations without having to simultaneously control the device, allowing participants to focus on the sensations they were feeling. This was achieved either by using the recording functionality or the interviewer control mHIVE:
+	\nq{1}{I definitely liked being able to feel a stimulus without having to implement it, you know, it allows me to focus more on what it feels like}.
+%%	\nq{3}{it's bit hard to do, like I'm trying to go for what I'm imagining, it's hard to do it and feel it at the same time I guess?}
+%%	\nq{2}{I tried to recreate that but I couldn't create it exactly as it felt the first time}
+%%One thing all participants mentioned was a difficulty remembering what they had previously created or developed. This was partially alleviated by recording, but a desire for more history was deemed important:
+%	\nq{3}{It was neat when I could play it back and be like, what did I do and I could see, oh I did that\ldots
+%	%and then being able to see where it was was very useful, cuz that helped me in, in what I wanted to be able to kind of replay, like 
+%	oh I remember doing something that might work in this situation}.
+
+%This was especially true when the participants noticed a delay between touching the tablet screen and the haptuators activating.  \sq{Feels like there's a delay}, \nq{2}{If I don't look at your finger, I don't see the asynchrony}.
+
+%\strongitem{More visualization and recording}
+Participants suggested that although % though 
+visualization and recording features helped somewhat %a little 
+to overcome these limitations, more was needed. % they needed to be improved.
+%All participants requested a further emphasis on recording through repetition or looping.
+%This was intended to both aid memory and allow participants to focus on the sensation without worrying about controlling the device.
+All  requested greater emphasis on recording through repetition or looping, both to aid memory and allow for focus on the sensation independent of device control. 
+
+%
+%\km{SLC***: simultaneous compose/review bad; fluid mode shifting good?} % KM: just struck me: does this undermine the key starting premise that we should be able to perceive the design output AS we create it? In fact, we're finding that this is cognitively too hard. Is it the same for music? Maybe what we have learned is that you need a little space, but not much; and perhaps it is more important that the cognitive effort and time elapsed in moving between composition and review is very streamlined - i.e. you do them separately, but the movement between modes must be extremely fluid.
+
+
+Allowing persistent, modifiable sensations and alternative visualizations could also help participants overcome these limitations.
+%These cognitive challenges were exacerbated when developing more complex sensations.
+%mHIVE's recording and visualization capabilities were critical for dealing with these challenges during the design process.
+%The visual trail on the main frequency-amplitude screen was especially well received, both aesthetically and for practical use.
+%Recorded sensations were important for developing more complicated sensations and augmenting participant memory:
+%\nq{2}{The recording functionality I would use for designing more complicated icons that I want to feel different and pleasant}.
+%, sometimes goofy or funny
+%\nq{2}{Feels great, I love the GUI, a lot},
+%\nq{2}{I like the visualization, I like that the history is visible}.
+%However, the recording and visualization features are simply not enough as is.
+	\nq{3}{The recording records what I do, but it'd be nice to have it repeat stuff},
+%This was sometimes meant to mean repeating a single note (P3 quote TODO) but also lead to suggestions of direct manipulation and history:
+%Additional visualization was suggested in different forms, improving the trail and seeing the output signal.
+%\nq{3}{I almost wanted to be able to see an actual output of the electrical signals\ldots I was having a hard time doing it just by feeling, I would've liked to be able to see it},
+%\strongitem{Modification}
+%Participants unanimously wanted to modify sensations that had been created.
+	\nq{1}{It might conceivably be nice to be able to, you know, draw a curve, draw a pattern, draw like you would in paint, and then be able to manipulate it, replay it, move the points, see what happens}.
+%\nq{2}{What I would like to do is, to record something like this, or say go from here to here with the same pace, a constant speed, and then say, okay now, add some acceleration or deceleration to this movement},
+%	\nq{3}{Once I zeroed in on something that I thought was close, I almost want to be able to record that spot and then like, tweak it}.
+
+%These design directions may push towards previous tools, like the vibrotactile score \cite{Lee2012, Lee2009}.
+%However, it is important to keep some of the novelties created by the haptic instrument, whether as a development paradigm or an interaction technique.
+%Rather, combining the two paradigms of editing and collaborative real-time control, either in a single tool or as steps in the design process, might be the best direction. 
+%% \kmEdit{slc}
+%% Trying to decide if you mean tight integration between two tools in a design-process kind of way; or integrating them within a single tool? 
+%	\sq{If you could, transfer this to a desktop computer and then play with it on the desktop computer},
+%	\nq{2}{Definitely those options would bloat the interface\ldots so you don't want to sacrifice the good interface that you have for a lot of functionality that a lot of people don't want}.
+
+%One thing all the participants wanted was for recorded sensations to loop and be modifiable:
+
+%	\nq{1}{The other thing was, I think a little bit difficult,is\ldots
+%	%you know there was one or two instances where I wanted to, um, you know
+%	if I wanted to change something over the course of recording, you know if I wanted to change the waveform as part of the same recording that it was, you know, I couldn't do that quickly}
+
+
+
+
+
+%%\theme{Visualizations are important}
+%%The answer to 
+%%Visualizations were critical  \textbf{TODO}
+%%The amplitude-frequency view and its graphical trail was well received, especially by P2: \q{Feels great, I love the GUI, a lot}, \q{I like the visualization, I like that the history is visible}.
+
+%P1 enjoyed the visualizations, but wasn't sure if it was useful at first: \q{at first I wasn't sure whether I liked the trails or not, and I still don't think they actually do me any good, but I like them just, aesthetically\ldots you know what maybe they do, because they allow me to, uh, think visually about uh, about what I'm doing and they also allow me to, uh, reproduce and tweak, um, a stimulus.}
+%% You know I, I can do this, the output's kind of like that, but I, I, and so the, it's easy to tell I'm doing the same thing again, it's also easy to tell how I'm changing}
+
+%P3 actually wanted more visualization, particularly of the outputted electrical signal: \q{I almost wanted to be able to, um, see like an actual, like, output of the, electrical signals, so that I could really map\ldots I was having a hard time doing it just by feeling, I would've liked to be able to see it.}
+
+
+
+
+
+%Further comments suggested that the design process was split into two tasks: generation of ideas and tweaking.
+%The recording function was a first step towards stronger design capabilities, but tweaking required more power.
+%Participants wanted to modify existing stimuli, such as adjusting speed or length of a sensation, automatically loop or sequence sensations, and manually enter values for the parameters (e.g., ADSR).
+
+%%	\nq{1}{but it- it seems like a weird tool cuz it's so constrained, right, but when I think about it as, oh I'm just defining a single tone, um, then it makes sense, and it seems like a handy thing to have.}
+
+%	
+
+
+%Though participants wanted additional functionality to support tweaking, they thought it might be best implemented in a second tool or mode:
+%	
+%	\nq{4}{
+%	%Either that or if you just have a, selecting, buttons like this, you wouldn't need this free form control, and
+%	you'd obviously need two interfaces, one with this freeform, uh digital entry and another one you can just program in what you want.}
+
+
+%\theme{Hard to remember what was tried}
+%Part of mHIVE's inability to support tweaking was due to a poor support of sensation history.
+
+
+%	\nq{3}{it was neat when I could play it back and be like, what did I do and I could see, oh I did that, and then being able to see where it was was very useful, cuz that helped me in, in what I wanted to be able to kind of replay, like oh I remember doing something that might in this situation.}
+
+%However, the mHIVE's recording and visualization features are not enough.
+%Participants were lost in the complexity, and indicated a desire for looping or direct manipulation that would allow changes to existing sensations.
+%This is an important direction for improvement, because could help challenges for both attention (by allowing participants to focus entirely on the looping sensation) and memory (by allowing modifications instead of requiring a sensation to be redrawn each time).
+
+%	\nq{1}{it might conceivably be nice to be able to, you know, draw a curve, draw a pattern, draw like you would in paint, and then be able to manipulate it, replay it, move the points, see what happens.}
+%	
+%	\nq{1}{The other thing was, I think a little bit difficult,is you know there was one or two instances where I wanted to, um, you know if I wanted to change something over the course of recording, you know if I wanted to change the waveform as part of the same recording that it was, you know, I couldn't do that quickly,}
+
+%	\nq{3}{the recording records what I do, but it'd be nice to have it repeat stuff like that}
+%	
+%These design directions may push towards previous tools, like the vibrotactile score (cite).
+%However, it is important to keep some of the novelties created by the haptic instrument, whether as a development paradigm or an interaction technique.
+%Rather, combining the two paradigms of editing and collaborative real-time control might be the best direction.
+
+%	\nq{2}{If you could, transfer this to a computer, to a desktop computer and then play with it on the desktop computer},
+%	\sq{definitely those options would bloat the, interface so, somehow you want to, um, not go that way, as well, so you don't want to sacrifice the good interface that you have for a lot of functionality that a lot of people don't want.}
+
+%One thing all the participants wanted was for recorded sensations to loop and be modifiable:
+
+%	\nq{1}{The other thing was, I think a little bit difficult,is\ldots
+%	%you know there was one or two instances where I wanted to, um, you know
+%	if I wanted to change something over the course of recording, you know if I wanted to change the waveform as part of the same recording that it was, you know, I couldn't do that quickly}
+
+
+\theme{A Difficult Language}
+% Unfortunately, We report here on some of the emerging trends.
 Our study was too small to analyze language patterns in detail, but exposes emerging trends.
-Participants often started with a statement of like or dislike rather than a description, with
-pleasant sensations often including
-ramp-in and ramp-out (``echo" or ``ringing") of the ADSR envelope or lower-frequency sensations.
-%Longer, higher frequency without ramp-in and ramp-out were less pleasant.
-Changes of waveform were noticeable but difficult to describe. %, Participants all noticed differences between waveforms, but were often challenged in expressing them
-%(P4 
-%used the musical term ``timbre").
-%Square waves in particular were distinct, with a greater range and stronger affinity to mechanical sensations.
-%\strongitem{Aural/haptic metaphors drawn from previous experience}
-Participants also frequently 
-%For the most part, participants 
-used concrete examples and direct analogies to describe sensations, often drawn from their previous experiences.
-One stand-out strategy employed by all participants  
-was  
-onomatopoeias (e.g.,  \nq{1\&4}{beeooo}).
-%, \nq{1}{vroom}, \sq{bsheeeooo}, \sq{boom}, \sq{neeeaa}, \nq{2}{mmmMMMmmm}, \sq{pa pa pa pa}, \sq{tum tum tum tum}, \nq{3}{tumba tumba tumba tumba}; \nq{4}{upward arpeggio, like, (singing with hand gestures) na na na naaa}.
-Other common metaphors were sound-based %( %including hum, buzz, whistle, rumble (P1);
-(e.g., \nq{1\&2}{bell})
-%; squeaky, creak (P2); or
-%thumpy (P3).
-%Still other descriptors were directly haptic in nature:
-or haptic
-%rough, flat (P1);
-%sharp, round, ticklish (P2);
-(e.g., \nq{3}{cat pawing}).
-%sharp, smooth, cat pawing (P3);
-%impatient foot tapping (P4).
 
+%\theme{ADSR and low-frequencies are pleasant, constant high-frequencies are unpleasant}
+
+\strongitem{Pleasantness, ADSR, and frequency}
+Participants often started with a statement of like or dislike rather than a description.
+% frequently first stated whether they liked or disliked a sensation, rather than describing  the sensations.
+Pleasant sensations often involved the
+%Participants used a variety of approaches to describing the sensations that they felt.
+%It was sometimes difficult to find appropriate words.
+%One of the most common exclamations was whether a participant liked or disliked a sensation.
+%This was sometimes more immediate and natural than adjectives.
+ramp-in and ramp-out (``echo" or ``ringing") of the ADSR envelope, or lower-frequency sensations.
+Longer, higher frequency without ramp-in and ramp-out were less pleasant.
+% were especially tied to creating a pleasant sensation.
+%In keeping with the literature about touch being connected to affect or \ldots (cite, ask Hasti for refs), participants frequently and readily expressed when they liked a sensation:
+	\nq{1}{I don't know how else to describe it, I kinda like it},
+%	\nq{3}{I like that}
+%This was especially true when introduced to the ADSR envelope:
+%	\nq{1}{Oh that's cool, it definitely allows you to change, um, uh, feel, the� niceness? of the tone}, \sq{kinda like that with the square wave, I didn't like the square wave before}	
+	\sq{Yeah, this [ADSR] seems natural, somehow}, \nq{2}{It feels unnatural to kill the echo right away},
+%	\nq{3}{(TODO)}
+%While exploring the device, participants tended to divide frequency and amplitude into two or three discrete values: low, high, and sometimes medium.
+%Initially, participants tended to press and hold, rather than tap rhythms (often until prompted by R1).
+%The labeled axes divided the main frequency-amplitude interface into quadrants, and afforded this discretization.
+%The lower-frequency section (approx. 0-20Hz) provided some variation, when the individual pulses of the actuator could be felt.
+%Lower-frequency sensations were often pleasant, while a continuous, high-frequency (150-180Hz) sensation was unpleasant.
+%	\nq{2}{I like the sensation of the very low frequency, it's very warm},
+	\nq{3}{I like this [low-frequency] sensation cuz to me it feels a lot like purring}.
+%Correspondingly, all participants agreed that a sustained high-frequency (right-half of the view, or over 90Hz) was unpleaseant or associated with negative emotions:
+%	\nq{1}{I find there's negative emotions I would also associate with high frequencies, definitely anger is a high frequency thing},
+%	\nq{2}{I feel like the high frequency one can become disturbing, if the use is prolonged}.
+%	\nq{3}{sad was hard, because, I feel like, the high vibration frequencies are agitating so they're okay with negative emotions, and it's a little bit harder at the high speeds to get something that's happier feeling but low, I feel like on this was kind of hard}
+
+
+%\nq{2}{I'm trying the extreme points first. And middle points.}
+
+
+\strongitem{Waveform}
+%\theme{Waveforms feel qualitatively different, and might gave sensations of frequency}
+Participants all noticed differences between waveforms, but were often challenged in expressing them
+% although it was often challenging to express the difference
+(P4 
+%described the differences with 
+used the musical term ``timbre").
+Square waves in particular were distinct, with a greater range and stronger affinity to mechanical sensations.
+	\nq{1}{It's interesting, they feel more different than I thought they would},
+	\nq{2}{If you want to make something feel like a motorcycle, you would definitely need square wave}.
+%The different waveforms also compounded with frequency -- some waveforms felt like they had higher frequency content in them than others.
+%%	\nq{3}{oh not as maybe nice as sine}, \sq{I like it better with the triangle.}
+%%The different waveforms felt like they had different frequency content. In some cases this was minor or questioned:
+%	\nq{1}{The corners must excite other vibration modes, there's definitely more high frequency information there},
+%	\sq{Maybe a sine wave with a frequency of f is equal as a square wave with frequency of 2f}, \nq{2}{Saw feels the highest, then sine, then square and then triangle}.
+%	P3 noticed and considered frequency differences between the waveforms, but then decided they weren't salient enough.
+%	\nq{3}{I don't think the frequencies are changing, I think it's just the style}.
+%%\theme{Common descriptors included sonic, tactile, and abstract-affective metaphors}
+
+\strongitem{Aural/haptic metaphors drawn from previous experience}
+For the most part, participants used concrete examples and direct analogies to describe sensations, often drawn from their previous experiences.
+One stand-out strategy employed by all participants %to describe sensations 
+was % the use of 
+onomatopoeias: \nq{1\&4}{beeooo}, \nq{1}{vroom}, \sq{bsheeeooo}, \sq{boom}, \sq{neeeaa}, \nq{2}{mmmMMMmmm}, \sq{pa pa pa pa}, \sq{tum tum tum tum}, \nq{3}{tumba tumba tumba tumba}; \nq{4}{upward arpeggio, like, (singing with hand gestures) na na na naaa}.
+Other sound-based metaphors were very common, including hum, buzz, whistle, rumble (P1); bell (P1, P2); squeaky, creak (P2); or thumpy (P3).
+%Part of this was influenced, for P1, by hearing the haptuators (especially at higher frequencies).
+%In response, R1 reduced the volume for P2-4.
+%Audio metaphors were still used; even the word ``sounds" was used instead of ``feels": \nq{4}{Triangle, sounds nicer, er feels nicer (laughing)}.
+%This may be isolated to vibrotactile output, and might not generalize to force-feedback output.
+Still other descriptors were directly haptic in nature:
+rough, flat (P1);
+sharp, round, ticklish (P2);
+sharp, smooth, cat pawing (P3);
+impatient foot tapping (P4).
+
+
+%\strongitem{Previous experiences}
+%Participants especially drew on their previous experience for direct haptic metaphors.
+%P3, a pet-owner, used several biological metaphors related to her background:
+%	\nq{3}{%As you know, 
+%A lot of my experience developing haptic outputs has been trying to develop biological metaphors for haptic outputs, so I think in part, I'm just used to thinking about these kinds of things, the kind of biological, twist to them?}.
+%%	 Or more natural twist, um, I think that's most of it}
+%Biological metaphors were also used by P2 (\q{This feels like someone throwing up (laughing)} ) and P1 (\q{This to me feels like the device is breathing, kind of like a tactile equivalent to the little light on the front of a MacBook}), but were more isolated.
+
+%
+%Cars and motors were another common direct metaphor, particularly at low frequencies.
+%%This was also related previous experience: P2 mentioned that he pays a lot of attention to car engines, and drives a manual car.
+%This was also related to previous experience: P2 mentioned that he pays a lot of attention to car engines, and drives a manual (stick-shift) car.
+%This might explain why it was so commonly mentioned, as a car engine is a common experience.
+%	\nq{2}{It feels like, feeling cars passing by, as if you can touch something on the side of the road\ldots like a lamp post that vibrates with cars},
+%	\nq{3}{Like a car running},
+%	\nq{4}{Sort of a revving sound, like revving an engine}.
+	
+%\strongitem{Few abstract metaphors}
+%Although most descriptors were concrete, some more abstract adjectives were used.
+%Abstract terms were typically structural in nature, typically involving the control parameters (amplitude, frequency).
+%Other terms were used, some in relation to an overall strength (intense, dainty, has presence), some affective in nature (goofy, serious, playful).
+%We did not encounter enough of these terms to notice trends.
+
+%More colourful abstract descriptors were still related to the control parameters (intense, dainty, has strong, has presence), or affective during the design task.
+
+
+%%%%%%%%%%%%%%%%%%
+%
+% SECTION: Discussion
+% 
+%%%%%%%%%%%%%%%%%%
+\section{Discussion}
+Here we interpret these themes to draw implications for haptic design tools, and compare to research on the language of haptics.
+We then reflect upon our methodology and limitations.
+
+%
+% Discussion: Design Tools
+%
+\subsection{Design Tools}
+
+mHIVE was able to achieve the two main goals of a haptic instrument, facilitating both exploration and collaboration.
+Participants were clearly able to explore the different low-level parameters, and encountered serendipitous or unexpected sensations through improvisation.
+mHIVE created a shared experience that facilitated communication between R1 and the participants.
+%The dual outputs created a shared context, demonstrated by deictic phrases where the additional context of the vibrotactile sensation was required to make sense of the statement.
+%Direct expression of haptic ideas without names occurred: Participants referred to stimuli as ``this" or ``that," meaning that participants did not need to give names to sensations to discuss them.
+%The device was sometimes used as a means of almost gestural expression inserted into conversation.
+We can thus conclude that haptic instruments are a promising new tool in a haptic designer's arsenal, with a first, successful implementation in mHIVE.
+
+However, the second theme shows that serendipity and communication are only part of the equation.
+mHIVE does not serve as a general editor of haptic sensations.
+In particular, participants found their attention split when controlling the device and feeling the sensation; perhaps the real-time control should allow for a rapid, but not instantaneous, switch in focus between control and perception.
+%Though mHIVE was successful in its goals, its present form does not also serve as an editor.
+More generally, participants were unable to tweak sensations because there was insufficient support for comparing ideas or evolving an existing idea.
+%for previous sensations, memory and attention. difficulty of remembering what had been explored before, and the difficulty of paying attention to the sensation perceptually while creating it.
+
+% This difficulty is unsurprising, 
+In hindsight, this general difficulty is understandable given the broader context of the musical instrument analogy we used for inspiration.
+%The other two problems are cognitive-perceptual barriers that must be addressed when considering the entire work flow for haptic sensations.
+Musical instruments are not used to write songs on their own, but % need to be 
+combined with notation or recording media.
+% This
+A similar combination of a haptic instrument and recording might be described more succinctly as %with
+ a \emph{haptic sketchpad}.
+Sketching is critical in design because it allows for the evolution of an idea through multiple sketches, as well as criticisms, comparisons, and modifications \cite{Cross2011}.
+%By adopting a more visual, modifiable tool, we can support tweaking.
+Emphasizing a history feature that supports multiple versions of sketches, the user could develop an idea as if with a multiple pages in a sketchbook.
+Haptic sketching in hardware has already been shown to be %very 
+effective \cite{Moussette2011}.  %; we plan to explore more visual metaphors with future iterations.
+As well, a visual metaphor resonates with the desire for more effective visualization.
+%, so a software perspective might be promising
+%A haptic sketchpad would make heavier use of visual working memory to offset the noted perceptual-cognitive challenges with .
+%Of course, effective visualizations are challenging, and are left to future work.
+
+Ultimately, haptic instruments may be most useful as one element
+% might be useful as one type of tool  % 
+in a suite, or component of a more general tool.
+% As part of a suite of tools, mHIVE or other 
+A haptic instrument could complement % work together with 
+a graphical editing tool that does support tweaking, such as the vibrotactile score \cite{Lee2012,Lee2009} or the hapticon editor \cite{Enriquez2003}.
+%This path mirrors musical development directly, and so more inspiration might be from digital audio tools.
+As part of a more comprehensive tool, mHIVE could be improved to reduce cognitive barriers to memory and attention.
+Alternatively, we could add functionality to mHIVE to support looping, visualization, and direct manipulation of the sensations within the tool.
+We will explore these options as we iterate on mHIVE's design in future work.
+
+%This latter approach might suggest that musical instrument metaphor needs to be used more broadly.
+
+
+
+%
+% Discussion: Language
+%
+\subsection{Language}
+
+Our preliminary results for language are compatible with the literature,
+%providing inductive, empirical evidence
+supporting previous work.
+% The
+Participants' readiness to say whether a sensation was pleasant or not supports the 
+% current consensus % KM: I wouldn' say it's a consensus yet.
+view that touch is affective in nature, and that knowing what one likes or doesn't like is a primary function of touch \cite{Jansson-Boyd2011}.
+ADSR pleasantness and high-frequency unpleasantness are both consistent with the literature: Zheng and Morell note that ramped signals influenced affect more positively than step signals, and 3s high-frequency sensations were annoying or agitating \cite{Zheng2012}.
+The heavy use of onomatopoeias is reminiscent of Watanabe \emph{et al}.'s work with static materials \cite{JunjiWatanabeTomohikoHayakawaShigeruMatsuiArisaKanoYuichiroShimizu2012}.
+%, albeit in English rather than Japanese.
+However, in our study, onomatopoeias were often used to express dynamic sensations (beeeooo being a gradual decrease in amplitude and frequency), which might be a useful direction for future work.
+
+%Participants tended to split the frequency space into either low/high, or low/middle/high frequency regions.
+%Though this lends support to the low/high frequency split found in the literature \cite{Obrist2013,Zheng2012}, participants did use dynamic changes in both frequency and amplitude, again suggesting that dynamism is an important direction for future work.
+
+%Because of the consistency with the literature, our other discovered language themes might be appropriate for future areas of research.
+%Personal experience and direct analogies might make promising starting points for designers, by focusing on making tactile sensations based on common experiences.
+%As the language of touch is developed, we can even consider using higher-level parameters, such as changing the ``roughness" or ``pleasantness" of a sensation, rather than frequency or amplitude.
+%This will require more analysis, and is left to future work.
+%However, we can say that the parameters chosen for mHIVE seem to be effective for controlling vibrotactile stimuli at this point in time.
+
+%
+% Discussion: Methodology and Limitations
+%
+\subsection{Methodology and Limitations}
+
+Although phenomenology is uncommon in the haptics community (excluding \cite{Obrist2013}), we found it to be an effective way to empirically examine the subjective experience of using mHIVE.
+%This was especially true when examining the more nebulous concepts of affect, rather than perceptual thresholds found in psychophysics studies.
+Because the community is still developing processes and tasks for haptic design, qualitative studies seem to be an especially appropriate way to tackle these problems.
+Once we have further defined haptic design, we can then move to more task-based, experimental methods.
+%Of course, these will hopefully be triangulated with controlled, statistically rigorous studies.
+
+Our study was a first round of feedback to inform our next iteration, and has limitations.
+%There are limitations to this study that we must mention.
+First, our participant pool is (intentionally) small,
+%Four participants was sufficient for the rich data we needed at this stage in the design process.
+and participants were all collected through our professional network, as people with haptic design experience are rare.
+As we continue to tackle the problem of haptic design, we hope to seek out a larger and more diverse pool of participants, and %understand different aspects of the problem through different methods.
+%In particular, we hope to
+explore more realistic design tasks. %with future work as we iterate upon our tools.
 
 
 
@@ -724,8 +1101,8 @@ in a suite, or component of a more general tool.
 %This could be in an ``exploration mode", or perhaps a portable tool to sketch ideas when not near a haptic editing suite.
 
 We follow-up on these leads in our subsequent design studies.
-In \autoref{ch:hapticanimation}, we use a persistent model of a VT sensation for an editor, and confirm the value of real-time feedback while expanding the design palette to include spatial haptics.
-In \autoref{ch:hapticexamples}, we attempt to mitigate the difficulty of describing haptics and draw upon examples by using a VT design gallery.
+In \autoref{ch:tactileanimation}, we use a persistent model of a VT sensation for an editor, and confirm the value of real-time feedback while expanding the design palette to include spatial haptics.
+In \autoref{ch:macaron}, we attempt to mitigate the difficulty of describing haptics and draw upon examples by using a VT design gallery.
 
 
 
