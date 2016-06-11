@@ -123,7 +123,7 @@ An artist draws an animated sequence in the user interface and the user experien
 %Visual animators, 
 %already expert in using time and space to portray motion, could readily transfer their skills to production of rich haptic sensations if given the right tools.
 In this second case study, we iterate on some of our findings from the haptic instrument to design a full authoring tool, using real-time feedback but supporting refinement with time-based editing.
-This work\footnote{In peer review at the time of this writing.} targeted professional media designers (especially animators) creating spatial vibrotactile sensations.
+This work\footnote{Published and demoed at UIST 2015 \cite{Schneider2015}.} targeted professional media designers (especially animators) creating spatial vibrotactile sensations.
 To afford real-time manipulation, we developed the \emph{tactile animation object}, a persistent, manipulable primitive rendered through phantom vibrotactile sensations, and implement Mango, an editing tool built for animators.
 %We describe Mango's interface, rendering pipeline, and perceptually-optimized interpolation algorithm.
 In our evaluation,
@@ -134,7 +134,15 @@ Furthermore, the tactile animation metaphor is a generalizable concept that can 
 %, which we explore before concluding.
 %in authoring real-time feedback on a variety of grid displays.
 
-  
+Tactile Animation let us
+\osC{TODO: prosify this additional framing, outline chapter.}
+  - develop a full pipeline editing tool
+  - ground our designs in industry concerns
+  - evaluate with non-haptic media designers to investigate transfer effects
+  - expand our design palette to spatial vibrotactile effects, unexplored directly in the haptic instrument case study
+  - in particular, we expand to a directly-manipulated metaphor
+  - look at device generality in a different way than the haptic instrument. In the haptic instrument, one can build a haptic instrument for new output devices by connecting nput parameters to different output devices. Here we look at a class of devices - 2D vibrotactile grids, but possibly other 2D grids.
+   - this direct manipulation metaphor is distinguished from other spatial control by \autoref{fig:tactileanimation:prevwork}.
 
   
 %%%%%%%%%%%%%%
@@ -198,7 +206,7 @@ Furthermore, the tactile animation metaphor is a generalizable concept that can 
 \newcommand\prevWorkImageWidth{1.1in}
 
 
-\begin{figure}[b]
+\begin{figure}[t]
  \centering
    \begin{subfigure}[t]{\prevWorkWidth}
 	  \centering
@@ -221,7 +229,7 @@ Furthermore, the tactile animation metaphor is a generalizable concept that can 
 	   \label{fig:prevwork:ha}
     \end{subfigure}
     \caption{Comparison between related systems.}
-    \label{fig:prevwork}
+    \label{fig:tactileanimation:prevwork}
 \end{figure}
 
 
@@ -296,7 +304,7 @@ Furthermore, the tactile animation metaphor is a generalizable concept that can 
 
 	\hline
 	\end{tabular}
-	\caption{{\bf Literature Requirements (LRs)} for a tactile animation authoring  tool.}
+	\caption{{\bf Literature Requirements (LRs)} for a tactile animation authoring.}
 	\label{tab:design:literature:requirements}
 \end{table*}
 
@@ -397,7 +405,7 @@ communicates with haptic devices via USB. % serial communication on USB.
 % Framework for Haptic Animation
 
 
-
+\osC{begin needs-summary}
 In this section, we present an animation metaphor that allows users to generate tactile content in the same way as they would create visual animations and play them real-time on a VT array.
 \autoref{fig:feel:taxonomy} shows the workflow of this authoring mechanism.  
 Designers create tactile animations on a typical animation tool as shown in \autoref{fig:feel:taxonomy}a.
@@ -457,7 +465,7 @@ We prototyped an early version of the tactile animation object in Mango; however
 
 \begin{figure}[tbh] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=0.47\textwidth]{Mango-Screenshot-Labeled-2015-04-12-1132} 
+   \includegraphics[width=0.6\textwidth]{Mango-Screenshot-Labeled-2015-04-12-1132} 
    \caption{Mango graphical user interface. Key components are labeled and linked to corresponding design requirements.}
    \label{fig:implementation:screenshot}
 \end{figure}
@@ -476,6 +484,7 @@ A raster format contains a matrix of actuator intensities; each row defines inte
 The playback system parses the raster data, finds the current column, and pushes these actuator settings to the device. %, setting each actuator to its desired value.
 This data type is also used for real-time feedback during authoring.
 % KM: surely other ways of doing this too.
+\osC{end needs-summary}
 
 %In our implementation, all data types are stored as JavaScript Object Notation (JSON) files.
 %In the following, we describe features of an authoring interface for designers to create animation sequence; and the empirically determined, high-definition VT rendering method. % for high definition sensations on the VT hardware.
@@ -488,105 +497,105 @@ This data type is also used for real-time feedback during authoring.
 % Section - Design
 %
 %%%%%%%%%%%%%%
-\subsection{Authoring Interface}
-%%\ALIc we need a good introductory sentense for this section.
-The authoring interface % is the key component in the Mango tool and % KM: so is the rendering pipeline isn't it?
-allows designers to efficiently create moving tactile content in a familiar environment.
-Here we describe user interactions, %to generate animated tactile content, %and associate them with our gathered design requirements. 
-% gathered in Section 3. 
-% In Mango's implementation, 
-most of which
-%Most Mango interactions 
-are through the animation window (1) and  timeline (2) (\autoref{fig:implementation:screenshot}).
+%\subsection{Authoring Interface}
+%%%\ALIc we need a good introductory sentense for this section.
+%The authoring interface % is the key component in the Mango tool and % KM: so is the rendering pipeline isn't it?
+%allows designers to efficiently create moving tactile content in a familiar environment.
+%Here we describe user interactions, %to generate animated tactile content, %and associate them with our gathered design requirements. 
+%% gathered in Section 3. 
+%% In Mango's implementation, 
+%most of which
+%%Most Mango interactions 
+%are through the animation window (1) and  timeline (2) (\autoref{fig:implementation:screenshot}).
+%%
 %
-
-%% ------
-%\subsubsection{Animation Window and Object Paths}
-\emph{Animation Window}: A user creates a tactile animation object (3) with a ``new object" button (6), then manipulates it in the animation window (1). %, which shows its size and position at current time.
-The window is overlaid with a faint trace of the % light impression of 
-VT hardware (13) for %to give % the designer 
- % so the user can place the object at the right location corresponding to
-context. % on the skin. % in contact with the hardware.
-%The device configuration file, loaded on startup, provides location and type of actuators, available rendering schemes, and any hardware specific information. 
-Here, we used an array of 10 VT actuators (\autoref{fig:rendering}).
-%The hardware then generates VT sensations corresponding to animation objects (3). %, in real time, using a rendering algorithm describe in the next section.
-
-
-\emph{Object Paths}: The animation object (3A) has (x, y) parameters describing position, an ``r" (radius) parameter, corresponding to the VT output voltage from 0 (minimum) to 1 (maximum).
-% that is
-%scaled to the size of the circle on (1). 
-An optional path can be added to an object (7), or removed (8), along which the motion of the object (3B) is constrained (12). 
-%Thus, 
-The path-object (3B) %has a single ``position" parameter from 0 to 1, instead of (x, y) parameters, and
-is manipulated in two ways: moving on path (5), which moves the object from the beginning (position=0) to the end of the path (position=1), or moving in space (4), which moves the object and the path together on the animation window (1).
-%The path can be redefined by clicking and dragging boxes at each end of the path.
-The current Mango implementation only supports straight-line paths, however their use can be extended in a later version.
-Also note that curves can be accomplished through keyframed (x, y) positions.
-%Each animation object has at most one path, and each path has only one animation object.
-%An alternative model is independent paths, similar to masks in Photoshop or After Effects.
-%However, we felt this was too detailed for an early prototype and could confuse users. 
-
-%% ------
-%\subsubsection{Timeline}
-\emph{Timeline}:  Each animation object (3) is represented in the timeline (2) as a track (17). 
-The red scrubhead (16) (shown as a triangle and line) shows and manipulates the current time.
-%, and can be dragged around (``scrubbed"). 
-Animation objects can be moved in time by clicking and dragging, and resized to change duration. %to have a shorter or longer duration.
-Individual parameters can be set on the left, by typing values into text fields (19), allowing precision.
-The entire animation can be played and paused using buttons (14) or the spacebar.
-
-\emph{Keyframes}: Parameters can be toggled as ``keyframeable" with a small clock button (20).
-%A keyframeable parameter has a value that depends on the current time.
-When the value is changed, a keyframe (18) is automatically created at the current time.
-Intermediate values are linearly interpolated. %..between. % keyframe values.
-
-\emph{Vector Sensations}:  
-% vector sensations for an object (3) can be created by clicking on a button (9) while (3) is selected.
-A new vector can be created by selecting an object (3) then clicking on a button (9).
-These sensations control each actuator directly through the parameter values, controlling that actuator's voltage from 0 to 1 (same as the ``r" parameter).
-%and converts object tracks to individual actuator tracks (17C) in the timeline (2).
-The corresponding actuator is highlighted in the animation window (1) when the text field (19) or track (17C) is selected.
-Each track is also keyframeable.
-%This feature is useful when users need to fine-tune % for users to manipulate 
-%individual actuators, and % for fine tuning, as well as 
-%to support previous multi-track designs (e.g., \cite{Enriquez2003}).
-% and to export time-series waveform to a file (such as a .wav file)
-
-%% ------
-%\subsubsection{Save and Load}
-\emph{Save and Load}: 
-Animations can be saved and loaded (10) to/from JSON files.
-% using the data model previously described.
-An audio track can be loaded (11) to the timeline (15).% for context (LR7).
-This allows the user to design a VT experience for sound files (LR7).
-Video overlay is left for future work.% of Mango.
-
-\emph{Hardware Configuration File}:  A hardware-specific structure is defined and stored in a JSON configuration file (LR4). The file contains:
-%\kmC{slc} % KM: consider naming these (a), (b) etc to avoid confusion with numbered items in Fig 3
-(a) physical width and height of the grid, %in physical units;
-%If a hardware has two % separate 
-%grids, e.g., on seat and back of %such as one on the seat and one for the back for a 
-%chair-like hardware, then individual grid size is defined separated by an identifier.
-(b) a dictionary of actuator types (e.g., voice coils or rumble motors), each with a list of control parameters (e.g., frequency, intensity) and allowable values;
-(c) location and type of each actuator;
-(d) supported communication protocols and rendering methods;
-(e) brand information (e.g., USB vendor id and product id) for device recognition; and
-(f) default settings.
-Physical dimensions are defined in SI units, e.g., meters, Hz. 
-
-\emph{Playback}: Once the animation of the object is defined,
-%in both the animation window (1) and the timeline (2),
-the user can play and stop the animation. % using buttons (14).
-During playback, the animation runs in (1) and the corresponding parameters vary in (2).  
-Simultaneously, VT stimulations are activated on the hardware for user feedback.
-%and the user feels sensations on the body.  
-Multiple animation objects and vector sensations can exist simultaneously.
-%, and multiple objects can be grouped together as one object.
-Actuators output the sum of all the values generated by objects (described later in the Rendering Algorithm section) and vector sensations.
-
-%Using Mango's user interface, users are able to manipulate animation objects continuously in space and time and vector sensations, which emulates previous tools (e.g., \cite{Enriquez2003}).
-
-    
+%%% ------
+%%\subsubsection{Animation Window and Object Paths}
+%\emph{Animation Window}: A user creates a tactile animation object (3) with a ``new object" button (6), then manipulates it in the animation window (1). %, which shows its size and position at current time.
+%The window is overlaid with a faint trace of the % light impression of 
+%VT hardware (13) for %to give % the designer 
+% % so the user can place the object at the right location corresponding to
+%context. % on the skin. % in contact with the hardware.
+%%The device configuration file, loaded on startup, provides location and type of actuators, available rendering schemes, and any hardware specific information. 
+%Here, we used an array of 10 VT actuators (\autoref{fig:rendering}).
+%%The hardware then generates VT sensations corresponding to animation objects (3). %, in real time, using a rendering algorithm describe in the next section.
+%
+%
+%\emph{Object Paths}: The animation object (3A) has (x, y) parameters describing position, an ``r" (radius) parameter, corresponding to the VT output voltage from 0 (minimum) to 1 (maximum).
+%% that is
+%%scaled to the size of the circle on (1). 
+%An optional path can be added to an object (7), or removed (8), along which the motion of the object (3B) is constrained (12). 
+%%Thus, 
+%The path-object (3B) %has a single ``position" parameter from 0 to 1, instead of (x, y) parameters, and
+%is manipulated in two ways: moving on path (5), which moves the object from the beginning (position=0) to the end of the path (position=1), or moving in space (4), which moves the object and the path together on the animation window (1).
+%%The path can be redefined by clicking and dragging boxes at each end of the path.
+%The current Mango implementation only supports straight-line paths, however their use can be extended in a later version.
+%Also note that curves can be accomplished through keyframed (x, y) positions.
+%%Each animation object has at most one path, and each path has only one animation object.
+%%An alternative model is independent paths, similar to masks in Photoshop or After Effects.
+%%However, we felt this was too detailed for an early prototype and could confuse users. 
+%
+%%% ------
+%%\subsubsection{Timeline}
+%\emph{Timeline}:  Each animation object (3) is represented in the timeline (2) as a track (17). 
+%The red scrubhead (16) (shown as a triangle and line) shows and manipulates the current time.
+%%, and can be dragged around (``scrubbed"). 
+%Animation objects can be moved in time by clicking and dragging, and resized to change duration. %to have a shorter or longer duration.
+%Individual parameters can be set on the left, by typing values into text fields (19), allowing precision.
+%The entire animation can be played and paused using buttons (14) or the spacebar.
+%
+%\emph{Keyframes}: Parameters can be toggled as ``keyframeable" with a small clock button (20).
+%%A keyframeable parameter has a value that depends on the current time.
+%When the value is changed, a keyframe (18) is automatically created at the current time.
+%Intermediate values are linearly interpolated. %..between. % keyframe values.
+%
+%\emph{Vector Sensations}:  
+%% vector sensations for an object (3) can be created by clicking on a button (9) while (3) is selected.
+%A new vector can be created by selecting an object (3) then clicking on a button (9).
+%These sensations control each actuator directly through the parameter values, controlling that actuator's voltage from 0 to 1 (same as the ``r" parameter).
+%%and converts object tracks to individual actuator tracks (17C) in the timeline (2).
+%The corresponding actuator is highlighted in the animation window (1) when the text field (19) or track (17C) is selected.
+%Each track is also keyframeable.
+%%This feature is useful when users need to fine-tune % for users to manipulate 
+%%individual actuators, and % for fine tuning, as well as 
+%%to support previous multi-track designs (e.g., \cite{Enriquez2003}).
+%% and to export time-series waveform to a file (such as a .wav file)
+%
+%%% ------
+%%\subsubsection{Save and Load}
+%\emph{Save and Load}: 
+%Animations can be saved and loaded (10) to/from JSON files.
+%% using the data model previously described.
+%An audio track can be loaded (11) to the timeline (15).% for context (LR7).
+%This allows the user to design a VT experience for sound files (LR7).
+%Video overlay is left for future work.% of Mango.
+%
+%\emph{Hardware Configuration File}:  A hardware-specific structure is defined and stored in a JSON configuration file (LR4). The file contains:
+%%\kmC{slc} % KM: consider naming these (a), (b) etc to avoid confusion with numbered items in Fig 3
+%(a) physical width and height of the grid, %in physical units;
+%%If a hardware has two % separate 
+%%grids, e.g., on seat and back of %such as one on the seat and one for the back for a 
+%%chair-like hardware, then individual grid size is defined separated by an identifier.
+%(b) a dictionary of actuator types (e.g., voice coils or rumble motors), each with a list of control parameters (e.g., frequency, intensity) and allowable values;
+%(c) location and type of each actuator;
+%(d) supported communication protocols and rendering methods;
+%(e) brand information (e.g., USB vendor id and product id) for device recognition; and
+%(f) default settings.
+%Physical dimensions are defined in SI units, e.g., meters, Hz. 
+%
+%\emph{Playback}: Once the animation of the object is defined,
+%%in both the animation window (1) and the timeline (2),
+%the user can play and stop the animation. % using buttons (14).
+%During playback, the animation runs in (1) and the corresponding parameters vary in (2).  
+%Simultaneously, VT stimulations are activated on the hardware for user feedback.
+%%and the user feels sensations on the body.  
+%Multiple animation objects and vector sensations can exist simultaneously.
+%%, and multiple objects can be grouped together as one object.
+%Actuators output the sum of all the values generated by objects (described later in the Rendering Algorithm section) and vector sensations.
+%
+%%Using Mango's user interface, users are able to manipulate animation objects continuously in space and time and vector sensations, which emulates previous tools (e.g., \cite{Enriquez2003}).
+%
+%    
     
 %%%%%%%%%%%%%%
 %
@@ -648,12 +657,13 @@ Linear and log interpolation models have been used in the past to express either
 
 \begin{figure}[t] %  figure placement: here, top, bottom, or page
    \centering
-  \begin{subfigure}[b]{0.19\textwidth}
+  \begin{subfigure}[b]{0.4\textwidth}
 	   \includegraphics[width=\textwidth]{HA14-RenderingFigure-2015-08-06-1707} 
 	   \caption{Barycentric coordinates}
 	   \label{fig:rendering:algorithm:barycentric}
     \end{subfigure}
-     \begin{subfigure}[b]{0.23\textwidth}
+    \qquad
+     \begin{subfigure}[b]{0.45\textwidth}
      		\begin{tabular}{l l}
 	   	Linear & $A_i = a_i \times A_v$  \\ 
 		\\
@@ -666,7 +676,7 @@ Linear and log interpolation models have been used in the past to express either
 	   \caption{Candidate interpolation methods}
 	   \label{fig:rendering:algorithm:interpolation}
     \end{subfigure}
-    	   \caption{Interpolation models used to determine physical actuator output ($A_{1-3}$) from virtual actuator intensity ($A_v$) and barycentric coordinates ($a_{1-3}$).}
+    	   \caption{Interpolation models to determine physical actuator output ($A_{1-3}$) from virtual actuator intensity ($A_v$) and barycentric coordinates ($a_{1-3}$).}
 	   \label{fig:rendering:algorithm}
 \end{figure}
 
@@ -695,12 +705,13 @@ Through piloting, we determined that the device's on-screen visual outline shoul
 
 \begin{figure}[t] %  figure placement: here, top, bottom, or page
    \centering
-   \begin{subfigure}[b]{0.19\textwidth}
+   \begin{subfigure}[b]{0.37\textwidth}
 	   \includegraphics[width=\textwidth]{HA14-RenderingUI-2014-08-19-1417} 
 	   \caption{Rendering study interface}
 	   \label{fig:rendering:study}
     \end{subfigure}
-     \begin{subfigure}[b]{0.28\textwidth}
+    \qquad
+     \begin{subfigure}[b]{0.55\textwidth}
 	   	\includegraphics[width=\textwidth]{figure_chairpad} 
 	   \caption{Output device with highlighted actuators}
 	   \label{fig:rendering:device}
@@ -762,18 +773,6 @@ equivalent to Pacinian power model. We proceeded with the logarithmic model for 
 % Animation Tool Evaluation
 %
 \section{Design Evaluation}
-% We implemented the critical functional features of Mango as described in the above sections.
-To evaluate Mango's % the 
-animation metaphor and expressive capability,
-%with critical functional features implemented,
-we asked media professionals to
-% we had media professionals 
-create a variety of designs.
-Qualitative evaluation was chosen for rich, focused, early feedback of the animation metaphor and lessons for iteration.
-A quantitative comparison between tool perspectives is left until more refined tools are developed.
-We wanted to establish whether this is an effective approach before studying the most effective approach.
-
-
 Six participants (P1-6, 3 females) were introduced to Mango driving % linked to 
 the  VT hardware described previously. % for the pairwise comparisons. 
 %First, each participant was interviewed about their background.
@@ -807,10 +806,10 @@ We thus did not conduct statistical analysis.
 %
 % Show one animation
 %
-\begin{figure}[ht] %  figure placement: here, top, bottom, or page
+\begin{figure}[htb] %  figure placement: here, top, bottom, or page
    \centering
 %   	\includegraphics[clip=true, trim= 1 150 0 7, width=0.4\textwidth]{P2_sound_example-2014-09-22-1630} 
-	   	\includegraphics[clip=true, trim= 4 155 0 85, width=0.47\textwidth]{P2_sound_example-2014-09-22-1630} 
+	   	\includegraphics[clip=true, trim= 4 155 0 85, width=0.8\textwidth]{P2_sound_example-2014-09-22-1630} 
 
 	\caption{Example of P2's animation for matching a sound. See the accompanying video for all participant animations.}
 	\label{fig:animation:example:p2}
@@ -831,7 +830,7 @@ Interviews were conducted and analyzed by a researcher with training and experie
 methods of grounded theory  \cite{Corbin2008} informed by phenomenological protocols \cite{Moustakas1994}.
 Analysis resulted in four themes.
 
-\theme{1}{Animation Metaphor}
+\inlineHeading{Theme 1: Animation Metaphor}
 Participants found the tool easy to use.
 All six participants were able to accomplish all five tasks (object alert, vector alert, heartbeat, turn left, sound).
 Participants described the interface as intuitive (P1-5), agreeing that it was an animation tool: \qq{It's up to the standards of other animation tools}{P1}, \qq{This is totally animation}{P2}, \qq{It felt very much like an animation tool}{P4}, \qq{I'm not an expert when it comes to haptics, but this software seems almost as if it can change the game of designing haptic vibrations}{P5}.
@@ -841,7 +840,7 @@ Negative feedback focused on polish and feature completeness:
 %, \qq{move in space and move on path can be one thing}{P6}.
 
 
-\theme{2}{Tactile Animation Object vs. Vector Sensations}
+\inlineHeading{Theme 2: Tactile Animation Object vs. Vector Sensations}
 Participants relied more on animation objects %  used animation objects more frequently
 than vector sensations, which
 %Vector sensations 
@@ -899,7 +898,7 @@ Vectors were preferred for more fine-tuned control when motion didn't matter as 
 
 
 %\theme{4}{Feedback, Context and Imitation}
-\theme{3}{Designing-in-action with direct manipulation}
+\inlineHeading{Theme 3: Designing-in-action with direct manipulation}
 Participants used direct manipulation to feel their designs in real time, %  was valuable to participants.
 dragging animation objects %in the animation window
 and scrubbing through
@@ -928,8 +927,7 @@ Correspondingly, participants were excited when prompted by an audio sensation: 
 \qq{The sound part was good, that would be a fun thing to design for}{P4}.
 
 
-
-\theme{4}{Replication through Copy and Paste}
+\inlineHeading{Theme 4: Replication through Copy and Paste}
 Replication in both space and time was common while using Mango.
 Many designs had symmetrical paths to reinforce sensations (\autoref{fig:animation:example:p2}).
 All but P4 requested copy / paste as a feature.
@@ -940,6 +938,7 @@ All but P4 requested copy / paste as a feature.
 %\qq{Is there any way to copy and paste keyframes?}{P2}.
 
 \section{Discussion}
+\osC{TODO: restructure discussion when other chapters are more populated, to connect it better.}
 Here we interpret our design evaluation, explore animation with other devices, and describe applications and limitations.
 
 \subsection{Design Evaluation Summary}
@@ -950,17 +949,18 @@ We also found recommendations for our next iteration: more animation features, v
 
 \begin{figure}[htb] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=0.46\textwidth]{HA14-Applications-Split1-2015-04-14-1025} 
-   \caption{Tactile animation could define motion with (a) 1D actuator arrays, (b) dense and sparse VT grids, (c) handhelds.}
-   \label{fig:application:space1}
-\end{figure}
-
-
-\begin{figure}[htb] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=0.46\textwidth]{HA14-Applications-Split2-2015-04-14-1025} 
-   \caption{Tactile animation could also define motion  with (d)  3D surfaces, (e) multi-device contexts, and  (f) non-VT devices like mid-air ultrasound.}
-   \label{fig:application:space2}
+   \includegraphics[height=2.75in]{HA14-Applications-Split1-2015-04-14-1025} 
+%   \caption{Tactile animation could define motion with (a) 1D actuator arrays, (b) dense and sparse VT grids, (c) handhelds.}
+%   \label{fig:application:space1}
+%\end{figure}
+%\begin{figure}[htb] %  figure placement: here, top, bottom, or page
+%   \centering
+\qquad
+   \includegraphics[height=2.75in]{HA14-Applications-Split2-2015-04-14-1025} 
+%   \caption{Tactile animation could also define motion  with (d)  3D surfaces, (e) multi-device contexts, and  (f) non-VT devices like mid-air ultrasound.}
+%   \label{fig:application:space2}
+      \caption{Tactile animation could define motion with (a) 1D actuator arrays, (b) dense and sparse VT grids, (c) handhelds, (d)  3D surfaces, (e) multi-device contexts, and  (f) non-VT devices like mid-air ultrasound.}
+   \label{fig:application:space}
 \end{figure}
 
 %\vspace{20pt}
@@ -974,12 +974,12 @@ as long as a suitable rendering algorithm can be developed, the metaphor can app
 In this section, we illustrate possibilities that we plan to explore in future work.
 
 
-\emph{1D VT Arrays (\autoref{fig:application:space1}a)}:
+\emph{1D VT Arrays (\autoref{fig:application:space}a)}:
 1D VT arrays are common in arm sleeves, wrist bands, belts, and similar wearables.
 These devices provide sensations along the path of the array.
 By constraining objects to a linear or circular path, barycentric coordinates collapse into 1D interpolation.
 
-\emph{Dense and Sparse VT Grids  (\autoref{fig:application:space1}b)}:
+\emph{Dense and Sparse VT Grids  (\autoref{fig:application:space}b)}:
 2D VT grids are also common, used in chairs, gloves, and the backs of vests.
 %Dense arrays previously had their own actuator-based authoring tools \cite{Kim2009}.
 While we evaluated Mango with a sparse back-mounted array, tactile animation naturally supports denser arrays, either with our rendering algorithm or by using a nearest-neighbour technique to activate a single actuator.
@@ -989,23 +989,23 @@ While we evaluated Mango with a sparse back-mounted array, tactile animation nat
 %algorithm and layout to render high definition haptic feedback.
 
 
-\emph{Handhelds (\autoref{fig:application:space1}c)}:
+\emph{Handhelds (\autoref{fig:application:space}c)}:
 Actuators embedded in handheld objects, such as mobile devices, game controllers, or steering wheels, shake objects instead of directly stimulating the skin.
 Animators might be able to define source locations for vibrations using handheld-based rendering algorithms (e.g., \cite{Seo2013}).
 %Similarly, a single embedded vibrator in handheld devices can be supported by constraining the tactile object to a single point.
 
 
-\emph{3D Surfaces  (\autoref{fig:application:space2}d)}:
+\emph{3D Surfaces  (\autoref{fig:application:space}d)}:
 Mango currently only supports a 2D location for its animation objects.
 However, tactile animation can be extended to support surfaces of 3D surfaces, such as vests or jackets that wrap around the user's body. 
 More work will need to be done to perfect this interaction style, possibly using multiple views or a rotatable 3D model with animation objects constrained to the surface.
 %, drawing more from 3D animation tools like Maya.
 
-\emph{Multi-device contexts  (\autoref{fig:application:space2}e)}:
+\emph{Multi-device contexts  (\autoref{fig:application:space}e)}:
 Mango's rendering algorithm already supports connections to multiple devices simultaneously.
 The editing interface could combine layouts for different devices, enabling animators to animate the entire user experience (such as a car's seat and steering wheel).
 
-\emph{Non-vibrotactile devices (\autoref{fig:application:space2}f)}:
+\emph{Non-vibrotactile devices (\autoref{fig:application:space}f)}:
 While our rendering algorithm is particular to VT arrays, a tactile animation object can represent manipulable percepts with other actuation technologies.
 %Mango is not limited to only VT devices, similar to the one used in the present evaluations.
 Ultrasound-based mid-air displays generate a sensation as a focal point with a position and size \cite{Wilson2014}; this sensation could be manipulated through a tool like Mango.
@@ -1082,12 +1082,13 @@ Examples include:
 curved trajectories of animation objects (although participants' use of curved motion was encouraging, e.g., P5's turn left sensation),
 spatial frequency control (how to superpose animation objects of differing frequencies),
 non-triangular meshes (e.g., quadrilateral interpolation or kernel methods),
-and mixed actuator types (such as a chair with both voice coil and rumble motors, \autoref{fig:application:space2}e).
+and mixed actuator types (such as a chair with both voice coil and rumble motors, \autoref{fig:application:space}e).
 
 
 
 
-
+\subsection{Demo}
+\osC{Add image, description, takeaway from demo}
 
 \section{Discussion}
 The Tactile Animation project expanded our understanding from the Haptic Instrument study in \autoref{ch:hapticinstrument}.
