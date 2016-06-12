@@ -2,22 +2,24 @@
 \chapter{Share: HapTurk}
 \label{ch:hapturk}
 
-%
-%\begin{figure}[h] %  figure placement: here, top, bottom, or page
-%   \centering
-%   \includegraphics[width=0.7\textwidth]{HaXDTheoryOutline-2015-05-22} 
-%   \caption{Planned synthesis of data for a preliminary theory of haptic experience design.}
-%   \label{fig:haxd:theoryoutline}
-%\end{figure}
 
-   In modern handheld and wearable devices, vibrotactile (VT) feedback can provide unintrusive, potentially meaningful cues through wearables in on-the-go contexts~\cite{Brunet2013a}.
-    With % trend-setting 
-    consumer wearables like Pebble and the Apple Watch featuring high-fidelity actuators, VT feedback is becoming standard  in more user tools.
-    Today, VT designers seek to provide sensations with various perceptual and emotional connotations to support the growing use cases for VT feedback (everyday apps, games, etc.).
-    Although low-level design guidelines exist and are helpful for addressing perceptual requirements \cite{maclean2003perceptual,InwookHwang2013,Ternes2008,Brewster2004,Brown2006a},  higher-level concerns and design approaches to increase their usability and information capacity (e.g., a user's desired affective response, or affective or metaphorical interpretation) have only recently received study and are far from solved \cite{Obrist2013,Arab2015,Seifi2014,Israr2014,Jansson-Boyd2011,Okamoto2013}.
-    Tactile design thus relies heavily on iteration and user feedback \cite{Schneider2014}. Despite its importance \cite{Seifi2014,Seifi2015}, collecting user feedback on perceptual and emotional (i.e., affective) properties  of tactile sensations in small-scale lab studies is undermined by noise due to individual differences (IDs). %can result in large variation in ratings and inconclusive results.
-    
+\begin{figure}[h] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\textwidth]{ConceptSketch-03} 
+   \caption{In HapTurk, we access large-scale feedback on informational effectiveness of high-fidelity vibrations after translating them into proxies of various modalities, rendering important characteristics in a crowdsource-friendly way.}
+   \label{fig:hapturk:conceptsketch}
+\end{figure}
 
+
+While Chapters 3-5 document iterative development of VT tools, in \autoref{ch:hapturk} we recount a designed \emph{technique} to support large scale feedback high-fidelity VT effects.
+%   In modern handheld and wearable devices, vibrotactile (VT) feedback can provide unintrusive, potentially meaningful cues through wearables in on-the-go contexts~\cite{Brunet2013a}.
+%    With % trend-setting 
+%    consumer wearables like Pebble and the Apple Watch featuring high-fidelity actuators, VT feedback is becoming standard  in more user tools.
+%    Today, VT designers seek to provide sensations with various perceptual and emotional connotations to support the growing use cases for VT feedback (everyday apps, games, etc.).
+%    Although low-level design guidelines exist and are helpful for addressing perceptual requirements \cite{maclean2003perceptual,InwookHwang2013,Ternes2008,Brewster2004,Brown2006a},  higher-level concerns and design approaches to increase their usability and information capacity (e.g., a user's desired affective response, or affective or metaphorical interpretation) have only recently received study and are far from solved \cite{Obrist2013,Arab2015,Seifi2014,Israr2014,Jansson-Boyd2011,Okamoto2013}.
+As we have shown,
+tactile design  relies heavily on iteration and user feedback \cite{Schneider2014}.
+Despite its importance \cite{Seifi2014,Seifi2015}, collecting user feedback on perceptual and emotional (i.e., affective) properties  of tactile sensations in small-scale lab studies is undermined by noise due to individual differences (IDs). %can result in large variation in ratings and inconclusive results.
     In other design domains, crowdsourcing  enables collecting feedback at scale.
     Researchers and designers use platforms like Amazon's Mechanical Turk %(MTurk,
     (\texttt{www.mturk.com}) to deploy user studies with large samples, receiving extremely rapid feedback in, e.g., creative text production \cite{Siangliulue2015}, graphic design \cite{Xu2014} and sonic imitations \cite{Cartwright2015}.
@@ -79,51 +81,51 @@
 %  conclude with implications for design and future work.
 
 
-\section{Related Work}
-We cover work related to VT icons and evaluation methods for VT effects, the current understanding of affective haptics, and work with Mechanical Turk in other modalities.
-   %% \subsection{VT Icons}
-     
-		%%[change first sentence] VT effects are useful. According to previous studies, VT icons can communicate information [ref] and affect [ref]. VT effects are developed to assist visually-impaired users in outdoor scenarios [ref] as well as accessing digital information [ref]. In addition, VT effects can increase performance on visual interfaces, enhance engagement with the content and provide better user experience with electronic devices [ref to levesque].
-		
-\subsection{Existing Evaluation Methods for VT Effects} 
-
-The haptic community has appropriated or developed many types of user studies to evaluate VT effects and support VT design.
-These target a variety of objectives:
-
-1) {\em Perceptibility:} Determine the perceptual threshold or Just Noticeable Difference (JND) of VT parameters. Researchers vary the values of a VT parameter (e.g., frequency)
-% in small steps
-to determine the minimum perceptible change
-%for the parameter
-~\cite{JNDstudy,foundationsoftactile}. 
-
-2) {\em Illusions:} Studies investigate effects like masking or apparent motion of VT sensations, useful to expand a haptic designer's palette \cite{Hayward2008,Israr2011a,Seo2013}.
-
-3) {\em Perceptual organization:} Reveal the underlying dimensionality of how humans perceive VT effects (which are generally different than the machine parameters used to generate the stimuli).
-Multidimensional Scaling (MDS) studies are common, inviting participants compare or group vibrations based on perceived similarity~\cite{Hollins93,van2003distilling,Pasquero2006,Chan2008,Ternes2008}.
-
-4) {\em Encoding abstract information:} Researchers examine salient and memorable VT parameters (e.g. energy, rhythm) as well as the number of VT icons that people can remember and attribute to an information piece~\cite{Brown2006a,Allen2005,Chan2008,Ternes2008}.
-
-5) {\em Assign affect:} Studies investigate the link between affective characteristics of vibrations (e.g., pleasantness, urgency) to their engineering parameters (e.g., frequency, waveform)~\cite{Ternes2008,affect2015,Raisamo,Koskinen}.
-To achieve this, VT researchers commonly design or collect a set of vibrations and ask participants to rate them on a set of qualitative metrics.
-
-6) {\em Identify language:} Participants describe or annotate tactile stimuli in natural language~\cite{Chan2008,Ternes2008,Obrist2013,Guest2011,Hwang2011,Seifi2015}.
-
-7) {\em Use case support:} Case studies focus on conveying information with VT icons such as collaboration~\cite{Chan2008}, public transit~\cite{Brunet2013a} and direction \cite{Brunet2013a,Arab2015}, or timing of a presentation~\cite{presentationtiming}. In other cases, VT effects are designed for user engagement, for example in games and movies, multimodal storytelling, or art installations~\cite{Israr2014,feelcraft}. 
-Here, the designers use iterative design and user feedback (qualitative and quantitative with user rating) to refine and ensure effective design.
-
-All of the above studies would benefit from the large number of participants and fast data collection on MTurk.
-In this paper, we chose our methodology so that the results are informative for a broad range of these studies.
-
-\subsection{Affective Haptics}
-VT designers have the challenge of creating perceptually salient icon sets that convey meaningful content. A full range of expressiveness means manipulating not only 
-a vibration's physical characteristics but also its perceptual and %affective
-emotional properties, and collecting feedback on this. Here, we refer to all these properties as affective characteristics. 
-
-%;then, based on Multi-Dimensional Scaling... to 
-%(New sentence)Using Multi-Dimensional Scaling (MDS) analysis of similarity ratings, it was proposed... (the same)
-Some foundations for affective VT design are in place. Studies on tactile language and affect are establishing a set of perceptual metrics~\cite{Obrist2013,Seifi2015}. Guest \etal\ collated a large list of emotion and sensation words describing tactile stimuli; then, based on multidimensional scaling of similarity ratings, proposed comfort or pleasantness and arousal as key dimensions for tactile emotion words, and rough/smooth, cold/warm, and wet/dry for sensation~\cite{Obrist2013}.
-Even so, there is not yet agreement on an affective tactile design language~ \cite{Jansson-Boyd2011}.
-
+%\section{Related Work}
+%We cover work related to VT icons and evaluation methods for VT effects, the current understanding of affective haptics, and work with Mechanical Turk in other modalities.
+%   %% \subsection{VT Icons}
+%     
+%		%%[change first sentence] VT effects are useful. According to previous studies, VT icons can communicate information [ref] and affect [ref]. VT effects are developed to assist visually-impaired users in outdoor scenarios [ref] as well as accessing digital information [ref]. In addition, VT effects can increase performance on visual interfaces, enhance engagement with the content and provide better user experience with electronic devices [ref to levesque].
+%		
+%\subsection{Existing Evaluation Methods for VT Effects} 
+%
+%The haptic community has appropriated or developed many types of user studies to evaluate VT effects and support VT design.
+%These target a variety of objectives:
+%
+%1) {\em Perceptibility:} Determine the perceptual threshold or Just Noticeable Difference (JND) of VT parameters. Researchers vary the values of a VT parameter (e.g., frequency)
+%% in small steps
+%to determine the minimum perceptible change
+%%for the parameter
+%~\cite{JNDstudy,foundationsoftactile}. 
+%
+%2) {\em Illusions:} Studies investigate effects like masking or apparent motion of VT sensations, useful to expand a haptic designer's palette \cite{Hayward2008,Israr2011a,Seo2013}.
+%
+%3) {\em Perceptual organization:} Reveal the underlying dimensionality of how humans perceive VT effects (which are generally different than the machine parameters used to generate the stimuli).
+%Multidimensional Scaling (MDS) studies are common, inviting participants compare or group vibrations based on perceived similarity~\cite{Hollins93,van2003distilling,Pasquero2006,Chan2008,Ternes2008}.
+%
+%4) {\em Encoding abstract information:} Researchers examine salient and memorable VT parameters (e.g. energy, rhythm) as well as the number of VT icons that people can remember and attribute to an information piece~\cite{Brown2006a,Allen2005,Chan2008,Ternes2008}.
+%
+%5) {\em Assign affect:} Studies investigate the link between affective characteristics of vibrations (e.g., pleasantness, urgency) to their engineering parameters (e.g., frequency, waveform)~\cite{Ternes2008,affect2015,Raisamo,Koskinen}.
+%To achieve this, VT researchers commonly design or collect a set of vibrations and ask participants to rate them on a set of qualitative metrics.
+%
+%6) {\em Identify language:} Participants describe or annotate tactile stimuli in natural language~\cite{Chan2008,Ternes2008,Obrist2013,Guest2011,Hwang2011,Seifi2015}.
+%
+%7) {\em Use case support:} Case studies focus on conveying information with VT icons such as collaboration~\cite{Chan2008}, public transit~\cite{Brunet2013a} and direction \cite{Brunet2013a,Arab2015}, or timing of a presentation~\cite{presentationtiming}. In other cases, VT effects are designed for user engagement, for example in games and movies, multimodal storytelling, or art installations~\cite{Israr2014,feelcraft}. 
+%Here, the designers use iterative design and user feedback (qualitative and quantitative with user rating) to refine and ensure effective design.
+%
+%All of the above studies would benefit from the large number of participants and fast data collection on MTurk.
+%In this paper, we chose our methodology so that the results are informative for a broad range of these studies.
+%
+%\subsection{Affective Haptics}
+%VT designers have the challenge of creating perceptually salient icon sets that convey meaningful content. A full range of expressiveness means manipulating not only 
+%a vibration's physical characteristics but also its perceptual and %affective
+%emotional properties, and collecting feedback on this. Here, we refer to all these properties as affective characteristics. 
+%
+%%;then, based on Multi-Dimensional Scaling... to 
+%%(New sentence)Using Multi-Dimensional Scaling (MDS) analysis of similarity ratings, it was proposed... (the same)
+%Some foundations for affective VT design are in place. Studies on tactile language and affect are establishing a set of perceptual metrics~\cite{Obrist2013,Seifi2015}. Guest \etal\ collated a large list of emotion and sensation words describing tactile stimuli; then, based on multidimensional scaling of similarity ratings, proposed comfort or pleasantness and arousal as key dimensions for tactile emotion words, and rough/smooth, cold/warm, and wet/dry for sensation~\cite{Obrist2013}.
+%Even so, there is not yet agreement on an affective tactile design language~ \cite{Jansson-Boyd2011}.
+%
 Recently, Seifi \etal\ compiled research on tactile language into five taxonomies for describing vibrations~\cite{Seifi2015}.  \textbf{1) Physical properties} that can be measured: e.g., duration, energy, tempo or speed, rhythm structure; 
 \textbf{2) sensory properties}: roughness, and sensory words from  Guest \etal's touch dictionary \cite{Guest2011};
 \textbf{3) emotional interpretations}: pleasantness, arousal (urgency), dictionary emotion words \cite{Guest2011};
@@ -138,7 +140,7 @@ To evaluate our vibration proxies, we derived six metrics from these taxonomies 
 % \kmC{why these 5? you took one from each taxonmy, but why this particular one?}
 
 
-\subsection{Mechanical Turk (MTurk)}
+%\subsection{Mechanical Turk (MTurk)}
 MTurk is a platform for receiving feedback from a large number of users, in a short time at a low cost~\cite{mutrkgeneral,visualperceptionturk}. These large, fast, cheap samples have proved useful for many cases including running perceptual studies~\cite{visualperceptionturk}, developing taxonomies~\cite{taxonomyturk}, feedback on text \cite{Siangliulue2015}, graphic design \cite{Xu2014}, and sonic imitations \cite{Cartwright2015}.
 
 \purple{Crowdsourced studies have drawbacks. The  remote, asynchronous study environment is not controlled; compared to a quiet lab, participants may be subjected to unknown interruptions, and may spend less time on task with more response variability~\cite{mutrkgeneral}.
@@ -183,12 +185,14 @@ To our knowledge, this is the first attempt to run a haptic study on a crowdsour
 
 
 \begin{figure}[tb]
+\centering
 \begin{subfigure}{0.28\textwidth}
         		\centering
 	    	 \includegraphics[width=\textwidth, height=1.2in]{VibViz-Screenshot}
             \caption{VibViz interface ~\cite{Seifi2015}}
             \label{fig:vibviz}
-         \end{subfigure}~
+         \end{subfigure}
+         \qquad
 	\begin{subfigure}{0.19\textwidth}
     	\centering
      	 \includegraphics[width=\textwidth, height=1.2in]{C2-Tactor-Held2}
@@ -199,8 +203,8 @@ To our knowledge, this is the first attempt to run a haptic study on a crowdsour
             \caption{Source of high-fidelity vibrations and perceptual rating scales.}
 \end{figure}
 
-\vspace{0.25in}
-\section{Sourcing reference vibrations and qualities}% and qualities}
+
+\section{Design}% and qualities}
 %\section{Approach \kmE{for Proxy Design and Validation} }
 %\kmC{Approach for whole paper, or just  proxy design? SLC}
 % If just proxy design (all that's covered in section currently), title section appropriately.
@@ -217,7 +221,7 @@ emotional characteristics,
 3) be small enough for experimental feasibility.
 
 
-\subsection{High-fidelity reference library}
+\subsection{High-fidelity references}
 We chose 10 vibrations from a large, freely available library of 120 vibrations (VibViz, \cite{Seifi2015}), browsable through five descriptive taxonomies, and ratings of taxonomic properties. Vibrations were designed for an Engineering Acoustics C2 tactor, a high-fidelity, wearable-suitable voice coil, commonly used in haptic research~\cite{Seifi2015}.
 We employed VibViz's filtering tools to sample, ensuring variety and coverage by selecting vibrations at  high and low ends of energy / duration dimensions, and filtering by ratings of temporal structure/rhythm, roughness, pleasantness, and urgency.
 To reduce bias, two researchers independently and iteratively selected a set of 10 items each, which were then merged.
@@ -264,7 +268,7 @@ To keep trials quick and MTurk-suitable,
 %(especially when deploying over MTurk), 
 we did not request open-ended responses or tagging. %what kind of tagging?
 
-\section{Proxy Choice and Design}
+\subsection{Proxy Choice and Design}
 %: Capturing higher-level traits}
 The proxies' purpose was to capture high-level traits of source signals. 
 We investigated two proxy channels and approaches, \magenta{to efficiently establish viability and search for triangulated perspectives on what will work.} % while limiting scope to two. 
@@ -300,7 +304,7 @@ We avoided multisensory combinations at this early stage for clarity of results.
 
 ``\hifi" denotes high-fidelity source renderings (C2 tactor).
 
-\textbf{1)	Visual proxies:} 
+\inlineHeading{(1) Visual proxies} 
 % The visual proxy for vibrations was inspired by the extensive use of vibration waveforms in VT design.
 Norms in published works (e.g. \cite{Chan2008}) directed~\cite{Seifi2015} to confirm that users % find  utility in and 
 rely on graphical $f(time)$ plots to skim and choose from large libraries.  We tested the direct plot, \original, as the status-quo representation.
@@ -309,7 +313,7 @@ However, these unmodified time-series emphasize or mask traits differently than 
 We considered many other means of visualizing vibration characteristics, pruned candidates and refined design via piloting to produce a new scheme which explicitly \textit{emphasizes} affective features, \linear.
 
 
-\textbf{2)	Low-fidelity vibration proxy:} 
+\inlineHeading{(2)	Low-fidelity vibration proxy:} 
 Commodity device (e.g. smartphone) actuators usually have low output capability compared to the C2, in terms of frequency response, loudness range, distortion and parameter independence. Encouraged %by work on translating audio \cite{Lee2013} and video \cite{Kim2014} to haptics, and 
 by expressive rendering of VT sensations with commodity actuation (from early constraints~\cite{Chan2008} to deliberate design-for-lofi~\cite{Israr2015}), we altered stimuli to convey high-level parameters under these conditions,
 hereafter referred to as \lofi.
@@ -322,8 +326,6 @@ In this feasibility stage,  we translated proxy vibrations manually and iterativ
 Automatic translation is an exciting goal. Without it, HapTurk is still useful for gathering large samples; but automation will enable a very rapid create-test cycle. 
 %We believe
 It should be attainable, bootstrapped by the up-scaling of crowdsourcing itself. With a  basic process in place, we can use MTurk studies to identify these mappings relatively quickly.
-
-\vspace{0.25in}
 
 \subsection{Visualization Design (\original\ and \linear)}
 %We used two visualization methods as proxies: \original, a typical waveform-based visualization, and \linear, specifically designed to convey our high-level perceptual 
@@ -379,8 +381,6 @@ It should be attainable, bootstrapped by the up-scaling of crowdsourcing itself.
 %        Duration of the vibration is displayed with a solid line and as a point of reference; the duration of the longest vibration is displayed on the same graph with a dashed line.
         
 
-   
-
 \subsection{Low Fidelity Vibration Design} 
 %In addition to visualization proxies, 
 For our second proxy modality, we translated \hifi~vibrations into \lofi~vibrations.
@@ -395,17 +395,8 @@ Simultaneously, we manipulated perceived energy level by adjusting the actuator 
 %%%%
 %As defining the vibration motor time durations was the main method to create vibrations, this was by far the biggest limitation to overcome. The time durations controlled the overall energy felt by the phone and the general rhythm (on/off beats).
 Shorter durations represented a weak-feeling hi-fi signal, while longer durations conveyed intensity in the original.
-%But with these limitations in mind, an initial set of 10 lower fidelity vibrations were created.
-%
-% \subsection{Design Process}
- %
-% Our general process in creating these low-fi vibrations were to adjust the various ?on? segments of the original vibration in their timings to match their energy levels, while adjusting the ?off? motor times to represent the necessary pauses of the vibration?s rhythm structure.
-%    
-%Representing accurate rhythm structure was straightforward for the candidate vibrations that contained short vibration segments with consistent energy levels. These sorts of vibrations required timing the ?on? motor times to match their original counterparts energy levels - often short time durations of around 50 to 100 ms. The ?off? time durations closely matched the original vibrations off times to match the rhythm. 
-%
 This was most challenging for dynamic intensities or frequencies, such as increasing or decreasing ramps, and long, low-intensity sensations.
 Here we used a duty-cycle inspired technique, similar to \cite{Israr2015}, illustrated in \autoref{fig:vib:lofidesign}.
-%\kmC{SCOPE NOTE - SLC} % This is another important scope limitation that you may need to highligyt in Intro / Approach. This limitation is kind of sidestepping the broad claim of crowdsourcing. So you need to explain that it allows you to ACCESS crowdsourcing,but need to limit that pool to subjects that have this kind of phone. This is still pretty good! However, it raises the question of verifying compliance.}
 %
 
 To mitigate the effect of different actuators found in smartphones, we limited our investigation to Android OS.
@@ -413,26 +404,10 @@ While this restricted our participant pool, there was nevertheless no difficulty
 We designed for two phones representing the largest classes of smartphone actuators: Samsung Galaxy Nexus, which contains a coin-style actuator, and a Sony Xperia Z3 Compact, which uses a pager motor resulting in more subdued, smooth sensations.
 Though perceptually different, control of both actuator styles are limited to on/off durations.
 As with \linear, we developed \lofi~vibrations iteratively, first with team feedback, then informal interviews (n=6).
-
-% vibration segments in their energy levels, this process was trickier. These vibrations often featured the escalation of energy over a vibration?s on segments. To emulate this, we had to carefully pick the initial ?on? time and increase this time with appropriate time increments as well as making sure the ?off? times decreased in parallel to allow for the peak energy levels to be felt though the longer motor ?on? times. An example of this type of vibration would be {\tt [1,77,2,76,3,75, ...., 77,1] }showing that the ?on? motor times gradually increase while the ?off? times decreases. 
-%\subsection{Feedback on initial low fidelity vibration designs}
-
-%We primarily verified these low-fi vibrations on a Samsung Galaxy Nexus, which incorporated a ?coin? vibration motor. These motors resulted in creating ?textured? vibrations resembling the energy levels of the original vibrations. Our other test phone was the Sony Xperia Z3 Compact, which used an ?pager? vibration motor. By comparison, these motors felt subdued and smoother. Early design reviews indicated the initial vibrations designed for the Samsung phone felt much more weaker than on the Sony phone, due to the different vibration motors used by each. The differences in the felt vibrations among these motors requires an explanation of their characteristics. 
-%    Ref:
-%    Vibration Motor Differences
-%http://www.precisionmicrodrives.com/vibrating-vibrator-vibration-motors/pancake-shaftless-coin-vibration-motors/design-considerations)
-
-%``Pager" vibration motors can be thought of as the most basic form of a vibration motor, essentially a DC motor with an small offset mass attached to a rotating shaft. When the offset mass is rotated, this causes a repeated displacement of the whole motor that is perceive as a vibration. ?Coin? vibration motors are similar in that it uses a rotating disc mass that is located inside a metal case enclosure. The disc mass rotates via magnetic field interactions, causing the entire coin-shaped motor to vibrate. 
-
-%By comparison, the ``coin" vibration motors vibrate a larger area of motors compared to the more compact coverage of ``pager" motors, which may contribute to the more intense feeling of these motors.?Coin? motors also require a relatively higher start voltage to begin the vibration process compared to ?pager? vibration motors. This may also contribute to a ?harder? vibration feeling than ?pager? motors that require lower voltages to continue vibrating [ref]. 
-
-
-%
-%Based on team feedback, all of our low-fi vibrations were adjusted to accommodate both types of vibration motors in these phones, to accommodate as much motor variety among different phone brands as seen from these phones. The goal was to maintain the rhythm of the vibratins to be as similar as possible on both phones while imparting as much energy from their respective motor types. 
     
     \begin{figure}
         \centering
-        \includegraphics[width=0.42\textwidth, height=1.65in]{VibratorTime}
+        \includegraphics[width=0.5\textwidth, height=2in]{VibratorTime}
         \caption{Example of \lofi\ proxy design. Pulse duration was hand-tuned to represent length and intensity, using duty cycle to express dynamics such as ramps and oscillations.}
         \label{fig:vib:lofidesign}
     \end{figure}
@@ -446,72 +421,12 @@ As with \linear, we developed \lofi~vibrations iteratively, first with team feed
         \end{figure*}
 
 
+\section{Studies}
+We ran two user studies to evaluate our proxy methods.
+Study 1 was an in-lab comparison between our high-fidelity reference vibrations and our proxies.
+Study 2 was an MTurk-deployed comparison of our proxies compared with both in-lab high-fidelity references and in-lab proxies.
+In both cases we use equivalence testing for statistical analysis.
 
-%\subsection{Final low fidelity vibration designs}    
-%    After many iterations with fellow team members, the final version of the low fidelity vibrations were deemed appropriate in capturing the "essence" of the original vibrations. These vibrations were further verified through pilots employing custom web surveys on various  mobile web browsers. This was to check for any technical problems. It was found that the vibrations were playable on the expected hardware and web browsers to be used.
-    
-
-
-%    were recruited through the university graduate and undergraduate mailing lists. Participants were not exposed to the other vibrotactile study.
-%    Conditions - We were comparing  ratings of different metrics between visual and vibotactile representations of the vibrations. We compared ratings on 6 metrics: 
-%    1. Speed (beat/second)
-%    2. Duration
-%    3. Energy
-%    4. Roughness
-%    5. Pleasantness
-%    6. Urgency
-%     
-%    Tasks - Participants were asked to complete three surveys. Two of the surveys included visual representations of the vibrations. The third survey was designed for the vibrotactile stimuli. For the linear visual design survey, participants were presented with a guideline to help them with identifying vibrationâ??s physical properties such as duration, roughness and energy. They were then asked to complete the survey. With the vibrotactile survey, they were asked to play the vibrations on a second computer and feel the vibrations using the C2-tactor. 
-%    
-%    Design - Our experiment was a 3x10 repeated ANOVA test with 10 vibrations (between subjects) and 3 different representation methods (within subjects).
-%    Factor 1: 10 Vibrations
-%    Factor 2: Vibration presentation methods   a) Visual â?? Linear Pattern  
-%    b) Visual â?? Original Pattern
-%    c) Vibrotactile   
-%    
-%    Apparatus - We conducted the experiment in a laboratory at University of British Columbia. Two Windows laptop and an extra monitor were used. One monitor was used to display the survey. Another monitor was used to display the rules and the overview image of all the vibrations. The second laptop was used to access the vibrations. A C2-tactor device was connected to the second laptop for feeling the vibrations.
-%    Independent and dependent variables
-%    Independent variables: 1) Representation Method 2) Vibration  
-%    Dependent variables: 1) Ratings of the 6 different metrics
-%    Confounding variables: 1) C2-tactor 2) Individual differences
-%    
-%    Hypotheses
-%    H1: There is no statistical significance between the average attribute scores obtained from the visual designs versus sensing the vibrotactile stimuli.
-%    It is hypothesizes that the average attribute scores of at least one of the new sets is not significantly different from the original scores of the vibration obtained in VibViz study. In other words, the vibrationâ??s attributes that was obtained through visual representation correctly matches the ones obtained from physically sensing the vibrations.
-%    H2: There is a statistical significance between the attribute scores of the linear visual pattern versus the original set.
-%    
-%    It is hypothesized that the new pattern will accurately represent vibrationsâ?? properties compared to the original patterns. In other words, the linear pattern will better visualize the vibrations for the users, compared to the original pattern.
-
-%!!!!!!!!!!!!!!
-
-
-\hspace{0.2in}
-\section{Study 1: In-lab Proxy Vibration Validation (G1)} 
-%\kmC{FRAME MISSING - SLC} % clarify (heading, text) that this is a local study. You're holding everything constant except the vibrations, AND you're making sure you can watch and see what people are actually doing, what problems they have. But you also are aware that people will behave differently in this setting than on MTurk so it's not perfect.
-% ALSO, I feel that well before now I needed to hear that you were going to do a local study followed by an MTurk study to compare the results. What is your validation approach?
-%
-%To validate our proxies for a Mechanical Turk study we followed a two stage approach.
-We obtained user ratings for the hi-fi source vibrations \hifi and three proxies (\original, \linear, and \lofi). An in-lab format avoided confounds and unknowns due to remote MTurk deployment, addressed in Study 2.
-%To examine whether users rate a proxy and the high-fidelity vibration similarly,
-Study 1 had two versions: in one, participants rated visual proxies \original\ and \linear~next to \hifi; and in the other, \lofi\ next to \hifi.
-%
-\visref\ and \lofiref\ denote these two references, each compared  with its respective proxy(ies) and thus with its own data. 
-In each substudy, participants rated each \hifi\ vibration on 6 scales [0-100] in a computer survey, and again for the proxies.
-Participants in the visual substudy did this for both \original~and \linear, then indicated preference for one.
-Participants in the lo-fi  study completed the \lofi~survey on a phone, which also played vibrations using Javascript and HTML5; other survey elements  employed a laptop.
-40 participants aged 18-50 were recruited via university undergraduate mailing lists.
-20 (8F) participated in the visual substudy, and a different 20 (10F) in the low-fi vibration substudy.
-
-Reference and proxies were presented in different random orders.
-Pilots confirmed that  participants did not notice proxy/target linkages, and thus were unlikely to consciously match their ratings between pair elements. % 
-%Piloting suggested participants did not recognize that \hifi~vibrations matched proxies. % SLC %KM doesn't understand this sentence. 
-\hifi/proxy presentation order was counterbalanced, as was \original/\linear.
-
-
-
-
-%\kmC{Other setup? SLC}  % Need to better formalize the basic premise (part of this can go into earlier approach), immediate objective, experiment design. You've only pulled out and highlighted the statistical test.  E.g., what was the study design, and what did subjects do ,exactly? (they rated vibrations. How, on what scales, how many times?)
- 
 \subsection{Comparison Metric: Equivalence Threshold}
 %\kmC{tighten and improve structre - SLC}
 % This section is important in setting up the assessment system you use in next section. This doesn't pop out - I need to read it carefully to figure out what 20 or 30 means. I suggest it
@@ -546,6 +461,35 @@ Thus, each rating set pair could be \textit{equivalent}, \textit{uncertain}, or 
 % We argue that 
 This approach gives a useful error bound, quantifying the precision tradeoff in using vibration proxies  to crowdsource feedback.
 
+
+
+
+\subsection{Study 1: In-lab Proxy Vibration Validation (G1)} 
+%\kmC{FRAME MISSING - SLC} % clarify (heading, text) that this is a local study. You're holding everything constant except the vibrations, AND you're making sure you can watch and see what people are actually doing, what problems they have. But you also are aware that people will behave differently in this setting than on MTurk so it's not perfect.
+% ALSO, I feel that well before now I needed to hear that you were going to do a local study followed by an MTurk study to compare the results. What is your validation approach?
+%
+%To validate our proxies for a Mechanical Turk study we followed a two stage approach.
+We obtained user ratings for the hi-fi source vibrations \hifi and three proxies (\original, \linear, and \lofi). An in-lab format avoided confounds and unknowns due to remote MTurk deployment, addressed in Study 2.
+%To examine whether users rate a proxy and the high-fidelity vibration similarly,
+Study 1 had two versions: in one, participants rated visual proxies \original\ and \linear~next to \hifi; and in the other, \lofi\ next to \hifi.
+%
+\visref\ and \lofiref\ denote these two references, each compared  with its respective proxy(ies) and thus with its own data. 
+In each substudy, participants rated each \hifi\ vibration on 6 scales [0-100] in a computer survey, and again for the proxies.
+Participants in the visual substudy did this for both \original~and \linear, then indicated preference for one.
+Participants in the lo-fi  study completed the \lofi~survey on a phone, which also played vibrations using Javascript and HTML5; other survey elements  employed a laptop.
+40 participants aged 18-50 were recruited via university undergraduate mailing lists.
+20 (8F) participated in the visual substudy, and a different 20 (10F) in the low-fi vibration substudy.
+
+Reference and proxies were presented in different random orders.
+Pilots confirmed that  participants did not notice proxy/target linkages, and thus were unlikely to consciously match their ratings between pair elements. % 
+%Piloting suggested participants did not recognize that \hifi~vibrations matched proxies. % SLC %KM doesn't understand this sentence. 
+\hifi/proxy presentation order was counterbalanced, as was \original/\linear.
+
+
+
+
+%\kmC{Other setup? SLC}  % Need to better formalize the basic premise (part of this can go into earlier approach), immediate objective, experiment design. You've only pulled out and highlighted the statistical test.  E.g., what was the study design, and what did subjects do ,exactly? (they rated vibrations. How, on what scales, how many times?)
+ 
 %
 %Confidence intervals and corresponding two one-sided tests of equivalence were computed for the 5\% level of significance.  %, adjusted for 
 %Except where noted, all models passed diagnostics of normality and homoscedacity.
@@ -571,7 +515,7 @@ This approach gives a useful error bound, quantifying the precision tradeoff in 
 % - Important to distinguish at top (ideally set up when you mention the rating scales you use): physical vs abstract. You refer below to the expectation that things will work differently for these, and yet it is something that really should have come across in describing the proxy development. It shouldn't be a kind of a surprise to the reader to find it here. 
 % The overview should explain how you are mixing the comparisons from the two substudies - LoFi and visual. It should make it clear that this is okay to do.  A table organizing quantitative results could assist with this, through its structure.
  
-\subsubsection{Overview of Results}
+\inlineHeading{Overview of Results}
 Study 1 results appear graphically in \autoref{fig:results:study1}.
 %\kmC{Start by summarizing / highlights of what the figure shows; lead the reader into how to interpret it.}
 	% MAYBE: can suggest to reader several features to look for in the plot. 
@@ -584,7 +528,7 @@ To interpret this plot, look for
 We structure our discussion around how the three modalities represent the different rating scales. 
 We refer to the number of \textit{equivalents} and \textit{differents} in a given cell as [$x$:$z$], with $y=$ number of \textit{uncertains}, and $x+y+z=10$.
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\textwidth, height=3in]{LocalStudy-CameraReadyPlot-2015-01-08-0021}
 	\caption{95\% confidence intervals and equivalence test results for Study 1 - Proxy Validation. Grey represents  \hifi~ratings. Dark green maps equivalence within our defined threshold, and red a statistical difference indicating an introduced bias; light green results are inconclusive. Within each cell, variation of \hifi~ratings means vibrations were rated differently compared to each other, suggesting they have different perceptual features and represent a varied set of source stimuli.
@@ -597,16 +541,17 @@ We refer to the number of \textit{equivalents} and \textit{differents} in a give
 	% ALSO: back where defining the VIS proxies, I didn't get clear sense of why it's called LINEAR. is this the best name for it (now?) Implication is of a simplification - a linearization.  }
 	
 	\label{fig:results:study1}
-\end{figure*}
+\end{figure}
 
 \begin{figure}[tb]
-	\includegraphics[width=0.48\textwidth]{Fig8-new4}
+	\centering
+	\includegraphics[width=0.75\textwidth]{Fig8-new4}
 	\caption{Rating distributions from Study 1, using V6 Energy as an example. These violin plots illustrate 1) the large variance in participant ratings, and 2) how equivalence thresholds reflect the data. When equivalent, proxy ratings are visibly similar to \hifi. When uncertain, ratings follow a distribution with unclear differences. When different, there is a clear shift.}
 %	\kmC{I think this is important to have, but I can't follow explanation. Also: what we can conclude from this fig for this stim, and what can you generalize to the other stim? How representative is it? minor: bigger labels}}
 	\label{fig:violinplot}
 \end{figure}
 
- \subsubsection{Duration and Pleasantness were translatable}
+ \inlineHeading{Duration and Pleasantness were translatable}
     Duration was comparably translatable for \lofi\ [5:1] and \linear\ [6:1]; \original\ was less consistent [7:3] (two differences very large).
     Between the three modalities, 9/10 vibrations achieved equivalence with at least one modality.
 %    The remaining  two were biased (V10, the longest vibration, and V6). \kmC{explain SLC} % what does biased mean in this context? It sounds like you're saying it's okay to dismiss them because of it.
@@ -619,8 +564,7 @@ We refer to the number of \textit{equivalents} and \textit{differents} in a give
      Pleasantness is a higher-level affective feature than Duration.
      Although not an absolute victory, this result gives evidence that, with improvement, crowdsourcing may be a viable method of feedback for at least one affective parameter.
     
-    \vspace{0.1in}
-    \subsubsection{Speed and Urgency translated better with \lofi}
+    \inlineHeading{Speed and Urgency translated better with \lofi}
     	\lofi\ was  effective at representing Urgency [6:2]; \linear\ attained only  [4:5], and \original\ [3:5].
 	Speed was less translatable. \lofi~did best at [4:2];
 	\original~reached only [1:6], and \linear~[3:5].
@@ -629,14 +573,13 @@ We refer to the number of \textit{equivalents} and \textit{differents} in a give
 	Of the three, 9/10 vibrations were equivalent at least once for Urgency (V8 was not).
 	Speed had less coverage: 6/10 had equivalencies (V3,4,6,10 did not).
 	
-	\subsubsection{Roughness had mixed results; best with \linear}
-    
+	\inlineHeading{Roughness had mixed results; best with \linear}
     Roughness ratings varied heavily by vibration.
     7 vibrations had at least one equivalence (V2,4,10 did not).
     All modalities had 4 equivalencies each:
     \linear\ [4:3], \original\ [4:4], and \lofi\ [4:5]. 
     
-          \subsubsection{Energy was most challenging}
+          \inlineHeading{Energy was most challenging}
           Like Roughness, 7 vibrations had at least one equivalence  between  modalities (V1,4,10 did not).
           \lofi\ [4:5] did best with Energy;
           \linear\ and \original\ struggled at [1:8]. 
@@ -653,9 +596,8 @@ We refer to the number of \textit{equivalents} and \textit{differents} in a give
     
 %    In addition, designing the right energy levels seems challenging for some vibrations given the current phone actuators (e.g., short pulses with high energy, very high energy signals) while it seems more feasible with visual proxies. This suggests that triangulation of different proxies might be a good strategy. In other words, researchers can use low-fi vibrations to get user feedback on speed and urgency and collect user feedback on roughness and energy using the linear (??) proxy.
     
-    \subsubsection{Emphasized visualization outperformed direct plot}
+    \inlineHeading{Emphasized visualization outperformed direct plot}
  %   \subsubsection{\linear\ outperformed \original}
-
 	Though it depended on the vibration, \linear\ outperformed \original\ for most metrics, having the same or better equivalencies/differences for Speed, Energy, Roughness, Urgency, and Pleasantness.
 	Duration was the only mixed result, as \original\ had both more equivalencies and more differences  [7:3] versus [6:1]
     %
@@ -669,8 +611,7 @@ We refer to the number of \textit{equivalents} and \textit{differents} in a give
     affective qualities more effectively than the status quo.
     This supports our approach to emphasized visualization, and motivates the future pursuit of other visualizations.
     
-    \subsubsection{V4,V10 difficult, V9 easy to translate}
-    
+    \inlineHeading{V4,V10 difficult, V9 easy to translate}
     While most vibrations had at least one equivalency for 5 rating scales, V4 and V10 only had 3.
     V4 and V10 had no equivalences at all for Speed, Roughness, and Energy, making them some of the most difficult vibrations to translate.
     V4's visualization had very straight lines, perhaps downplaying its texture.
@@ -693,7 +634,7 @@ We refer to the number of \textit{equivalents} and \textit{differents} in a give
 	\label{fig:results:study2}
 \end{figure*}
 
-\subsubsection{Summary}
+\inlineHeading{Study 1 Summary}
 In general, these results indicate promise, but also need improvement and combination of proxy modalities.
 Unsurprisingly, participant ratings varied, reducing confidence and increasing the width of confidence intervals (indeed, this is partial motivation to access larger samples). 
 Even so, both differences and equivalencies were found in every rating/proxy modality pairing.
@@ -707,7 +648,7 @@ Though we were able to represent several features using proxy modalities within 
 All results from Study 1 were gathered in-lab, a more controlled environment than over MTurk.
 We thus ran a second study to validate our proxy modality ratings when deployed remotely.
 
-\section{Study 2: Deployment Validation with MTurk (G2)}
+\subsection{Study 2: Deployment Validation with MTurk (G2)}
 To determine whether rating of a proxy is similar when gathered locally or remotely, we deployed the same computer-run proxy modality surveys on MTurk.
 We wanted to discover the challenges all through the pipeline for running a VT study on MTurk, including larger variations in phone actuators and experimental conditions (G4). 
 We purposefully did not iterate on our proxy vibrations or survey, despite identifying many ways to improve them, to avoid creating a confound in comparing results of the two studies. 
@@ -735,8 +676,7 @@ We compared the remote proxy results (from MTurk) to the \hifi~results gathered 
 %40 were included in the study (9 used non-Android platforms for the \lofi HIT).
 
 
-\subsection {Results}
-
+\subsection{Study 2 Results}
 Study 2 results appear in \autoref{fig:results:study2},
 which compares remotely collected ratings with locally collected ratings for the respective reference (the same reference as for \autoref{fig:results:study1}). It can be read the same way, but adds information.
 Based an analysis of a different comparison, a red star indicates a statistically significant difference between remote proxy ratings and corresponding local \textit{proxy} ratings.
@@ -765,15 +705,15 @@ Here we discuss high level implications from our findings and relate them to our
 %V9	V5  6-27		1.1
 %V7	V8  7-26		4.4
 
-    \subsection{Proxy modalities are viable for crowdsourcing (G1,G2:feasibility)} % feasibility
+    \inlineHeading{Proxy modalities are viable for crowdsourcing (G1,G2:feasibility)} % feasibility
    Our studies showed that proxy modalities can represent %both physical and 
    affective qualities of vibrations within reasonably chosen error bounds, depending on the vibration.
    These results largely translate to deployment on MTurk.
    Together, these two steps indicate that proxy modalities are be a viable approach to crowdsourcing VT sensations, and can reach a usable state with a bounded design iteration (as outlined in the following sections).
    This evidence also suggests that we may be able to deploy directly to MTurk for future validation.
    Our two-step validation was important as a first look at whether ratings shift dramatically; and we saw no indications of bias or overall shift between locally running proxy modalities and remotely deploying them.
-   \vspace{0.35in}
-    \subsection{Triangulation (G3:promising directions/proxies)}
+
+    \inlineHeading{Triangulation (G3:promising directions/proxies)}
 	Most vibrations received equivalent ratings for most scales in at least one proxy modality.
 	Using proxy modalities in tandem might help improve response accuracy.
 	For example, V6 could be rendered with \lofi~for a pleasantness rating, then as \linear~for Urgency.
@@ -781,7 +721,7 @@ Here we discuss high level implications from our findings and relate them to our
 %	Taken in tandem, this might improve response accuracy.
 	
 
-    \subsection{Animate visualizations (G3:promising directions)}
+    \inlineHeading{Animate visualizations (G3:promising directions)}
     Speed and Urgency were not as effectively transmitted with our visualizations as with our vibration.
     Nor was Duration well portrayed with  \original, which had a shorter time axis than the exaggerated \linear.
     It may be more difficult for visual representations to portray time effectively: perhaps it is hard for users to distinguish Speed/Urgency, or the time axis is not at an effective granularity.
@@ -789,7 +729,7 @@ Here we discuss high level implications from our findings and relate them to our
     As with triangulation, this might also be accomplished through multimodal proxies which augment a visualization with a time-varying sense using sounds or vibration.
     Note, however, that Duration was more accurately portrayed by \linear, suggesting that direct representation of physical features \textit{can} be translated.
     
-    \subsection{Sound could represent Energy (G3:promising directions)}
+    \inlineHeading{Sound could represent Energy (G3:promising directions)}
 Our high-fidelity reference is a voice-coil actuator, also used in audio applications.
 Indeed, in initial pilots we played vibration sound files through speakers. Sound is the closest to vibration in the literature, and a vibration signal's sound output is correlated with the vibration energy and sensation. 
 
@@ -798,7 +738,7 @@ However, in our pilots, sometimes the vibration sound did not match the sensatio
 Thus, while the raw sound files are not directly translatable, a sound proxy definitely has potential. It could, for example, supplement where the \original~\ waveform failed to perform well on any metric (aside from Duration) but a more expressive visual proxy (\linear) performed better.
 
 
-    \subsection{Device dependency and need for Energy model for Vibrations (G4:challenges)}
+    \inlineHeading{Device dependency and need for Energy model for Vibrations (G4:challenges)}
      Energy did not translate well.
      This could be a linguistic confusion, but also a failure to translate this feature.
      For the visualization proxies, it may be a matter of finding the right representation, which we continue to work on.
@@ -824,21 +764,21 @@ Thus, while the raw sound files are not directly translatable, a sound proxy def
         %Big take away: Energy could be the most important parameter!? 
         %Developing an energy model for vibrations on MTurk is critical -> provides motivation for  Oliverâ??s earlier MTurk project proposal!!		
 		
-	\subsection{VT %Perceptual
+	\inlineHeading{VT %Perceptual
 	affective ratings are generally noisy (G4:challenges)}
    Taken as a group, participants were not highly consistent among one another when rating these %perceptual
    affective studies, whether local or remote.
   This is in line with previous work \cite{Seifi2015}, and highlights a need to further develop rating scales for affective touch.
    Larger sample sizes, perhaps gathered through crowdsourcing, may help reduce or characterize this error. Alternatively, it gives support to the need to develop mechanisms for individual customization. If there are ``types'' of users who do share preferences and interpretations, crowdsourcing can help with this as well.
    
-\subsection{Response \& data quality for MTurk \lofi\ vibrations (G4:challenges)}
+\inlineHeading{Response \& data quality for MTurk \lofi\ vibrations (G4:challenges)}
 When deploying vibrations over MTurk, 8/29 participants (approximately 31\%) completed the survey using non-Android based OSes (Mac OS X, Windows 7,8.1, NT) despite these requirements being listed in the HIT and the survey. One participant reported not being able to feel the vibrations despite using an Android phone. 
 This suggests that enforcing a remote survey to be taken on the phone is challenging, and that additional screens are needed to identify participants not on a particular platform.
 Future work might investigate additional diagnostic tools to ensure that vibrations are being generated, through programmatic screening of platforms, well-worded questions and instructions, and (possibly) ways of detecting vibrations actually being played, perhaps through the microphone or accelerometer).
 
 
 
-\subsection{Automatic translation (G4:challenges)}
+\inlineHeading{Automatic translation (G4:challenges)}
 Our proxy vibrations were developed by hand, to focus on the feasibility of crowdsourcing.
 However, this additional effort poses a barrier for designers that might negate the benefits of using a platform of MTurk.
 As this approach becomes better defined, we anticipate automatic translation heuristics for proxy vibrations using validated algorithms.
@@ -887,7 +827,6 @@ Indeed, crowdsourcing itself could be used to create these algorithms, as severa
     % The challenge of providing an accurate visualization of energy is less fundamental/easier to tackle than for low-fi vibration case. We could got more promising results if we had matched the amplification levels across studies. 
     
     \subsection{Limitations}
-    
     A potential confound was introduced by \linear\ having a longer time axis than \original: some of \linear's improvements could be due to seeing temporal features in higher resolution.
     This is exacerbated by V10 being notably longer than the next longest vibration, V8 (13.5s vs. 4.4s), further reducing temporal resolution vibrations other than V10.
     
@@ -905,21 +844,22 @@ Indeed, crowdsourcing itself could be used to create these algorithms, as severa
     %  The entire confidence interval for these means must lie within the range -20 to 20 or -30 to 30; many estimates that do not lie in this range also do not lie entirely out of it, and so we cannot always conclude non-equivalence for null results.
     %  Ultimately, there is uncertainty in this data; future work with larger sample sizes could help resolve whether this is due to large individual differences (observed in previous work (vibviz?)).
 
+\osC{TODO: Connect more with other chapter discussions and intros.}
       
-\section{Conclusion}
-In this paper, we crowdsourced high-level parameter feedback on VT sensations using a new method of \emph{proxy vibrations}.
-We translated our initial set of high-fidelity vibrations, suitable for wearables or other haptic interactions, into two proxy modalities: a new VT visualization method, and low-fidelity vibrations on phones.
-
-We established the most high-risk aspects of VT proxies, namely feasibility in conveying affective properties, and consistent local and remote deployment with two user studies.
-%Our two-stage evaluation (first locally testing our proxies for producing similar results as a high-fidelity reference, then deploying those same proxies in a crowdsource format and checking for similarity of results) validated the idea. It showed that proxy vibrations have the potential to gather VT feedback that is consistent with high-fidelity vibrations, even when deployed remotely over MTurk. 
-Finally, we highlighted promising directions and challenges of VT proxies, to guide
-%These studies provide lessons for 
-future tactile crowdsourcing developments, targeted to empower VT designers with the benefits crowdsourcing brings.
-
-% In this paper we demonstrated contributions and other contributions.
-% Our contributions revealed important takeaways and highlighted a need for problem, but ultimately showed a success for goal.
-% Future work will contribute further contributions on problem and related goals.
-% Together, we will save the world through science.
+%\section{Conclusion}
+%In this paper, we crowdsourced high-level parameter feedback on VT sensations using a new method of \emph{proxy vibrations}.
+%We translated our initial set of high-fidelity vibrations, suitable for wearables or other haptic interactions, into two proxy modalities: a new VT visualization method, and low-fidelity vibrations on phones.
+%
+%We established the most high-risk aspects of VT proxies, namely feasibility in conveying affective properties, and consistent local and remote deployment with two user studies.
+%%Our two-stage evaluation (first locally testing our proxies for producing similar results as a high-fidelity reference, then deploying those same proxies in a crowdsource format and checking for similarity of results) validated the idea. It showed that proxy vibrations have the potential to gather VT feedback that is consistent with high-fidelity vibrations, even when deployed remotely over MTurk. 
+%Finally, we highlighted promising directions and challenges of VT proxies, to guide
+%%These studies provide lessons for 
+%future tactile crowdsourcing developments, targeted to empower VT designers with the benefits crowdsourcing brings.
+%
+%% In this paper we demonstrated contributions and other contributions.
+%% Our contributions revealed important takeaways and highlighted a need for problem, but ultimately showed a success for goal.
+%% Future work will contribute further contributions on problem and related goals.
+%% Together, we will save the world through science.
 
 
 

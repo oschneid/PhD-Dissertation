@@ -307,6 +307,96 @@ We explore collaboration with the Haptic Instrument (\autoref{ch:hapticinstrumen
 
 
 
+
+\osC{SLC for HapTurk RW}
+%\section{Related Work}
+%We cover work related to VT icons and evaluation methods for VT effects, the current understanding of affective haptics, and work with Mechanical Turk in other modalities.
+%   %% \subsection{VT Icons}
+%     
+%		%%[change first sentence] VT effects are useful. According to previous studies, VT icons can communicate information [ref] and affect [ref]. VT effects are developed to assist visually-impaired users in outdoor scenarios [ref] as well as accessing digital information [ref]. In addition, VT effects can increase performance on visual interfaces, enhance engagement with the content and provide better user experience with electronic devices [ref to levesque].
+%		
+%\subsection{Existing Evaluation Methods for VT Effects} 
+%
+%The haptic community has appropriated or developed many types of user studies to evaluate VT effects and support VT design.
+%These target a variety of objectives:
+%
+%1) {\em Perceptibility:} Determine the perceptual threshold or Just Noticeable Difference (JND) of VT parameters. Researchers vary the values of a VT parameter (e.g., frequency)
+%% in small steps
+%to determine the minimum perceptible change
+%%for the parameter
+%~\cite{JNDstudy,foundationsoftactile}. 
+%
+%2) {\em Illusions:} Studies investigate effects like masking or apparent motion of VT sensations, useful to expand a haptic designer's palette \cite{Hayward2008,Israr2011a,Seo2013}.
+%
+%3) {\em Perceptual organization:} Reveal the underlying dimensionality of how humans perceive VT effects (which are generally different than the machine parameters used to generate the stimuli).
+%Multidimensional Scaling (MDS) studies are common, inviting participants compare or group vibrations based on perceived similarity~\cite{Hollins93,van2003distilling,Pasquero2006,Chan2008,Ternes2008}.
+%
+%4) {\em Encoding abstract information:} Researchers examine salient and memorable VT parameters (e.g. energy, rhythm) as well as the number of VT icons that people can remember and attribute to an information piece~\cite{Brown2006a,Allen2005,Chan2008,Ternes2008}.
+%
+%5) {\em Assign affect:} Studies investigate the link between affective characteristics of vibrations (e.g., pleasantness, urgency) to their engineering parameters (e.g., frequency, waveform)~\cite{Ternes2008,affect2015,Raisamo,Koskinen}.
+%To achieve this, VT researchers commonly design or collect a set of vibrations and ask participants to rate them on a set of qualitative metrics.
+%
+%6) {\em Identify language:} Participants describe or annotate tactile stimuli in natural language~\cite{Chan2008,Ternes2008,Obrist2013,Guest2011,Hwang2011,Seifi2015}.
+%
+%7) {\em Use case support:} Case studies focus on conveying information with VT icons such as collaboration~\cite{Chan2008}, public transit~\cite{Brunet2013a} and direction \cite{Brunet2013a,Arab2015}, or timing of a presentation~\cite{presentationtiming}. In other cases, VT effects are designed for user engagement, for example in games and movies, multimodal storytelling, or art installations~\cite{Israr2014,feelcraft}. 
+%Here, the designers use iterative design and user feedback (qualitative and quantitative with user rating) to refine and ensure effective design.
+%
+%All of the above studies would benefit from the large number of participants and fast data collection on MTurk.
+%In this paper, we chose our methodology so that the results are informative for a broad range of these studies.
+%
+%\subsection{Affective Haptics}
+%VT designers have the challenge of creating perceptually salient icon sets that convey meaningful content. A full range of expressiveness means manipulating not only 
+%a vibration's physical characteristics but also its perceptual and %affective
+%emotional properties, and collecting feedback on this. Here, we refer to all these properties as affective characteristics. 
+%
+%%;then, based on Multi-Dimensional Scaling... to 
+%%(New sentence)Using Multi-Dimensional Scaling (MDS) analysis of similarity ratings, it was proposed... (the same)
+%Some foundations for affective VT design are in place. Studies on tactile language and affect are establishing a set of perceptual metrics~\cite{Obrist2013,Seifi2015}. Guest \etal\ collated a large list of emotion and sensation words describing tactile stimuli; then, based on multidimensional scaling of similarity ratings, proposed comfort or pleasantness and arousal as key dimensions for tactile emotion words, and rough/smooth, cold/warm, and wet/dry for sensation~\cite{Obrist2013}.
+%Even so, there is not yet agreement on an affective tactile design language~ \cite{Jansson-Boyd2011}.
+%
+
+%
+% THIS PART MAY BE INCLUDED ALREADY IN ch:hapturk
+%
+%%Recently, Seifi \etal\ compiled research on tactile language into five taxonomies for describing vibrations~\cite{Seifi2015}.  \textbf{1) Physical properties} that can be measured: e.g., duration, energy, tempo or speed, rhythm structure; 
+%%\textbf{2) sensory properties}: roughness, and sensory words from  Guest \etal's touch dictionary \cite{Guest2011};
+%%\textbf{3) emotional interpretations}: pleasantness, arousal (urgency), dictionary emotion words \cite{Guest2011};
+%%\textbf{4) metaphors} provide familiar examples resembling the vibration's feel: heartbeat, insects;
+%%\textbf{5) usage examples} describe % types of 
+%%events which a vibration fits: an incoming message or alarm.
+%%
+%%%addressing Karon's comment a bit 
+%%%To evaluate our vibration proxies, we derived the five most salient metrics from these taxonomies. 
+%%To evaluate our vibration proxies, we derived six metrics from these taxonomies to capture vibrations' physical, sensory and emotional aspects:  
+%%1) duration, 2) energy, 3) speed, 4) roughness, 5) pleasantness, and 6) urgency. 
+%%% \kmC{why these 5? you took one from each taxonmy, but why this particular one?}
+%%
+%%
+%%\subsection{Mechanical Turk (MTurk)}
+%%MTurk is a platform for receiving feedback from a large number of users, in a short time at a low cost~\cite{mutrkgeneral,visualperceptionturk}. These large, fast, cheap samples have proved useful for many cases including running perceptual studies~\cite{visualperceptionturk}, developing taxonomies~\cite{taxonomyturk}, feedback on text \cite{Siangliulue2015}, graphic design \cite{Xu2014}, and sonic imitations \cite{Cartwright2015}.
+%%
+%%\purple{Crowdsourced studies have drawbacks. The  remote, asynchronous study environment is not controlled; compared to a quiet lab, participants may be subjected to unknown interruptions, and may spend less time on task with more response variability~\cite{mutrkgeneral}.
+%%MTurk is not suitable for getting rich, qualitative feedback or following up on performance or strategy~\cite{behavioralturk}. Best practices -- e.g., simplifying tasks to be confined to a singular activity, or using instructions complemented with example responses -- are used to reduce task ambiguity and improve response quality~\cite{Amazon.comInc.2015}.
+%%Some participants try to exploit the service for personal profit, exhibiting low task engagement~\cite{Downs2010}, and must be pre- or post-screened.} 
+%%
+%%Studies have examined MTurk result validity in other domains. 
+%%Most relevantly, Heer \etal~\cite{visualperceptionturk} validated MTurk data for graphical perception experiments (spatial encoding and luminance contrast) by replicating previous perceptual studies on MTurk. %The studies yielded similar design guidelines, albeit with greater variability; participant environment, i.e. operation system and graphical display as identified by Javascript, was a factor.
+%%% Further, they found the operation system and monitor details, as recorded by Javascript, a predictor of the results. 
+%%%\kmC{OS:slc} % KM 01.07: don't understand previous sentence. I tried to rephrase it, but I still am unsure how the environment played into the results. It seems like this counters the point of previous point: the system the subject used was a noise source, which would have gotten in way of validation.
+%%Similarly, we compare results of our local user study with an MTurk study to assess viability of running VT studies on MTurk, and collect and examine phone properties in our MTurk deployment. 
+%%%Need for Haptic Turk... that's not our title so can we use this? 
+%%
+%%{\it Need for HapTurk:} Our present goal is to give the haptic design community access to crowdsourced evaluation so we can establish modality-specific methodological tradeoffs.
+%%%
+%%There is ample need for huge-sample haptic evaluation. User experience of transmitted sensations must be robust to receiving device diversity.
+%%Techniques to broadcast haptic effects to video \cite{Modhrain2001,Kim2009}, e.g., with YouTube \cite{AbdurRahman2010} or MPEG7 \cite{Eid2006,Ferre2008} now require known high-fidelity devices  because of remote device uncertainty;  
+%%the same applies to social protocols developed for remote use of high-quality vibrations, e.g. in collaborative turn taking \cite{Chan2008}. 
+%%Elsewhere, studies of VT use in consumer devices need larger samples: e.g., 
+%%perceivability~\cite{Kaaresoja2005}, encoding of caller parameters \cite{Brown2006b}, including caller
+%%emotion and physical presence collected from pressure on another handset~\cite{Hoggan2012}, and usability of expressive, customizable VT icons in social messaging~\cite{Israr2015}.
+%%%
+
+
 \section{Methodology}
 \osC{FROM HAPTIC INSTRUMENT:}
 % \noindent
@@ -343,6 +433,7 @@ create a variety of designs.
 Qualitative evaluation was chosen for rich, focused, early feedback of the animation metaphor and lessons for iteration.
 A quantitative comparison between tool perspectives is left until more refined tools are developed.
 We wanted to establish whether this is an effective approach before studying the most effective approach.
+
 
 
 
