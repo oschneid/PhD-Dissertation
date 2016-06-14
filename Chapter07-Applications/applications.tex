@@ -33,31 +33,55 @@ To complement these studies, I participated in several more focused projects, to
 
 \section{FeelCraft}
 \label{sec:applications:feelcraft}
-In recent years, haptic feedback has shown promise to enhance user experience in movies, games, rides, virtual simulations, and social and educational media [1?3]. However, current mainstream media has yet to use the richness of haptic modality within its content. The lack of haptic authoring tools, production infrastructure,
-standardized playback protocols, and skilled and trained workers has contributed to the difficulty of integrating haptic content with accompanying media. To reduce the gap between haptics and mainstream communication, haptic feedback must be expressive, coherent, and synchronized with the content of the media, and also meet user expectations. We believe that allowing end users to access, customize, and share haptic media will create an intimate, engaging, and personalized experience, and proliferate the use of haptics. In this paper, we propose and implement an architecture that channels media
-content to dynamic and expressive tactile sensations. We introduce FeelCraft, a media plugin that monitors events and activities in the media, and associates them to user-defined haptic content in a seamless, structured way. The FeelCraft plugin allows novice users to generate, recall, save, and share haptic content, and play and broadcast them to other users to feel the same haptic experience, without having any skill in haptic content generation. In the current implementation, we concentrate on the vibrotactile array as the source of sensation and the back as the surface for stimulation; however, the FeelCraft architecture can be easily adapted for other haptic feedback modalities. We begin by presenting relevant background work related to haptic media
-infrastructure. We then present the FeelCraft architecture and describe in detail each component of the system. Finally, we conclude the paper with our envisioned application ecosystem.
+%In recent years, haptic feedback has shown promise to enhance user experience in movies, games, rides, virtual simulations, and social and educational media [1?3]. However, current mainstream media has yet to use the richness of haptic modality within its content. The lack of haptic authoring tools, production infrastructure,
+%standardized playback protocols, and skilled and trained workers has contributed to the difficulty of integrating haptic content with accompanying media. To reduce the gap between haptics and mainstream communication, haptic feedback must be expressive, coherent, and synchronized with the content of the media, and also meet user expectations. We believe that allowing end users to access, customize, and share haptic media will create an intimate, engaging, and personalized experience, and proliferate the use of haptics.
 
-\subsection{Related Work}
-Infrastructures to integrate haptic feedback in media have been primarily derived from media type and user interactions associated with the content. These infra- structures fall into two categories: event triggers and direct mappings. In the event triggers scheme, haptic information is embedded in the media and
-played back using predefined protocols [4]. A common example is a video game controller that rumbles on predefined triggers embedded in the games. This tech- nique is complex and requires a proper production infrastructure that is expensive. Another disadvantage of this technique is that media designers would require access to tools and libraries for creating expressive haptic effects, similar to the libraries for visual and sound effects [5]. Direct mappings use cues from existing media and directly maps them to haptic
-effects. For example, a typical way to enhance movies and other visual content with haptics is to monitor activity in a video feed [6] and map these activities to haptic transducers arranged along the seat [1, 7]. This way, movements in a visual scene are mapped to gross motion collocated with events seen in 4D movies and rides (www.d-box.com). Similarly, sound has been used to derive haptic cues for video games and music [8, 9]. For example, Buttkicker technology (Guitammer, USA) shakes the entire seat using low-pass filtered sound. The Vybe Haptic Gaming Pad (Comfort Research) divides sound into three bands and maps them to transducers located in the seat and back. The advantage of the direct mapping scheme is that no change is required in the current media production process. However, each tech- nique is limited to its media type.
+As shown in prior work (cite Hasti), and as we will discuss in \autoref{ch:hapticianinterviews}, customization is an important feature for haptic experiences.
+In addition, haptic media must be built around existing infrastructure, as it is not directly supported by most media types.
+FeelCraft is a media plugin architecture that monitors events and activities in the media, and associates them to user-defined haptic content in a seamless, structured way.
+The FeelCraft plugin allows novice users to generate, recall, save, and share haptic content, and play and broadcast them to other users to feel the same haptic experience, without having any skill in haptic content generation.
+In this chapter, we describe the plug-in architecture, envisioned applications, and our implementation for VT grid arrays displaying Feel Effects (FEs) \cite{Israr2014} for a popular video game, MineCraft.
+%In the current implementation, we concentrate on the vibrotactile array as the source of sensation and the back as the surface for stimulation; however, the FeelCraft architecture can be easily adapted for other haptic feedback modalities. We begin by presenting relevant background work related to haptic media
+%infrastructure. We then present the FeelCraft architecture and describe in detail each component of the system. Finally, we conclude the paper with our envisioned application ecosystem.
+%In this paper, we propose and implement an architecture that channels media
+%content to dynamic and expressive tactile sensations.
+\osC{TODO: Go through citations in this section, update from the paper.}
 
-A FeelCraft plugin maps media to haptic sensations in a modular fashion, supporting arbitrary media types and output devices. By using a FeelCraft plugin, users can:
-\begin{itemize}
-	\item link existing and new media to the haptic feedback technology,
-	
-	\item use an FE library to find appropriate semantically defined effects,
-	
-	\item author, customize, and share a common, evolving repository of FEs, and
-	
-	\item play and broadcast haptic experiences to one or more user(s).
-\end{itemize}
+%\subsection{Approach}
+%Infrastructures to integrate haptic feedback in media have been primarily derived from media type and user interactions associated with the content.
+%These infrastructures fall into two categories: event triggers and direct mappings.
+%In the event triggers scheme, haptic information is embedded in the media and played back using predefined protocols [4?]. 
+%A common example is a video game controller that rumbles on predefined triggers embedded in the games.
+%This technique typically requires dedicated production infrastructure and access to tools and libraries for creating expressive haptic effects, similar to the libraries for visual and sound effects [5].
+%Direct mappings use cues from existing media and directly maps them to haptic effects.
+%For example, a typical way to enhance movies and other visual content with haptics is to monitor activity in a video feed [6] and map these activities to haptic transducers arranged along the seat [1, 7].
+%This way, movements in a visual scene are mapped to gross motion collocated with events seen in 4D movies and rides (www.d-box.com).
+%%Similarly, sound has been used to derive haptic cues for video games and music [8, 9].
+%%For example, Buttkicker technology (Guitammer, USA) shakes the entire seat using low-pass filtered sound.
+%%The Vybe Haptic Gaming Pad (Comfort Research) divides sound into three bands and maps them to transducers located in the seat and back. The advantage of the direct mapping scheme is that no change is required in the current media production process. However, each technique is limited to its media type.
+%\osC{The above-mentioned descriptions don't really make sense.}
+
+
+%\begin{itemize}
+%	\item link existing and new media to the haptic feedback technology,
+%	
+%	\item use an FE library to find appropriate semantically defined effects,
+%	
+%	\item author, customize, and share a common, evolving repository of FEs, and
+%	
+%	\item play and broadcast haptic experiences to one or more user(s).
+%\end{itemize}
 
 
 \subsection{FeelCraft Plugin and Architecture}
+A FeelCraft plugin maps media to haptic sensations in a modular fashion, supporting arbitrary media types and output devices.
+By using a FeelCraft plugin, users can link existing and new media to the haptic feedback technology, use an FE library to find appropriate semantically defined effects, author, customize, and share a common, evolving repository of FEs, and play and broadcast haptic experiences to one or more user(s).
+A pictorial description of the FeelCraft architecture is shown in Fig. 1 architecture.
 
-A pictorial description of the FeelCraft architecture is shown in Fig. 1 archi- tecture. The conceptual framework of FeelCraft revolves around the FE library introduced in [17]. The FE library provides a structured and semantically correct association of media events with haptic feedback. By using the authoring interface to tailor FE parameters, a repository of FEs can remain general while being used for unique, engaging, and suitable sensations for different media. The playback system, authoring and control interface, Event2Haptic mappings, and media plugin support seamless flow of the media content to the haptic feedback hardware.
+The conceptual framework of FeelCraft revolves around the FE library introduced in [17?].
+The FE library provides a structured and semantically correct association of media events with haptic feedback.
+By using the authoring interface to tailor FE parameters, a repository of FEs can remain general while being used for unique, engaging, and suitable sensations for different media.
+The playback system, authoring and control interface, Event2Haptic mappings, and media plugin support seamless flow of the media content to the haptic feedback hardware.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
@@ -87,6 +111,13 @@ FEs and tune, edit, and play back existing FEs. Users modify an FE by varying sl
 defined in FE family files and outputs them through a communication method (8) to one or more devices (9). Our implementation includes an API controlling the commercially available Vybe Haptic Gaming Pad via USB.
 \end{description}
 
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\textwidth]{feelcraft/FeelcraftMockupLabeled} 
+   \caption{Mockup for FeelCraft demo system (cite UIST and AH)}
+   \label{fig:feelcraft:mockup}
+\end{figure}
+
 
 \subsection{Application Ecosystem}
 
@@ -99,35 +130,17 @@ defined in FE family files and outputs them through a communication method (8) t
 
 FeelCraft plugins are designed to make haptics accessible to end users using existing media and technology. For example, a user may want to assign a custom vibration to a friend?s phone number, or add haptics to a game. In this case, a user would download a FeelCraft plugin for their device, browse FEs on an online feel repository, and download FE families they prefer. Once downloaded, the FeelCraft authoring inter- face allows for customization, as a rain FE for one video game may not quite suit another game. The user could create a new FE for their specific application, and once they were happy with it, upload their customFE for others to use. If the user wanted to show a friend their FE, they could use the playback system to drive output to multiple devices, or export the FE to a file and send it to them later. Figure 2 illustrates this ecosystem with application areas. Just like the Noun Project for visual icons (http:// thenounproject.com) and downloadable sound effect libraries, we envision online repositories of FEs that can be continually expanded with new FEs by users. Our current FErepository includes six original families described in [17] and an additional four new families: Ride, Explosion, Fall, and Arrow.
 
-\subsection{Conclusion}
-In this paper, we have presented FeelCraft, a software plugin that allows users to author, customize, share, and broadcast dynamic tactile experiences with media and user activities. The plugin uses FEs, semantically structured haptic patterns.
-We integrated the FeelCraft plugin with a popular sandbox game, MineCraft. Users can associate six events in the game to corresponding FE, and modify and broadcast to other users to share the haptic experience. The newly authored FEs are saved and shared with other users for communal use via an online FE repository. The pro- posed plugin can also be used with a wide range of entertaining, social, and edu- cational media. Future work includes expanding the FE repository, networked communication and sharing, and supporting output to different haptic device types while maintaining semantic meaning, connecting end users to haptics in an even more accessible manner.
+
+
+
+%\subsection{Conclusion}
+%In this paper, we have presented FeelCraft, a software plugin that allows users to author, customize, share, and broadcast dynamic tactile experiences with media and user activities. The plugin uses FEs, semantically structured haptic patterns.
+%We integrated the FeelCraft plugin with a popular sandbox game, MineCraft. Users can associate six events in the game to corresponding FE, and modify and broadcast to other users to share the haptic experience. The newly authored FEs are saved and shared with other users for communal use via an online FE repository. The pro- posed plugin can also be used with a wide range of entertaining, social, and edu- cational media. Future work includes expanding the FE repository, networked communication and sharing, and supporting output to different haptic device types while maintaining semantic meaning, connecting end users to haptics in an even more accessible manner.
 
 
 
 \section{Feel Messenger}
 \label{sec:applications:feelmessenger}
-
-Touch is particularly significant in interpersonal communication [3].
-Ranging from mutual user interactions, such as handshakes and hugs, to directing a user's attention by poking or tapping on the shoulder; the channel of touch has also been used in children games in which one child draws patterns on another child's body usin ga finger, and the recipient child guesses what is drawn on the body [7].
-Many authors have explored the haptic channel to artificially communicate, enhance and augment interactions on custom-made handheld and wearable devices [3, 4, 5, 16]. This paper explores the use of haptic feedback in social interactions, such as instant messaging, social networking and everyday social use on embedded mobile devices.
-
-Current consumer devices, such as mobile devices, watches and hand controllers, are equipped with a single vibrotactile (VT) motor that usually alerts users for incoming calls or messages, and/or for text entry and ?clicks? [8]. These actuators are popular due to low cost and power requirements, small size and weight, convenient packaging and simple control electronics. The challenge is to create meaningful, expressive and interactive haptic feedback in-between users using only a single low-bandwidth VT motor and with limited computational resources in embedded devices.
-
-Recently, Israr and colleagues [9] have demonstrated that a class of haptic patterns, called feel effects (FEs), could be defined in a parametric structure, called a family. By tuning parameters of these families, users control the semantic interpretation of haptic patterns using the same logic as they would use in normal language. This interpretation of haptic patterns not only allows users to communicate more expressive haptic content, but also to personalize the right haptic pattern for social and interpersonal communication. Such feel effects have also shown to improve early reading comprehension scores in [18].
-
-In this paper, we implement Feel Messenger, a social and instant messaging (IM) application that allows users to share, express and communicate haptic patterns in a structured and economical way on current consumer devices (i.e., using the embedded VT motor). We introduce ?feelbits? and ?feelgits?, haptic structures that allow succinct and eloquent network communication and reduce bandwidth and latency between devices. By allowing users to share and personalize haptic content, we hope to extend the capabilities of handheld and wearable devices for more interactive use among consumers.
-
-This paper is organized as follows: After a brief background, we present the Feel Messenger application. Next, we explore the vocabulary of haptic patterns and present a pilot study to evaluate the usability of the application.
-
-\subsection{Background}
-The idea of haptic feedback for instant messaging and social networking has been demonstrated in the past, however, previous work lacked expressive and meaningful haptic interactions connected to a semantic language. In these studies, user gestures, pre- programmed tactile patterns and ?feels? were transmitted using custom devices and through multiple actuators [2, 11-14, 17].
-
-Force feedback devices are not applicable for mobile applications, as they need to be coupled with the ground. Shape-changing features and vibratory grids have been explored to convey emotions, textures and directional cues on handheld devices [6, 8]. A few commercial libraries and APIs are also available to add haptics experiences in current mobile devices [1].
-
-These libraries allow programmers to select from a predefined list of haptic patterns and embed them in their application. All patterns are stored in the device?s memory and users have limited flexibility in personalizing haptic patterns for rich and expressive communication. Recently, Seifi and colleagues [15] have shown that participants preferred customization of VT patterns in social settings, and did not prefer predefined patterns.
-
-Therefore, we present a compact and expressive haptic authoring and sharing protocol and implement it on a typical mobile device. The protocol can be extended for other social networking apps, such as twitter, emails, etc., running on tablets, watches, controllers and other embedded devices.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
@@ -137,11 +150,38 @@ Therefore, we present a compact and expressive haptic authoring and sharing prot
 \end{figure}
 
 
+In \autoref{sec:applications:feelcraft}, we designed expressive spatial VT Feel Effects using existing infrastructure via a plugin architecture for desktop applications.
+In \autoref{sec:applications:feelmessenger}, we look at the expressiveness of existing infrastructure on Android smartphones for customizable VT effects by implementing customizable VT emojis in a chat program, Feel Messenger \cite{Israr2015}.
+As explained previously by \autoref{fig:vib:lofidesign} in \autoref{ch:hapturk}, APIs for vibrotactile feedback are limited to a series of pulses.
+Here we really wanted to push the limit on what was possible with commodity hardware and APIs, and explore how VT effects could fit into current devices.
+In this project, I play the role of a haptic UX designer.
+%Touch is particularly significant in interpersonal communication [3].
+%Ranging from mutual user interactions, such as handshakes and hugs, to directing a user's attention by poking or tapping on the shoulder; the channel of touch has also been used in children games in which one child draws patterns on another child's body usin ga finger, and the recipient child guesses what is drawn on the body [7].
+%Many authors have explored the haptic channel to artificially communicate, enhance and augment interactions on custom-made handheld and wearable devices [3, 4, 5, 16]. This paper explores the use of haptic feedback in social interactions, such as instant messaging, social networking and everyday social use on embedded mobile devices.
+%
+%Current consumer devices, such as mobile devices, watches and hand controllers, are equipped with a single vibrotactile (VT) motor that usually alerts users for incoming calls or messages, and/or for text entry and ?clicks? [8]. These actuators are popular due to low cost and power requirements, small size and weight, convenient packaging and simple control electronics. The challenge is to create meaningful, expressive and interactive haptic feedback in-between users using only a single low-bandwidth VT motor and with limited computational resources in embedded devices.
+%
+%Recently, Israr and colleagues [9] have demonstrated that a class of haptic patterns, called feel effects (FEs), could be defined in a parametric structure, called a family. By tuning parameters of these families, users control the semantic interpretation of haptic patterns using the same logic as they would use in normal language. This interpretation of haptic patterns not only allows users to communicate more expressive haptic content, but also to personalize the right haptic pattern for social and interpersonal communication. Such feel effects have also shown to improve early reading comprehension scores in [18].
+%
+%In this paper, we implement Feel Messenger, a social and instant messaging (IM) application that allows users to share, express and communicate haptic patterns in a structured and economical way on current consumer devices (i.e., using the embedded VT motor). We introduce ?feelbits? and ?feelgits?, haptic structures that allow succinct and eloquent network communication and reduce bandwidth and latency between devices. By allowing users to share and personalize haptic content, we hope to extend the capabilities of handheld and wearable devices for more interactive use among consumers.
+%
+%This paper is organized as follows: After a brief background, we present the Feel Messenger application. Next, we explore the vocabulary of haptic patterns and present a pilot study to evaluate the usability of the application.
+%
+%\subsection{Background}
+%The idea of haptic feedback for instant messaging and social networking has been demonstrated in the past, however, previous work lacked expressive and meaningful haptic interactions connected to a semantic language. In these studies, user gestures, pre- programmed tactile patterns and ?feels? were transmitted using custom devices and through multiple actuators [2, 11-14, 17].
+%
+%Force feedback devices are not applicable for mobile applications, as they need to be coupled with the ground. Shape-changing features and vibratory grids have been explored to convey emotions, textures and directional cues on handheld devices [6, 8]. A few commercial libraries and APIs are also available to add haptics experiences in current mobile devices [1].
+%
+%These libraries allow programmers to select from a predefined list of haptic patterns and embed them in their application. All patterns are stored in the device?s memory and users have limited flexibility in personalizing haptic patterns for rich and expressive communication. Recently, Seifi and colleagues [15] have shown that participants preferred customization of VT patterns in social settings, and did not prefer predefined patterns.
+%
+%Therefore, we present a compact and expressive haptic authoring and sharing protocol and implement it on a typical mobile device. The protocol can be extended for other social networking apps, such as twitter, emails, etc., running on tablets, watches, controllers and other embedded devices.
+%
+
 \subsection{Feel Messenger Application}
 In this section, we present the architecture (backend) and user interface (frontend) of a messenger application that allows users to create and share haptic content through a network connection. The critical components of the application are shown in Figure 2.
 
-Architecture
-To account for the limited computation, storage and communication capabilities of a simple microcontroller unit, we introduce feelbits and feelgits. Feelgits (short from ?feel widgets?) are installed piece of software that define parametric compositions of a set of haptic patterns (called a family). Feelbits are parametric settings of a feelgit to produce a particular haptic pattern (called a feel effect [9]). For example, the feelgit of pulse is defined as two successive onsets of vibration, separated by a timing parameter. The feelbits are timing and intensity of onset parameters. Therefore, by varying feelbits, a user can personalize the haptic effect to be calm (low intensity, long temporal separation) or racing (high intensity, short temporal separation) heartbeat.
+\inlineHeading{Architecture}
+To account for the limited computation, storage and communication capabilities of a simple microcontroller unit, we introduce feelbits and feelgits. Feelgits (short from ``feel widgets") are installed piece of software that define parametric compositions of a set of haptic patterns (called a family). Feelbits are parametric settings of a feelgit to produce a particular haptic pattern (called a feel effect [9]). For example, the feelgit of pulse is defined as two successive onsets of vibration, separated by a timing parameter. The feelbits are timing and intensity of onset parameters. Therefore, by varying feelbits, a user can personalize the haptic effect to be calm (low intensity, long temporal separation) or racing (high intensity, short temporal separation) heartbeat.
 
 A library of haptic patterns is stored as parametric models (feelgits) with preset parameters (feelbits). New feelgits and feelbits can be downloaded, personalized and saved. The haptic engine idly waits for incoming haptic messages and renders haptic patterns on demand. Once the message is received, the corresponding feelgit is executed with parameters defined as feelbits. Once the pattern is completely rendered, the engine waits idly for the next message.
 
@@ -150,39 +190,39 @@ Additionally, the response characteristics of the VT motor are also stored in th
 Finally, we introduce a communication protocol that shares feelgits and feelbits along with text messages. For example, the frontend application sends a function playpattern(?pulse?, p1, p2) to play the feelgit pulse with parameters defined as feelbits p1 and p2; or playpulse(?soft?) plays a predefine soft pulse. Note that in order for the device to play a haptic pattern, the corresponding feelgit must be stored in the device; the communication packet includes feelbits and the name or id of the corresponding feelgit.
 
 
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=0.5\textwidth]{feelmessenger/fig2} 
-   \caption{The backend software architecture and the frontend user interface of the Feel Messenger app.}
-   \label{fig:feelmessenger:fig2}
-\end{figure}
+%\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+%   \centering
+%   \includegraphics[width=0.5\textwidth]{feelmessenger/fig2} 
+%   \caption{The backend software architecture and the frontend user interface of the Feel Messenger app.}
+%   \label{fig:feelmessenger:fig2}
+%\end{figure}
 
 
+%
+%\inlineHeading{User Interface}
+%The frontend of the application is shown in Figure 2. In addition to conventional text and image entries, the Feel Messenger interface allows users to play, personalize and share haptic patterns. The components of the interface are explained below.
 
-User Interface
-The frontend of the application is shown in Figure 2. In addition to conventional text and image entries, the Feel Messenger interface allows users to play, personalize and share haptic patterns. The components of the interface are explained below.
+%\inlineHeading{Messenger Interface}
+%The message interface, Figure 2 (1), is kept almost the same as a typical IM interface on current devices. However, this can be easily adapted to emails, Twitter feeds or other social media timelines. Aligned to the left are received messages and those aligned to the right are the sent or entered messages. Along with the message is an icon indicating that a haptic effect has been attached to the message. Once the message is received, the application triggers the haptic engine to play the haptic pattern. The user can replay the message by clicking on the message or the accompanying icon. Multiple patterns can also be embedded in a single message. Simultaneous effects are sent by using ?|? (vertical bar) between two icons, otherwise the effects are played in the same order as the icons in the message.
+%
+%Below the message interface are three icons buttons, shown in Figure 2 (2). The leftmost icon allows users to attach a predefined FE (Figure 3A). The center icon opens a Feel Editor display (Figure 3B), and the right most buttons connects to the users (Figure 3C).
 
-Messenger Interface
-The message interface, Figure 2 (1), is kept almost the same as a typical IM interface on current devices. However, this can be easily adapted to emails, Twitter feeds or other social media timelines. Aligned to the left are received messages and those aligned to the right are the sent or entered messages. Along with the message is an icon indicating that a haptic effect has been attached to the message. Once the message is received, the application triggers the haptic engine to play the haptic pattern. The user can replay the message by clicking on the message or the accompanying icon. Multiple patterns can also be embedded in a single message. Simultaneous effects are sent by using ?|? (vertical bar) between two icons, otherwise the effects are played in the same order as the icons in the message.
-
-Below the message interface are three icons buttons, shown in Figure 2 (2). The leftmost icon allows users to attach a predefined FE (Figure 3A). The center icon opens a Feel Editor display (Figure 3B), and the right most buttons connects to the users (Figure 3C).
-
-Predefined Patterns
-
+\inlineHeading{Predefined Patterns}
 The predefined patterns (Figure 3A) allow users to quickly attach a haptic pattern to the IM. These patterns can be stored from incoming messages or created by using stored haptic families. Each pattern is defined by a set of feelbits that plays when the corresponding feelgit is executed. These presets can be shown as text, images or emotion icons.
 
-Authoring interface
+\inlineHeading{Authoring interface}
+The Feel Editor displays available FE families (feelgits) and allows users to personalize, play, save and share haptic patterns.
+%(Figure 3B).
+By clicking a FE icon, sliders corresponding to parameters (feelbits) are enabled. These sliders may have labels corresponding to physical parameters, such as amplitude or duration of vibration; however, we have used semantic labeling that may correspond to single or multiple parameters. Once the sliders are adjusted, the user can play, save or attach the haptic pattern to the IM.
 
-The Feel Editor displays available FE families (feelgits) and allows users to personalize, play, save and share haptic patterns (Figure 3B). By clicking a FE icon, sliders corresponding to parameters (feelbits) are enabled. These sliders may have labels corresponding to physical parameters, such as amplitude or duration of vibration; however, we have used semantic labeling that may correspond to single or multiple parameters. Once the sliders are adjusted, the user can play, save or attach the haptic pattern to the IM.
 
-
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=\textwidth]{feelmessenger/fig3} 
-   \caption{Program flow diagram of the Feel Messenger application.}
-   \label{fig:feelmessenger:fig3}
-\end{figure}
-
+%\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+%   \centering
+%   \includegraphics[width=\textwidth]{feelmessenger/fig3} 
+%   \caption{Program flow diagram of the Feel Messenger application.}
+%   \label{fig:feelmessenger:fig3}
+%\end{figure}
+%
 
 
 \subsection{Haptic Vocabulary}
@@ -205,8 +245,7 @@ The vocabulary of haptic effect is critical for expressive and precise communica
 \end{figure}
 
 
-Type 1: Feel Effects
-
+\inlineHeading{Type 1: Feel Effects}
 A set of feel effects is defined that delivers emotional, attentional and contextual effects. They are:
 \begin{description}
 	\item[Pulse:] Two successive onsets of vibration; speed (slow/fast) and intensity (weak/strong). Used as pulsation and heartbeat (calm/racing).
@@ -215,8 +254,7 @@ A set of feel effects is defined that delivers emotional, attentional and contex
 	\item[Urgency:] a burst of vibrations; intensity (weak/strong) and temporal separation between pulses (low/high urgency) are parameters. Used for alerting users and expressing urgency.
 \end{description}
 
-Type 2: Physical Effects
-
+\inlineHeading{Type 2: Physical Effects}
 These effects are associated with direct variation in tactile patterns. Previous studies (e.g. [1, 4, 12]) have used variation in amplitude, duration as typical variation. Our library includes:
 
 \begin{description}
@@ -227,19 +265,33 @@ These effects are associated with direct variation in tactile patterns. Previous
 
 These effects create new haptic effects and can also be combined with feel effects. Such as the message Ramp-up | Motor followed by Ramp-down creates a new pattern that gradually increases the rumbling and then decays linearly as shown in Fig 5.
 
-Type 3: Coded Effects
-
+\inlineHeading{Type 3: Coded Effects}
 This type demonstrates symbolic vocabularies, such as one adapted from International Morse Code that consists of pre-stored pulses of dots and dashes. Other examples can be vibratese language [16], emoticon, and input from peripheral sensors.
 
-\subsection{Implementation and Preliminary Study}
-As a preliminary mockup, we developed an Android application on a Samsung S5 smartphone running Android 4.4.2. The Android API allows ON/OFF control of the embedded VT motor. A rough relationship between the duty cycle and perceived intensity was determined to create effects.
+\subsection{Demo}
+We developed an Android application on a two Samsung S5 smartphones running Android 4.4.2.
+The Android API allows ON/OFF control of the embedded VT motor.
+A rough relationship between duty cycle and perceived intensity was determined to create effects.
 
-In a pilot, authors set parameters of three FEs defined by phrases ?racing pulse?, ?calm pulse? and ?high urgency?. These set parametric spaces for FEs defined by families pulse and urgency. From these families, new FEs were generated using the same logic as would in the normal language. For example, parameters for phrase ?hey, call me quick!!? are set same as that of high urgency (synonym) and parameters for phrase ?normal heartbeat? are inferred in-between those for calm and racing heartbeats.
+In this prototype, we explored both predefined effects and Type 1 icons (Feel Effects).
+Our predefined effects were designed with 6 emoji.
+Our four Type 1 FEs were:
+Heartbeat (Pulse FE),
+Lightning (Strike FE),
+Cat Purr (Motor FE), and
+Coffee (Urgency FE).
+These VT emoji could be embedded in chat messages, sent between two Android phones using UDP.
+VT effects are felt when editing, when received, and when the user taps a message.
+All effects were implemented using built-in Android APIs.
 
-We asked thirteen participants (8 males, 19-52 years old) to rate the haptic effects and associated phrase generated in the pilot on a scale from 0-5 (0: No agreement, 1: strong disagreement, 2: disagreement, 3: neutral, 4: agreement, 5: strong agreement). Participants could feel the haptic message as long as they wanted. The average (and standard deviation) ratings for calm, racing and urgency were 4.2 (0.7), 3.6 (1.6) and 4.2 (1.0) out of the scale of 5. We then asked the same participants to go through a mockup conversation that had five messages with both text and haptics. Participants played the haptics by tapping on the messages. Afterwards, they were asked to rate ?if available, will you use this application? and ?Does it communicate expressions?. Participants rated from ?yes? (1), ?not sure? (0), and ?no? (-1). The average (std. dev.) rating of usefulness was 0.77 (0.6) and that for expressiveness was 0.62 (0.5).
 
-\subsection{Concluding Remarks}
-In this early exploration, we implement and evaluate the use of haptic feedback in a messenger application on a typical mobile device. The application allows users to send and receive text and haptic messages, and to personalize haptic effects. The overall user ratings were positive, however a comprehensive study to analyze the effectiveness of feel effects for social networking is left for future. Our previous work has shown that feel effects improve users vocabulary and associate them to events in stories for adults and kids [9, 18]. Sharing personalized haptic messages in social interactions will be stimulating and exciting addition to the current networking tools.
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\textwidth]{feelmessenger/FeelMessenger-WHC15} 
+   \caption{Implemented Feel Messenger application demo at World Haptics 2015 (cite).}
+   \label{fig:feelmessenger:demo}
+\end{figure}
+
 
 
 \section{RoughSketch}
