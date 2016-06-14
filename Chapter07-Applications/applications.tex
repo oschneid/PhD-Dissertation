@@ -268,6 +268,15 @@ These effects create new haptic effects and can also be combined with feel effec
 \inlineHeading{Type 3: Coded Effects}
 This type demonstrates symbolic vocabularies, such as one adapted from International Morse Code that consists of pre-stored pulses of dots and dashes. Other examples can be vibratese language [16], emoticon, and input from peripheral sensors.
 
+
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\textwidth]{feelmessenger/FeelMessenger-WHC15} 
+   \caption{Implemented Feel Messenger application demo at World Haptics 2015 (cite).}
+   \label{fig:feelmessenger:demo}
+\end{figure}
+
 \subsection{Demo}
 We developed an Android application on a two Samsung S5 smartphones running Android 4.4.2.
 The Android API allows ON/OFF control of the embedded VT motor.
@@ -285,19 +294,52 @@ VT effects are felt when editing, when received, and when the user taps a messag
 All effects were implemented using built-in Android APIs.
 
 
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=\textwidth]{feelmessenger/FeelMessenger-WHC15} 
-   \caption{Implemented Feel Messenger application demo at World Haptics 2015 (cite).}
-   \label{fig:feelmessenger:demo}
-\end{figure}
-
-
-
 \section{RoughSketch}
 \label{sec:applications:roughsketch}
 
-todo
+FeelCraft (\autoref{sec:applications:feelcraft}) and Feel Messenger (\autoref{sec:applications:feelmessenger}) used existing infrastructure to conduct VT design, but how do other types of feedback vary?
+In Sections \ref{sec:applications:roughsketch} to \ref{sec:applications:cuddlebit}, we investigate other modalities in other applications.
+Here, in \autoref{sec:applications:roughsketch}, we describe RoughSketch, a drawing application for the TPad Phone.
+
+The TPad Phone (www.thetpadphone.com) is a programmable friction display mounted on an Android phone.
+It uses piezo-actuated mechanical vibration to create a \osC{TODO: need actual name for the effect, and probably to cite original TPad papers}.
+As part of the World Haptics 2015 Student Innovation Challenge, we built RoughSketch, a mobile drawing application to explore friction displays for digital mark-making.
+We looked at several mark-making interaction techniques including:
+\begin{itemize}
+    \item \textit{Paintbrush}, where you feel paint leaving your finger,
+    \item \textit{Pen and eraser}, based on real-world writing utensils,
+    \item \textit{Spray paint}, where you feel the roughness of paint on the screen as you spray,
+    \item \textit{Pinch/zoom}, inspired by compressing and stretching rubber, and
+    \item \textit{Feel finger}, the ability to feel your drawing on the paper.
+\end{itemize}
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\textwidth]{roughsketch/tpad_handout_final_color} 
+   \caption{RoughSketch handout, illustrating interaction techniques an textures.}
+   \label{fig:roughsketch:handout}
+\end{figure}
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\textwidth]{roughsketch/roughsketch-poster-draft2} 
+   \caption{RoughSketch poster, describing interaction techniques and high-level findings.}
+   \label{fig:roughsketch:poster}
+\end{figure}
+
+To implement RoughSketch, we adapted an open-source Android application (todo) and used the TPad Phone API to control friction using two methods:
+pre-loaded textures defined by bitmaps, and
+code-based envelopes that programmatically adapt friction based on input values or time.
+We used a variety of real-world metaphors to inspire our designs, and rapidly iterated on them.
+Illustrations of these are available in \autoref{fig:roughsketch:handout}.
+While designing and developing RoughSketch, we exposed a design space, finding conflicts for our metaphors, specifically, should TPad sensations feel like their real-world equivalent, or are they unique to the TPad; and 
+should rendered textures represent the drawing process, or the finished product?
+We also explored how they would be adapted if the user interacted with RoughSketch using an app rather than their finger.
+These findings are outlined in \autoref{fig:roughsketch:poster}.
+
+\osC{TODO: here or in final discussion, put findings like, some styli worked, and others didn't; and that turning off the tactile sensation was important for convincing people that haptics was valuable, especially when it was subtle; maybe reflect on pinch/zoom? }
+
+
 
 \section{HandsOn}
 \label{sec:applications:handson}
