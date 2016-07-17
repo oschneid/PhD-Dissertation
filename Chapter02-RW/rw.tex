@@ -19,8 +19,33 @@ Throughout the chapter, we contextualize this work and \haxd in both the haptics
 %
 %%%%%%%%%%%%
 \section{An Overview of Haptic Technology and Perception}
+The term ``haptic" was coined by German researcher Max Dessoir \cite{Grunwald2008} to refer to the sense of touch, in a similar manner as ``optic" for vision and ``acoustic" for sound.
+Today, it refers to both the study of the psychology and perception of the senses of touch, and frequently to technology that employs touch as a method of feedback.
+Haptic technology is typically separated into two classes based on the main sense modality: \emph{tactile} sensations, perceived through the skin, and \emph{proprioception}, or the sense of body location and force.
+
+\inlineHeading{Tactile Perception and Technology}
+Tactile sensations rely on multiple sensory organs in the skin, each of which detect different properties, \eg, Merkel disks detect pressure or fine details, Meissner corpuscles detect fast, light sensations (flutter), Ruffini endings detect stretch, and Pacinian corpuscles detect vibration \cite{ChoiKuchenbecker2013}.
+%Temperature and pain are also detected through \osC{todo}.
+Of these, the Pacinian corpuscle is most targeted by technology through vibrotactile (VT) sensations, where vibrations stimulate the skin.
+The most common example of this is smartphone vibrations.
+VT actuators can take may forms. Eccentric mass motors (sometimes ``rumble motors" or, when small, ``pager motors") are found in many mobile devices and game controllers, and are affordable but inexpressive.
+%An unbalanced mass is mounted on the motor, which provides dramatic shaking of the device.
+More expressive are tactors, or voice coils, implemented in a variety of ways and offering two degrees of freedom: frequency and amplitude.
+Piezo actuation is a very responsive technique that is typically more expensive.
+% One of the more common and expressive is the C2 tactor, intended to directly stimulate the skin through contact or a thin membrane; the tactile animation project [] uses an array of C2 tactors.
+While tactors directly stimulate the skin, linear resonant actuators (LRAs) shake a mass back and forth to vibrate a handset in an expressive way; a common research example is the Haptuator \cite{Yao2010}.
+Instead of directly stimulating the skin, this actuator typically shakes another device held by the user, such as a mobile device \cite{Yoo2014} or pen \cite{Culbertson2014}.
+As of writing (2016), this type of actuator is increasingly deployed in mobile contexts (\eg, the Apple Watch Taptic engine).
 
 
+\inlineHeading{Proprioception and Force Feedback}
+Proprioception, the sense of force and position, is synthesized from multiple sensors as well: the muscle spindle (embedded in muscles), golgi-tendon organ (GTO) in tendons, and tactile and visual cues \cite{Kandel2000}.
+Common devices include Geomagic Touch (previously the Sensable PHANTOM) and Falcon devices, offering three degrees-of-freedom: force in three directions and torque in three orientations.
+At other times, entire screens might push back on the user in a single degree-of-freedom.
+
+
+\inlineHeading{Multimodal interaction}
+Similar to vision and audio, haptic perception is susceptible to illusions \cite{Hayward2016,Hayward2008}.
 
 
 %%%%%%%%%%%%
