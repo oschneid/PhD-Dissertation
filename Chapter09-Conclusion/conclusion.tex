@@ -15,24 +15,77 @@ Of these, Chapters \ref{ch:macaron} and \ref{ch:hapticianinterviews} provide the
 
 \subsection{Processes and tasks}
 We found that haptic designers practice design using a familiar process.
+In \autoref{ch:hapticianinterviews:discussion}, we showed that haptic designers follow established, principled design processes, with a pre-design preparation step \cite{Warr2005,Schon1982,Warr2005,Shneiderman2000}, iteratively developed multiple concepts \cite{Buxton2007,Hartmann2008}, gather feedback through user research, and collaborate with a number of stakeholders.
+These naturally-found results confirm what we found in our in-lab Macaron study, which showed initial preparation from browsing, iteration, gradual refinement, and the development of a repertoire \cite{Schon1982}.
+In addition, we found that haptic designers are reflective practitioners \cite{Schon1982}: each new design problem is presented as a unique, and each solution is tailored, novel to adapt to the problem's particular constraints but grounded in the designer's experience.
+Much of these process is unsurprising to anyone with HCI or design experience.
+However, we found there are strategies and challenges that distinguish \haxd from other fields of design.
 
-
+\osC{add image of augmented Buxton image here, put non-augmented adaption of Buxton image in Ch. 2}
 
 \subsection{Strategies}
+Haptic experience designers have developed several important strategies to facillitate creativity with haptic technology.
 
 \inlineHeading{Show, don't tell}
 We found that demonstrations were critical for haptic designers in the wild.
 To help elicit requirements, customers were brought in to try out various demos.
 To persuade customers, actually feeling the haptics was critical, if not always enough.
-The Haptic Instrument showed evidence for deictic features - what do you think of ``this".
-Examples, in Macaron, lead to improved understanding of how to develop sensations.
+The Haptic Instrument showed evidence for deictic features - what do you think of ``this", which facillitated direct demonstration without having to resort to indirect linguistic descriptions.
+In Macaron, exposing the underlying structure of examples lead to improved understanding of how to develop sensations and developed haptic idioms.
+
+%Increasingly in this work, we operate at a phenomenological approach where a haptic sensation is a phenomenon, nothing more or less.
+\inlineHeading{Fluid control of low-level parameters}
+A viable approach enabled by our real-time tools is an implicit understanding of the sensations by designers, who were able to work with low-level engineering parameters like frequency, amplitude, or even voltage.
+In the Tactile Animation study, we found that while animation objects were more used and described are more accessible for non-animators, vector sensations (directly controlling each actuator) were described as useful for finer, expert control.
+Learning to control low-level parameters is important for ``high ceilings" in \haxd support tools.
+
 
 \inlineHeading{Volume Controls}
-Exemplified by our FeelCraft and FeelChat projects (also, 
+As found in our interviews with designers, the end-user context is sometimes unknowable.
+There is not much designers can do other than putting a volume control on their design to facillitate customization.
+In informal discussions with engineers from commercial companies (\eg D-Box), volume controls were a critical, early addition to their haptic chairs.
+As explored in our FeelCraft and FeelChat projects, the extra level of volume control is implementable, expressive, reduces footprints, but is more limiting for designers and requires programming expertise.
+While there is a great deal of noise in perceptual parameters for high-level controls, careful investigation can improve this \cite{Israr2014,Seifi2014}.
+
+\inlineHeading{Schemas}
+Because of the novelty of haptic design, we found that conceptual schemas are important for understanding the intent of haptic sensations.
+Schemas are existing conceptual models used as transitionary objects to understanding new concepts \cite{Papert1980}.
+We found this procedure occurred not only in educational contexts, but also in design.
+In our early Haptic Instrument exploration, we found that our participants' prior experience was a lens through which they interpreted haptic sensations.
+For example, one cat-owning participant interpreted likened sensations to cat purring, while another drew more on their knowledge of engines and cars.
+Heartbeats and rain \cite{Israr2014} are effects that were easily understand by general participants, and verified using perceptual studies.
+
+\inlineHeading{Narrative Context and Multimodal Reinforcement}
+The intent of a haptic sensation was not always interpretable from the sensation itself.
+A great deal of the interpretation of an effect depended on the narrative context.
+Previous work used linguistic descriptions, such as ``light rain" \cite{Israr2014}.
+In our FeelCraft and Feel Messenger studies, we found that linking adaptable sensations to in-game stimuli was effective.
+With Feel Messenger, we at first attempted feel effects with abstract icons, such as ``motor" for a rumble effect. 
+In early piloting, these were not very helpful for understanding.
+Adding in vibrant cartoon emoji icons, and using  a cat's face (for a purr) rather than a motor image were much more effective in sending haptic icons.
+
 
 
 \subsection{Challenges}
+In \autoref{ch:hapticianinterviews:discussion} we document a series of specific challenges encountered by haptic experience designers in-the-wild.
+Here, we comment on higher-level challenges facing designers not fully captured by our interview analysis:
+the problems of representation and native platform, iteration, collaboration, customization, novelty and irritation, and risk.
 
+\inlineHeading{Representation}
+
+\inlineHeading{Native Platform}
+
+\inlineHeading{Iteration}
+
+\inlineHeading{Collaboration}
+
+\inlineHeading{Customization}
+
+\inlineHeading{Novelty and Irritation}
+
+\inlineHeading{Verisimilitude and Veridicality}
+
+\inlineHeading{Risk}
 
 
 
@@ -96,9 +149,31 @@ We also find an important design language tool using the concept of schema.
 
 \subsection{Considerations for Implementation}
 
-Web - more people
+Web - more people, online communities, resources, show internal structure
+Components - valuable for differnet views, different paradigms
+Observer pattern + React is valuable for synchronizing different
+JSON - flexibility, allows for easy extension, important for translating between different platforms, using features as available
+noSQL (?)
 
 Track based - flexible, can apply to many different paradigms
+
+NO DELAY. Crtitical
+
+Can have preview, buffering
+
+Must support multimodal sensations
+
+Multiple output devices, displays
+
+Audio control useful, Arduino connection useful - but how to connect to web?
+
+*****NEEDS ASSOCIATED HARDWARE *****, easy way to distribute it
+Also - amplifiers and actuators matter
+Closed loop control?
+
+Logging and analytics not a problem; should record these features (from Macaron, a little Tactile Animation)
+
+Android vibrations - how, hapticJS, web-based platform for handheld vibration, but need to accommodate differenet platforms
 
 
 
