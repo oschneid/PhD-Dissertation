@@ -148,38 +148,72 @@ We also find an important design language tool using the concept of schema.
 
 
 \subsection{Considerations for Implementation}
+During our in-depth studies, we looked at three different platforms for implementing \haxd support tools: Android on tablet for mHIVE, Python on desktop for Mango, and JavaScript deployed on the web for Macaron.
+From these three implementations, and from attempting to distribute or deploy them, we have found several lessons for implementing interactive software for \haxd support.
+Many of these are straightforward applications of software engineering, but we particularly found recently developed web tools to be especially useful when managing the complex interfaces required by design tools.
 
-Web - more people, online communities, resources, show internal structure
-Components - valuable for differnet views, different paradigms
-Observer pattern + React is valuable for synchronizing different
-JSON - flexibility, allows for easy extension, important for translating between different platforms, using features as available
-noSQL (?)
+\inlineHeading{Observer Pattern}
+Well established as a design pattern \cite{}, the found the observer pattern was critical in keeping the complex interfaces of our design tools synchronized.
+This is especially critical because we need to synchronize haptic, audio, and video playback, and allow implementations through both temporal and spatial means.
+In Mango, we implemented this pattern ourselves, but in Macaron, we used React \cite{} which automates the process.
+This latter approach was more efficient and facillitated programming.
 
-Track based - flexible, can apply to many different paradigms
+\inlineHeading{Components and Track-based Editing}
+Another valuable approach to develop extensible tools was React's Components, composable interface elements that can be parameterized and reused.
+This technique, along with a carefully organized architecture and the generic track-based editor control paradigm used by Macaron made it very easy to extend.
+When developing MacaronBit by forking the original code for Macaron, we were able to repurpose the tool to control the CuddleBits in a single day.
+While a better paradigm could be designed, our in-lab experts were able to used generalized tracks to create differentiable behaviours from the bit.
+One can also imagine redesigning a track-based editor to use a different control paradigm with the same device - we do this with MacaronMix, which mixes two VT icons using again a fork off of Macaron.
 
-NO DELAY. Crtitical
 
-Can have preview, buffering
+\inlineHeading{Flexible, extensible data structures}
+Because of the complexity and variance of haptic devices, we needed to establish data structures that were lightweight but extensible.
+We used JavaScript Object Notation (JSON) to accomplish this in Mango, Macaron, and FeelCraft.
+JSON which allowed us to specify only the required information needed, whether for device parameters in Mango, or sensations created by both Mango and Macaron.
+Our tools would check JSON files for designed features - like amplitude tracks in Mango - and ignore others we left in for a stub - like frequency tracks.
+These structures were simple, human-readable, ignored extraneous detail, and could gracefully fail when poorly formatted.
+Because we need to accommodate different paradigms in \haxd tools, lightweight data types make a lot of sense.
 
-Must support multimodal sensations
-
-Multiple output devices, displays
-
+\inlineHeading{Existing data structures like .WAV}
 Audio control useful, Arduino connection useful - but how to connect to web?
 
-*****NEEDS ASSOCIATED HARDWARE *****, easy way to distribute it
-Also - amplifiers and actuators matter
-Closed loop control?
 
+\inlineHeading{Web Deployment}
+One challenge with haptic technology 
+Web - more people, online communities, resources, show internal structure
+Need to package up software
+Documentation for use
+
+\inlineHeading{No Delay}
+In interviews with designers, we found that delay was critical; multimodal sensations had to be tightly synchronized.
+We found similar problems with our tools.
+mHIVE had a short delay which was distracting to participants, particularly when they tried to play very short pulses.
+Macaron's real-time audio synthesizer sometimes created a ``muddy" effect (P?) because it had a limited update rate.
+We found this disappeared after implemented .WAV exporting function.
+Combined with our findings that users would switch between focused, in-depth editing and more reflective experiencing, we suggest (and are working to implement) a pre-feel/render model, like with visual effects tools.
+This is one potential problem with current web implementations of our design tools, especially when attempting to communicate to embodied devices like Arduino.
+
+
+\inlineHeading{Distribution requires hardware}
+An obvious, but critical, requirement for \haxd tools is that they require the appropriate hardware.
+Above we've discussed flexible architectures and data structures to support different hardwares and paradigms of sensations.
+In addition, potential designers need easy access to hardware.
+One way we've found is to create do-it-yourself haptic wristbands for Macaron. (URL)
+Critical for VT feedback is that amplifiers and actuators matter - we found the DIY custom amplifier we've built does not have the same crispness as a more expensive commercial audio amplifier.
+This means that modular systems could be designed for facillitate accessible haptic feedback and design, but are complicated in because the setup doesn't end at the actuator.
+Another approach is to use a HapTurk-based translation with mobile vibrations like those available on Android (link to hapticJS), although this impoverishes sensations and leads to the challenge of native platform, discussed above.
+
+
+\inlineHeading{Logging and Analytics}
+One important feature for modern software is remote analytics.
+Various types of metrics and usage statistics help developers prioritize development, fix bugs, and report to investors.
+Interestingly, because haptic technology extends into the physical world, one can consider using remote analytics both on their design and playback software, and on the physical devices.
+With a modular system
 Logging and analytics not a problem; should record these features (from Macaron, a little Tactile Animation)
-
-Android vibrations - how, hapticJS, web-based platform for handheld vibration, but need to accommodate differenet platforms
-
 
 
 
 \subsection{Evaluating \haxd Tools}
-
 
 
 \inlineHeading{Post interviews}
