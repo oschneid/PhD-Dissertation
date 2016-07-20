@@ -71,22 +71,54 @@ In \autoref{ch:hapticianinterviews:discussion} we document a series of specific 
 Here, we comment on higher-level challenges facing designers not fully captured by our interview analysis:
 the problems of representation and native platform, iteration, collaboration, customization, novelty and irritation, and risk.
 
-\inlineHeading{Representation}
+\inlineHeading{Representation and Native Platform}
+One striking problem with haptic technology is its sheer diversity.
+There are a wide diversity of devices, many of which support different paradigms, and all of which can be different based on their physical configuration.
+This poses a problem of access - if a designer creates a force-feedback sensation, how do you render that on a mobile device with a simple vibrotactile actuator?
+Can this translation be done?
 
-\inlineHeading{Native Platform}
+Compare this to graphic design.
+At the end of the day, most graphic designs will be on a 2D plane, whether a screen or not.
+There are different sizes, resolutions, and colour maps - for example, print media might be designed differently than web - but similar tools and principles apply.
+In haptics, we might apply these different sizes and resolutions to a class of device - for example, a VT actuator can be an expensive C2 tactor or a low-cost voice coil.
+However, a single actuator is quite different from a 2D grid of actuators (like in Tactile Animation), and dramatically different from variable friction feedback (like with Rough Sketch) or 1-DoF force feedback (like with HandsOn).
+The question of resolution and platform within a single class of devices is analogous to the challenges faced by graphic designers and sound designers, but the diversity of classes of devices is even more varied.
 
 \inlineHeading{Iteration}
+In our interviews, we found iteration was extremely painful.
+Despite this, we've found iteration is necessary (as with all design processes), but even more so because it is difficult to understand requirements or identify a good design without feeling it.
+Many of our designers would iterate until it ``felt right".
+Thus, iteration is very necessary yet very painful.
 
 \inlineHeading{Collaboration}
+As varied, physical media, collaboration becomes difficult.
+Demos are difficult to setup and there is little infrastructure in place for distribution.
+While synchronous, collocated collaboration is effective with demos, remote or asynchronous collaboration is rife with trouble.
+Consistency must be maintained, and setup can be painful for those not trained in setting up devices.
+On top of this, we found a strong tendency to show, not tell sensations, and an impoverished language especially for non-experts.
+Without a shared reference point of physically feeling the sensation, we believe that design can be easier, especially when a language of design is underdeveloped.
 
 \inlineHeading{Customization}
+Another way of handling 
 
 \inlineHeading{Novelty and Irritation}
+Haptic sensations are new, giving them great power and great responsibility.
+They can grab attention, but designers must take care not to annoy with constant haptic feedback.
+The balance is tricky. 
+Good design might be not even noticed when present.
+With RoughSketch, we found that allowing a button to remove haptic feedback was very persuasive for appropriate, non-irritating designs.
+We also found that muting features were essential for \haxd design tools.
 
 \inlineHeading{Verisimilitude and Veridicality}
+There are two types of realism, photo-realism (veridicality) and real-seeming (verisimillitude) (cite McCloud).
+For example, cartoons and animation are clearly not depictions of reality (they do not display veridicality), but they can appear life-like (they display verisimilitude).
+In this dissertation, we focused on verisimillitude rather than veridicality; the latter is often already accommodated by realistic rendering techniques.
+We believe both require a design process, but more photo-realistic approaches have different challenges than cartoony ones, and may require more of an engineering perspective than a design perspective.
+That said, sometimes combining the two is helpful; much like how in computer graphics, physical simulation and realistic rendering are used as a baseline, but artists still may want artistic control over certain scenes or effects.
 
 \inlineHeading{Risk}
-
+Adding haptics is risky.
+\osC{we say this quite well in the previous 8.4 discussion, why should we repeat it?}
 
 
 \section{Prescriptive Implications for \haxd Tools}
