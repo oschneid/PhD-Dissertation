@@ -8,8 +8,8 @@ In this chapter, we provide the relevant background for this dissertation.
 We begin with an overview of haptic technology and perception.
 Next, we discuss the application space for haptics and why haptic experiences are increasingly important to design.
 We then discuss the previous work in \haxd and related support tools, identifying why this is an area for improved understanding.
-After, we discuss creativity support tools and design theory from non-haptic tools to provide inspiration and guiding principles.
-Finally, we present the methodologies used in this dissertation.
+After, we discuss non-haptic creativity support tools and design theory which provided inspiration and guiding principles.
+Finally, we present the qualitative and quantitative methodologies used in this dissertation.
 Throughout the chapter, we contextualize this work and \haxd in both the haptics and HCI communities.
 
 
@@ -21,27 +21,35 @@ Throughout the chapter, we contextualize this work and \haxd in both the haptics
 \section{An Overview of Haptic Technology and Perception}
 The term ``haptic" was coined by German researcher Max Dessoir to refer to the study of touch, in a similar to ``optic" for sight and ``acoustic" for sound \cite{Grunwald2008}.
 Today, it refers to both the study of the psychology and perception of the senses of touch, and frequently to technology that employs touch as a method of feedback.
-Haptic technology is typically separated into two classes based on the main sense modality: \emph{tactile} sensations, perceived through the skin, and \emph{proprioception}, or the sense of body location and force.
-These two types of feedback are useful for different purposes, \eg material properties like texture and weight, respectively \cite{Klatzky2013}(?), but can be combined for more convincing results (cite Okamura 1998 or similar).
+Haptic technology is typically separated into two classes based on the main sense modality: \emph{tactile} sensations, and \emph{proprioception}, or the sense of body location and force.
+These two types of feedback are useful for different purposes, \eg people use their fingerpad's tactile senses to derive texture, while but kinaesthetic feedback can help to infer weight \cite{Lederman1987}.
+Haptic displays an be combined for more convincing results \cite{Okamura1998}.
+An excellent overview of these senses is available by \citet{Lederman2009survey}, and a practical introduction to the technology is available by \citet{Hayward2007}.
+Here, we focus our coverage on the sensations directly studied by this dissertation, while also portraying the diversity of haptic experiences and technology.
 
 \subsection{Tactile Perception and Technology}
 \osC{Goal: Explain the main mechanisms we use in the dissertation's studies, persuade the reader that I know enough about tactile perception, and show the variety of tactile displays and experiences.}
 Tactile sensations rely on multiple sensory organs in the skin, each of which detect different properties, \eg Merkel disks detect pressure or fine details, Meissner corpuscles detect fast, light sensations (flutter), Ruffini endings detect stretch, and Pacinian corpuscles detect vibration \cite{ChoiKuchenbecker2013}.
 %Temperature and pain are also detected through \osC{todo}.
-Of these, the Pacinian corpuscle is most targeted by technology through vibrotactile (VT) sensations, where vibrations stimulate the skin.
-VT sensations are accessible, well-studied, and increasingly widespread, and so the in-depth design tool studies focus on VT experiences.
+Of these, the Pacinian corpuscle is most widely targeted by technology through vibrotactile (VT) sensations, where vibrations stimulate the skin.
+VT sensations are accessible, well-studied, and increasingly widespread, and can be passively felt, easing implementation.
+Our in-depth design tool studies thus focus on VT experiences.
 
-VT actuators can take may forms. Eccentric mass motors (sometimes ``rumble motors" or, when small, ``pager motors") are found in many mobile devices and game controllers, and are affordable but inexpressive.
+VT actuators can take may forms.
+Eccentric mass motors (sometimes ``rumble motors" or, when small, ``pager motors") are found in many mobile devices and game controllers, and are affordable but inexpressive.
 %An unbalanced mass is mounted on the motor, which provides dramatic shaking of the device.
 More expressive are tactors, or voice coils, implemented in a variety of ways and offering two degrees of freedom: frequency and amplitude.
 Piezo actuation is a very responsive technique that is typically more expensive.
 % One of the more common and expressive is the C2 tactor, intended to directly stimulate the skin through contact or a thin membrane; the tactile animation project [] uses an array of C2 tactors.
 While tactors directly stimulate the skin, linear resonant actuators (LRAs) shake a mass back and forth to vibrate a handset in an expressive way; a common research example is the Haptuator \cite{Yao2010}.
 Instead of directly stimulating the skin, this actuator typically shakes another device held by the user, such as a mobile device \cite{Yoo2014} or pen \cite{Culbertson2014}.
-As of writing (2016), this type of actuator is increasingly deployed in mobile contexts (\eg the Apple Watch Taptic engine).
+As of writing (2016), this type of actuator is increasingly deployed in mobile contexts (\eg Apple's Taptic engine).
 
 %%%%In contrast to displacing the entire user body, recent multichannel haptic devices create percepts of dynamic and localized haptic sensations directly on the user's skin \cite{Israr2011} and in the mid-air \cite{Wilson2014}.
-VT devices can be used alone or put together into grids.
+Actuators like VT devices can be used alone or put together spatial multiactuator displays like seats \cite{Israr2012,Israr2010}, belts \cite{Pielot2009,Paneels2013}, wristbands \cite{Arab2015,Paneels2013}, vests \cite{Prasad2014,Jones2004}, and gloves \cite{Park2016,Kim2009}.
+These can be arrange into grids [] to provide explicit spatial input.
+
+As with vision, illusions play a valuable role in \haxd.
 Sensory illusions in touch, such as phantom tactile sensations \cite{Alles1970}, create illusory vibrations in between two or more VT actuators.
 Seo and Choi created a perceived motion flow between two vibrators mounted on the ends of a handheld device by controlling their intensity  \cite{Seo2010}.
 Lee and colleagues created across-the-body and out-of-the-body illusions on a mobile device using up to four % inexpensive 
@@ -191,6 +199,7 @@ Several studies have looked into automatic conversion from audio streams \cite{L
 Haptic therapy -> creature, etc.
 \cite{Yohanan2005,Yohanan2009,Yohanan2011,Yohanan2011}
 
+%Changeon, G., Graeff, D., Anastassova, M., Lozada, J.: Tactile Emotions: A Vibrotactile Tactile Gamepad for Transmitting Emotional Messages to Children with Autism. In: Iso- koski, P., Springare, J. (eds.) EuroHaptics 2012, Part I. LNCS, vol. 7282, pp. 79?90. Springer, Heidelberg (2012)
 
 Communicating emotions
 Social?
@@ -206,7 +215,7 @@ Ciollaboration
 Sensory substitution, first pioneered by Bach-y-Rita \cite{Bach-y-Rita1969}, is an impressive technique often using haptic senses to augment or replace other sense.
 A wide variety of devices have been developed and studied for the visually impaired; see \citep{Hamilton-Fletcher2016} for a recent survey and discussion of user preferences.
 
-Guidance \cite{Tan2003} back display for guidance, Linderman2005
+Guidance \cite{Tan2003} back display for guidance, Linderman2005 \cite{Arab2015} \cite{Prasad2014} \cite{Pielot2009}
 
 mobile? \cite{Brown2006b}, turn taking \cite{Chan2008}
 
