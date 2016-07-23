@@ -5,10 +5,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Conclusion}
 \label{ch:conclusion}
-In this dissertation, we explored haptic experience design (\haxd), looking at how to design, build, and evaluate creativity tools supporting \haxd, and looking at the process of haptic experience design.
+In this dissertation, we explored haptic experience design (\haxd), looking at its process and how to design, build, and evaluate \haxd support tools.
 We leave the specific findings from each of our studies as best articulated in their respective chapters.
-In this section, we summarize larger trends across these chapters and give some final thoughts about the \haxd process and support tools.
-
+In this chapter, we summarize larger trends across these chapters and give some final thoughts about the \haxd process and support tools.
+We begin by discussing the \haxd process, including challenges and strategies designers can use to overcome those challenges.
+We then discuss findings more specifically on designing and developing software tools to support \haxd.
+We conclude by \osC{todo}.
 
 
 %%%%%%%%%%%%%%%%%%
@@ -24,81 +26,27 @@ In this section, we summarize larger trends across these chapters and give some 
 % Section - Process/Requirements
 %
 %%%%%%%%%%%%%%%%%%
-
 \section{\haxd Process: Requirements for Tools}
-In this section, we examine our findings about the \haxd process, including challenges and strategies.
-We comment on how it represents an instantiation of a general design process, but needs explicit support for design activities of browsing, sketching, refining, and sharing.
-We then look into recommended strategies we found to generalize across the many different devices that can be found for haptic experiences.
-After, we comment on strategies for communicating with haptic experiences, developing expressive, cohesive sets of designs.
-Finally, we talk about ways to support customization, and why it is so important in \haxd.
+In this section, we examine our findings about the \haxd process, including challenges and strategies that designers can follow.
+As we saw in \autoref{ch:hapticianinterviews}, we saw that haptic designers follow a familiar design process.
+However, we also saw that there are unique challenges that differentiate \haxd from other modalities of design, which are confirmed by our work into \haxd support tools and our design side projects \osC{need to standardize on the name}.
 
-
-%%%%%%%%%%%%%%%%%%
-% Section - Description of the HaXD Process
-%%%%%%%%%%%%%%%%%%
-\subsection{Description of the \haxd Process}
-Our three data collection strategies (depth, breadth, ground) each yield insight into the \haxd process different ways.
-Our in-depth studies (Chapters \ref{ch:hapticinstrument} - \ref{ch:macaron}) each contain a focused instance of participants using one of our tools to design haptic sensations, a microcosm of haptic design enabled by our tools.
-In Chapters \ref{ch:hapturk} and \ref{ch:applications}, we design haptic sensations directly, gaining insight as designers.
-Finally, in Chapter \ref{ch:hapticianinterviews}, we study haptic design directly in the wild.
-Of these, Chapters \ref{ch:macaron} and \ref{ch:hapticianinterviews} provide the most insight into the process itself.
-
-
+We begin by discussing four design activities that occur in other fields, but need to be explicitly supported for \haxd: browse, sketch, refine, share.
+Then, we comment on some approaches for handling the diverse devices and modalities employed in haptic design tools to create consistent experiences across physical setups.
+After, we discuss the importance of imbuing haptic experiences with meaning and realism.
+Finally, we talk about the importance of customization and how to support it.
 
 %%%%%%%%%%%%%%%%%%
-% SubSection - Examples
+% SubSection - Description of the HaXD Process
 %%%%%%%%%%%%%%%%%%
-\subsubsection{Examples, demos, Show, don't tell}
-We found that demonstrations were critical for haptic designers in the wild.
-To help elicit requirements, customers were brought in to try out various demos.
-To persuade customers, actually feeling the haptics was critical, if not always enough.
-The Haptic Instrument showed evidence for deictic features - what do you think of ``this", which facillitated direct demonstration without having to resort to indirect linguistic descriptions.
-In Macaron, exposing the underlying structure of examples lead to improved understanding of how to develop sensations and developed haptic idioms.
+\subsection{Contextual Activities of Design: Browse, Sketch, Refine, Share}
+In our first exploration of \haxd support tools, the Haptic Instrument (\autoref{ch:hapticinstrument}), we found evidence that mHIVE was able to support exploration and sketches of haptic ideas, but not refinement into final designs.
+mHIVE was also able to support collaboration in certain ways.
+In our followup studies, we explored these activities that draw upon a designer's context, eventually arriving at four that we found are valuable when thinking about tool design: browsing examples, sketching new ideas, refining existing ideas, and sharing ideas with others.
+These activities can occur at any point in the design process, and we do not propose them as an exhaustive list.
+We focus on their utility in motivating features and specific tools to aid haptic experience designers.
+\autoref{fig:conclusion:buxtonaugmented} shows how these activities fit in the design process.
 
-
-
-
-%%%%%%%%%%%%%%%%%%
-% SubSection - Flow, learning, scaffolding
-%%%%%%%%%%%%%%%%%%
-\subsubsection{Flow, Learning, Scaffolding, and Embodiment}
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%
-% SubSection - Browse/Sketch/Refine/Share
-%%%%%%%%%%%%%%%%%%
-\subsubsection{General Design Activities: Browse, Sketch, Refine, and Share}
-
-\inlineHeading{Sketching and Refining}
-Early in our exploration, we found that our Haptic Instrument, mHIVE, excelled for exploring a design space but faltered for refining sensations.
-A real-time direct manipulation model in Tactile Animation facilitated both.
-In Macaron, we observed different levels of exploration and refinement, discovering a pattern of focused adjustment and repeated reflection \cite{Schon1982}, where the designers stepped back to feel their design in its entirety, and zoomed in to adjust parts in detail.
-We find this is a repeated pattern, where participants iteratively zoom in and out to different levels.
-The mixture of focus also depended on the stage of design - early on, exploration and execution take a more prominent role, while later refinement has smaller adjustments and more reflection.
-
-Future work remains to be done to establish whether there are discrete levels of focus, or if it lies along a continuum.
-\osC{What about a planning/execution/reflection pattern?}
-
-
-\inlineHeading{Browsing and Sharing}
-From the beginning, we investigated concepts of collaboration [] and discovered the value of repetition and reuse.
-In both software engineering and interaction design, there is a strong emphasis to not reinvent the wheel [];
-meanwhile, industrial designer Raymond Loewy espouses the need to balance the familiar and the new in design, creating the ``most advanced yet acceptable" design [].
-
-We found the need for reuse become increasingly valuable, both to provide inspiration and guidance for our participants, and 
-
-
-We found that haptic designers practice design using a familiar process.
-In \autoref{ch:hapticianinterviews:discussion}, we showed that haptic designers follow established, principled design processes, with a pre-design preparation step \cite{Warr2005,Schon1982,Shneiderman2000}, iteratively developed multiple concepts \cite{Buxton2007,Hartmann2008}, gather feedback through user research, and collaborate with a number of stakeholders.
-These naturally-found results confirm what we found in our in-lab Macaron study, which showed initial preparation from browsing, iteration, gradual refinement, and the development of a repertoire \cite{Schon1982}.
-In addition, we found that haptic designers are reflective practitioners \cite{Schon1982}: each new design problem is presented as a unique, and each solution is tailored, novel to adapt to the problem's particular constraints but grounded in the designer's experience.
-Much of these process is unsurprising to anyone with HCI or design experience.
-However, we found there are strategies and challenges that distinguish \haxd from other fields of design.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
@@ -107,17 +55,36 @@ However, we found there are strategies and challenges that distinguish \haxd fro
    \label{fig:conclusion:buxtonaugmented}
 \end{figure}
 
+
 %
 % SubSub - Browse
 %
 \subsubsection{Browse} 
-No idea is born in isolation.
-Individual designers have a repertoire of previous experiences they've encountered while learning or through practice~\cite{Schon1982}.
-In addition, design often starts with a ``gather" step~\cite{Warr2005}: viewing examples for inspiration and problem definition.
-Gathering often occurs explicitly at the start of a design process, and can reoccur during iteration.
-Tangible examples are corkboards and mood boards, which allow ideas to ``bake in" to the background~\cite{Buxton2007}.
-Software tools like d.tour~\cite{Ritchie2011} and Bricolage~\cite{Kumar2011} recommend websites for inspiration and can automatically generate new ideas by combining sites.
-Haptic designers, however, encounter modality-specific barriers when gathering, managing, and searching for examples.
+``Browse" can have specific meanings for interacting with data (cite Munzner).
+Here, we use ``Browse" to refer more generally to the act of looking at examples (\eg, corkboards of previous designs \cite{Buxton2007}, drawing from previous personal and professional experiences (\eg one's repertoire \cite{Schon1982} or real-life sources to inform a design.
+We found this emerged in different ways:
+in \autoref{ch:hapticinstrument}, participants used their personal experiences to interpret sensation meaning (\ie schemas, discussed more later);
+in \autoref{ch:tactileanimation}, one animator brought up a YouTube video of a heartbeat to ground his animation;
+in \autoref{ch:hapticianinterviews} several participants described collecting examples or using guide books.
+
+We highlight this activity because haptic designers encounter modality-specific barriers when gathering, managing, and searching for examples.
+Explicitly supporting browsing can make a difference:
+in \autoref{ch:macaron}, we found visible, incorporable examples both eased design and helped scaffold learning for non-experts.
+We believe scaffolding to be extremely important, as there are few haptic designers practicing today.
+Browsing is also tightly associated with the ability to Share designs and collaborate; when one designer shares their designs or ideas, others are able to browse it.
+We highlight three main challenges to supporting browsing in \haxd: representation, organization, and access.
+%meanwhile, industrial designer Raymond Loewy espouses the need to balance the familiar and the new in design, creating the ``most advanced yet acceptable" design [].
+
+
+
+%No idea is born in isolation.
+%Individual designers have a repertoire of previous experiences they've encountered while learning or through practice~\cite{Schon1982}.
+%In addition, design often starts with a ``gather" step~\cite{Warr2005}: viewing examples for inspiration and problem definition.
+%Gathering often occurs explicitly at the start of a design process, and can reoccur during iteration.
+%Tangible examples are corkboards and mood boards, which allow ideas to ``bake in" to the background~\cite{Buxton2007}.
+%Software tools like d.tour~\cite{Ritchie2011} and Bricolage~\cite{Kumar2011} recommend websites for inspiration and can automatically generate new ideas by combining sites.
+%\osC{make sure this doesn't overlap too much with Background}
+
 
  \inlineHeading{Representations of single sensations:} 
     How do we store, view, and organize haptic experiences?
@@ -134,6 +101,7 @@ Haptic designers, however, encounter modality-specific barriers when gathering, 
     Collections of examples, especially visual or physical collections, are often displayed spatially for ambient reference or to enable quick scanning.
     When you can't feel multiple things, it can be hard to get the big picture or swiftly peruse a collection.
     Both designer and end-users have needs for finding similar/different vibrations in a collection, requiring a low barrier-to-entry on any overview technique.
+    \osC{also comment on search.}
 
 
 %
@@ -158,6 +126,17 @@ With haptic technology, there is no immediate way to handle two essential featur
 Creative approaches are emerging.
 Most directly, \citet{Moussette2011} teach Haptic Sketching\footnote{\url{https://vimeo.com/29310105}} with physical scraps and materials, combined with manual actuator and tools like Arduino, to build effective interactive haptic prototypes physically and programmatically  in minutes or hours.
 Simple display-only sensations can be sketched (\eg, VT icons)  using interactive design tools \cite{schneider2014improvising,Hong2013}.
+
+
+\inlineHeading{Sketching and Refining}
+Early in our exploration, we found that our Haptic Instrument, mHIVE, excelled for exploring a design space but faltered for refining sensations.
+A real-time direct manipulation model in Tactile Animation facilitated both.
+In Macaron, we observed different levels of exploration and refinement, discovering a pattern of focused adjustment and repeated reflection \cite{Schon1982}, where the designers stepped back to feel their design in its entirety, and zoomed in to adjust parts in detail.
+We find this is a repeated pattern, where participants iteratively zoom in and out to different levels.
+The mixture of focus also depended on the stage of design - early on, exploration and execution take a more prominent role, while later refinement has smaller adjustments and more reflection.
+
+Future work remains to be done to establish whether there are discrete levels of focus, or if it lies along a continuum.
+\osC{What about a planning/execution/reflection pattern?}
 
 
 
@@ -204,6 +183,7 @@ Followup work has added haptics to YouTube \cite{AbdurRahman2010} and movies \ci
 Low-cost devices like the HapKit \cite{Martinez2016}\footnote{\url{http://hapkit.stanford.edu/}} and Haply \cite{Gallacher2016}\footnote{\url{http://www.haply.co}} make haptics more ubiquitous, but remain troublesome to calibrate.
 To share ideas remotely on phones, proxies like visualizations or other types of haptics (phone vibrations) could be used \cite{Schneider2016b}\footnote{\url{http://www.cs.ubc.ca/labs/spin/hapturk}}.
 Features like automatic calibration and proxies for use in online evaluation, and online communities more generally, are still in development.
+
 
 
 
@@ -371,7 +351,7 @@ Finally, we conclude with some comments on our evaluation methodology and how fu
 % SubSection - Online Communities
 %%%%%%%%%%%%%%%%%%
 \subsection{Communities and On-line Deployment}
-Haptic technology faces obstacles to sharing and dissemination, especially when under development; this has typically confined distribution and exposure to lab prototypes available only to in-person visitors.
+Haptic technology faces obstacles to sharing and dissemination, especially when under developmentlopment; this has typically confined distribution and exposure to lab prototypes available only to in-person visitors.
 
 Recently, online interfaces have emerged for sourcing content, distributing content, and distributing media itself. 
 This development  simultaneously widens exposure and speeds development, making it easier for designers to be inspired by or directly build upon one anothers' work. 
@@ -415,6 +395,21 @@ Adding haptics is risky.
 %
 %%%%%%%%%%%%%%%%%%
 \subsection{Towards a Mature \haxd Tool Suite}
+
+
+%%%%%%%%%%%%%%%%%%
+% SubSection - Examples
+%%%%%%%%%%%%%%%%%%
+\subsubsection{Examples, demos, Show, don't tell}
+We found that demonstrations were critical for haptic designers in the wild.
+To help elicit requirements, customers were brought in to try out various demos.
+To persuade customers, actually feeling the haptics was critical, if not always enough.
+The Haptic Instrument showed evidence for deictic features - what do you think of ``this", which facillitated direct demonstration without having to resort to indirect linguistic descriptions.
+In Macaron, exposing the underlying structure of examples lead to improved understanding of how to develop sensations and developed haptic idioms.
+
+
+
+
 \inlineHeading{Soft Features}
 Repeatedly, participants asked for ``soft features", associated with more polished tools.
 This includes features like copy and paste, undo and redo, saving and loading, grouping, looping, reduced delay, and high-fidelity rendering.
@@ -589,6 +584,14 @@ Logging and analytics not a problem; should record these features (from Macaron,
 %
 %%%%%%%%%%%%%%%%%%
 \subsection{Evaluating \haxd Tools}
+
+
+%%%%%%%%%%%%%%%%%%
+% SubSection - Flow, learning, scaffolding
+%%%%%%%%%%%%%%%%%%
+\subsubsection{Flow, Learning, Scaffolding, and Embodiment}
+
+
 
 
 \subsubsection{Exploratory Analysis and Visualization Tools (Haptic Analytics)} 
