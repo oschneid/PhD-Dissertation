@@ -10,12 +10,29 @@ In this dissertation, we explored haptic experience design (\haxd), looking at h
 We leave the specific findings from each of our studies as best articulated in their respective chapters.
 In this section, we summarize larger trends across these chapters and give some final thoughts about the \haxd process and support tools.
 
+
+
 %%%%%%%%%%%%%%%%%%
 %
 % Section - Description of the HaXD Process
 %
 %%%%%%%%%%%%%%%%%%
-\section{Description of the \haxd Process}
+%\section{Summary of Chapter-Specific Findings}
+
+
+%%%%%%%%%%%%%%%%%%
+%
+% Section - Process/Requirements
+%
+%%%%%%%%%%%%%%%%%%
+
+\section{Requirements for \haxd}
+
+
+%%%%%%%%%%%%%%%%%%
+% Section - Description of the HaXD Process
+%%%%%%%%%%%%%%%%%%
+\subsection{Description of the \haxd Process}
 Our three data collection strategies (depth, breadth, ground) each yield insight into the \haxd process different ways.
 Our in-depth studies (Chapters \ref{ch:hapticinstrument} - \ref{ch:macaron}) each contain a focused instance of participants using one of our tools to design haptic sensations, a microcosm of haptic design enabled by our tools.
 In Chapters \ref{ch:hapturk} and \ref{ch:applications}, we design haptic sensations directly, gaining insight as designers.
@@ -25,9 +42,33 @@ Of these, Chapters \ref{ch:macaron} and \ref{ch:hapticianinterviews} provide the
 
 
 %%%%%%%%%%%%%%%%%%
+% SubSection - Examples
+%%%%%%%%%%%%%%%%%%
+\subsubsection{Examples, demos, Show, don't tell}
+We found that demonstrations were critical for haptic designers in the wild.
+To help elicit requirements, customers were brought in to try out various demos.
+To persuade customers, actually feeling the haptics was critical, if not always enough.
+The Haptic Instrument showed evidence for deictic features - what do you think of ``this", which facillitated direct demonstration without having to resort to indirect linguistic descriptions.
+In Macaron, exposing the underlying structure of examples lead to improved understanding of how to develop sensations and developed haptic idioms.
+
+
+
+
+%%%%%%%%%%%%%%%%%%
+% SubSection - Flow, learning, scaffolding
+%%%%%%%%%%%%%%%%%%
+\subsubsection{Flow, Learning, Scaffolding, and Embodiment}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%
 % SubSection - Browse/Sketch/Refine/Share
 %%%%%%%%%%%%%%%%%%
-\subsection{General Design Activities: Browse, Sketch, Refine, and Share}
+\subsubsection{General Design Activities: Browse, Sketch, Refine, and Share}
 
 \inlineHeading{Sketching and Refining}
 Early in our exploration, we found that our Haptic Instrument, mHIVE, excelled for exploring a design space but faltered for refining sensations.
@@ -165,7 +206,7 @@ Features like automatic calibration and proxies for use in online evaluation, an
 %%%%%%%%%%%%%%%%%%
 % SubSection - Paradigms and Representations
 %%%%%%%%%%%%%%%%%%
-\subsection{Paradigms and Representations}
+\subsection{Generalizing Devices and Sensations}
 \inlineHeading{Paradigms}
 First captured in Chapter \ref{ch:hapticianinterviews}, we believe that paradigms is a key concept to designing \haxd tools.
 Much like how different programming language paradigms, such as functional or object-oriented languages, can accomplish similar results but enable programmers to think in different ways more appropriate to their problem, we believe that different haptic or multimodal paradigms will enable different problem solving techniques for \haxd.
@@ -198,14 +239,16 @@ In haptics, we might apply these different sizes and resolutions to a class of d
 However, a single actuator is quite different from a 2D grid of actuators (like in Tactile Animation), and dramatically different from variable friction feedback (like with Rough Sketch) or 1-DoF force feedback (like with HandsOn).
 The question of resolution and platform within a single class of devices is analogous to the challenges faced by graphic designers and sound designers, but the diversity of classes of devices is even more varied.
 
-
+\osC{Consistency, also discuss grips, etc. (though should this be in implementation? Nah, this is an enduring problem)}
 
 
 
 %%%%%%%%%%%%%%%%%%
-% SubSection - Schemas
+%
+% Section - Meaning
+%
 %%%%%%%%%%%%%%%%%%
-\subsection{Schemas for Users and Designers}
+\subsection{Designing Meaning}
 Because of the novelty of haptic design, we found that conceptual schemas are important for understanding the intent of haptic sensations.
 Schemas are existing conceptual models used as transitionary objects to understanding new concepts \cite{Papert1980}.
 We found this procedure occurred not only in educational contexts, but also in design.
@@ -279,6 +322,42 @@ That said, sometimes combining the two is helpful; much like how in computer gra
 
 
 %%%%%%%%%%%%%%%%%%
+% SubSection - Customization
+%%%%%%%%%%%%%%%%%%
+\subsection{Customization}
+We've shown how individual differences are a prominent feature of haptic perception and psychology.
+Furthermore,  variability in and poor designer control over context --  user attention and  device form factor and manner of connection, as well as use environment -- mean that haptic sensations often need to be tuned to both each person and each use case.
+
+The most likely solution   is to make it easy for end-users in populations that might benefit from a haptic modality to \textit{customize} aspects of haptic design elements, whether by choosing pre-formed settings and ``skins'', adapting defaults, or wholly designing their own. 
+Possible approaches range from volume-like slider controls, options to select sensations from curated collections, or, at the more complex end, perceptually-confirmed filters like those found in Instagram or PhotoShop~\cite{Seifi2014,seifi2015vibviz,SchneiderAsiaHaptics2014}.
+
+
+\inlineHeading{Volume Controls}
+As found in our interviews with designers, the end-user context is sometimes unknowable.
+There is not much designers can do other than putting a volume control on their design to facillitate customization.
+In informal discussions with engineers from commercial companies (\eg D-Box), volume controls were a critical, early addition to their haptic chairs.
+As explored in our FeelCraft and FeelChat projects, the extra level of volume control is implementable, expressive, reduces footprints, but is more limiting for designers and requires programming expertise.
+While there is a great deal of noise in perceptual parameters for high-level controls, careful investigation can improve this \cite{Israr2014,Seifi2014}.
+
+
+
+\inlineHeading{Novelty and Irritation}
+Haptic sensations are new, giving them great power and great responsibility.
+They can grab attention, but designers must take care not to annoy with constant haptic feedback.
+The balance is tricky. 
+Good design might be not even noticed when present.
+With RoughSketch, we found that allowing a button to remove haptic feedback was very persuasive for appropriate, non-irritating designs.
+We also found that muting features were essential for \haxd design tools.
+
+
+
+
+
+
+\section{A Path to \haxd Tools}
+
+
+%%%%%%%%%%%%%%%%%%
 % SubSection - Online Communities
 %%%%%%%%%%%%%%%%%%
 \subsection{Communities and On-line Deployment}
@@ -319,65 +398,13 @@ Adding haptics is risky.
 
 
 
-%%%%%%%%%%%%%%%%%%
-% SubSection - Customization
-%%%%%%%%%%%%%%%%%%
-\subsection{Customization}
-We've shown how individual differences are a prominent feature of haptic perception and psychology.
-Furthermore,  variability in and poor designer control over context --  user attention and  device form factor and manner of connection, as well as use environment -- mean that haptic sensations often need to be tuned to both each person and each use case.
-
-The most likely solution   is to make it easy for end-users in populations that might benefit from a haptic modality to \textit{customize} aspects of haptic design elements, whether by choosing pre-formed settings and ``skins'', adapting defaults, or wholly designing their own. 
-Possible approaches range from volume-like slider controls, options to select sensations from curated collections, or, at the more complex end, perceptually-confirmed filters like those found in Instagram or PhotoShop~\cite{Seifi2014,seifi2015vibviz,SchneiderAsiaHaptics2014}.
-
-
-\inlineHeading{Volume Controls}
-As found in our interviews with designers, the end-user context is sometimes unknowable.
-There is not much designers can do other than putting a volume control on their design to facillitate customization.
-In informal discussions with engineers from commercial companies (\eg D-Box), volume controls were a critical, early addition to their haptic chairs.
-As explored in our FeelCraft and FeelChat projects, the extra level of volume control is implementable, expressive, reduces footprints, but is more limiting for designers and requires programming expertise.
-While there is a great deal of noise in perceptual parameters for high-level controls, careful investigation can improve this \cite{Israr2014,Seifi2014}.
-
-
-
-\inlineHeading{Novelty and Irritation}
-Haptic sensations are new, giving them great power and great responsibility.
-They can grab attention, but designers must take care not to annoy with constant haptic feedback.
-The balance is tricky. 
-Good design might be not even noticed when present.
-With RoughSketch, we found that allowing a button to remove haptic feedback was very persuasive for appropriate, non-irritating designs.
-We also found that muting features were essential for \haxd design tools.
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%
-% SubSection - Flow, learning, scaffolding
+%
+% Section - Towards Mature Tool Suite
+%
 %%%%%%%%%%%%%%%%%%
-\subsection{Flow, Learning, Scaffolding, and Embodiment}
-
-
-
-%%%%%%%%%%%%%%%%%%
-% SubSection - Examples
-%%%%%%%%%%%%%%%%%%
-\subsection{Examples, demos, Show, don't tell}
-We found that demonstrations were critical for haptic designers in the wild.
-To help elicit requirements, customers were brought in to try out various demos.
-To persuade customers, actually feeling the haptics was critical, if not always enough.
-The Haptic Instrument showed evidence for deictic features - what do you think of ``this", which facillitated direct demonstration without having to resort to indirect linguistic descriptions.
-In Macaron, exposing the underlying structure of examples lead to improved understanding of how to develop sensations and developed haptic idioms.
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%
-% SubSection - Transition into Mature Tools
-%%%%%%%%%%%%%%%%%%
-\subsection{Barriers, Walls, Ceilings: Transitioning into Mature Tools}
+\subsection{Towards a Mature \haxd Tool Suite}
 \inlineHeading{Soft Features}
 Repeatedly, participants asked for ``soft features", associated with more polished tools.
 This includes features like copy and paste, undo and redo, saving and loading, grouping, looping, reduced delay, and high-fidelity rendering.
@@ -479,7 +506,7 @@ Thus, iteration is very necessary yet very painful.
 % Section - Implementation
 %
 %%%%%%%%%%%%%%%%%%
-\section{Notes on Implementing \haxd Tools}
+\subsection{Notes on Implementing \haxd Tools}
 During our in-depth studies, we looked at three different platforms for implementing \haxd support tools: Android on tablet for mHIVE, Python on desktop for Mango, and JavaScript deployed on the web for Macaron.
 From these three implementations, and from attempting to distribute or deploy them, we have found several lessons for implementing interactive software for \haxd support.
 Many of these are straightforward applications of software engineering, but we particularly found recently developed web tools to be especially useful when managing the complex interfaces required by design tools.
