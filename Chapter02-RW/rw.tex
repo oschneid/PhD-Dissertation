@@ -23,8 +23,8 @@ The term ``haptic" was coined by German researcher Max Dessoir to refer to the s
 Today, it refers to both the study of the psychology and perception of the senses of touch, and frequently to technology that employs touch as a method of feedback.
 Haptic technology is typically separated into two classes based on the main sense modality: \emph{tactile} sensations, and \emph{proprioception}, or the sense of body location and force.
 These two types of feedback are useful for different purposes, \eg people use their fingerpad's tactile senses to derive texture, while but kinaesthetic feedback can help to infer weight \cite{Lederman1987}.
-Haptic displays an be combined for more convincing results \cite{Okamura1998}.
-An excellent overview of these senses is available by \citet{Lederman2009survey}, and a practical introduction to the technology is available by \citet{Hayward2007}.
+However, they are often combined for more convincing results \cite{Okamura1998}.
+An excellent overview of the haptic senses is available by \citet{Lederman2009survey}, and a practical introduction to the technology is available by \citet{Hayward2007}.
 Here, we focus our coverage on the sensations directly studied by this dissertation, while also portraying the diversity of haptic experiences and technology.
 
 \subsection{Tactile Perception and Technology}
@@ -43,31 +43,36 @@ Piezo actuation is a very responsive technique that is typically more expensive.
 % One of the more common and expressive is the C2 tactor, intended to directly stimulate the skin through contact or a thin membrane; the tactile animation project [] uses an array of C2 tactors.
 While tactors directly stimulate the skin, linear resonant actuators (LRAs) shake a mass back and forth to vibrate a handset in an expressive way; a common research example is the Haptuator \cite{Yao2010}.
 Instead of directly stimulating the skin, this actuator typically shakes another device held by the user, such as a mobile device \cite{Yoo2014} or pen \cite{Culbertson2014}.
-As of writing (2016), this type of actuator is increasingly deployed in mobile contexts (\eg Apple's Taptic engine).
+As of writing (2016), this type of actuator is increasingly deployed in consumer products (\eg Apple's Taptic Engine).
 
 %%%%In contrast to displacing the entire user body, recent multichannel haptic devices create percepts of dynamic and localized haptic sensations directly on the user's skin \cite{Israr2011} and in the mid-air \cite{Wilson2014}.
 Actuators like VT devices can be used alone or put together spatial multiactuator displays like seats \cite{Israr2012,Israr2010}, belts \cite{Pielot2009,Paneels2013}, wristbands \cite{Arab2015,Paneels2013,Gupta2016}, vests \cite{Prasad2014,Jones2004}, and gloves \cite{Park2016,Kim2009}.
-These can be arrange into grids [] to provide explicit spatial input.
+These can be arrange into grids, either dense tactile pixels (``taxels") \cite{Kim2009} or sparse arrays \cite{Israr2012,Israr2010}, to provide explicit 2D output on a plane.
+Multiactuator arrays increasingly used in conjunction with tactile illusions.
 
-As with visual displays, like the illusion of motion with high framerates, illusions play a valuable role in \haxd.
-Phantom tactile sensations \cite{Alles1970}, create illusory vibrations in between two or more VT actuators; these can be used 
-Seo and Choi created a perceived motion flow between two vibrators mounted on the ends of a handheld device by controlling their intensity  \cite{Seo2010}.
-Lee and colleagues created across-the-body and out-of-the-body illusions on a mobile device using up to four % inexpensive 
-linear resonant actuators \cite{Lee2012a}.
+As with visual displays, like the illusion of motion with high framerates, illusions play a valuable role in haptic sensations \cite{Hayward2016}.
+Some effects are influenced by other senses.
+In the classic size-weight illusion \cite{charpentier1891analyse}, when two weights have the same mass but different sizes, the smaller is perceived to be heavier, whether size is seen or felt \cite{Hayward2016}.
+A striking, recent example is the use of visual dominance to use a single physical block to provide haptic feedback for multiple virtual blocks by distorting the visual position of the user's arm \cite{Azmandian2016}.
+We employ similar techniques in our FeelCraft and Feel Messenger projects, using visual feedback to prime users to haptic sensations (\autoref{ch:applications}).
+
+Other illusions are purely tactile and useful for grid displays.
+Phantom tactile sensations \cite{Alles1970}, create illusory vibrations in between two or more VT actuators, opening up the space in-between actuators for display.
+Continuous motion can be simulated, \eg \citet{Seo2010} created a perceived motion flow between two VT actuators mounted on the ends of a handheld device by controlling their intensity.
+Similarly, \citet{Lee2012a} created across-the-body and out-of-the-body illusions on a mobile device using up to four % inexpensive 
+linear resonant actuators; \citet{Gupta2016} used interpolation on a VT wristband for new interaction techniques.
 The Tactile Brush algorithm \cite{Israr2011a} combined phantom tactile sensations and apparent tactile motion to render high-resolution and moving haptic patterns on the back using a coarse grid of VT actuators. 
-Other spatio-temporal VT illusions such as the  ``cutaneous rabbit"  \cite{Tan2009} and Tau and Kappa effects \cite{Hayward2008} can also be used with VT arrays.
-Also, discuss \cite{Yoo2014a}.
-\osC{todo: explain why these are important, what the illusions are}
+Other spatio-temporal VT illusions such as the ``cutaneous rabbit"  \cite{Tan2009}, where carefully timed discrete tactile stimuli create perceived motion, and Tau and Kappa effects \cite{Hayward2008,Hayward2016}, where perceived distance between stimuli depending on their timing, can also be used with VT arrays.
 Similar illusions are possible using other tactile modalities, including temperature displays \cite{Singhal2016} and electrocutaneous stimulation \cite{Tanie1980}.
-wristband\cite{Gupta2016}
-retargetting \cite{Azmandian2016}
+We extend phantom sensations to 2D interpolation (\eg between 3 actuators) to enable Tactile Animation (\autoref{ch:tactileanimation}).
 
-Surface friction can be manipulated by both mechanical motion or electrical adhesion.
+Another emerging tactile feedback mechanism is programmable friction.
+Surface friction, for example on a mobile touch screen, can be manipulated by both mechanical motion or electrical adhesion.
 The TPad \cite{Winfield2007a} vibrates a plate at ultrasonic frequencies to create a cushion of air between the surface and the user's finger.
 This effect is programmable, and can be used to with a number of interactive scenarios \cite{Levesque2011}.
 Other techniques like electrovibration, deployed in TeslaTouch \cite{Bau2010}, and electrostatic forces \cite{Meyer2013} can create a similar effect.
 Strong electroadhesion \cite{Shultz2015} has the potential to create even larger shear forces, but comes with a high power cost.
-In \autoref{ch:applications}, we design for a mobile version of the TPad deployed on Android devices, the TPad phone (\url{www.thetpadphone.com}).
+In RoughSketch (\autoref{ch:applications}), we design for a mobile version of the TPad deployed on Android devices, the TPad phone (\url{www.thetpadphone.com}).
 
 There are many other types of tactile stimulation used in haptic experiences.
 2-dimensional pin-based grids like HyperBraille (\url{www.hyperbraille.de}) can display Braille and 2D images to the blind and visually impaired, and operate as a generic computer display \cite{Prescher2010}. cite Optacon, "Survey on communication through touch" by pasquero, "Optical to tqactile image conversion for the blind by Bliss et all 1970.
@@ -75,7 +80,6 @@ Similar multi-point displays have been deployed on mobile devices.
 Edge Haptics uses dozens of linearly-actuated pins on the edge of a mobile device for tactile stimulation, similar to a a-dimensional braille pin display \cite{Jang2016}, while laterally moving pins can use skin-stretch as a display mechanism \cite{Luk2006}.
 Electrocutaneous stimulation, by activating electrodes directly on the skin, has been effectively deployed for spatial tongue displays \cite{Bach-y-Rita1998}.
 Temperature displays exploit warm and cold receptors in the skin for display, using Peltier junctions \cite{Jones2002}.
-
 
 
 
