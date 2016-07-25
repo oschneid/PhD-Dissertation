@@ -5,12 +5,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Conclusion}
 \label{ch:conclusion}
-In this dissertation, we explored haptic experience design (\haxd), looking at its process and how to design, build, and evaluate \haxd support tools.
+In this dissertation, we explored haptic experience design (\haxd), looking at its process to inform how to design, build, and evaluate \haxd support tools.
 We leave the specific findings from each of our studies as best articulated in their respective chapters.
 In this chapter, we summarize larger trends across these chapters and give some final thoughts about the \haxd process and support tools.
-We begin by discussing the \haxd process, including challenges and strategies designers can use to overcome those challenges.
+We begin by discussing process, including challenges and strategies designers can use to overcome those challenges.
 We then discuss findings more specifically on designing and developing software tools to support \haxd.
-We conclude by \osC{todo}.
+We conclude with directions for current and future work, and final remarks on \haxd.
 
 
 %%%%%%%%%%%%%%%%%%
@@ -18,7 +18,28 @@ We conclude by \osC{todo}.
 % Section - Description of the HaXD Process
 %
 %%%%%%%%%%%%%%%%%%
-%\section{Summary of Chapter-Specific Findings}
+\section{Summary of Research Findings}
+Through Chapters \ref{ch:hapticinstrument} to \ref{ch:macaron} we designed, built, and studied a trio of \haxd support tools.
+We began with an initial hypothesis: that real-time feedback and collaboration could improve the haptic design process.
+Through our tools, this hypothesis was confirmed, but more importantly, elaborated and refined:
+\begin{itemize}
+	\item mHIVE showed us that rapid exploration was possible with real-time feedback, demonstrated value in informal, collocated collaboration, and gave evidence that showing rather telling about haptic sensations could circumvent an impoverished language (\eg what do you think of \emph{that}).
+	\item mHIVE also showed us that there are distinct roles to be played by different tools: mHIVE was successful for early sketches, but did not enable refinement and had a learning curve.
+	\item Mango followed up on these themes with a focus on implementation. We established a rendering pipeline for both design and playback. A direct-manipulation metaphor let participants both sketch in real-time, and refine their designs. In addition, an animation paradigm enabled our visual animators to transfer their skills to tactile animation.
+	\item In our Mango studies, we found evidence for reuse - repetition played a large role in tactile animations, and participants again drew inspiration from their experience or external examples (\eg a YouTube video of a heartbeat) - and noted the engagement of multimodal design, \eg designing for an audio clip. These both informed Macaron.
+	\item In Macaron, we were able to easily implement the system (drawing from Mango's architecture), allowing us to study our process more closely. We found a number of concrete recommendations for \haxd tools, and confirmed the value of using examples: we found different strategies for using examples in the initial design process, and open or visualized examples helped designers learn how to conduct VT design.
+	\item Macaron also helped us find our more nuanced understanding of our initial hypotheses. Real-time feedback is useful as a preview, to get the right frequency, amplitude, or timing. However, participants would also step back to feel the entire design in its entirety, something that can be done
+\end{itemize}
+
+Together, mHIVE, Mango, and Macaron have informed us on both important features and roles for design tools, given us insight into implementation and evaluation, and helped to study \haxd as a process.
+To further our understanding, we conducted several focused projects which broadened our understanding of collaboration (\autoref{ch:hapturk}) and different devices and application areas (\autoref{ch:applications}):
+
+\begin{itemize}
+	\item HapTurk (\autoref{ch:hapturk}) allowed us to study collaboration more thoroughly, as we focused on other aspects of design with Mango and Macaron. We found that VT icons could be deployed over MTurk to elicit large-scale feedback from remote users. We also found affective qualities of VT icons could be communicated through proxies, suggesting we can express haptic ideas in different modalities.
+	\item FeelCraft and Feel Messenger ...
+\end{itemize}
+
+Finally \osC{OS resume here}
 
 
 %%%%%%%%%%%%%%%%%%
@@ -27,13 +48,13 @@ We conclude by \osC{todo}.
 %
 %%%%%%%%%%%%%%%%%%
 \section{\haxd Process: Requirements for Tools}
-In this section, we examine our findings about the \haxd process, including challenges and strategies that designers can follow.
-As we saw in \autoref{ch:hapticianinterviews}, we saw that haptic designers follow a familiar design process.
+In this section, we examine our findings about the \haxd process. %, including challenges and strategies that designers can follow.
+In \autoref{ch:hapticianinterviews}, we saw that haptic designers follow a familiar design process.
 However, we also saw that there are unique challenges that differentiate \haxd from other modalities of design, which are confirmed by our work into \haxd support tools and our design side projects \osC{need to standardize on the name}.
 
-We begin by discussing four design activities that occur in other fields, but need to be explicitly supported for \haxd: browse, sketch, refine, share.
-Then, we comment on some approaches for handling the diverse devices and modalities employed in haptic design tools to create consistent experiences across physical setups.
-After, we discuss the importance of imbuing haptic experiences with meaning and realism.
+We begin by discussing four design activities that occur generally in design, but need to be explicitly supported for \haxd: browse, sketch, refine, share.
+Then, we comment on some approaches for handling the diverse devices and modalities employed by haptic technology.
+After, we discuss some techniques to imbue haptic experiences with meaning and realism.
 Finally, we talk about the importance of customization and how to support it.
 
 %%%%%%%%%%%%%%%%%%
@@ -677,14 +698,22 @@ Second, as we scale to more natural settings and higher sample sizes, we hope qu
 
 
 
+%%%%%%%%%%%%%%%%%%
+%
+% Section - Future Work
+%
+%%%%%%%%%%%%%%%%%%
+\section{Current and Future Work}
+\osC{todo}
+
 
 
 %%%%%%%%%%%%%%%%%%
 %
-% Section - Evaluation
+% Section - Conclusion
 %
 %%%%%%%%%%%%%%%%%%
-\subsection{Conclusion}
+\section{Conclusion}
 \osC{todo}
 
 
