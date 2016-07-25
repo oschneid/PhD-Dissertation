@@ -75,12 +75,12 @@ Strong electroadhesion \cite{Shultz2015} has the potential to create even larger
 In RoughSketch (\autoref{ch:applications}), we design for a mobile version of the TPad deployed on Android devices, the TPad phone (\url{www.thetpadphone.com}).
 
 There are many other types of tactile stimulation used in haptic experiences.
-2-dimensional pin-based grids like HyperBraille (\url{www.hyperbraille.de}) can display Braille and 2D images to the blind and visually impaired, and operate as a generic computer display \cite{Prescher2010}. cite Optacon, "Survey on communication through touch" by pasquero, "Optical to tqactile image conversion for the blind by Bliss et all 1970.
+2-dimensional pin-based grids like Optacon \cite{Bliss1970} and HyperBraille (\url{www.hyperbraille.de}) can display Braille and 2D images to the blind and visually impaired, and operate as a generic computer display \cite{Prescher2010}. 
+%"Survey on communication through touch" by pasquero, "Optical to tqactile image conversion for the blind by Bliss et all 1970.
 Similar multi-point displays have been deployed on mobile devices.
 Edge Haptics uses dozens of linearly-actuated pins on the edge of a mobile device for tactile stimulation, similar to a a-dimensional braille pin display \cite{Jang2016}, while laterally moving pins can use skin-stretch as a display mechanism \cite{Luk2006}.
 Electrocutaneous stimulation, by activating electrodes directly on the skin, has been effectively deployed for spatial tongue displays \cite{Bach-y-Rita1998}.
 Temperature displays exploit warm and cold receptors in the skin for display, using Peltier junctions \cite{Jones2002}.
-
 
 
 \inlineHeading{Proprioception and Force Feedback}
@@ -88,29 +88,27 @@ Temperature displays exploit warm and cold receptors in the skin for display, us
 
 Proprioception, the sense of force and position, is synthesized from multiple sensors as well: the muscle spindle (embedded in muscles), golgi-tendon organ (GTO) in tendons, and tactile and visual cues \cite{Kandel2000}.
 We distinguish proprioception from the related term kinaesthetic by being the general, synthesized sense, where kinaesthetic sensation is strictly the sense of motion \osC{todo: make sure this is correct}.
-Common devices include Geomagic Touch (previously the Sensable PHANTOM) and Falcon devices, offering three degrees-of-freedom: force in three directions and torque in three orientations.
-At other times, entire screens might push back on the user in a single degree-of-freedom.
+Force displays are common in precise, specialized applications like robot-assisted surgery \cite{Okamura2009} or realistic sensorimotor training environments \cite{VanDerMeijden2009}.
 
-Force-feedback devices actively resist or push forces upon the user.
-Commone 6-DOF devices ehre
+Force-feedback devices might have degrees of freedom of feedback (DoF), the number of forces or torques they can display.
 These devices render a \emph{virtual environment}, with simulated forces depending on the input from the user.
-Force feedback is very common in medical applications like robot-assisted surgery \cite{Okamura2009}, providing surgeons with much-needed force (and sometimes tactile) feedback.
-Training environements, both for surgery \cite{VanDerMeijden2009} and other 
-Challenges often include rendering stiff walls \cite{} and coordinating remotely situated devices or shared environments \cite{Buttolo1997}.
-CITE SALISBURY \cite{massie1994phantom}
-Transient forces \cite{Kuchenbecker2006}
-Pantograph \cite{Ramstein1994}\cite{Campion2005}
+Common consumer-facing 3-DoF devices include the Geomagic Touch (previously the Sensable PHANTOM) and Falcon devices, offering force in three directions.
+2-DoF designs like the pantograph \cite{Ramstein1994,Campion2005} can provide displays on screens, walls, and tables.
+These displays have previously input on realistic simulation and rendering: \eg making free space feel free, providing stiff virtual objects and walls, and avoiding saturation  \cite{massie1994phantom}.
+Open-hardware, self-assembled versions of these devices, such as WoodenHaptics \cite{Forsslund2015} for 3-DoF devices and Haplet \cite{Gallacher2016} for 2-DoF displays, have the potential to make haptics more accessible.
+Much previous work has been done on handling technical concerns, \eg displaying complex polygonal objects with a ``God object" \cite{Zilles1995}, coordinating remotely situated devices or shared environments \cite{Buttolo1997}, and improving collision realism with transient forces \cite{Kuchenbecker2006}.
+More complex environments are primarily programmed in using APIs like CHAI3D, OpenHaptics, or Unity.
 
-Another approach is to use simple force feedback for expressive displays.
-Haptic knobs, like the UBC Twiddler \cite{Shaver2003,Enriquez2003} \cite{MacLean2009a}
-Often commercial devices are expensive or inaccessible.
-There has been a recent trend towards open-source hardware for these simple displays. \cite{Gallacher2016,Martinez2016}.
+Another approach is to use simple force feedback, especially for haptics education \cite{Jones2014}.
+1-DoF devices include linear actuators pushing on the user and haptic knobs, \eg the UBC Twiddler \cite{Shaver2003,Enriquez2003,MacLean2009a}, and paddles, \eg the HapKit \cite{Martinez2016}.
+The UBC SPIN lab has also adopted 1-DoF force feedback in its affective robot, the Haptic Creature \cite{Yohanan2011,Yohanan2011}, the CuddleBot, and CuddleBits \cite{cang2015cuddlebits}.
+We explore force-feedback design with the HapKit and CuddleBits in \autoref{ch:applications}.
 
 
-\inlineHeading{Multimodal interaction}
-Similar to vision and audio, haptic perception is susceptible to illusions \cite{Hayward2016,Hayward2008}.
-
-discuss passiveness, like cobots, etc.
+%\inlineHeading{Multimodal interaction}
+%Similar to vision and audio, haptic perception is susceptible to illusions \cite{Hayward2016,Hayward2008}.
+%
+%discuss passiveness, like cobots, etc.
 
 %%%%%%%%%%%%
 %
