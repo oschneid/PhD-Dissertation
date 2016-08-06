@@ -1194,10 +1194,29 @@ Future interfaces can both increase physical model complexity and breadth (e.g.,
 %Our findings (on interface usability, task effectiveness, and impact of haptic feedback on learning strategies, understanding and curiosity) underscore this approach's promise, as we proceed to study haptic influence on learning outcomes themselves.
 
 
-\section{CuddleBit}
+\section{CuddleBit Design Tools}
 \label{sec:applications:cuddlebit}
+As robots begin to take a larger role in our lives, they require natural ways of interacting with people.
+Notably, they need to communicate affectively with humans, recognizing and expressing emotion, or behaving with a life-like personality.
+This is important for both everyday interactions with robots, and targeted health applications: robot-based therapy can measurably relax people by breathing (Seidfeger).
 
-TODO
+The Haptic Creature project (Yohanan) explores the role of touch-based interactions with furry, zoomorphic robots.
+However, an early prototype of a multi-DoF haptic robot, the CuddleBit, suffers from slow iteration for both hardware form-factor and software behaviours.
+To explore these concepts more thoroughly, we developed the CuddleBits (cite?): simple, affective robot pals built with a rapid prototyping (sketching) ethic.
+To control CuddleBit behaviour and inform \haxd support tools in this complex domain, we developed two software design tools: MacaronBit and Voodle.
+
+MacaronBit (Figure XX) is an adaptation of Macaron (\autoref{ch:macaron}) to control 1-DoF CuddleBit using a familiar track-based metaphor.
+Instead of two tracks controlling amplitude and frequency, MacaronBit has five: low-frequency amplitude and frequency (for breathing); high-frequency amplitude and frequency (for ``shakiness" or ``noise"), and bias (asymmetry in the signal), determined during piloting.
+MacaronBit has been deployed in two studies to develop a set of verified CuddleBit behaviours expressing five emotions from Russel's affective grid: TODO.
+
+Voodle (from ``vocal doodling") is a novel sketching interface to easily create 1-DoF behaviours using non-speech voice, in particular, sub-linguistic ideomorphs (cite) like ``Ooooh" and ``Bwooop."
+It is inspired by the onomatopoeia descriptions found with our initial exploration (\autoref{ch:hapticinstrument}) and previous work (Watanabe, Seifi?).
+Through a series of user studies, we developed a prioritized set of ideomorphs and how they mapped to movements of the CuddleBit.
+At the time of writing, Voodle is in active development; we are using participatory design to further identify critical features, Voodle's expressive capability, and how it might fit into a design tool suite for the CuddleBit alongside Macaron.
+
+Voodle and MacaronBit are symbiotic.
+Users can record voodles and export them to MacaronBit; initial result suggest that they each support different goals for users.
+Together, Voodle and MacaronBit represent sketching (\autoref{ch:hapticinstrument}) and refining (\autoref{ch:tactileanimation}, showing that this dichotomy provides a useful framing when creating \haxd support tools and applies to other display types beyond VT icon design.
 
 
 \endinput
