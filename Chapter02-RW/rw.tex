@@ -20,21 +20,22 @@ Throughout the chapter, we contextualize this work and \haxd in both the haptics
 %%%%%%%%%%%%
 \section{An Overview of Haptic Technology and Perception}
 The term ``haptic" was coined by German researcher Max Dessoir to refer to the study of touch, in a similar to ``optic" for sight and ``acoustic" for sound \cite{Grunwald2008}.
-Today, it refers to both the study of the psychology and perception of the senses of touch, and frequently to technology that employs touch as a method of feedback.
-Haptic technology is typically separated into two classes based on the main sense modality: \emph{tactile} sensations, and \emph{proprioception}, or the sense of body location and force.
-These two types of feedback are useful for different purposes, \eg people use their fingerpad's tactile senses to derive texture, while but kinaesthetic feedback can help to infer weight \cite{Lederman1987}.
+Today, it refers to both the study of the psychology and perception of the senses of touch, and the technology that employs touch as a method of feedback.
+Haptic technology is typically separated into two classes based on the main sense modality: \emph{tactile} sensations, and \emph{proprioception}, or the sense of body location and force;  the latter includes \emph{kinaesthetic} senses of force and motion.
+These two types of feedback are useful for different purposes, \eg, people use their fingerpad's tactile senses to derive texture, but kinaesthetic feedback to infer weight \cite{Lederman1987}.
 However, they are often combined for more convincing results \cite{Okamura1998}.
 An excellent overview of the haptic senses is available by \citet{Lederman2009survey}, and a practical introduction to the technology is available by \citet{Hayward2007}.
 Here, we focus our coverage on the sensations directly studied by this dissertation, while also portraying the diversity of haptic experiences and technology.
 
 \subsection{Tactile Perception and Technology}
 \osC{Goal: Explain the main mechanisms we use in the dissertation's studies, persuade the reader that I know enough about tactile perception, and show the variety of tactile displays and experiences.}
-Tactile sensations rely on multiple sensory organs in the skin, each of which detect different properties, \eg Merkel disks detect pressure or fine details, Meissner corpuscles detect fast, light sensations (flutter), Ruffini endings detect stretch, and Pacinian corpuscles detect vibration \cite{ChoiKuchenbecker2013}.
+Tactile sensations rely on multiple sensory organs in the skin, each of which detect different properties, \eg, Merkel disks detect pressure or fine details, Meissner corpuscles detect fast, light sensations (flutter), Ruffini endings detect stretch, and Pacinian corpuscles detect vibration \cite{ChoiKuchenbecker2013}.
 %Temperature and pain are also detected through \osC{todo}.
 Of these, the Pacinian corpuscle is most widely targeted by technology through vibrotactile (VT) sensations, where vibrations stimulate the skin.
 VT sensations are accessible, well-studied, and increasingly widespread, and can be passively felt, easing implementation.
 Our in-depth design tool studies thus focus on VT experiences.
 
+\osC{todo: merge (especially this paragraph) with IJHCS RW}
 VT actuators can take may forms.
 Eccentric mass motors (sometimes ``rumble motors" or, when small, ``pager motors") are found in many mobile devices and game controllers, and are affordable but inexpressive.
 %An unbalanced mass is mounted on the motor, which provides dramatic shaking of the device.
@@ -43,7 +44,7 @@ Piezo actuation is a very responsive technique that is typically more expensive.
 % One of the more common and expressive is the C2 tactor, intended to directly stimulate the skin through contact or a thin membrane; the tactile animation project [] uses an array of C2 tactors.
 While tactors directly stimulate the skin, linear resonant actuators (LRAs) shake a mass back and forth to vibrate a handset in an expressive way; a common research example is the Haptuator \cite{Yao2010}.
 Instead of directly stimulating the skin, this actuator typically shakes another device held by the user, such as a mobile device \cite{Yoo2014} or pen \cite{Culbertson2014}.
-As of writing (2016), this type of actuator is increasingly deployed in consumer products (\eg Apple's Taptic Engine).
+As of writing (2016), this type of actuator is increasingly deployed in consumer products (\eg, Apple's Taptic Engine).
 
 %%%%In contrast to displacing the entire user body, recent multichannel haptic devices create percepts of dynamic and localized haptic sensations directly on the user's skin \cite{Israr2011} and in the mid-air \cite{Wilson2014}.
 Actuators like VT devices can be used alone or put together spatial multiactuator displays like seats \cite{Israr2012,Israr2010}, belts \cite{Pielot2009,Paneels2013}, wristbands \cite{Arab2015,Paneels2013,Gupta2016}, vests \cite{Prasad2014,Jones2004}, and gloves \cite{Park2016,Kim2009}.
@@ -58,13 +59,13 @@ We employ similar techniques in our FeelCraft and Feel Messenger projects, using
 
 Other illusions are purely tactile and useful for grid displays.
 Phantom tactile sensations \cite{Alles1970}, create illusory vibrations in between two or more VT actuators, opening up the space in-between actuators for display.
-Continuous motion can be simulated, \eg \citet{Seo2010} created a perceived motion flow between two VT actuators mounted on the ends of a handheld device by controlling their intensity.
+Continuous motion can be simulated, \eg, \citet{Seo2010} created a perceived motion flow between two VT actuators mounted on the ends of a handheld device by controlling their intensity.
 Similarly, \citet{Lee2012a} created across-the-body and out-of-the-body illusions on a mobile device using up to four % inexpensive 
 linear resonant actuators; \citet{Gupta2016} used interpolation on a VT wristband for new interaction techniques.
 The Tactile Brush algorithm \cite{Israr2011a} combined phantom tactile sensations and apparent tactile motion to render high-resolution and moving haptic patterns on the back using a coarse grid of VT actuators. 
 Other spatio-temporal VT illusions such as the ``cutaneous rabbit"  \cite{Tan2009}, where carefully timed discrete tactile stimuli create perceived motion, and Tau and Kappa effects \cite{Hayward2008,Hayward2016}, where perceived distance between stimuli depending on their timing, can also be used with VT arrays.
 Similar illusions are possible using other tactile modalities, including temperature displays \cite{Singhal2016} and electrocutaneous stimulation \cite{Tanie1980}.
-We extend phantom sensations to 2D interpolation (\eg between 3 actuators) to enable Tactile Animation (\autoref{ch:tactileanimation}).
+We extend phantom sensations to 2D interpolation (\eg, between 3 actuators) to enable Tactile Animation (\autoref{ch:tactileanimation}).
 
 Another emerging tactile feedback mechanism is programmable friction.
 Surface friction, for example on a mobile touch screen, can be manipulated by both mechanical motion or electrical adhesion.
@@ -94,13 +95,13 @@ Force-feedback devices might have degrees of freedom of feedback (DoF), the numb
 These devices render a \emph{virtual environment}, with simulated forces depending on the input from the user.
 Common consumer-facing 3-DoF devices include the Geomagic Touch (previously the Sensable PHANTOM) and Falcon devices, offering force in three directions.
 2-DoF designs like the pantograph \cite{Ramstein1994,Campion2005} can provide displays on screens, walls, and tables.
-These displays have previously input on realistic simulation and rendering: \eg making free space feel free, providing stiff virtual objects and walls, and avoiding saturation  \cite{massie1994phantom}.
+These displays have previously input on realistic simulation and rendering: \eg, making free space feel free, providing stiff virtual objects and walls, and avoiding saturation  \cite{massie1994phantom}.
 Open-hardware, self-assembled versions of these devices, such as WoodenHaptics \cite{Forsslund2015} for 3-DoF devices and Haplet \cite{Gallacher2016} for 2-DoF displays, have the potential to make haptics more accessible.
-Much previous work has been done on handling technical concerns, \eg displaying complex polygonal objects with a ``God object" \cite{Zilles1995}, coordinating remotely situated devices or shared environments \cite{Buttolo1997}, and improving collision realism with transient forces \cite{Kuchenbecker2006}.
+Much previous work has been done on handling technical concerns, \eg, displaying complex polygonal objects with a ``God object" \cite{Zilles1995}, coordinating remotely situated devices or shared environments \cite{Buttolo1997}, and improving collision realism with transient forces \cite{Kuchenbecker2006}.
 More complex environments are primarily programmed in using APIs like CHAI3D, OpenHaptics, or Unity.
 
 Another approach is to use simple force feedback, especially for haptics education \cite{Jones2014}.
-1-DoF devices include linear actuators pushing on the user and haptic knobs, \eg the UBC Twiddler \cite{Shaver2003,Enriquez2003,MacLean2009a}, and paddles, \eg the HapKit \cite{Martinez2016}.
+1-DoF devices include linear actuators pushing on the user and haptic knobs, \eg, the UBC Twiddler \cite{Shaver2003,Enriquez2003,MacLean2009a}, and paddles, \eg, the HapKit \cite{Martinez2016}.
 The UBC SPIN lab has also adopted 1-DoF force feedback in its affective robot, the Haptic Creature \cite{Yohanan2011,Yohanan2011}, the CuddleBot, and CuddleBits \cite{cang2015cuddlebits}.
 We explore force-feedback design with the HapKit and CuddleBits in \autoref{ch:applications}.
 
@@ -130,7 +131,7 @@ Haptic feedback has been shown to improve temporal aspects when training motor s
 In a study for molecular chemistry education, \citet{Sato2008} found students had higher test scores when they interacted with their haptic learning interface; students reported engagement.
 In \autoref{ch:applications} we describe results from an early learning interface for low-cost haptic displays \cite{Martinez2016}, showing that haptic technology can improve engagement and make lasting impressions.
 
-Active learning and creativity in education??
+%Active learning and creativity in education??
 
 %%%%LEARNING
 %%%\osC{Education}
@@ -183,8 +184,8 @@ Impacto uses electrical muscle stimulation and a solenoid actuator to create wea
 haptic retargetting \cite{Azmandian2016}
 
 Previous work has also attempted to add greater immersion to broadcast media by including haptic sensations.
-\citet{Modhrain2001} present an early vision of Touch TV, using active touch with two-DOF actuators embedded in remote controllers.
 \citet{Gunther2002} studied a full-body vibrotactile suit to create music-like ``cutaneous grooves", helping to identify the artistic space of VT sensations, including concerts with tactile compositions.
+\citet{Modhrain2001} present an early vision of Touch TV, using active touch with two-DOF actuators embedded in remote controllers; \citet{Gaw2006} follow up with editable position playback on a force-feedback device, played alongside movies or cartoons.
 More recently, the proliferation of online streaming video has developed opportunities to add haptic sensations using novel data structures.
 Tactile Movies \cite{Kim2009} looks into augmenting movies with spatial VT feedback, including an authoring interface.
 The Haptic Application Meta Language (HAML)\cite{Eid2006} is an XML-based data format for adding haptics to MPEG-7 video, eventually augmented with the HAML Authoring Tool (HAMLAT) \cite{,Ferre2008}.
@@ -196,8 +197,6 @@ Later editable with H-Studio \cite{Danieau2013c}, this work has proposed the con
 Other approaches include automatic conversion of audio content
 Several studies have looked into automatic conversion from audio streams \cite{Lee2013,Chang2005,Hwang2014} or video streams \cite{Kim2014} to VT or force-feedback output.
 
-
-\osC{todo: Haptically Annotated Movies: Reaching Out and Touching the Silver Screen, Gaw 2006}
 
 \subsection{Affective Computing}
 Haptic therapy -> creature, etc.
