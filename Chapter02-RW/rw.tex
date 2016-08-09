@@ -51,21 +51,7 @@ Actuators like VT devices can be used alone or put together spatial multiactuato
 These can be arrange into grids, either dense tactile pixels (``taxels") \cite{Kim2009} or sparse arrays \cite{Israr2012,Israr2010}, to provide explicit 2D output on a plane.
 Multiactuator arrays increasingly used in conjunction with tactile illusions.
 
-As with visual displays, like the illusion of motion with high framerates, illusions play a valuable role in haptic sensations \cite{Hayward2016}.
-Some effects are influenced by other senses.
-In the classic size-weight illusion \cite{charpentier1891analyse}, when two weights have the same mass but different sizes, the smaller is perceived to be heavier, whether size is seen or felt \cite{Hayward2016}.
-A striking, recent example is the use of visual dominance to use a single physical block to provide haptic feedback for multiple virtual blocks by distorting the visual position of the user's arm \cite{Azmandian2016}.
-We employ similar techniques in our FeelCraft and Feel Messenger projects, using visual feedback to prime users to haptic sensations (\autoref{ch:applications}).
-
-Other illusions are purely tactile and useful for grid displays.
-Phantom tactile sensations \cite{Alles1970}, create illusory vibrations in between two or more VT actuators, opening up the space in-between actuators for display.
-Continuous motion can be simulated, \eg, \citet{Seo2010} created a perceived motion flow between two VT actuators mounted on the ends of a handheld device by controlling their intensity.
-Similarly, \citet{Lee2012a} created across-the-body and out-of-the-body illusions on a mobile device using up to four % inexpensive 
-linear resonant actuators; \citet{Gupta2016} used interpolation on a VT wristband for new interaction techniques.
-The Tactile Brush algorithm \cite{Israr2011a} combined phantom tactile sensations and apparent tactile motion to render high-resolution and moving haptic patterns on the back using a coarse grid of VT actuators. 
-Other spatio-temporal VT illusions such as the ``cutaneous rabbit"  \cite{Tan2009}, where carefully timed discrete tactile stimuli create perceived motion, and Tau and Kappa effects \cite{Hayward2008,Hayward2016}, where perceived distance between stimuli depending on their timing, can also be used with VT arrays.
-Similar illusions are possible using other tactile modalities, including temperature displays \cite{Singhal2016} and electrocutaneous stimulation \cite{Tanie1980}.
-We extend phantom sensations to 2D interpolation (\eg, between 3 actuators) to enable Tactile Animation (\autoref{ch:tactileanimation}).
+\osC{add \cite{Ternes2008}}
 
 Another emerging tactile feedback mechanism is programmable friction.
 Surface friction, for example on a mobile touch screen, can be manipulated by both mechanical motion or electrical adhesion.
@@ -108,6 +94,26 @@ The UBC SPIN lab has also adopted 1-DoF force feedback in its affective robot, t
 We explore force-feedback design with the HapKit and CuddleBits in \autoref{ch:applications}.
 
 
+\subsection{Haptic Illusions}
+As with visual displays, like the illusion of motion with high framerates, illusions play a valuable role in haptic sensations \cite{Hayward2016}.
+Some effects are influenced by other senses.
+In the classic size-weight illusion \cite{charpentier1891analyse}, when two weights have the same mass but different sizes, the smaller is perceived to be heavier, whether size is seen or felt \cite{Hayward2016}.
+A striking, recent example is the use of visual dominance to use a single physical block to provide haptic feedback for multiple virtual blocks by distorting the visual position of the user's arm \cite{Azmandian2016}.
+We employ similar techniques in our FeelCraft and Feel Messenger projects, using visual feedback to prime users to haptic sensations (\autoref{ch:applications}).
+
+Other illusions are purely tactile and useful for grid displays.
+Phantom tactile sensations \cite{Alles1970}, create illusory vibrations in between two or more VT actuators, opening up the space in-between actuators for display.
+Continuous motion can be simulated, \eg, \citet{Seo2010} created a perceived motion flow between two VT actuators mounted on the ends of a handheld device by controlling their intensity.
+Similarly, \citet{Lee2012a} created across-the-body and out-of-the-body illusions on a mobile device using up to four % inexpensive 
+linear resonant actuators; \citet{Gupta2016} used interpolation on a VT wristband for new interaction techniques.
+The Tactile Brush algorithm \cite{Israr2011a} combined phantom tactile sensations and apparent tactile motion to render high-resolution and moving haptic patterns on the back using a coarse grid of VT actuators. 
+Other spatio-temporal VT illusions such as the ``cutaneous rabbit"  \cite{Tan2009}, where carefully timed discrete tactile stimuli create perceived motion, and Tau and Kappa effects \cite{Hayward2008,Hayward2016}, where perceived distance between stimuli depending on their timing, can also be used with VT arrays.
+Similar illusions are possible using other tactile modalities, including temperature displays \cite{Singhal2016} and electrocutaneous stimulation \cite{Tanie1980}.
+We extend phantom sensations to 2D interpolation (\eg, between 3 actuators) to enable Tactile Animation (\autoref{ch:tactileanimation}).
+
+
+
+
 %\inlineHeading{Multimodal interaction}
 %Similar to vision and audio, haptic perception is susceptible to illusions \cite{Hayward2016,Hayward2008}.
 %
@@ -132,10 +138,10 @@ Companies like D-Box (\url{www.d-box.com}) augment films with haptic tracks that
 Buttkicker (\url{www.thebuttkicker.com}) also augments 4D theatres, and provides products for home theatre setups.
 
 Haptic experiences are also increasingly of interest in virtual reality (VR) environments.
-Skin stretch techniques, explored in \cite{Guinan2014} and now commercialized by Tactilcal Haptics (\url{tacticalhaptics.com}), augments virtual-reality setups by simulating forces and torques using handheld controllers, lending stronger immersion for virtual environments and VR games.
+Skin stretch techniques, explored in \cite{Guinan2014} and now commercialized by Tactical Haptics (\url{tacticalhaptics.com}), augments virtual-reality setups by simulating forces and torques using handheld controllers, lending stronger immersion for virtual environments and VR games.
 Haptic Turk \cite{Cheng2014} and TurkDeck \cite{Cheng2015} are innovative explorations of high-fidelity haptic experiences in virtual environments using people as actuators.
 Impacto uses electrical muscle stimulation and a solenoid actuator to create wearable haptic feedback with both kinaesthetic and tactile feedback \cite{Lopes2015}.
-haptic retargetting \cite{Azmandian2016}
+Haptic retargeting distorts visual feedback to re-use a single physical block in a virtual block-building game \cite{Azmandian2016}.
 
 Previous work has also attempted to add greater immersion to broadcast media by including haptic sensations.
 \citet{Gunther2002} studied a full-body vibrotactile suit to create music-like ``cutaneous grooves", helping to identify the artistic space of VT sensations, including concerts with tactile compositions.
@@ -152,16 +158,14 @@ Other approaches include automatic conversion of audio content
 Several studies have looked into automatic conversion from audio streams \cite{Lee2013,Chang2005,Hwang2014} or video streams \cite{Kim2014} to VT or force-feedback output.
 
 
-\subsection{Affective Experiences}
-Touch is an emotional sense; haptic technology enables both affective display and sensing.
-Haptic sensations can show emotion
 
+
+\subsection{Affective Computing}
+Touch is an emotional sense; haptic technology enables both affective display and sensing.
 %emotion theory background
 Emotion can play different roles in technology, such as affective technology, hedonic qualities, or interactional dynamics \cite{Hook2008bodyemotion} \osC{need to dig deep to understand this}
 Affect Grid \cite{Russell1989,Russell1989a}, Ekman's basic emotions \cite{Ekman1992,Ekman1971}
 Emotionally, this means touch has a strong power to reach users through visceral (emotional) appeal, rather than behavioural (usability) or reflective (???) features \cite{Norman2004}.
-
-%touch importance
 Industry is well aware of the persuasive ability of touch to make a connection.
 Marketing research has established that touch can encourage users to chose a phone that feels better over one that  might work better, and prefer stores that let customers touch products \cite{Spence2011,Jansson-Boyd2011}.
 
@@ -169,15 +173,7 @@ Marketing research has established that touch can encourage users to chose a pho
 Researchers are starting to develop design guidelines to express emotions through haptic experiences.
 Low-level parameters like amplitude, frequency, and duration have been linked to emotions: \citet{YongjaeYoo2015} showed that VT icons can express arousal and valence;
 \citet{Obrist2015} established design parameters for mid-air ultrasound stimulation.
-
-
-%interpersonal touch, and haptic interpretations of it
-Touch is extremely important for inter-personal communication, from greeting a new acquaintance with firm handshake, to showing affection to a loved one; see \citet{Gallace2010} for an overview.
-Of course, technologically can mediate touch between people, \eg, in remote collaboration or shared virtual environments \cite{Haans2006}.
-\citet{Brave1997} introduced ``inTouch", mechanically linked rollers that enabled playful touch interactions at a distance.
-ComTouch \cite{Chang2002a} used pressure input to send vibrations with between mobile phones, finding it was used for attention, turn-taking, and emphasis.
-\citet{Hoggan2012} elaborated these findings a one month-study found users sent ``Pressages" (pressure messages) both for greetings and to emphasize speech or emotional messages.
-Emotional connection and relationship can influence preferred interaction models; for example, couples are more comfortable with a ``hand stroke" metaphor for two remotely coupled haptic devices than strangers, who prefer a more less intimate ``ping-pong" metaphor \cite{Smith2007}.
+\citet{Bonanni2006} created TapTap, a wearable that can record and playback VT equivalents of affectionate touch to support users in therapy.
 
 Emotional display through touch has therapeutic applications.
 Tactile displays target improved mental health \cite{Vaucelle2009} and aiding emotional understanding for autism \cite{Changeon2012}.
@@ -188,6 +184,66 @@ This furry, zoomorphic robot can measurably relax users when they feel it breath
 The proximal nature of touch, which often involves simultaneous input and output, enables affective sensing alongside haptic display.
 Through the Haptic Creature project, \citet{Yohanan2011} established a touch dictionary of gestures used to emotionally communicate with robots.
 Touch-based surfaces can detect these gestures \cite{Flagg2013} through technologies like conductive fur and fabric \cite{Flagg2012}.
+
+
+
+
+
+\subsection{Expressive Communication}
+%interpersonal touch, and haptic interpretations of it
+Touch is extremely important for inter-personal communication, from greeting a new acquaintance with firm handshake, to showing affection to a loved one; see \citet{Gallace2010} for an overview.
+Of course, technologically can mediate touch between people, \eg, in remote collaboration or shared virtual environments \cite{Haans2006}.
+\citet{Brave1997} introduced ``inTouch", mechanically linked rollers that enabled playful touch interactions at a distance.
+ComTouch \cite{Chang2002a} used pressure input to send vibrations with between mobile phones, finding it was used for attention, turn-taking, and emphasis.
+\citet{Hoggan2012} elaborated these findings a one month-study found users sent ``Pressages" (pressure messages) both for greetings and to emphasize speech or emotional messages.
+Emotional connection and relationship can influence preferred interaction models; for example, couples are more comfortable with a ``hand stroke" metaphor for two remotely coupled haptic devices than strangers, who prefer a more less intimate ``ping-pong" metaphor \cite{Smith2007}.
+
+
+\citet{Chan2008} used VT icons to coordinate turn-taking in an online system, featuring an extensive design process to create and perceptually verify icons that present system state and requests with varying urgency.
+\citet{Brown2006multidimensionaltactons} used tactons displayed on a user's forearm \osC{this is actually kinda boring this study}
+
+
+
+
+
+\subsection{Mobile Alerts and Guidance}
+Mobile contexts are rife with opportunities for haptic feedback.
+Especially common are ambient information, accessibility, awareness  guidance.
+VT feedback is affordable, low-power, and can be added to watches and wrist-bands \cite{Brunet2013a,Arab2015}, belts, vests, and other wearables.
+Tactons \cite{Brown2006} are a type of haptic icon \cite{MacLean2003} that provide VT feedback, commonly in mobile applications.
+Rhythm opens up a large design space, letting users learn 84 different icons \cite{Ternes2008} and can be applied with even light, low-cost rumble motors.
+A 28-day study showed that rhythmic VT icons do not disturb users in daily activities and can communicate ambient information \cite{Cauchard2016}.
+
+Multiple actuators can be combined in mobile handheld devices to provide differentiable spatial information, enriching the VT icon design space \cite{Yatani2009a}.
+VT icons produced by phones can represent multiple levels of urgency and source of an alert (\eg, voice call, text message, or multimedia message) \cite{Brown2006mobilealerts}.
+
+
+Of course, haptic perception can depend on the situation of the user, especially important in wearable contexts.
+Vibrotactile detection depends on many variables, including location on the user's body, how much the user is moving, whether they are expecting the vibration \cite{Karuei2011}, and social context \cite{Cauchard2016}.
+These effects can be mitigated through sensing, \eg, detecting movement with accelerometers \cite{Blum2015}.
+
+Guidance is a typical application for VT feedback.
+%Guidance is a major applications, especially for specific populations like the visually impaired \cite{} or older adults \cite{Arab2015}.
+Spatial guidance through haptic wearable display can improve navigation with multiple actuators across several form factors, including belts \cite{Pielot2009,Lindeman2005}, wrist-bands \cite{Arab2015}, and vests \cite{Prasad2014}; in each case, the vibrations inform the user where to go with spatial vibrations or metaphorical spatial icons.
+Periodic vibrations can guide a user's walking speed without large attentional demands \cite{Karuei2014}.
+Tactile illusions like saltation can provide directional information for guidance \cite{Tan1997}; larger back-based displays are effective for guiding both attention and direction, \eg, in automobiles \cite{Tan2003}.
+
+Ambient tactile displays can provide awareness can provide awareness and alerts without distracting the user.
+\citet{Hemmert2008} explored a life-like metaphor of pulsing and breathing to provide alerts, but found care needed to be taken to not be annoying.
+\citet{Brewster2010} used VT icons to provide awareness of nearby friends and colleagues.
+
+
+
+Sensory substitution, first pioneered by Bach-y-Rita \cite{Bach-y-Rita1969}, is an impressive technique often using haptic senses to augment or replace other sense.
+A wide variety of devices have been developed and studied for the visually impaired; see \citep{Hamilton-Fletcher2016} for a recent survey and discussion of user preferences.
+
+%Guidance Linderman2005 \cite{Prasad2014} \cite{Pielot2009}
+
+In many of these contexts, careful design is required.
+ \citet{Arab2015}'s wrist based display worked best when using a metaphor-based approach \cite{Brunet2013a}, co-designing metaphors with their users.
+ \citet{Cauchard2016} found rhythm-based pulses were more effective for portraying numbers in their in-situ study.
+
+
 
 
 \subsection{Education}
@@ -241,28 +297,6 @@ In \autoref{ch:applications} we describe results from an early learning interfac
 %%%Our focus here is on software, with a new learning environment that lets users both construct and explore haptic systems. Until now, the only way for a user to construct a haptic system was by programming it herself. Our approach, inspired by Logo ~\cite{papert1980} and Scratch ~\cite{maloney2010}, is to ultimately % KM notes: currently we don't provide much power compared to programming. But it's planned for.
 %%%provide much of the power of a programming language while hiding distracting complexity. 
 %%%
-
-\subsection{Wearable and Mobile Computing}
-
-\cite{Brown2006}
-Landay CHI 2016 paper longitudinal
-
-
-\subsection{Accessiblity \osE{and Guidance}}
-Sensory substitution, first pioneered by Bach-y-Rita \cite{Bach-y-Rita1969}, is an impressive technique often using haptic senses to augment or replace other sense.
-A wide variety of devices have been developed and studied for the visually impaired; see \citep{Hamilton-Fletcher2016} for a recent survey and discussion of user preferences.
-
-Guidance \cite{Tan2003} back display for guidance, Linderman2005 \cite{Arab2015} \cite{Prasad2014} \cite{Pielot2009}
-
-\cite{Brunet2013a}
-
-mobile? \cite{Brown2006b}, turn taking \cite{Chan2008}
-\osE{this is less covered in this dissertation so it's not quite as essential. But, great excuse for LineSpace RW.}
-
-\osE{Higher level question: should there be many shorter sections, or fewer larger sections? Should they all be the same (ish) size?}
-
-\subsection{Medical}
-Dental and/or physical therapy?
 
 
 
