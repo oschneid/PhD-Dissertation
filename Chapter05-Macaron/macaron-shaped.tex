@@ -26,24 +26,24 @@ An environment rich with \emph{examples} is fuel for this fire. In industrial an
 Design galleries are used in graphics and web design to facilitate the use of examples \cite{Lee2010a,Marks1997}.
 While there are several challenges involved with examples in design, including capture, search, management, use, and sharing, I limit this project's scope to the \emph{combining} existing examples to create new VT icons.
 
+Problem preparation -- also known as the ``problem setting" \cite{Schon1982} or ``analysis of problem"~\cite{Warr2005}
+%\osC{or ``collect"~\cite{Shneiderman2000}} 
+step of design -- involves 
+% getting a handle on the problem 
+immersion in the challenge
+and drawing inspiration from previous work. %, and and establishing a first general approach with which to attempt a solution.
+%Sch\"{o}n demonstrated that designers initially frame their problems before developing a solution \cite{Schon1982}.
+%Sch\"{o}n also describes the designer's repertoire, their collected experience, which aids in design.
+Both may come from the designer's experience,  \emph{repertoire}~\cite{Schon1982} or exposure to a symbolic domain, e.g., mathematical theorems and notation %, or techniques for painting
+\cite{Csikszentmihalyi1996}.
 
-\section{Abstract}
-Examples are a critical part of any design process,
-but supporting their use for a haptic medium is nontrivial.
-Current  libraries for vibrotactile (VT) effects provide neither insight into examples' construction nor  capability for 
-deconstruction and re-composition.
-To investigate the special requirements of example use for VT design, we studied designers as they used a web-based effect editor, \emph{Macaron}, which we created as both an evaluation platform and a practical tool. 
-We qualitatively characterized participants' design processes and observed two basic example uses: as a starting point or template for a design task, and as a learning method.
-We discuss how features supporting internal visibility and composition influenced these example uses, and articulate several implications for VT editing tools and libraries of VT examples.
-We conclude with future work, including plans to deploy Macaron online to examine examples and other aspects of VT design \emph{in situ}.
-
-
-
-\section{Introduction}
-
-Creativity often sparks when an inventor, examining existing ideas, sees a way to combine them with a novel twist~\cite{Warr2005}.
-% Creativity often sparks when the inventor sees a way to combine existing ideas with a novel twist~\cite{Warr2005}.
-An environment rich with \emph{examples} is fuel for this fire. In industrial and graphic design \cite{Buxton2007,Herring2009} their use improves process and final results~\cite{Dow2011,Lee2010a}.
+To this end, external examples are critical in inspiring, guiding and informing design \cite{Herring2009,Buxton2007}. 
+Industrial designers collect objects %various knobs
+and materials; web designers bookmark sites \cite{Herring2009}.
+In graphics and web design, \emph{design galleries} organize examples to be  immediately at hand % in the design process
+~\cite{Lee2010a,Marks1997}.
+% \emph{Design galleries}  are used in graphics and web design to include examples immediately at hand in the design process~\cite{Lee2010a,Marks1997}.
+Example-based tools often use sophisticated techniques to mix and match styles and content~\cite{Kumar2011}: this requires immediate access to the examples' underlying structure.
 
 Several effect libraries are available to designers of vibrotactile (VT) sensations, e.g., for accessible wayfinding \cite{Zelek2003} or % rich 
 media experiences \cite{SchneiderAsiaHaptics2014,Israr2014,ImmersionCorporation,Culbertson2014}. 
@@ -55,14 +55,6 @@ Despite this, designers still must either choose a pre-existing sensation or bui
 In contrast, web designers can access a page's source;
 graphic and sound designers can sample and incorporate colours and sounds from other media.
 
-%\begin{figure}
-%        \centering
-%        \includegraphics[width=0.5\textwidth]{MacaronScreenshotHi}
-%        \caption{Macaron interface, ``\hi'' version featuring both composability (copy and paste), and visibility of underlying parameters. The user edits her sensation on the left, while examples are selected and shown on the right. One editor has focus at a time, shown by the red playhead. Examples are non-modifiable (keyframes cannot be inserted or moved).
-%        Macaron is publicly available at \emph{{\tt hapticdesign.github.io/macaron}}.
-%}
-%        \label{fig:macaron:hi}
-%\end{figure}
 
 
 \begin{figure}
@@ -77,20 +69,6 @@ graphic and sound designers can sample and incorporate colours and sounds from o
 \end{figure}
 
 
-
-
-%\begin{figure}[tb]
-%    \centering
-%    \includegraphics[width=0.8\textwidth]{VersionSpace-16-01-29}
-%    \caption{Design space for Macaron versions. \hi and \select both allow for selection and copying of example keyframes. \vis and \hi both show the underlying profiles. \lo represents the current status quo; only a waveform is shown.
-%    %\osC{slc}%"extraction/extractability"? ``sample-ability''?
-%    %\kmC{slc} % 11.07 10:40 I'm getting weird shadowing in this one, pretty sure it's not right. If it is, I don't understand what I'm seeing. Also it's a big figure and may not be pulling its weight.
-%    %OS: 02.01 I've adjusted contrast and shading issues. Does this look better?
-%    }
-%    \label{fig:versions}
-%\end{figure}
-
-
 Here, we \textit{examine the potential role of examples} in VT design, to establish how to best support their use.
 % Here, we examine the role of examples in VT design.
 We designed a web-based editor and interactive \emph{design gallery} \cite{Lee2010a,Marks1997} (\autoref{fig:macaron:hi}) for VT sensations,
@@ -99,15 +77,13 @@ then asked users to compare versions (\autoref{fig:versions}) that vary in examp
 
 %We then compare versions of this tool which vary in power of examples use: the editor alone, relative to designer access to examples with low or high \emph{visibility} and low or high \emph{composability}.
 Analysis of user action logs provide an objective picture of the VT design process. To validate the deployment of this methodology at scale, we also interpret and validate logs with direct observation and interviews.
-Specifically, we:
-\begin{itemize}
-\item introduce \textit{Macaron}, a web-based VT effect editor through which examples can be used directly in designs,
-\item find that \textit{visible, incorporable examples make design easier} by providing a starting point for design and scaffolding to learn how to work with VT parameters,
-\item identify \textit{implications for future tools and libraries}, and
-\item discuss the \textit{opportunities afforded by a web-based editor} as a practical tool and platform for studying other aspects of VT design at scale.
-\end{itemize}
-
-
+%Specifically, we:
+%\begin{itemize}
+%\item introduce \textit{Macaron}, a web-based VT effect editor through which examples can be used directly in designs,
+%\item find that \textit{visible, incorporable examples make design easier} by providing a starting point for design and scaffolding to learn how to work with VT parameters,
+%\item identify \textit{implications for future tools and libraries}, and
+%\item discuss the \textit{opportunities afforded by a web-based editor} as a practical tool and platform for studying other aspects of VT design at scale.
+%\end{itemize}
 
 
 
@@ -160,133 +136,133 @@ Specifically, we:
 % SECTION: Related work
 %
 %%%%%%%%%%%%%%%%%%%%%
-\section{Related Work}
-% Previous work includes VT effects, past approaches to VT design, and example use in non-haptic design.
-
-%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Salient factors in VT effect perception and control}
-% Haptic icons  have long been an important tool for structuring vibrotactile design, typically manipulated with amplitude, frequency and waveform~\cite{Gunther2002,MacLean2003,Brewster2004,maclean2008foundations}.
-Vibrotactile effects (e.g. haptic icons~\cite{MacLean2003}) are typically manipulated with low-level engineering of signal parameters, beginning with  amplitude, frequency and waveform~\cite{Gunther2002,MacLean2003,Brewster2004,maclean2008foundations}.
+%\section{Related Work}
+%% Previous work includes VT effects, past approaches to VT design, and example use in non-haptic design.
 %
-%Different granularities of amplitude and frequency control show that
-Rhythm can support large, learnable icon sets \cite{Ternes2008,Swerdfeger2009a};  combining waveforms enhances roughness \cite{GunhyukPark2011}.
-Time-varying amplitude adds musical expressivity, from tactile crescendos \cite{Brown2006} to 
-%attack-decay-sustain-release (ADSR)
-envelopes \cite{Schneider2014}.
-Multi-dimensional scaling % (MDS)
-can be used to identify %, confirm, 
-and elaborate these parameters \cite{MacLean2003,VanErp2003,Enriquez2006,Hollins2000}.
+%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Salient factors in VT effect perception and control}
+%% Haptic icons  have long been an important tool for structuring vibrotactile design, typically manipulated with amplitude, frequency and waveform~\cite{Gunther2002,MacLean2003,Brewster2004,maclean2008foundations}.
+%Vibrotactile effects (e.g. haptic icons~\cite{MacLean2003}) are typically manipulated with low-level engineering of signal parameters, beginning with  amplitude, frequency and waveform~\cite{Gunther2002,MacLean2003,Brewster2004,maclean2008foundations}.
+%%
+%%Different granularities of amplitude and frequency control show that
+%Rhythm can support large, learnable icon sets \cite{Ternes2008,Swerdfeger2009a};  combining waveforms enhances roughness \cite{GunhyukPark2011}.
+%Time-varying amplitude adds musical expressivity, from tactile crescendos \cite{Brown2006} to 
+%%attack-decay-sustain-release (ADSR)
+%envelopes \cite{Schneider2014}.
+%Multi-dimensional scaling % (MDS)
+%can be used to identify %, confirm, 
+%and elaborate these parameters \cite{MacLean2003,VanErp2003,Enriquez2006,Hollins2000}.
+%
+%Affect and metaphor are another way to structure and manipulate sensations at a level more cognitively relevant than engineering parameters.
+%Perceived valence (pleasantness) and arousal can be influenced by  frequency/amplitude combination \cite{YongjaeYoo2015,Obrist2015}.
+%Metaphors \cite{chan2008,Obrist2013,Seifi2015} and use cases \cite{chan2008,Seifi2015} offer structure, memorability and design language.
+%% While we focus here on single-actuator displays, 
+%Spatial displays require additional controls for location and direction, % for users to work with, 
+%whether body-scale \cite{Gunther2002,Israr2011a}, mobile  \cite{Seo2013}, or mid-air \cite{Obrist2015}.
+%While many parameters are available for VT design, we chose the most established (time-varying frequency and amplitude) for Macaron's initial implementation.
+%%Location and direction also influence affective perception \cite{Obrist2015}.
+%%\kmC{summarize? slc} % KM 11.07 1143 this section needs a brief capture statement. My rework of ss heading helps, but problem is,  you've listed a ton of parameters, but not said how this relates to Macaron. This would be a place to say "we chose the three most basic ones to start exploring these ideas (freq, amp, time invariance), but clearly there's a lot of headroom to bring in other manipulables in the future?
+%
+%%\begin{itemize}
+%
+%%\item (briefly) what parameters today's technology gives control discretion over, and the scale at which these play out (temporal granularity? thinking about difference between amplitude and rhythm). Mention technology insofar as to say ``this is what the tech requires you to control; and this is what people perceive as perceptual dimensions that thus should be controlled''.
+%
+%%\item what parameters have been found to have expressive benefit (rhythm wins, waveform loses). Emotional parameters (Sri, Seifi)
+%
+%
+%%\item what expressive control entails. Focus here on the stimulus properties and their perception, not the tools used to draw them out.
+%
+%%\item while design space is certainly more limited than visual and auditory design, a considerable and expressive freedom exists (e.g. Ternes, Swerdfeger thesis - pretty large sets are learnable). 
+%
+%%\osC{missing some synthesis, slc} %KM: I haven't been able to fully process or express what you've suggested here
+%%\item what makes it hard to access the expressivity that does exist is: 
+%%(a) serial nature that can be hard for an editor to represent in overview and in comparison with alternatives (a challenge faced by other temporal-media editors) 
+%%(b) poor predictability of how superposed dimensions (e.g. tracks) will interact perceptually (?)
+%%(c) big problem: machine parameters aren't necessarily the right perceptual parameters [but, this isn't quite the one you're going after here] 
+%
+%%(d) ``blank sheet'' problem - perennially needing to start from scratch - identify as the one you're focusing on here.
+%
+%
+%%\end{itemize}
+%
+%
+%%\noindent Fodder: 
+%
+%%- Amplitude and frequency are identified as the primary low-level design parameters for single-location VT actuators \cite{Gunther2002,Schneider2014}.
+% 
+% %- rhythm and other time-invariant patterns occur at a different scale; perceptually extremely important -  Mention van Erp 2003, Brown 2006, Ternes 2008
+%
+%%- Waveform less expressive \cite{Gunther2002}.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Past approaches to VT design}
+%% Several tools have been built to aid VT design.
+%Past editors -- e.g., the Hapticon Editor \cite{Enriquez2003}, Haptic Icon Prototyper \cite{Swindells2006}, posVibEditor \cite{Ryu2008}, Vivitouch Studio \cite{Swindells2014}, and Haptic Studio (www.immersion.com) -- are track-based, with graphical representations to edit either waveforms or profiles of dynamic parameters.
+%Additional features (e.g., spatial control or mobile interfaces) are surveyed in \cite{Schneider2015}.
+%%Features include the combination or multi-tracking of effects, utilizing a library of existing effects, and the ability to play back sensations.
+%
+%A library of effects is critical for haptic design tools \cite{Schneider2015}. Most existing tools support feature saving/loading, and some have an internal component library \cite{Enriquez2003,Swindells2006,Swindells2014}.
+%However, previous implementations were primarily \emph{compositional}, employing building blocks~\cite{Enriquez2006} %that can be combined to create more complex sensations \cite{Enriquez2006}.
+%rather than complete artifacts. Example use was not studied.
+%%In Macaron, we also investigate examples of full, created and complete artifacts, built right into the tool.
+%%\kmC{careful/confused slc} 
+%% in this par you seem to be saying existing libraries only have bits, not full things. [caution: Swindells examples allowed for examples to be complete as well as partial. I'd back off on this.]
+%% in next par, you seem to say the opposite: libraries only have whole examples, you can't pick and choose from internals. 
+%
+%%This  \kmC{what is??} is more analogous to 
+%% Complete artifacts are found in large libraries of VT icons, but with limitations.
+%Large VT libraries contain complete artifacts, but impose a serious constraint on their use.
+%In the Immersion Touch Effects Studio library,
+%% of tactile icons supplied on a mobile platform, but 
+%underlying structure and design parameters are hidden and cannot be incorporated into new designs. %, and examples cannot be incorporated into a new project.
+%VibViz \cite{Seifi2015} features 120 VT examples with visualizations searchable by several taxonomies, but the selection model is all-or-nothing.
+%FeelCraft \cite{SchneiderAsiaHaptics2014} proposes a community-driven library of feel effects \cite{Israr2014} for simple parametric customization and re-use. %\kmC{and?} % how does Feelcraft fit in here? are you talking about FC in next sentence? if so, need to connect end-user customization better to FC.
+%While end user customization-by-selection is important \cite{Seifi2014},  
+%experts need a more open, editable model,
+%% we suggest a more open model for experts. %this \kmC{what?} still represents a library of selectable, all-or-nothing designs.
+%%Compare this to
+%% For example, web designers can view source code at any time, with recent tools allowing search and easy incorporation of elements
+%just as web designers rely on full access to source code with recent tools allowing search and easy incorporation % of elements
+%% interactive \emph{design galleries} allow users to search and incorporate elements from other sites 
+%\cite{Lee2010a}.
+%% search sites to see what others are doing \cite{Lee2010a}.
+%%\kmC{Needs summary sentence to close slc} % KM 11.07 1140 this section needs a focus - I'm uncertain of the point being made with the cited work, they seem contradictory. In addition to comments above, suggest close with a sentence on "hole left that this work fills". 
+%% ALSO, this section seems a little long >.25/6 pgs+ 8-10 refs - although it is likely most impt part of RW, consider dropping one or two cases.
+%
+%% \begin{itemize}
+%% \item Other editors have had some success in going after "what makes VT design hard''. They've introduced track-based design, exposed underlying parameters, helped with rapid prototyping, visualization, and sharing of sensations. They vary in the degree to which they support``choosing'' vs ``modifying'' (use Seifi terminology) and how they expose innards. 
+%
+%% \item Past use of examples goes this far: Swindells allows things to be saved and re-used (but not sampled, and only used in narrow ways), VibViz allows library browsing but doesn't show underlying construction (well, a bit). Immersion editor...
+%
+%% \item Here, we aren't so much introducing new features or abilities, but we want to turn the knob on the ``example'' thing to see how it actually impacts the design process.  [i.e., don't claim that Macaron is first to employ examples. But do say that it is novel to study it in a variable way]
+%
+%% \end{itemize}
 
-Affect and metaphor are another way to structure and manipulate sensations at a level more cognitively relevant than engineering parameters.
-Perceived valence (pleasantness) and arousal can be influenced by  frequency/amplitude combination \cite{YongjaeYoo2015,Obrist2015}.
-Metaphors \cite{chan2008,Obrist2013,Seifi2015} and use cases \cite{chan2008,Seifi2015} offer structure, memorability and design language.
-% While we focus here on single-actuator displays, 
-Spatial displays require additional controls for location and direction, % for users to work with, 
-whether body-scale \cite{Gunther2002,Israr2011a}, mobile  \cite{Seo2013}, or mid-air \cite{Obrist2015}.
-While many parameters are available for VT design, we chose the most established (time-varying frequency and amplitude) for Macaron's initial implementation.
-%Location and direction also influence affective perception \cite{Obrist2015}.
-%\kmC{summarize? slc} % KM 11.07 1143 this section needs a brief capture statement. My rework of ss heading helps, but problem is,  you've listed a ton of parameters, but not said how this relates to Macaron. This would be a place to say "we chose the three most basic ones to start exploring these ideas (freq, amp, time invariance), but clearly there's a lot of headroom to bring in other manipulables in the future?
-
-%\begin{itemize}
-
-%\item (briefly) what parameters today's technology gives control discretion over, and the scale at which these play out (temporal granularity? thinking about difference between amplitude and rhythm). Mention technology insofar as to say ``this is what the tech requires you to control; and this is what people perceive as perceptual dimensions that thus should be controlled''.
-
-%\item what parameters have been found to have expressive benefit (rhythm wins, waveform loses). Emotional parameters (Sri, Seifi)
-
-
-%\item what expressive control entails. Focus here on the stimulus properties and their perception, not the tools used to draw them out.
-
-%\item while design space is certainly more limited than visual and auditory design, a considerable and expressive freedom exists (e.g. Ternes, Swerdfeger thesis - pretty large sets are learnable). 
-
-%\osC{missing some synthesis, slc} %KM: I haven't been able to fully process or express what you've suggested here
-%\item what makes it hard to access the expressivity that does exist is: 
-%(a) serial nature that can be hard for an editor to represent in overview and in comparison with alternatives (a challenge faced by other temporal-media editors) 
-%(b) poor predictability of how superposed dimensions (e.g. tracks) will interact perceptually (?)
-%(c) big problem: machine parameters aren't necessarily the right perceptual parameters [but, this isn't quite the one you're going after here] 
-
-%(d) ``blank sheet'' problem - perennially needing to start from scratch - identify as the one you're focusing on here.
-
-
-%\end{itemize}
-
-
-%\noindent Fodder: 
-
-%- Amplitude and frequency are identified as the primary low-level design parameters for single-location VT actuators \cite{Gunther2002,Schneider2014}.
- 
- %- rhythm and other time-invariant patterns occur at a different scale; perceptually extremely important -  Mention van Erp 2003, Brown 2006, Ternes 2008
-
-%- Waveform less expressive \cite{Gunther2002}.
 
 %%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Past approaches to VT design}
-% Several tools have been built to aid VT design.
-Past editors -- e.g., the Hapticon Editor \cite{Enriquez2003}, Haptic Icon Prototyper \cite{Swindells2006}, posVibEditor \cite{Ryu2008}, Vivitouch Studio \cite{Swindells2014}, and Haptic Studio (www.immersion.com) -- are track-based, with graphical representations to edit either waveforms or profiles of dynamic parameters.
-Additional features (e.g., spatial control or mobile interfaces) are surveyed in \cite{Schneider2015}.
-%Features include the combination or multi-tracking of effects, utilizing a library of existing effects, and the ability to play back sensations.
-
-A library of effects is critical for haptic design tools \cite{Schneider2015}. Most existing tools support feature saving/loading, and some have an internal component library \cite{Enriquez2003,Swindells2006,Swindells2014}.
-However, previous implementations were primarily \emph{compositional}, employing building blocks~\cite{Enriquez2006} %that can be combined to create more complex sensations \cite{Enriquez2006}.
-rather than complete artifacts. Example use was not studied.
-%In Macaron, we also investigate examples of full, created and complete artifacts, built right into the tool.
-%\kmC{careful/confused slc} 
-% in this par you seem to be saying existing libraries only have bits, not full things. [caution: Swindells examples allowed for examples to be complete as well as partial. I'd back off on this.]
-% in next par, you seem to say the opposite: libraries only have whole examples, you can't pick and choose from internals. 
-
-%This  \kmC{what is??} is more analogous to 
-% Complete artifacts are found in large libraries of VT icons, but with limitations.
-Large VT libraries contain complete artifacts, but impose a serious constraint on their use.
-In the Immersion Touch Effects Studio library,
-% of tactile icons supplied on a mobile platform, but 
-underlying structure and design parameters are hidden and cannot be incorporated into new designs. %, and examples cannot be incorporated into a new project.
-VibViz \cite{Seifi2015} features 120 VT examples with visualizations searchable by several taxonomies, but the selection model is all-or-nothing.
-FeelCraft \cite{SchneiderAsiaHaptics2014} proposes a community-driven library of feel effects \cite{Israr2014} for simple parametric customization and re-use. %\kmC{and?} % how does Feelcraft fit in here? are you talking about FC in next sentence? if so, need to connect end-user customization better to FC.
-While end user customization-by-selection is important \cite{Seifi2014},  
-experts need a more open, editable model,
-% we suggest a more open model for experts. %this \kmC{what?} still represents a library of selectable, all-or-nothing designs.
-%Compare this to
-% For example, web designers can view source code at any time, with recent tools allowing search and easy incorporation of elements
-just as web designers rely on full access to source code with recent tools allowing search and easy incorporation % of elements
-% interactive \emph{design galleries} allow users to search and incorporate elements from other sites 
-\cite{Lee2010a}.
-% search sites to see what others are doing \cite{Lee2010a}.
-%\kmC{Needs summary sentence to close slc} % KM 11.07 1140 this section needs a focus - I'm uncertain of the point being made with the cited work, they seem contradictory. In addition to comments above, suggest close with a sentence on "hole left that this work fills". 
-% ALSO, this section seems a little long >.25/6 pgs+ 8-10 refs - although it is likely most impt part of RW, consider dropping one or two cases.
-
-% \begin{itemize}
-% \item Other editors have had some success in going after "what makes VT design hard''. They've introduced track-based design, exposed underlying parameters, helped with rapid prototyping, visualization, and sharing of sensations. They vary in the degree to which they support``choosing'' vs ``modifying'' (use Seifi terminology) and how they expose innards. 
-
-% \item Past use of examples goes this far: Swindells allows things to be saved and re-used (but not sampled, and only used in narrow ways), VibViz allows library browsing but doesn't show underlying construction (well, a bit). Immersion editor...
-
-% \item Here, we aren't so much introducing new features or abilities, but we want to turn the knob on the ``example'' thing to see how it actually impacts the design process.  [i.e., don't claim that Macaron is first to employ examples. But do say that it is novel to study it in a variable way]
-
-% \end{itemize}
-
-
-%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Examples in non-haptic design}
-% [actually, suggest leaving this out. Already said in 1st para.] Innovative recombination of existing ideas is at the heart of many design inventions~\cite{Warr2005}, and is spurred by immersion in an example-rich environment \kmC{REF?}.
-%Creative tasks, like design, are often defined as the recombination of existing ideas, with a twist of novelty or spark of innovation by the individual creator \cite{Warr2005}.
-
-Problem preparation -- also known as the ``problem setting" \cite{Schon1982} or ``analysis of problem"~\cite{Warr2005}
-%\osC{or ``collect"~\cite{Shneiderman2000}} 
-step of design -- involves 
-% getting a handle on the problem 
-immersion in the challenge
-and drawing inspiration from previous work. %, and and establishing a first general approach with which to attempt a solution.
-%Sch\"{o}n demonstrated that designers initially frame their problems before developing a solution \cite{Schon1982}.
-%Sch\"{o}n also describes the designer's repertoire, their collected experience, which aids in design.
-Both may come from the designer's experience,  \emph{repertoire}~\cite{Schon1982} or exposure to a symbolic domain, e.g., mathematical theorems and notation %, or techniques for painting
-\cite{Csikszentmihalyi1996}.
-
-To this end, external examples are critical in inspiring, guiding and informing design \cite{Herring2009,Buxton2007}. 
-Industrial designers collect objects %various knobs
-and materials; web designers bookmark sites \cite{Herring2009}.
-In graphics and web design, \emph{design galleries} organize examples to be  immediately at hand % in the design process
-~\cite{Lee2010a,Marks1997}.
-% \emph{Design galleries}  are used in graphics and web design to include examples immediately at hand in the design process~\cite{Lee2010a,Marks1997}.
-Example-based tools often use sophisticated techniques to mix and match styles and content~\cite{Kumar2011}: this requires immediate access to the examples' underlying structure.
-% , requiring access to examples' underlying structure.
+%\subsection{Examples in non-haptic design}
+%% [actually, suggest leaving this out. Already said in 1st para.] Innovative recombination of existing ideas is at the heart of many design inventions~\cite{Warr2005}, and is spurred by immersion in an example-rich environment \kmC{REF?}.
+%%Creative tasks, like design, are often defined as the recombination of existing ideas, with a twist of novelty or spark of innovation by the individual creator \cite{Warr2005}.
+%
+%Problem preparation -- also known as the ``problem setting" \cite{Schon1982} or ``analysis of problem"~\cite{Warr2005}
+%%\osC{or ``collect"~\cite{Shneiderman2000}} 
+%step of design -- involves 
+%% getting a handle on the problem 
+%immersion in the challenge
+%and drawing inspiration from previous work. %, and and establishing a first general approach with which to attempt a solution.
+%%Sch\"{o}n demonstrated that designers initially frame their problems before developing a solution \cite{Schon1982}.
+%%Sch\"{o}n also describes the designer's repertoire, their collected experience, which aids in design.
+%Both may come from the designer's experience,  \emph{repertoire}~\cite{Schon1982} or exposure to a symbolic domain, e.g., mathematical theorems and notation %, or techniques for painting
+%\cite{Csikszentmihalyi1996}.
+%
+%To this end, external examples are critical in inspiring, guiding and informing design \cite{Herring2009,Buxton2007}. 
+%Industrial designers collect objects %various knobs
+%and materials; web designers bookmark sites \cite{Herring2009}.
+%In graphics and web design, \emph{design galleries} organize examples to be  immediately at hand % in the design process
+%~\cite{Lee2010a,Marks1997}.
+%% \emph{Design galleries}  are used in graphics and web design to include examples immediately at hand in the design process~\cite{Lee2010a,Marks1997}.
+%Example-based tools often use sophisticated techniques to mix and match styles and content~\cite{Kumar2011}: this requires immediate access to the examples' underlying structure.
+%% , requiring access to examples' underlying structure.
 %
 
 %%%%%%%%%%%%%%%%%%%%%
@@ -294,15 +270,11 @@ Example-based tools often use sophisticated techniques to mix and match styles a
 % SECTION: System Design
 %
 %%%%%%%%%%%%%%%%%%%%%
-\section{Apparatus Design}
+\section{Design}
 %\kmC{OS *slc*}
 % KM 02.02: (1) HEADINGS. the submitted-version headings reinforce a "build system / evaluate it" contribution model that may be leading reviewers to overlook the other contributions here. Think about tweaking the names to emphasize the scientific contribution? 
 % (2) NOVELTY: this first paragraph of 'system design' is very important in establishing the objectives of the system, and also its novelty. I've tried tweaking it to push forward its experiment-driven requirements. But no novelty as a tool is expressed in this para. We have to either/both of explaining that achieving the flexibility (for an experimental platform) was hard, or that something about the tool itself is novel (and hard). Otherwise, it does sound ho-hum. Obviously this includes example use (shows up in 2nd para, I'll try to work it into first), but can we express something concrete about the rest?
 %
-To investigate VT design in the context of examples, we required a platform that would expose users' natural procedural tendencies. 
-Our Macaron design gallery is simple, flexible, and extensible.
-In this work, we add multiple types of example access to polished implementations of familiar concepts: \emph{tracks}, \emph{envelopes}, and \emph{keyframes}
-(Figures~\ref{fig:macaron:hi},\ref{fig:versions}).
 
 \begin{figure}[htb]
     \centering
@@ -357,6 +329,19 @@ In this work, we add multiple types of example access to polished implementation
         \end{table}
   
 
+
+To investigate VT design in the context of examples, we required a platform that would expose users' natural procedural tendencies. 
+Our Macaron design gallery is simple, flexible, and extensible.
+In this work, we add multiple types of example access to polished implementations of familiar concepts: \emph{tracks}, \emph{envelopes}, and \emph{keyframes}
+(Figures~\ref{fig:macaron:hi},\ref{fig:versions}).
+This enables easy extensions to other devices, discussed in \autoref{ch:applications}.
+%
+% To investigate VT design in the context of examples, we designed and built Macaron, a VT design gallery (Figures~\ref{fig:macaron:hi}-\ref{fig:macaron}).
+% We built a design gallery to investigate VT design in the context of examples 
+% To expose users' natural procedural tendencies, Macaron is simple, flexible, and uses familiar concepts of \emph{tracks}, \emph{envelopes}, and \emph{keyframes}. % at this early stage of development.
+
+
+
 \emph{Tracks} are the accepted language of temporal media editors (video, audio, and past haptic efforts \cite{Swindells2006,Enriquez2003,Ryu2008}).
 We provide tracks for perceptually important ``textural'' parameters (amplitude and frequency); the user accesses periodic and time-variant aspects by manipulating their 
 \emph{envelopes} using
@@ -376,7 +361,7 @@ start / stop buttons allow the user to indicate when they began and completed th
 
  
 Macaron was built with HTML5 and JavaScript, using React, Reflux, D3, and
-Audiolet\footnote{\url{facebook.github.io/react}, \url{github.com/reflux}, \\ \url{d3js.org}, \url{github.com/oampo/Audiolet}}. Real-time sound synthesis drove a C2 actuator.
+Audiolet\footnote{\url{facebook.github.io/react}, \url{github.com/reflux}, \url{d3js.org}, \url{github.com/oampo/Audiolet}}. Real-time sound synthesis drove a C2 actuator.
 To leave % the user's 
 hands free for keyboard and mouse, the C2 is attached to a wristband; we simulate the design process for a wrist-worn wearable (as in \cite{Seifi2015}).
 
@@ -412,8 +397,6 @@ We did not allow users to modify the examples, to avoid study workflow confounds
 To populate the gallery, we chose or adapted seven examples from~\cite{Seifi2015}, 
 piloted them to confirm example variety, then regenerated keyframed versions with Macaron.
 % To populate the gallery, seven examples were chosen or inspired from~\cite{Seifi2015}, piloted to confirm example variety, then keyframed versions were re-generated with Macaron.
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%
@@ -489,6 +472,11 @@ We believe this is an acceptable tradeoff at this stage, allowing us balance int
 
 
 
+%%%%%%%%%%%%%%%%%%%%%
+%
+% SECTION: Results
+%
+%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
  
 % 1. earlier you called them "designers" - might require qualification.
@@ -554,6 +542,7 @@ We conducted two one-way ANOVAs on  completion time;
 %TASK LEVENe F(4, 45)=1.4966 p=0.2192
 %TASK 
 neither interface ($p=0.87$) nor task ($p=0.64$) had a significant effect. % on completion time.
+
 
 
 \begin{figure}[tb]
@@ -632,7 +621,6 @@ Some omitted one or more steps depending on personal style and strategies for us
 We list observations of the basic process in \autoref{tab:archetypal:process}, to document behaviour and frame discussion.
 % of example use and individual differences.
 %\autoref{fig:archetype} shows an exemplar of this process.
-
 
 
 
@@ -922,19 +910,6 @@ The latter was related to additional themes: task difficulty and individual diff
 %
 
 \inlineHeading{Direct example use -- task starting point}
-    % When examples were available to participants, they used them in different ways, from completely ignoring them to simply selecting an example as their design.
-    % We refer to these as \emph{direct} use of examples when a particular example was applied to a specific design problem, as opposed to \emph{indirect} use like learning how to use amplitude and frequency effectively, which we discuss later.
-    % We have identified 5 levels of example use: Ignore, Inspire, Start, Adjust, and Select.
-    
-    %     \subsubsection{Ignore}
-    %     Some participants (P1,2,4?,7,8?,9) did not directly incorporate any examples.
-    %     This was for a variety of reasons, but usually happened after viewing some examples:
-    %     \qquote{P1}{I didn't the examples what I wanted},
-    %     \qquote{P8}{...difficult to replicate, so I just wanted to do my own thing},
-    %     \qquote{P9}{I wanted to do my own thing!}.
-        
-    %     However, P2 simply encountered difficulty in their heartbeat task:
-    %     \qquote{P2}{I didn't know how, or I just kinda forgot},
    When participants \emph{prepared} for each task by browsing to find a best-match example, then using it as a starting point, they did this with a spectrum of strategies. These strategies, elaborated in \autoref{tab:direct:example:strategies}, range from Ignore (examples not used) to Select (an example was the final design). 
  %   \osC{quantify:slc}
     %OS 10.20 NEED TO QUANTIFY EACH OF THESE, INCL. correlation to interface.
@@ -1048,7 +1023,7 @@ The latter was related to additional themes: task difficulty and individual diff
    
    
    
-       \inlineHeading{Indirect example use -- observe how to design}
+    \inlineHeading{Indirect example use -- observe how to design}
     Over the course of the session, participants used % examples or 
     underlying structures of examples to understand how to design VT icons. % to relate this structure to their feel. 
     This was most evident in the \none or \lo condition after participants were first  exposed to examples: 
@@ -1106,6 +1081,16 @@ The latter was related to additional themes: task difficulty and individual diff
 
 
 
+% %%%%%%%%%%%%%%%%%%%%%
+% %
+% % SECTION: Discussion
+% %
+% %%%%%%%%%%%%%%%%%%%%%
+% \section{Discussion}
+
+% What to put here?
+
+
 %%%%%%%%%%%%%%%%%%%%%
 %
 % SECTION: Implications for Design
@@ -1117,7 +1102,7 @@ We discuss implications for design, then limitations we hope to progress on with
 \subsection{Implications for Design}
     
     %Expose examples
-    \inlineHeading{Expose example structures for learning}
+    \subsubsection{Expose example structures for learning}
     When exposed to examples' underlying structure, participants are able to build their repertoire and learn VT design conventions like \qquote{P9}{big shapes}.
     %\kmC??: conventions (quote about using big shapes)}.
     Such scaffolding is particularly crucial in an environment where experienced VT designers and training possibilities are rare. % , typically available only at select universities.
@@ -1253,18 +1238,7 @@ We were able to validate the editor's design support and utility of its logging 
 Our next plan to answer these questions is to deploy Macaron at a larger scale: online, as a free-to-use design tool for the haptics community, with an initial study in haptics courses.
 This will allow research \emph{in-situ} with larger, more quantitative, remote-based methods for data collection, triangulated with the less scalable qualitative methods used in-lab.
 Interaction logs, use statistics, and A/B tests will help us further develop Macaron as  a tool for VT design and more generally as a lens for the haptic design process.
-
-
-\section{Conclusion}
-In this paper, we present initial findings from a vibrotactile (VT) design gallery, Macaron.
-This tool revealed insights both into how examples are used in VT design and implications for other VT design tools.
-Macaron was implemented using web tools, offering a unique opportunity to follow-up on the design process we observed here, helping designers to create engaging experiences while understanding their craft.
-%It also suggest a relationship between task abstractness
-%Together, we can make haptic design its own field, akin to graphic design and sound design.
-
-\section{Acknowledgements}
-We are grateful to our participants, labmates, and reviewers for all feedback.
-This work was supported by NSERC.
+\osC{TODO: Comment more on the Online Deployment, probably as its own section, and with image of the demo and current directions. Also need to show MacaronKits.}
 
 
 \endinput
