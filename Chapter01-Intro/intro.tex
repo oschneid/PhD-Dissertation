@@ -12,7 +12,7 @@ Between the resurgence of consumer virtual and augmented reality (VR \& AR), rap
 This diverse field has been active in creating new devices and understanding human perception for decades, but the development of haptic media and design of haptic experiences remain a critical challenge.
 Haptic experiences are rich, diverse, multimodal entities which necessitate in-person interaction and have limited infrastructure.
 How can we enable creativity with these experiences?
-In this dissertation, I study the process of haptic experience design (``HaXD") and establish guidelines for building interactive software systems to support it.
+In this dissertation, we study the process of haptic experience design (``HaXD") and establish guidelines for building interactive software systems to support it.
 %Through a series of implemented tools, we build pathways for haptic designers.
 %This is complemented by both quantitative and qualitative inquiry to understand how haptic designers' experiences and their process.
 %Critically, we examine contextual activities that are naturally supported in non-haptic design design, but break down when applied to touch-based interactions: sketching, editing, browsing, and sharing.
@@ -75,16 +75,16 @@ In this dissertation, I study the process of haptic experience design (``HaXD") 
 %
 
 \section{Haptic Experience Design (HaXD)}
-We define ``haptic experience design'' (\haxd) as:
+We define \haxd\ as: % ``haptic experience design'' (\haxd) as:
 \begin{quote}
-\it The design (planning, development, and evaluation) of user experiences intentionally involving both interactive technology and one or more perceived senses of touch, possibly as part of a multimodal or multisensory experience.
+\it The design (planning, development, and evaluation) of user experiences  deliberately connecting interactive technology to
+% intentionally involving both interactive technology and
+one or more perceived senses of touch, possibly as part of a multimodal or multisensory experience.\footnote{We developed this definition from our interviews with hapticians (\autoref{ch:hapticianinterviews}).}
 \end{quote}
-%OS 04.21 We need a definition of haptic experience design, either from lit or create our own.
-%KM 04.25 clarify relation to multimodal design (this is one of the challenges)
 We use \haxd instead of the more general ``haptic design", which can also refer to design practices related to haptics but not directly involving the user experience, e.g., mechanical design of a new actuator or software design of a new control method.
 Our definition also includes pseudo-haptics \cite{Pusch2011} and other illusions that trick the user into thinking haptic feedback is occurring without direct tactile or kinesthetic stimulation.
 %OS 06.09 should we also include tangibles?
-For brevity, we will use ``haptic designers" to refer to haptic \emph{experience} designers.
+For brevity, we will use ``haptic designers" or ``hapticians" to refer to haptic \emph{experience} designers (those who practice \haxd).
 %In this work, we shed light on \haxd, documenting the challenges that are unique to or accentuated in haptic design, and applying  design thinking to those challenges.
 
 
@@ -95,53 +95,78 @@ As we will elaborate, diverse activities are involved in design, including \emph
 Just as a user's physical, social, and cultural context must be considering in an interactive experience, so too must a designer's.
 
 
-\section{Approach}
+\section{Why is \haxd hard?}
+\haxd faces two types of challenges: those resulting from its relative youth, and those intrinsic to the sense of touch.
+One of the goals of this dissertation is to articulate the challenges that have been known informally for years, and capture those that are not as well known.
 
-While many tools exist to support design in other modalities, such as graphic design, there are few for haptics.
-Part of this comes from immaturity of the field and lack of market penetration of highly expressive haptic devices.
-However, there are also intrinsic challenges to designing for the sense of touch.
-%I want to develop practical tools that support the HaXD process, building a body of knowledge of how to facillitate this difficult subfield of design.
-I approach this problem with three different strategies:
-\begin{enumerate}
-\item \textbf{Depth: Vibrotactile design tool case studies (Chapters \ref{ch:hapticinstrument}-\ref{ch:macaron}).}
-To understand design, I take a design perspective.
-In each of three case studies, I design, build, and evaluate a tool to support an aspect of haptic experience design, scoped to \emph{vibrotactile} (VT) design.
-Each of these results in concrete implications for designing tools and a small window onto the larger HaXD process.
-Contributions include algorithms, data structures, interaction techniques, features, analytic techniques, and working software tools that have been employed by designers.
-\autoref{ch:hapticinstrument}, \autoref{ch:tactileanimation}, and \autoref{ch:macaron} outline these.
+Haptic experience design is a young field:
+the first Haptics Symposium conference was held in 1992.
+As a result, design for touch-based interaction is not as mature as with vision and audio, which can draw from centuries of music and graphic design, and decades of sound design.
+We see this with limited infrastructure to support the wide variety of haptic devices \cite{Hayward2007}, to the point where online distribution is a research topic \cite{AbdurRahman2010} and limited, varied languages for designing touch \cite{Jansson-Boyd2011}.
 
-\item \textbf{Breadth: Focused haptic design projects (Chapters \ref{ch:hapturk} and \ref{ch:applications}).}
-While the case studies provide an in-depth investigation into vibrotactile sensation design, results may not generalize to other devices, and provide limited investigation into design activities like sharing.
-To generalize from vibrotactile effects, explore other aspects of haptic design, and gain personal experience as a haptic experience designer, I participate in several smaller side projects.
-These more focused projects lend a broader context to our findings.
-\autoref{ch:hapturk} and \autoref{ch:applications} discuss these projects.
-
-\item \textbf{Ground: Data from haptic experience designers (Chapter \ref{ch:hapticianinterviews}).}
-Finally, despite the recent growth of the field, haptic designers remain relatively rare and difficult to recruit.
-To complement my primarily design-based approach and ground it with haptic experience designers in the field, I draw from other data sources: a workshop held at World Haptics 2015 and interviews with haptic designers.
-Described in \autoref{ch:hapticianinterviews}, this synthesized contribution provides additional concreteness to the characterization of haptic experience design.
-\end{enumerate}
+There are also intrinsic challenges when designing for touch:
+variabilities in low-level perception due to, \eg, individual differences \cite{Lo1984}, device location and user activity \cite{Karuei2011}, and aging \cite{Stevens1996,Stevens1992};
+a strong influence of user preferences \cite{Seifi2014,Seifi2015};
+complexity of the haptic senses \cite{ChoiKuchenbecker2013,Lederman2009survey,Kandel2000};
+and tight technical constraints cross-cutting software and hardware \cite{levitin2000perception,Hayward2007}.
+Throughout this work, we identify and characterize these challenges, and make progress on solutions to conquer them.
 
 
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[width=\textwidth]{HaXDTheoryOutline-2015-05-22}
-\caption{Approach overview. Three case studies investigate VT tools in-depth; findings are synthesized with side projects and grounded data into a preliminary theory.}
+\includegraphics[width=\textwidth]{HaXDTheoryOutline-2016-08-11}
+\caption{Approach overview. We investigate VT design tools (Chapters \ref{ch:hapticinstrument}-\ref{ch:macaron}) and techniques (Chapter \ref{ch:hapturk}) in-depth. These findings are synthesized with multiple, smaller focused projects (Chapter \ref{ch:applications}) and grounded data from hapticians (Chapter \ref{ch:hapticianinterviews}) into a preliminary understanding of \haxd.}
 \label{fig:intro:methodologyoverview}
 \end{center}
 \end{figure}
 
 
 
+\section{Approach}
+While many tools exist to support design in other modalities, such as graphic design, there are few for haptics.
+%Part of this comes from immaturity of the field and lack of market penetration of highly expressive haptic devices.
+%However, there are also intrinsic challenges to designing for the sense of touch.
+%I want to develop practical tools that support the HaXD process, building a body of knowledge of how to facillitate this difficult subfield of design.
+We approach this problem with three strategies:
+\begin{enumerate}
+\item \textbf{Depth: Vibrotactile design tool case studies (Chapters \ref{ch:hapticinstrument}-\ref{ch:hapturk}).}
+To understand design, I take a design perspective.
+In each of three case studies, I design, build, and evaluate a tool or technique to support an aspect of \haxd, scoped to \emph{vibrotactile} (VT) design.
+Each of these results in concrete implications for designing tools and a small window onto the larger HaXD process.
+Contributions include algorithms, data structures, interaction techniques, features, analytic techniques, and working software tools that have been employed by designers.
+\autoref{ch:hapticinstrument}, \autoref{ch:tactileanimation}, and \autoref{ch:macaron} outline iterative development and evaluation of VT design tools; \autoref{ch:hapturk} covers a VT design technique (proxies).
+
+\item \textbf{Breadth: Focused haptic design projects (Chapter \ref{ch:applications}).}
+While the case studies provide an in-depth investigation into VT sensation design, results may not generalize to other devices, and provide limited investigation into application areas like education.
+To generalize from VT effects, explore other aspects of haptic design, and gain personal experience as a haptic experience designer, we participate in several smaller focused design projects, which lend a broader context to our findings.
+\autoref{ch:applications} discusses these projects.
+
+\item \textbf{Ground: Data from haptic experience designers (Chapter \ref{ch:hapticianinterviews}).}
+Finally, despite the recent growth of the field, haptic designers remain relatively rare and difficult to recruit.
+To complement our primarily design-based approach and ground it with haptic experience designers in the field, we draw from other data sources: a workshop held at World Haptics 2015 and interviews with haptic designers.
+\autoref{ch:hapticianinterviews} discusses this characterization of haptic experience design.
+\end{enumerate}
+
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=\textwidth]{HaXDTheoryCaseStudyOutline-2016-08-11}
+\caption{Vibrotactile design case studies. Each studies an aspect of vibrotactile design with a varied set of users, devices, platforms, and foci.}
+\label{fig:intro:casestudyoverview}
+\end{center}
+\end{figure}
 
 
 
 \subsection{Depth: Vibrotactile Design Tool Case Studies}
 
-Each case study investigates a different set of design concepts with varying user populations, VT device, and design challenges (\autoref{fig:intro:casestudyoverview}), but restricts scope to VT sensations.
+Each case study investigates a different set of design concepts with varying user populations, VT device, and design challenges.
+We iteratively develop three \haxd support tools (\autoref{fig:intro:casestudyoverview}), but restricts scope to VT sensations.
 This offers a deep look into an expressive and increasingly common class of haptic devices, allowing us to explore critical features in a somewhat controlled fashion.
 An iterative approach allows us to refine ideas and methods, and so each case study follows three steps: \emph{gather}, finding requirements and previous design elements; \emph{create}, where we design and build the tool; and \emph{evaluate}, where we test the tool with its target population and consolidate lessons learned.
+We also include a collaborative study for a VT design technique (``HapTurk").
+
 
 \begin{description}
 
@@ -167,16 +192,15 @@ Macaron was implemented using the understanding we gained from Study 2, giving u
 We found examples were used primarily as templates to inform initial design, making each individual design easier but also scaffolding the user's understanding of how to create VT effects.
 %These studies are described in more detail in \autoref{ch:hapticinstrument},  \autoref{ch:tactileanimation}, and \autoref{ch:macaron}.
 
+	\item[Feedback at Scale: HapTurk (\autoref{ch:hapturk})]
+	%is a collaboration with PhD candidate Hasti Seifi on different techniques to crowdsource feedback on VT icons. Master's student Salma Kashani and undergraduate Matthew Chun are developing visualizations and low-fidelity VT icons during summer 2015.
+	While not an iterative design tool study, HapTurk is a focused investigation of a VT design technique for collecting large-scale feedback on VT icons.
+	Haptic devices cannot be sent to hundreds or thousands of people for feedback, but collecting in-lab feedback can be expensive, and informal feedback from colleagues is limited in scope.
+	We investigate whether visual or low-fidelity \emph{proxies} can stand in for high-fidelity VT effects, with implications for both collecting feedback and broadcasting VT sensations more widely.
+
 \end{description}
 
 
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width=\textwidth]{HaXDTheoryCaseStudyOutline-2015-05-28}
-\caption{Vibrotactile design case studies. Each studies an aspect of vibrotactile design with a varied set of users, devices, platforms, and foci.}
-\label{fig:intro:casestudyoverview}
-\end{center}
-\end{figure}
 
 
 \subsection{Breadth: Focused Haptic Design Projects}
@@ -184,19 +208,6 @@ We found examples were used primarily as templates to inform initial design, mak
 Each case study provides concrete knowledge for building a VT authoring tool, and some insight into the VT design process.
 However, VT technology can be used in many different scenarios, and there are many devices and experiences that involve other haptic modalities.
 To broaden our understanding of haptic design, we undertook several more focused haptic design projects to look at different activities, application areas, and haptic modalities.
-
-
-In \textbf{\autoref{ch:hapturk}}, we investigate in-depth a technique for large-scale feedback:
-
-\begin{description}
-	\item[Feedback at Scale: HapTurk]
-	%is a collaboration with PhD candidate Hasti Seifi on different techniques to crowdsource feedback on VT icons. Master's student Salma Kashani and undergraduate Matthew Chun are developing visualizations and low-fidelity VT icons during summer 2015.
-	is a technique for collecting large-scale feedback on VT icons.
-	Haptic devices cannot be sent to hundreds or thousands of people for feedback, but collecting in-lab feedback can be expensive, and informal feedback from colleagues is limited in scope.
-	We investigate whether visual or low-fidelity \emph{proxies} can stand in for high-fidelity VT effects.
-\end{description}
-
-
 In \textbf{\autoref{ch:applications}}, we describe several smaller projects that gave opportunities for practicing haptic design and exploring other types of haptic feedback:
 
 \begin{description}
@@ -210,7 +221,7 @@ In \textbf{\autoref{ch:applications}}, we describe several smaller projects that
 	
 	\item[HandsOn (\autoref{sec:applications:handson})] is a conceptual model for creative education software using low-cost, DIY haptic hardware, giving us an understanding of how to work with 1-degree of freedom force feedback and an educational context.
 
-	\item[CuddleBit (\autoref{sec:applications:cuddlebit})] is a project inspired by the Haptic Creature [] and CuddleBot project [].
+	\item[CuddleBit (\autoref{sec:applications:cuddlebit})] is a project inspired by the Haptic Creature \cite{Yohanan2011affectivetouch,Yohanan2011affectdisplay,Chang2010} and CuddleBot project \cite{Allen2015cuddlebot}.
 	We use small, breathing robots to explore the display of emotion, and extend our findings from VT design tools into new tools for this modality: Voodle and MacaronBit.
 
 \end{description}
