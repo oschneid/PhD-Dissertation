@@ -22,13 +22,13 @@ Throughout the chapter, we contextualize this work and \haxd in both the haptics
 The term ``haptic" was coined by German researcher Max Dessoir to refer to the study of touch, in a similar to ``optic" for sight and ``acoustic" for sound \cite{Grunwald2008}.
 Today, it refers to both the study of the psychology and perception of the senses of touch, and the technology that employs touch as a method of feedback.
 Haptic technology is typically separated into two classes based on the main sense modality: \emph{tactile} sensations, and \emph{proprioception}, or the sense of body location and force;  the latter includes \emph{kinaesthetic} senses of force and motion.
-These two types of feedback are useful for different purposes, \eg, people use their fingerpad's tactile senses to derive texture, but kinaesthetic feedback to infer weight \cite{Lederman1987}.
-However, they are often combined for more convincing results \cite{Okamura1998}.
+These two types of feedback are useful for different purposes, \eg, people use their fingerpad's tactile senses to derive texture, but kinaesthetic feedback to infer weight \cite{Lederman1987};
+different senses can be combined for more convincing results \cite{Okamura1998}.
 An excellent overview of the haptic senses is available by \citet{Lederman2009survey}, and a practical introduction to the technology is available by \citet{Hayward2007}.
 Here, we focus our coverage on the sensations directly studied by this dissertation, while also portraying the diversity of haptic experiences and technology.
 
 \subsection{Tactile Perception and Technology}
-\osC{Goal: Explain the main mechanisms we use in the dissertation's studies, persuade the reader that I know enough about tactile perception, and show the variety of tactile displays and experiences.}
+%\osC{Goal: Explain the main mechanisms we use in the dissertation's studies, persuade the reader that I know enough about tactile perception, and show the variety of tactile displays and experiences.}
 Tactile sensations rely on multiple sensory organs in the skin, each of which detect different properties, \eg, Merkel disks detect pressure or fine details, Meissner corpuscles detect fast, light sensations (flutter), Ruffini endings detect stretch, and Pacinian corpuscles detect vibration \cite{ChoiKuchenbecker2013}.
 %Temperature and pain are also detected through \osC{todo}.
 Of these, the Pacinian corpuscle is most widely targeted by technology through vibrotactile (VT) sensations, where vibrations stimulate the skin.
@@ -49,7 +49,7 @@ As of writing (2016), this type of actuator is increasingly deployed in consumer
 %%%%In contrast to displacing the entire user body, recent multichannel haptic devices create percepts of dynamic and localized haptic sensations directly on the user's skin \cite{Israr2011} and in the mid-air \cite{Wilson2014}.
 Actuators like VT devices can be used alone or put together spatial multiactuator displays like seats \cite{Israr2012,Israr2010}, belts \cite{Pielot2009,Paneels2013}, wristbands \cite{Arab2015,Paneels2013,Gupta2016}, vests \cite{Prasad2014,Jones2004}, and gloves \cite{Park2016,Kim2009}.
 These can be arrange into grids, either dense tactile pixels (``taxels") \cite{Kim2009} or sparse arrays \cite{Israr2012,Israr2010}, to provide explicit 2D output on a plane.
-Multiactuator arrays increasingly used in conjunction with tactile illusions.
+Multiactuator arrays increasingly exploit tactile illusions to create effects of motion or phantom sensations in-between actuators.
 
 Another emerging tactile feedback mechanism is programmable friction.
 Surface friction, for example on a mobile touch screen, can be manipulated by both mechanical motion or electrical adhesion.
@@ -63,16 +63,15 @@ There are many other types of tactile stimulation used in haptic experiences.
 2-dimensional pin-based grids like Optacon \cite{Bliss1970} and HyperBraille (\url{www.hyperbraille.de}) can display Braille and 2D images to the blind and visually impaired, and operate as a generic computer display \cite{Prescher2010}. 
 %"Survey on communication through touch" by pasquero, "Optical to tqactile image conversion for the blind by Bliss et all 1970.
 Similar multi-point displays have been deployed on mobile devices.
-Edge Haptics uses dozens of linearly-actuated pins on the edge of a mobile device for tactile stimulation, similar to a a-dimensional braille pin display \cite{Jang2016}, while laterally moving pins can use skin-stretch as a display mechanism \cite{Luk2006}.
-Electrocutaneous stimulation, by activating electrodes directly on the skin, has been effectively deployed for spatial tongue displays \cite{Bach-y-Rita1998}.
-Temperature displays exploit warm and cold receptors in the skin for display, using Peltier junctions \cite{Jones2002}.
-Tactile sensations can be created at a distance using ultrasonic transducers \cite{Obrist2013,Carter2013} and moving vortex cannons that shoot puffs of air \cite{Sodhi2013}.
+Edge Haptics uses dozens of linearly-actuated pins on the edge of a mobile device for tactile stimulation, similar to a 2-dimensional braille pin display \cite{Jang2016}, while laterally moving pins can use skin-stretch as a display mechanism \cite{Luk2006}.
+Electrocutaneous stimulation, where electrodes are directly activated on the skin, has been deployed for spatial tongue displays \cite{Bach-y-Rita1998}.
+Temperature displays exploit warm and cold receptors in thea skin for display, using Peltier junctions \cite{Jones2002}.
+Tactile sensations can be created at a distance using ultrasonic transducers \cite{Obrist2013,Carter2013} and vortex cannons that shoot puffs of air \cite{Sodhi2013}.
 
 
 
 \subsection{Proprioception and Force Feedback}
-\osC{Goal: Explain the main mechanisms we use in the dissertation's studies, persuade the reader that I know enough about proprioception, and show the variety of force-feedback displays. This section will be smaller than the tactile section, and should make the distinction of verisimilitude and veridicality a bit clearer, because with FF we often have a virtual environment and are more concerned with passivity, stiffness, etc.}
-
+%\osC{Goal: Explain the main mechanisms we use in the dissertation's studies, persuade the reader that I know enough about proprioception, and show the variety of force-feedback displays. This section will be smaller than the tactile section, and should make the distinction of verisimilitude and veridicality a bit clearer, because with FF we often have a virtual environment and are more concerned with passivity, stiffness, etc.}
 Proprioception, the sense of force and position, is synthesized from multiple sensors as well: the muscle spindle (embedded in muscles), golgi-tendon organ (GTO) in tendons, and tactile and visual cues \cite{Kandel2000}.
 We distinguish proprioception from the related term kinaesthetic by being the general, synthesized sense, where kinaesthetic sensation is strictly the sense of motion \osC{todo: make sure this is correct}.
 Force displays are common in precise, specialized applications like robot-assisted surgery \cite{Okamura2009} or realistic sensorimotor training environments \cite{VanDerMeijden2009}.
@@ -88,12 +87,12 @@ More complex environments are primarily programmed in using APIs like CHAI3D, Op
 
 Another approach is to use simple force feedback, especially for haptics education \cite{Jones2014}.
 1-DoF devices include linear actuators pushing on the user and haptic knobs, \eg, the UBC Twiddler \cite{Shaver2003,Enriquez2003,MacLean2009a}, and paddles, \eg, the HapKit \cite{Martinez2016}.
-The UBC SPIN lab has also adopted 1-DoF force feedback in its affective robot, the Haptic Creature \cite{Yohanan2011,Yohanan2011}, the CuddleBot, and CuddleBits \cite{cang2015cuddlebits}.
+The UBC SPIN lab has also adopted 1-DoF force feedback in its affective robot, the Haptic Creature \cite{Yohanan2011affectdisplay,Yohanan2011affectivetouch}, the CuddleBot, and CuddleBits \cite{cang2015cuddlebits}.
 We explore force-feedback design with the HapKit and CuddleBits in \autoref{ch:applications}.
 
 
 \subsection{Haptic Illusions}
-As with visual displays, like the illusion of motion with high framerates, illusions play a valuable role in haptic sensations \cite{Hayward2016}.
+Like visual displays' stroboscopic effect transforming a series of images into the perception of motion, illusions play a valuable role in haptic sensations \cite{Hayward2016}.
 Some effects are influenced by other senses.
 In the classic size-weight illusion \cite{charpentier1891analyse}, when two weights have the same mass but different sizes, the smaller is perceived to be heavier, whether size is seen or felt \cite{Hayward2016}.
 A striking, recent example is the use of visual dominance to use a single physical block to provide haptic feedback for multiple virtual blocks by distorting the visual position of the user's arm \cite{Azmandian2016}.
