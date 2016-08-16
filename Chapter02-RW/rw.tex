@@ -200,7 +200,7 @@ Touch-based surfaces can detect these gestures \cite{Flagg2013} through technolo
 While realistic virtual environments for force-feedback haptic feedback is extremely helpful in medical or training applications \osC{todo}, we focus on applications that find increased value in an explicit design step.
 
 
-\subsubsection{Immersive Media and Virtual/Augmented Reality}
+\subsubsection{Immersion}
 A popular application for haptic experiences is augmented, immersive media experiences.
 Actuated tactile feedback has been used as early as 1959 in the movie \emph{The Tingler}  \cite{IJsselsteijn2003}.
 4D theatres and theme park rides use bursts of air or water sprays to engage the audience.
@@ -222,7 +222,7 @@ Tactile Movies \cite{Kim2009} looks into augmenting movies with spatial VT feedb
 haptic-audiovisual (HAV) content \cite{Danieau2013} basics of composition \cite{Guillotel2016}
 
 
-\subsubsection{Affective Computing}
+\subsubsection{Affect}
 We've discussed how touch is closely connected to emotion.
 This has implications for design;
 %emotional connection and relationship can influence preferred interaction models;
@@ -237,7 +237,7 @@ this furry, zoomorphic robot can measurably relax users when they feel it breath
 
 
 
-\subsubsection{Expressive Communication}
+\subsubsection{Communication}
 %interpersonal touch, and haptic interpretations of it
 Touch is extremely important for interpersonal communication, from greeting a new acquaintance with firm handshake, to showing affection to a loved one; see \citet{Gallace2010} for an overview.
 Of course, technologically can mediate touch between people, \eg, in remote collaboration or shared virtual environments \cite{Haans2006}.
@@ -251,7 +251,7 @@ ComTouch \cite{Chang2002a} used pressure input to send vibrations with between m
 
 
 
-\subsubsection{Mobile Alerts}
+\subsubsection{Notification}
 Mobile contexts are rife with opportunities for haptic feedback.
 Ambient tactile displays can provide awareness can provide awareness and alerts without distracting the user.
 VT feedback is affordable, low-power, and can be added to watches and wrist-bands \cite{Brunet2013a,Arab2015}, belts, vests, and other wearables.
@@ -338,24 +338,15 @@ In \autoref{ch:applications} we describe results from an early learning interfac
 \section{Previous Efforts for Haptic Experience Design}
 
 
-\osC{just moved this from applications}
-The Haptic Application Meta Language (HAML) \cite{Eid2006} is an XML-based data format for adding haptics to MPEG-7 video, eventually augmented with the HAML Authoring Tool (HAMLAT) \cite{,Ferre2008}.
-\citet{AbdurRahman2010} eventually adapted an XML approach to YouTube, and \citet{Gao2013} developed related online MPEG-V haptic editing.
-Augmented media experiences and HAV content \cite{Danieau2013},  have used different methods of input.
-One approach is to use camera motion sourced from accelerometers \cite{Danieau2012} to actuate audience members' hands and head in a HapSeat \cite{Danieau2013a,Danieau2012a}.
-Later editable with H-Studio \cite{Danieau2013c}, this work has proposed the concept of Haptic Cinemotography \cite{Danieau2014}, including basic principles of composition when combined with video \cite{Guillotel2016}.
-Other approaches include automatic conversion of audio content
-Several studies have looked into automatic conversion from audio streams \cite{Lee2013,Chang2005,Hwang2014} or video streams \cite{Kim2014} to VT or force-feedback output.
 
 
 \subsection{Editors and design tools}
 As long as designers have considered haptic effects for entertainment media, they have needed compositional tools % to facilitate their design 
 \cite{Gunther2002}.
-
 Custom editors (such as D-Box Motion Code Editor) and software plugins are provided to media designers that overlaid the visual and audio content with haptics, and allow designers to generate, tune and save frame-by-frame haptic content in an allocated track for it to play simultaneously with the media content. 
 
 By tuning parameters of these effects, users could personalize  haptic content, embed it in games and share effects with other users.
-Similar devices and authoring schemes are also developed for online social interactions using custom multi-actuator haptic devices \cite{Kim2009,Tsetserukou2009,Paneels2013}.%Tsetserukou, D. and Neviarouskaya, A. iFeel_IM!: augmenting emotions during online communication. Comp. Graphics & Applications 30 (2009), IEEE, 72-80.
+Similar devices and authoring schemes are also developed for online social interactions using custom multi-actuator haptic devices \cite{Kim2009,Tsetserukou2009,Paneels2013}. %Tsetserukou, D. and Neviarouskaya, A. iFeel_IM!: augmenting emotions during online communication. Comp. Graphics & Applications 30 (2009), IEEE, 72-80.
 A great deal of previous work has focused on how to prototype or author haptic phenomena using non-programming methods. 
 
 Many user-friendly interfaces help designers create % control 
@@ -367,14 +358,21 @@ The Demonstration-Based Editor \cite{Hong2013} allows control of frequency and i
 %mHIVE, a Haptic Instrument \cite{Schneider2014} controls frequency, intensity, waveform and amplitude envelope of two tactors with touchscreen gestures.
 Similar to the SPIN lab's Haptic Instrument (mHIVE, \autoref{ch:hapticinstrument}), this mobile tool was shown to be intuitive and easy to use for exploration or communication, but faltered when refining more elaborate sensations. %for a set context.
 
+The Haptic Application Meta Language (HAML) \cite{Eid2006} is an XML-based data format for adding haptics to MPEG-7 video, eventually augmented with the HAML Authoring Tool (HAMLAT) \cite{,Ferre2008}.
+\citet{AbdurRahman2010} adapted an XML approach to YouTube, and \citet{Gao2013} developed related online MPEG-V haptic editing.
+Augmented media experiences and HAV content \cite{Danieau2013},  have used different methods of input.
+One approach is to use camera motion sourced from accelerometers \cite{Danieau2012} to actuate audience members' hands and head in a HapSeat \cite{Danieau2013a,Danieau2012a}.
+Later editable with H-Studio \cite{Danieau2013c}, this work has proposed the concept of Haptic Cinemotography \cite{Danieau2014}, including basic principles of composition when combined with video \cite{Guillotel2016}.
+Other approaches include automatic conversion of audio content
+Several studies have looked into automatic conversion from audio streams \cite{Lee2013,Chang2005,Hwang2014} or video streams \cite{Kim2014} to VT or force-feedback output.
+
 Commercially, Apple's end-user vibration editor has been present in iOS since 2011 (iOS 5) but only produces binary on/off timing information.
 Immersion provides two tools: TouchSense Engage is a software solution for developers, while Touch Effects Studio lets users enhance a video from a  library of tactile icons supplied on a mobile platform.
 Vivitouch Studio allows for haptic prototyping of different effects alongside video (screen captures from video games) and audio, and supports features like A/B testing \cite{Swindells2014}.
 %More recently, Vivitouch Studio \cite{Swindells2014} allows for haptic prototyping of different effects alongside video (screen captures from video games) and audio, including features like A/B testing for simultaneous comparison of haptic content and exporting of a haptic video channel.
 
-
 The control of multi-actuator outputs has been explored by TactiPEd \cite{Paneels2013}, Cuartielles' proposed editor \cite{Cuartielles2012}, and the tactile movie editor \cite{Kim2009}; the latter combined spatial and temporal control using a tactile video metaphor for dense, regular arrays of tactile pixels (``taxels"), including a feature of sketching a path on video frames. 
-However, these approaches embrace the separate control of different actuators, rather than a single perceived sensation produced by the multi-actuator device, which we address with tactile illusions in \autoref{ch:hapticanimation}.
+However, these approaches embrace the separate control of different actuators, rather than a single perceived sensation produced by the multi-actuator device, which we address with tactile illusions in \autoref{ch:tactileanimation}.
 
 %The hapticon editor \cite{Enriquez2003}, haptic icon prototyper \cite{Swindells2006}, posVibEditor \cite{Ryu2008}, and Immersion's Haptic Studio (www.immersion.com) use a graphical representation to edit either waveforms or profiles of dynamic parameters (such as, torque) over time.
 
