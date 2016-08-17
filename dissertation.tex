@@ -153,7 +153,13 @@
 \newcommand{\citeeg}[1]{\citep[e.g.,][]{#1}}
 
 %The bibentry package lets us do full in-line references, important for the preface
-\usepackage{bibentry}
+%\usepackage{bibentry}
+\usepackage{usebib}
+\newbibfield{booktitle}
+\newbibfield{author}
+\bibinput{refs/oliver-pubs}
+\newcommand{\inlineCitation}[1]{\begin{quote}\usebibentry{#1}{author} (\usebibentry{#1}{year}). \emph{\usebibentry{#1}{title}}. \usebibentry{#1}{booktitle}. Cited as \cite{#1}. \end{quote}}
+%\newcommand{\inlineCitation}[1]{\begin{quote}\citeauthor*{#1}. (\usebibentry{#1}{year}). \emph{\usebibentry{#1}{title}}. \usebibentry{#1}{booktitle}.\end{quote}}
 
 
 %% The titlesec package provides commands to vary how chapter and
@@ -538,7 +544,7 @@
 \begin{singlespace}
 \raggedright
 \bibliographystyle{abbrvnat}
-\bibliography{refs/HA14-CHI2015-SIGGRAPH-add,refs/HA14-CHI2015,refs/HapticDesignChallenges-WHC2015,refs/HI-HS2014-refs,refs/verillo2,refs/proposal-bib,refs/phd-dissertation}
+\bibliography{refs/HA14-CHI2015-SIGGRAPH-add,refs/HA14-CHI2015,refs/HapticDesignChallenges-WHC2015,refs/HI-HS2014-refs,refs/verillo2,refs/proposal-bib,refs/phd-dissertation,refs/oliver-pubs}
 \end{singlespace}
 
 \appendix
