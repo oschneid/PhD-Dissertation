@@ -159,7 +159,8 @@
 \newbibfield{author}
 \bibinput{refs/oliver-pubs}
 %\newcommand{\inlineCitation}[1]{\begin{quote}\usebibentry{#1}{author} (\usebibentry{#1}{year}). \emph{\usebibentry{#1}{title}}. \usebibentry{#1}{booktitle}. Cited as \cite{#1}. \end{quote}}
-\newcommand{\inlineCitation}[1]{\begin{quote}\citeauthor*{#1}. (\usebibentry{#1}{year}) \emph{\usebibentry{#1}{title}}. \usebibentry{#1}{booktitle}.\end{quote}}
+\newcommand{\fullCitation}[1]{\citeauthor*{#1}. (\usebibentry{#1}{year}) \emph{\usebibentry{#1}{title}}. \usebibentry{#1}{booktitle}.}
+\newcommand{\inlineCitation}[1]{\begin{quote}\fullCitation{#1}\end{quote}}
 
 
 %% The titlesec package provides commands to vary how chapter and
