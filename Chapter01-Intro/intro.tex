@@ -3,16 +3,28 @@
 
 \chapter{Introduction}
 \label{ch:introduction}
-Human beings are physical, social creatures, yet our technology has only just started to communicate on our terms.
-Over the years, computing has progressed from symbolic, machine-focused communication like punch cards, assembly languages, and terminal interfaces to physical and natural user interaction.
-Despite embracing new interaction techniques like touchscreens and voice control, the rich senses of touch have been relegated to buzzing alerts or limited to high-stakes expert systems like laparoscopic surgery.
+Technology changes.
+Symbolic, machine-focused communication like punch cards, assembly languages, and terminal interfaces yield to natural, physical, always-connected interactive systems.
+The emergence of virtual and augmented reality (VR \& AR), rapid development of personal fabrication techniques, and explosion of wearable and cyberphysical technologies propel us towards a mixed physical-digital world at an accelerating pace.
+%As computers expand beyond screens and speakers, we look not just to vision and sound, but also the rich senses of touch.
+As computers expand beyond screens and keyboards, we look to engage the rich senses of touch.
 
-Haptic technology involves the senses of touch, both tactile (skin-based) and proprioceptive (force- and position-based) perception.
-Between the resurgence of consumer virtual and augmented reality (VR \& AR), rapid development of personal fabrication techniques, and recent additions of high-fidelity haptics to wearable products like the Apple Watch, we are poised to see haptic technology move from niche roles into mainstream adoption.
-This diverse field has been active in creating new devices and understanding human perception for decades, but the development of haptic media and design of haptic experiences remain a critical challenge.
-Haptic experiences are rich, diverse, multimodal entities which necessitate in-person interaction and have limited infrastructure.
-How can we enable creativity with these experiences?
-In this dissertation, we study the process of haptic experience design (``HaXD") and establish guidelines for building interactive software systems to support it.
+
+
+%Human beings are physical, social creatures, yet our technology has only just started to communicate on our terms.
+%Over the years, computing has progressed from symbolic, machine-focused communication like punch cards, assembly languages, and terminal interfaces to physical and natural user interaction.
+%Despite embracing new interaction techniques like touchscreens and voice control, the rich senses of touch have been relegated to buzzing alerts or limited to high-stakes expert systems like laparoscopic surgery.
+
+Haptic experiences are moving from niche roles to mainstream adoption.
+Haptic technology includes both the tactile (skin-based) and proprioceptive (force- and position-based) components of touch.
+Recently, other natural interaction techniques like touchscreens and voice control held the limelight, with haptic feedback relegated to buzzing alerts or limited to high-stakes expert systems like laparoscopic surgery.
+Now, new media seeks deeper immersion, smart environments look to connect physically with users, and consumer devices like the Apple Watch and Pebble adopt high-fidelity haptic actuators.
+The question is how to enable people to craft experiences with these technologies.
+
+The diverse field of haptics has actively engineered new devices and studied human perception, but the design of haptic experiences remains a critical challenge.
+Little is known about this nascent field of design, with many unique challenges: haptic experiences are rich, diverse, multimodal entities which necessitate in-person interaction and have limited infrastructure.
+How can we support creativity with these experiences, empowering artists, developers, designers, and scientists to effectively work with this emerging medium?
+In this dissertation, we study the process of haptic experience design (``\haxd") and establish guidelines for building interactive software systems to support it.
 %Through a series of implemented tools, we build pathways for haptic designers.
 %This is complemented by both quantitative and qualitative inquiry to understand how haptic designers' experiences and their process.
 %Critically, we examine contextual activities that are naturally supported in non-haptic design design, but break down when applied to touch-based interactions: sketching, editing, browsing, and sharing.
@@ -74,6 +86,7 @@ In this dissertation, we study the process of haptic experience design (``HaXD")
 %Computer-controlled haptic experiences are a recent phenomenon; the focus on technology requirements and rapidly changing field has left little room for examining processes of design in a methodical way.
 %
 
+
 \section{Haptic Experience Design (HaXD)}
 We define \haxd\ as: % ``haptic experience design'' (\haxd) as:
 \begin{quote}
@@ -81,35 +94,50 @@ We define \haxd\ as: % ``haptic experience design'' (\haxd) as:
 % intentionally involving both interactive technology and
 one or more perceived senses of touch, possibly as part of a multimodal or multisensory experience.\footnote{We developed this definition from our interviews with hapticians (\autoref{ch:hapticianinterviews}).}
 \end{quote}
-We use \haxd instead of the more general ``haptic design", which can also refer to design practices related to haptics but not directly involving the user experience, e.g., mechanical design of a new actuator or software design of a new control method.
-Our definition also includes pseudo-haptics \cite{Pusch2011} and other illusions that trick the user into thinking haptic feedback is occurring without direct tactile or kinesthetic stimulation.
+We use \haxd instead of ``haptic design", which can also refer to design practices related to haptics but not directly involving the user experience, \eg, mechanical design of a new actuator. % or software design of a new control method.
+%Our definition also includes pseudo-haptics \cite{Pusch2011} and other illusions that trick the user into thinking haptic feedback is occurring without direct tactile or kinesthetic stimulation.
 %OS 06.09 should we also include tangibles?
-For brevity, we will use ``haptic designers" or ``hapticians" to refer to haptic \emph{experience} designers (those who practice \haxd).
+We use ``haptic designers" or ``hapticians" to refer to haptic \emph{experience} designers (those who practice \haxd).
 %In this work, we shed light on \haxd, documenting the challenges that are unique to or accentuated in haptic design, and applying  design thinking to those challenges.
 
+In this dissertation, we take a systems approach to design.
+Designers do not exist in a vacuum, but rather in in a physical, personal, social, and cultural context. %, and are shaped by their personal experiences.
+We adopt a framework of design activities which are practiced in general experience design, but need explicit support in \haxd.
+Our research identified four activities (\autoref{fig:intro:buxtonaugmented}): \emph{sketching}, ambiguous, suggestive exploration; \emph{refining}, iteration and fine-tuning; \emph{browsing} examples and drawing from experience; and \emph{sharing} designs for feedback and posterity.
+Chapters \ref{ch:hapticinstrument}-\ref{ch:hapturk} explore these activities. %, which were identified through those projects.
 
 
-Here, we also take a systems approach to design.
-Designers do not exist in a vacuum, but rather in in a physical, social, and cultural context, and are shaped by their personal experiences.
-As we will elaborate, diverse activities are involved in design, including \emph{browsing} examples, \emph{sketching}, \emph{refining}, and \emph{sharing}.
-Just as a user's physical, social, and cultural context must be considering in an interactive experience, so too must a designer's.
+
+
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\textwidth]{Fig1-4_Buxton-Adapted} 
+   \caption{An adapted version of the classic design funnel, where multiple initial ideas are iteratively developed into final concepts~\cite{Buxton2007}.
+   We add four design activities that we found need to be explicitly supported for \haxd: \textit{sketching}, \textit{refining}, \textit{browsing}, and \textit{sharing}.}
+   \label{fig:intro:buxtonaugmented}
+\end{figure}
+
+
+
 
 
 \section{Why is \haxd hard?}
-\haxd faces two types of challenges: those resulting from its relative youth, and those intrinsic to the sense of touch.
+\haxd faces two types of challenges: those resulting from its relative youth, and those intrinsic to the sense of touch and touch-based technology.
 One of the goals of this dissertation is to articulate the challenges that have been known informally for years, and capture those that are not as well known.
 
 Haptic experience design is a young field:
-the first Haptics Symposium conference was held in 1992.
-As a result, design for touch-based interaction is not as mature as with vision and audio, which can draw from centuries of music and graphic design, and decades of sound design.
-We see this with limited infrastructure to support the wide variety of haptic devices \cite{Hayward2007}, to the point where online distribution is a research topic \cite{AbdurRahman2010} and limited, varied languages for designing touch \cite{Jansson-Boyd2011}.
+the first conference to explicitly focus on haptics was Haptics Symposium in 1992.
+As a result, design for haptic experiences is not as mature as with vision and audio, which can draw from centuries of music and graphic design, and decades of sound design, which have translated well to their digital equivalents.
+We see this with limited infrastructure to support the wide variety of haptic devices \cite{Hayward2007}, to the point where online distribution is current research \cite{AbdurRahman2010}, and limited, varied languages for touch \cite{Jansson-Boyd2011}.
 
 There are also intrinsic challenges when designing for touch:
 variabilities in low-level perception due to, \eg, individual differences \cite{Lo1984}, device location and user activity \cite{Karuei2011}, and aging \cite{Stevens1996,Stevens1992};
 a strong influence of user preferences \cite{Seifi2014,Seifi2015};
 complexity of the haptic senses \cite{ChoiKuchenbecker2013,Lederman2009survey,Kandel2000};
 and tight technical constraints cross-cutting software and hardware \cite{levitin2000perception,Hayward2007}.
-Throughout this work, we identify and characterize these challenges, and make progress on solutions to conquer them.
+Throughout this work, we identify and characterize these challenges, and make progress to conquer them.
+
 
 
 
@@ -124,14 +152,14 @@ Throughout this work, we identify and characterize these challenges, and make pr
 
 
 \section{Approach}
-While many tools exist to support design in other modalities, such as graphic design, there are few for haptics.
+%While many tools exist to support design in other modalities, there are few for haptics.
 %Part of this comes from immaturity of the field and lack of market penetration of highly expressive haptic devices.
 %However, there are also intrinsic challenges to designing for the sense of touch.
 %I want to develop practical tools that support the HaXD process, building a body of knowledge of how to facillitate this difficult subfield of design.
-We approach this problem with three strategies:
+We approach this problem with three strategies (\autoref{fig:intro:methodologyoverview}):
 \begin{enumerate}
 \item \textbf{Depth: Vibrotactile design tool case studies (Chapters \ref{ch:hapticinstrument}-\ref{ch:hapturk}).}
-To understand design, I take a design perspective.
+To understand design, we take a design perspective.
 In each of three case studies, I design, build, and evaluate a tool or technique to support an aspect of \haxd, scoped to \emph{vibrotactile} (VT) design.
 Each of these results in concrete implications for designing tools and a small window onto the larger HaXD process.
 Contributions include algorithms, data structures, interaction techniques, features, analytic techniques, and working software tools that have been employed by designers.
@@ -147,16 +175,6 @@ Finally, despite the recent growth of the field, haptic designers remain relativ
 To complement our primarily design-based approach and ground it with haptic experience designers in the field, we draw from other data sources: a workshop held at World Haptics 2015 and interviews with haptic designers.
 \autoref{ch:hapticianinterviews} discusses this characterization of haptic experience design.
 \end{enumerate}
-
-
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width=\textwidth]{HaXDTheoryCaseStudyOutline-2016-08-11}
-\caption{Vibrotactile design case studies. Each studies an aspect of vibrotactile design with a varied set of users, devices, platforms, and foci.}
-\label{fig:intro:casestudyoverview}
-\end{center}
-\end{figure}
-
 
 
 \subsection{Depth: Vibrotactile Design Tool Case Studies}
