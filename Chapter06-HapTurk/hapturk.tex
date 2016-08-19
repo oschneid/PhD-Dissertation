@@ -11,25 +11,21 @@
 \end{figure}
 
 
-While Chapters 3-5 document iterative development of VT tools, in \autoref{ch:hapturk} we recount a designed \emph{technique} to support large scale feedback high-fidelity VT effects: HapTurk.
-%   In modern handheld and wearable devices, vibrotactile (VT) feedback can provide unintrusive, potentially meaningful cues through wearables in on-the-go contexts~\cite{Brunet2013a}.
-%    With % trend-setting 
-%    consumer wearables like Pebble and the Apple Watch featuring high-fidelity actuators, VT feedback is becoming standard  in more user tools.
-%    Today, VT designers seek to provide sensations with various perceptual and emotional connotations to support the growing use cases for VT feedback (everyday apps, games, etc.).
-%    Although low-level design guidelines exist and are helpful for addressing perceptual requirements \cite{maclean2003perceptual,InwookHwang2013,Ternes2008,Brewster2004,Brown2006a},  higher-level concerns and design approaches to increase their usability and information capacity (e.g., a user's desired affective response, or affective or metaphorical interpretation) have only recently received study and are far from solved \cite{Obrist2013,Arab2015,Seifi2014,Israr2014,Jansson-Boyd2011,Okamoto2013}.
-As we have shown,
-tactile design relies heavily on iteration and user feedback \cite{Schneider2014}.
-In \autoref{ch:hapticinstrument} we found utility in informal, collocated user feedback, but were unable to reach conclusions about haptic language due to small sample size.
-%Despite its importance \cite{Seifi2014,Seifi2015}, collecting user feedback on perceptual and emotional (i.e., affective) properties  of tactile sensations in small-scale lab studies is undermined by noise due to individual differences (IDs). %can result in large variation in ratings and inconclusive results.
- 
- In other design domains, crowdsourcing  enables collecting feedback at scale.
-    Researchers and designers use platforms like Amazon's Mechanical Turk\footnote{Also known as ``MTurk", \texttt{www.mturk.com}} to deploy user studies with large samples, receiving extremely rapid feedback in, e.g., creative text production \cite{Siangliulue2015}, graphic design \cite{Xu2014} and sonic imitations \cite{Cartwright2015}.
-    The  problem with crowdsourcing tactile feedback is that the ``crowd''  can't feel the stimuli.
-    Even when consumer devices have tactors,  output quality and intensity is unpredictable and uncontrollable.
+\noindent
+\inlineHeading{Preface} 
+While Chapters \ref{ch:hapticinstrument}-\ref{ch:macaron} describe iterative development of vibrotactile tools, HapTurk\footnote{\fullCitation{Schneider2016hapturk}} studies a vibrotactile technique. % to support large scale feedback high-fidelity VT effects.
+HapTurk follows up on our goal of collaboration in \autoref{ch:hapticinstrument}, where we found utility in informal, collocated user feedback. %, but were unable to reach conclusions about haptic language due to small sample size.
+Here, we look into \emph{browse}'s opposite: \emph{share}, disseminating or storing a design concept.
+%We specifically study \emph{sharing} in the context of collecting feedback.
+In other design domains, crowdsourcing platforms like Amazon's MTurk can deploy user studies with large samples, receiving extremely rapid feedback.
+%    The  problem with crowdsourcing tactile feedback is that the ``crowd''  can't feel the stimuli.
+   % Even when consumer devices have tactors,  output quality and intensity is unpredictable and uncontrollable.
 %    Sending each user a device is impractical
 %   What we need are crowd-friendly proxies for test stimuli.
-Our approach is to instead send more easily-shared stimuli: \emph{proxies}, which are sent to the crowd instead of the source stimuli.
-In this chapter, we design and evaluate the potential of two proxy methods for high-fidelity vibrations: visualizations and low-fidelity phone vibrations.
+However, high-fidelity haptic sensations require a specialized device usually constrained to the lab.
+Our approach is to instead send more easily-shared stimuli: proxies, which are sent to the crowd instead of the source stimuli.
+Though we use proxies to collect crowdsourced feedback, this technique be used for other \emph{sharing} purposes, \eg, media broadcasting.
+%In this chapter, we design and evaluate the potential of two proxy methods for high-fidelity vibrations: visualizations and low-fidelity phone vibrations.
 
 
 
