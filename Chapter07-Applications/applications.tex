@@ -146,11 +146,6 @@ FeelCraft plugins are designed to make haptics accessible to end users using exi
 %In this paper, we have presented FeelCraft, a software plugin that allows users to author, customize, share, and broadcast dynamic tactile experiences with media and user activities. The plugin uses FEs, semantically structured haptic patterns.
 %We integrated the FeelCraft plugin with a popular sandbox game, MineCraft. Users can associate six events in the game to corresponding FE, and modify and broadcast to other users to share the haptic experience. The newly authored FEs are saved and shared with other users for communal use via an online FE repository. The pro- posed plugin can also be used with a wide range of entertaining, social, and edu- cational media. Future work includes expanding the FE repository, networked communication and sharing, and supporting output to different haptic device types while maintaining semantic meaning, connecting end users to haptics in an even more accessible manner.
 
-
-
-\section{Feel Messenger: Expressive Effects with Commodity Systems}
-\label{sec:applications:feelmessenger}
-
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=\textwidth]{feelmessenger/Figure1} 
@@ -159,6 +154,9 @@ FeelCraft plugins are designed to make haptics accessible to end users using exi
 \end{figure}
 
 
+
+\section{Feel Messenger: Expressive Effects with Commodity Systems}
+\label{sec:applications:feelmessenger}
 \noindent
 In \autoref{sec:applications:feelcraft}, we designed expressive spatial VT Feel Effects using existing infrastructure, using a plugin architecture to link desktop applications to new VT hardware.
 In \autoref{sec:applications:feelmessenger}, we look at the expressiveness of existing infrastructure and actuation methods with Android smartphones for customizable VT effects by implementing customizable VT emojis in a chat program, Feel Messenger.
@@ -363,7 +361,7 @@ We also explored stylus use, finding that a rubber tip would barely transmit any
 
 \begin{figure} [bt]
   \centering
-  \includegraphics[width=0.6\textwidth]{handson/CyberHap-ConceptualModel-page1_PB_crop}
+  \includegraphics[width=0.7\textwidth]{handson/CyberHap-ConceptualModel-page1_PB_crop}
   \caption{Students, teachers, and researchers can explore science, technology, engineering, and math (STEM) abstractions through low-fidelity haptics, incorporating elements into system designs.}
   % \caption{HandsOn conceptual model:  students, teachers, and researchers can incorporate low-fidelity haptics to learn or design.} 
   % at different levels of exploration.}
@@ -371,22 +369,29 @@ We also explored stylus use, finding that a rubber tip would barely transmit any
 \end{figure}
 
 \inlineHeading{Preface} In \autoref{sec:applications:handson}, we investigate creative control of 1-degree of freedom (DOF) force-feedback display for education.
-Education literature has established that embodied, physical interaction can improve learning by making abstractions concrete \cite{montessori_advanced_1917,papert1980,piaget_science_1970}.
-Meanwhile,
+Force-feedback is interactive, with output dependent on input, but also controllable when the user holds their hand stationary, unlike programmable friction feedback explored in \autoref{sec:applications:roughsketch}.
+The application area, science education, offers important design constraints: feedback must enhance learning without distraction, and in this project, enable creative exploration for students.
+We thus both design haptic feedback and enable students to design while they learn.
+To manage this, we model feedback as a system of springs, easy to adjust and design, but scalable to more complex tasks by combining multiple springs in series or parallel.
+
+
+\subsection{Abstract}
+Embodied, physical interaction can improve learning by making abstractions concrete, 
+while 
 online courses and interactive lesson plans have increased education access and versatility. 
-Haptic technology can integrate these benefits, especially with recent developments for affordable DIY hardware (cite hapkit), but requires % but requires both low-cost hardware (recently enabled by low-cost DIY devices) and
-accessible software that enables students to creatively explore haptic environments without writing code.
-%To investigate haptic e-learning without user programming, 
-%we developed \HandsOn, a conceptual model for exploratory, embodied STEM education software; and implemented it with the \SpringSim interface and a task battery for high school students. 
+Haptic technology could integrate these benefits, but requires both low-cost hardware (recently enabled by low-cost DIY devices) and accessible software that enables students to creatively explore haptic environments without writing code.
+To investigate haptic e-learning without user programming, 
+we developed \HandsOn, a conceptual model for exploratory, embodied STEM education software; and implemented it with the \SpringSim interface and a task battery for high school students. 
 %structure graphically presented STEM educational lessons, conveyed through affordable, self-assembled force feedback devices.
 %limits the latter; as such, e-learning haptics has never been evaluated.
 %puts haptic exploration out of reach for most schools or self-learners.
 %We provide this missing \HandsOn, a conceptual model on which we can structure graphically presented STEM educational lessons, conveyed through affordable, self-assembled force feedback devices.
 %
-%%a need to write code.
-%In two studies, we confirm that low-cost devices can render haptics adequately for this purpose, 
-%find qualitative impact of \SpringSim on student strategies and curiosity,
-%and identify directions for tool improvement and extension.
+%a need to write code.
+In two studies, we confirm that low-cost devices can render haptics adequately for this purpose, 
+find qualitative impact of \SpringSim on student strategies and curiosity,
+and identify directions for tool improvement and extension.
+
 
 
 
@@ -453,6 +458,68 @@ accessible software that enables students to creatively explore haptic environme
 %% \paragraph{Requirements:}  % Note - there's another "requirements" under Apparatus.
 %\subsubsection{Approach and Present Objectives:}
 \subsection{Introduction}
+Recognition of the value of a hands-on, embodied approach to learning dates to 1907, when
+Maria Montessori opened a school where she used \emph{manipulatives} to teach a wide array of concepts ranging from mathematics to reading, e.g., by introducing the alphabet through children tracing their finger along large, cut-out letters~\cite{montessori_advanced_1917}.
+Constructivist learning theories posit that well-designed manipulatives can assist understanding by grounding abstract concepts in concrete representations ~\cite{papert1980,piaget_science_1970},
+%Their use today is 
+and are an accepted core principle in early math and science education, confirmed empirically~\cite{carbonneau_meta-analysis_2013}. 
+
+More recently, digital technologies are radically altering learning environments.
+Massive Open Online Courses (MOOCs) expand access, games motivate, and with graphical simulations (e.g., PhET~\cite{wieman_phet:_2008}), students can interact with abstractions to develop their understanding.
+However, these experiences are disembodied. Indirect contact via keyboard, mouse and screen introduces a barrier of abstraction that undermines the connection and path to understanding. 
+% that the interaction aims to promote. 
+
+
+Haptic (touch-based) technology should bring %able to bring
+ benefits of physicality and embodied learning~\cite{dourish_where_2004} to interactive virtual environments. 
+It adds a sensory channel as another route to understanding~\cite{calvert_crossmodal_1998}; when deployed appropriately, active exploration can improve understanding~\cite{martin_physically_2005} and memory~\cite{glenberg_activity_2004} of new concepts. 
+Haptic tools have already shown promising results in many specializations, demographics and age groups, both
+to enhance lesson fidelity 
+% (e.g., physics and medical simulations)  -- don't have room for citations!
+and to increase engagement and motivation through tangibility and interactivity; e.g., with devices like Geomagic Touch\footnote{Prev. Sensable Phantom \url{www.geomagic.com/en/products/phantom-omni/overview}}~\cite{williams_implementation_2004} and SPIDAR-G~\cite{sato_haptic_2008}.
+
+Unfortunately, %t
+%These 
+%Sadly, 
+existing approaches have %suffer from 
+both hardware and software limitations.
+Actuated learning tools introduce physical issues of cost, storage, and breakage;
+devices are  too bulky, complex, or expensive for schools or self-learners.
+For software, it is hard for users to construct and explore their own haptic environments. Typically, users load a virtual system to interact with it haptically. This sidelines the rich learning potential of involving users with model construction~\cite{papert1980}.
+We address hardware with the HapKit~\cite{martinez_2016}, a \$50, simple, low-fidelity device constructed from 3d printed materials.  
+
+Our focus here is on software, with a new learning environment that lets users both construct and explore haptic systems. Until now, the only way for a user to construct a haptic system was by programming it herself. Our approach, inspired by Logo ~\cite{papert1980} and Scratch ~\cite{maloney2010}, is to ultimately % KM notes: currently we don't provide much power compared to programming. But it's planned for.
+provide much of the power of a programming language while hiding distracting complexity. 
+
+
+% The rise of open-sourced DIY methods are enabling low-cost, compact, simple designs (e.g., the HapKit \cite{martinez_2016}) which can mitigate these factors, but at the cost of rendering fidelity. 
+% Requirements for display resolution and accuracy are imposed by lessons' perceptual demands, e.g., comparisons needed to assess a hypothesis.
+
+
+
+% \subsubsection{Challenges of Haptic Technology in the Classroom:}
+%
+%  Actuated learning tools introduce obvious physical issues of cost, storage, and breakage. 
+% Devices are often too bulky, complex, or expensive for either schools or self-learners.
+
+% The rise of open-sourced DIY methods are enabling low-cost, compact, simple designs (e.g., the HapKit \cite{martinez_2016}) which can mitigate these factors, but at the cost of rendering fidelity. 
+% Requirements for display resolution and accuracy are imposed by lessons' perceptual demands, e.g., comparisons needed to assess a hypothesis.
+% hypothesis examination and problem solving.
+
+%Unfortunately, hardware is just one layer of the learning experience. 
+%The HapKit, for example, is controlled through an 
+%Arduino\footnote{\url{https://www.arduino.cc}} development environment (IDE). 
+% The problem is not just that 
+%Programming a haptic virtual model is beyond most students in an introductory physics class and thus a massive distraction; worse, procedural programming % , particularly procedural styles, 
+%is a highly abstracted activity that removes  students from the direct-interaction, embodied aspects of the learning environment. 
+
+% Current software that accompanies haptic devices in an educational context can be restrictive \todo{RD: CITE}. An educational haptic-enabled interface must be suitable for immediate interactive use by a broad range of lessons and learners, while supporting engaging educational tasks. %
+% More engaging activities will be creative and design-oriented \rdC{1cite} , building upon more structured introductory exercises; but the coding this eventually entails must remain direct and object-based -- as exemplified by Papert's Logo~\cite{papert1980} and the Scratch visual programming environment~\cite{maloney2010}.
+%
+%Lessons (structured or open-ended) must scale to conventional class sizes, which will be delivered and perhaps designed by teachers themselves non-expert in haptics or programming. 
+
+% \paragraph{Requirements:}  % Note - there's another "requirements" under Apparatus.
+\subsubsection{Approach and Present Objectives:}
 To study \textit{how} to unlock the potential of hapticized virtual environments in STEM education, we need a viable front-end.
 %
 % Here, we take the first step towards these requirements with a graphical learning interface which presents a \textit{single} lesson as an evaluation instrument with several purposes. It must allow us to 
@@ -483,8 +550,6 @@ describe the role of haptics compared to mouse input, and
 provide %guidance and
 recommendations
 for future evaluation, lesson and tool design.
-%for next evaluation steps and next-generation lesson and tool design.
-
 
 % ============================================
 \subsection{Tool Development: Conceptual Model and Interface}
@@ -1199,20 +1264,24 @@ Future interfaces can both increase physical model complexity and breadth (e.g.,
 
 
 
-%% =========================================
-%\subsection{Conclusions}
-%%
+% =========================================
+\subsection{Conclusions}
 %
-%% We have presented initial insights into the influence of haptics in e-learning tasks. 
-%Haptic feedback's potential in STEM education use can only be accessed with a comprehensible, extendable, and transparent front-end. 
-%We present \HandsOn, a conceptual skeleton for interfaces incorporating virtual forces into learning tasks,
-%%to access the posited benefits of tangibility with the accessibility, power and flexibility of virtual environments.
-%and assess its first implementation, \SpringSim and task set. 
-%Our findings (on interface usability, task effectiveness, and impact of haptic feedback on learning strategies, understanding and curiosity) underscore this approach's promise, as we proceed to study haptic influence on learning outcomes themselves.
+
+% We have presented initial insights into the influence of haptics in e-learning tasks. 
+Haptic feedback's potential in STEM education use can only be accessed with a comprehensible, extendable, and transparent front-end. 
+We present \HandsOn, a conceptual skeleton for interfaces incorporating virtual forces into learning tasks,
+%to access the posited benefits of tangibility with the accessibility, power and flexibility of virtual environments.
+and assess its first implementation, \SpringSim and task set. 
+Our findings (on interface usability, task effectiveness, and impact of haptic feedback on learning strategies, understanding and curiosity) underscore this approach's promise, as we proceed to study haptic influence on learning outcomes themselves.
 
 
 \section{CuddleBit Design Tools: Sketching and Refining Affective Robot Behaviours}
 \label{sec:applications:cuddlebit}
+In \autoref{sec:applications:cuddlebit}, we explore a third non-vibrotactile modality - furry, affective, breathing robots called CuddleBits.
+These robots are multimodal: they visibly move, and their breathing can be felt.
+We use the CuddleBits as a rich design problem - supporting engaging, emotional, lifelike behaviour design - and as a means to explore the interplay between two design tools, each supporting different activities: \emph{skecthing} and \emph{refining}.
+
 As robots begin to take a larger role in our lives, they require natural ways of interacting with people.
 Notably, they need to communicate affectively with humans, recognizing and expressing emotion, or behaving with a life-like personality.
 This is important for both everyday interactions with robots, and targeted health applications: robot-based therapy can measurably relax people by breathing \cite{Sefidgar2016}.
@@ -1220,37 +1289,37 @@ This is important for both everyday interactions with robots, and targeted healt
 The Haptic Creature project \cite{Yohanan2011} explores the role of touch-based interactions with furry, zoomorphic robots.
 However, an early prototype of a multi-DoF haptic robot, the CuddleBit, suffers from slow iteration for both hardware form-factor and software behaviours.
 To explore these concepts more thoroughly, we developed the CuddleBits \cite{cang2015cuddlebits}: simple, affective robot pals built with a rapid prototyping (sketching) ethic.
-To control CuddleBit behaviour and inform \haxd support tools in this complex domain, we developed two software design tools: MacaronBit and Voodle (\autoref{fig:cuddlebitdesigntools}).
+To control CuddleBit behaviour and inform \haxd support tools in this complex domain, we developed two software design tools: Voodle and MacaronBit (\autoref{fig:cuddlebitdesigntools}).
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
+      \begin{subfigure}{\textwidth}
+   	   \includegraphics[width=\textwidth]{cuddlebit/VoodleScreenshot} 
+	      \caption{Voodle, a vocal doodling interface that uses voice to control the CuddleBit. The circle in the middle visualizes the CuddleBit's movement on-screen, while  additional controls adjust algorithms for vocal processing.}
+	      \label{fig:voodle}
+   \end{subfigure}
+   \qquad
    \begin{subfigure}{\textwidth}
    	   \includegraphics[width=\textwidth]{cuddlebit/MacaronBitScreenshot} 
 	      \caption{MacaronBit, a version of Macaron (\autoref{ch:macaron}) extended to control CuddleBits.}
 	      \label{fig:macaronbit}
    \end{subfigure}
- 
-   \begin{subfigure}{\textwidth}
-   	   \includegraphics[width=\textwidth]{cuddlebit/VoodleScreenshot} 
-	      \caption{Voodle, a vocal doodling interface that uses voice to control the CuddleBit. The circle in the middle visualizes the CuddleBit's movement on-screen, while  additional controls adjust algorithms for vocal processing.}
-	      \label{fig:voodle}
-   \end{subfigure}
-   \caption{CuddleBit design tools. MacaronBit enables \emph{refining} of affective robot behaviours, while Voodle enables initial \emph{sketching}.}
+   \caption{CuddleBit design tools. Voodle enables initial \emph{sketching} of affective robot behaviours, while MacaronBit enables \emph{refining}.}
    \label{fig:cuddlebitdesigntools}
 \end{figure}
-
-MacaronBit (\autoref{fig:macaronbit}) is an adaptation of Macaron (\autoref{ch:macaron}) to control 1-DoF CuddleBit using a familiar track-based metaphor.
-Instead of two tracks controlling amplitude and frequency, MacaronBit has five: low-frequency amplitude and frequency (for breathing); high-frequency amplitude and frequency (for ``shakiness" or ``noise"), and bias (asymmetry in the signal), determined during piloting.
-MacaronBit has been deployed in two studies to develop a set of verified CuddleBit behaviours expressing five emotions from Russel's affective grid: TODO.
 
 Voodle (\autoref{fig:voodle}), from ``vocal doodling", is a novel sketching interface to easily create 1-DoF behaviours using non-speech voice, in particular, ideophones \cite{Dingemanse2012} like ``Ooooh" and ``Bwooop."
 It is inspired by the onomatopoeia descriptions found with our initial exploration (\autoref{ch:hapticinstrument}) and previous work \cite{Seifi2015,Watanabe2012}.
 Through a series of user studies, we developed a prioritized set of ideophones and how they mapped to movements of the CuddleBit.
 At the time of writing, Voodle is in active development; we are using participatory design to further identify critical features, Voodle's expressive capability, and how it might fit into a design tool suite for the CuddleBit alongside Macaron.
 
+MacaronBit (\autoref{fig:macaronbit}) is an adaptation of Macaron (\autoref{ch:macaron}) to control 1-DoF CuddleBit using a familiar track-based metaphor.
+Instead of two tracks controlling amplitude and frequency, MacaronBit has five: low-frequency amplitude and frequency (for breathing); high-frequency amplitude and frequency (for ``shakiness" or ``noise"), and bias (asymmetry in the signal), determined during piloting.
+
 Voodle and MacaronBit are symbiotic.
 Users can record voodles and export them to MacaronBit; initial result suggest that they each support different goals for users.
 Together, Voodle and MacaronBit represent sketching (\autoref{ch:hapticinstrument}) and refining (\autoref{ch:tactileanimation}, showing that this dichotomy provides a useful framing when creating \haxd support tools and applies to other display types beyond VT icon design.
+Research is ongoing in a series of user studies, exploring expressiveness and consistency of designed behaviours, the specific capabilities and roles of the two tools, and important considerations for future development.
 
 
 \endinput
