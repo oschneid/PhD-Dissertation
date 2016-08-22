@@ -1276,15 +1276,39 @@ and assess its first implementation, \SpringSim and task set.
 Our findings (on interface usability, task effectiveness, and impact of haptic feedback on learning strategies, understanding and curiosity) underscore this approach's promise, as we proceed to study haptic influence on learning outcomes themselves.
 
 
+
+
 \section{CuddleBit Design Tools: Sketching and Refining Affective Robot Behaviours}
 \label{sec:applications:cuddlebit}
-In \autoref{sec:applications:cuddlebit}, we explore a third non-vibrotactile modality - furry, affective, breathing robots called CuddleBits.
+In \autoref{sec:applications:cuddlebit}, we explore a third non-vibrotactile modality - furry, affective, breathing robots called CuddleBits (\autoref{fig:cuddlebits}).
 These robots are multimodal: they visibly move, and their breathing can be felt.
+Their form factor and affordances can vary; for example, they can be flexible (\autoref{fig:flexibit}) or rigid (\autoref{fig:ribbit}).
 We use the CuddleBits as a rich design problem - supporting engaging, emotional, lifelike behaviour design - and as a means to explore the interplay between two design tools, each supporting different activities: \emph{skecthing} and \emph{refining}.
 
 As robots begin to take a larger role in our lives, they require natural ways of interacting with people.
 Notably, they need to communicate affectively with humans, recognizing and expressing emotion, or behaving with a life-like personality.
 This is important for both everyday interactions with robots, and targeted health applications: robot-based therapy can measurably relax people by breathing \cite{Sefidgar2016}.
+
+
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+      \begin{subfigure}{0.5\textwidth}
+   	   \includegraphics[height=1.6in]{cuddlebit/flexibit} 
+	      \caption{``FlexiBit", a furry, flexible CuddleBit.}
+	      \label{fig:flexibit}
+   \end{subfigure}
+   \qquad
+   \begin{subfigure}{0.4\textwidth}
+   	   \includegraphics[height=1.6in]{cuddlebit/ribbit-open} 
+	      \caption{``RibBit", a rigid CuddleBit.}
+	      \label{fig:ribbit}
+   \end{subfigure}
+   \caption{Two examples of CuddleBits, simple DIY haptic robots.}
+   \label{fig:cuddlebits}
+\end{figure}
+
+
 
 The Haptic Creature project \cite{Yohanan2011} explores the role of touch-based interactions with furry, zoomorphic robots.
 However, an early prototype of a multi-DoF haptic robot, the CuddleBit, suffers from slow iteration for both hardware form-factor and software behaviours.
