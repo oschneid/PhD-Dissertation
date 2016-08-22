@@ -1,5 +1,5 @@
 
-\chapter{Focused Design Projects}
+\chapter{Breadth: Focused Design Projects}
 \label{ch:applications}
 
 %
@@ -10,42 +10,51 @@
 %   \label{fig:haxd:theoryoutline}
 %\end{figure}
 
-Chapters 3-6 provide rich provide rich but focused data on how to create vibrotactile (VT) experience design tools, and Chapter 7 provides a detailed look at a VT technique for large-scale feedback.
-To complement these studies, I participated in several more focused projects, to examine other application areas, categories of devices, and gain first-hand experience as a haptic designer:
+In \autoref{ch:applications}, we complement the vibrotactile tools and techniques in Chapters \ref{ch:hapticinstrument}-\ref{ch:hapturk}, broadening 
+our scope to include application areas like gaming and education, non-vibrotactile haptic devices, and concepts like customization and other methods of \emph{sharing}.
+We adopt a haptic designer's role to gain first-hand knowledge into \haxd in a more natural design setting than our one-session lab-based evaluations.
+We include five design projects:
+%Chapters \ref{ch:hapticinstrument}-\ref{ch:macaron} describe provide rich provide rich but focused data on how to create vibrotactile (VT) experience design tools, and Chapter 7 provides a detailed look at a VT technique for large-scale feedback.
+%To complement these studies, I participated in several more focused projects, to examine other application areas, categories of devices, and gain first-hand experience as a haptic designer:
 \begin{enumerate}
     \item[\bf\ref{sec:applications:feelcraft}]
-    \textbf{FeelCraft}, a plug-in architecture for distributing customizable feel effects.
+    \textbf{FeelCraft: Sharing Customized Effects for Games}\footnote{\fullCitation{SchneiderAsiaHaptics2014}}\footnote{\fullCitation{Schneider-demo-feelcraftUIST2014}}, a plug-in architecture for distributing customizable feel effects, implemented with the game Minecraft.
     
     \item[\bf\ref{sec:applications:feelmessenger}]
-    \textbf{Feel Messenger}, a design project creating expressive shareable VT icons on commodity smart phones.
+    \textbf{Feel Messenger: Expressive Effects with Commodity Systems}\footnote{\fullCitation{Israr2015}}\footnote{\fullCitation{Schneider-demo-feelmessenger2015}}, a design project creating expressive shareable VT icons on commodity smart phones.
     
     \item[\bf\ref{sec:applications:roughsketch}]
-    \textbf{RoughSketch}, a design project for a drawing application using programmable friction with the TPad phone.
+    \textbf{RoughSketch: Designing for an Alternative Modality}, a drawing application using programmable friction with the TPad phone.
     
     \item[\bf\ref{sec:applications:handson}]
-    \textbf{HandsOn}, a conceptual model for DIY force-feedback haptics in education. 
+    \textbf{HandsOn: Designing Force-Feedback for Education}\footnote{\fullCitation{Minaker2016}}, a conceptual model for DIY force-feedback haptics in education. 
+    %\footnote{\inlineCitation{Martinez-demo-hapkit2016}}
     
     \item[\bf\ref{sec:applications:cuddlebit}]
-    \textbf{Voodle} and \textbf{MacaronBit}, design tools extended to control CuddleBits, simple affective robots.
+    \textbf{CuddleBit Design Tools: Sketching and Refining Affective Robot Behaviours}\footnote{\fullCitation{Bucci2016}} Voodle and MacaronBit are design tools for CuddleBits, simple affective robots.
 \end{enumerate}
 
+\noindent
+Sections \ref{sec:applications:feelcraft}-\ref{sec:applications:roughsketch} and \ref{sec:applications:cuddlebit} were primarily presented as demos with associated papers; we present these in a summary format rather than full reproduction.
+Section \ref{sec:applications:handson} is fully reproduced with a preface.
 
-
-\section{FeelCraft}
+\section{FeelCraft: Sharing Customized Effects for Games}
 \label{sec:applications:feelcraft}
 %In recent years, haptic feedback has shown promise to enhance user experience in movies, games, rides, virtual simulations, and social and educational media [1?3]. However, current mainstream media has yet to use the richness of haptic modality within its content. The lack of haptic authoring tools, production infrastructure,
 %standardized playback protocols, and skilled and trained workers has contributed to the difficulty of integrating haptic content with accompanying media. To reduce the gap between haptics and mainstream communication, haptic feedback must be expressive, coherent, and synchronized with the content of the media, and also meet user expectations. We believe that allowing end users to access, customize, and share haptic media will create an intimate, engaging, and personalized experience, and proliferate the use of haptics.
 
-As shown in prior work (cite Hasti), and as we will discuss in \autoref{ch:hapticianinterviews}, customization is an important feature for haptic experiences.
+As shown in prior work \cite{Seifi2013,Seifi2014}, and as we will discuss in \autoref{ch:hapticianinterviews}, customization is an important feature for haptic experiences.
 In addition, haptic media must be built around existing infrastructure, as it is not directly supported by most media types.
 FeelCraft is a media plugin architecture that monitors events and activities in the media, and associates them to user-defined haptic content in a seamless, structured way.
 The FeelCraft plugin allows novice users to generate, recall, save, and share haptic content, and play and broadcast them to other users to feel the same haptic experience, without having any skill in haptic content generation.
-In this chapter, we describe the plug-in architecture, envisioned applications, and our implementation for VT grid arrays displaying Feel Effects (FEs) \cite{Israr2014} for a popular video game, MineCraft.
+In this chapter, we describe the plug-in architecture, envisioned applications, and our implementation for VT grid arrays displaying Feel Effects (FEs) \cite{Israr2014} for a popular video game, Minecraft.
+Our implementations uses the Marvel Avengers Vybe Haptic Gaming Pad by Comfort Research (\url{http://comfortresearch.com}), a chair-shaped pad with 12 actuators (6 voice coils and 6 rumble motors).
+We designed effects that leveraged this display, \eg, voice coils simulating rain on the user's back when there is rain in-game, and rumble motors creating a galloping sensation on the chair's seat when the user rides an virtual horse.
+
 %In the current implementation, we concentrate on the vibrotactile array as the source of sensation and the back as the surface for stimulation; however, the FeelCraft architecture can be easily adapted for other haptic feedback modalities. We begin by presenting relevant background work related to haptic media
 %infrastructure. We then present the FeelCraft architecture and describe in detail each component of the system. Finally, we conclude the paper with our envisioned application ecosystem.
 %In this paper, we propose and implement an architecture that channels media
 %content to dynamic and expressive tactile sensations.
-\osC{TODO: Go through citations in this section, update from the paper.}
 
 %\subsection{Approach}
 %Infrastructures to integrate haptic feedback in media have been primarily derived from media type and user interactions associated with the content.
@@ -78,7 +87,7 @@ A FeelCraft plugin maps media to haptic sensations in a modular fashion, support
 By using a FeelCraft plugin, users can link existing and new media to the haptic feedback technology, use an FE library to find appropriate semantically defined effects, author, customize, and share a common, evolving repository of FEs, and play and broadcast haptic experiences to one or more user(s).
 A pictorial description of the FeelCraft architecture is shown in Fig. 1 architecture.
 
-The conceptual framework of FeelCraft revolves around the FE library introduced in [17?].
+The conceptual framework of FeelCraft revolves around the FE library introduced in \cite{Israr2014}.
 The FE library provides a structured and semantically correct association of media events with haptic feedback.
 By using the authoring interface to tailor FE parameters, a repository of FEs can remain general while being used for unique, engaging, and suitable sensations for different media.
 The playback system, authoring and control interface, Event2Haptic mappings, and media plugin support seamless flow of the media content to the haptic feedback hardware.
@@ -93,19 +102,19 @@ The playback system, authoring and control interface, Event2Haptic mappings, and
 \begin{description}
 	\item[Media (1)] can be entertaining, such as video games, movies, and music, or
 social and educational.
-The media can also be general user activity or embedded events in applications. In our implementation, we use the popular sandbox indie game Minecraft (https://minecraft.net).
+The media can also be general user activity or embedded events in applications. In our implementation (\autoref{fig:feelcraft:ecosystem}), we use the popular sandbox indie game Minecraft (https://minecraft.net).
 
 	\item[Media Plugin (2)] is a software plugin that communicates with the media and
-outputs events and activities. This plugin can be as simple as receiving messages from the media or as complicated as extracting events and activities from a sound stream. With existing media, common plugin systems are automatic capture of semantic content from video frames [6], camera angles [1], or sounds [8, 9], or the interception of input devices (such as game controllers or keyboard events). We use a CraftBukkit Minecraft server modification to capture in-game events.
+outputs events and activities. This plugin can be as simple as receiving messages from the media or as complicated as extracting events and activities from a sound stream. With existing media, common plugin systems are automatic capture of semantic content from video frames \cite{Isokoski2012}, camera angles \cite{Danieau2014}, or sounds \cite{Lee2013,Chang2005}, or the interception of input devices (such as game controllers or keyboard events). We use a CraftBukkit Minecraft server modification to capture in-game events.
 
 	\item[Event2Haptic (3)] mappings associate events to FEs, which are designed, tuned,
-and approved by users using the FE library. This critical component links the media plugin?s output to the haptic playback system. Currently, six FEs are triggered by six recurring in-game events: the presence of rain, low player health, movement on horse, strike from a projectile, in-game explosions, and player falls. Our imple- mentation provides the option to store this mapping directly in the source code, or in a text-based JavaScript Object Notation (JSON) file
+and approved by users using the FE library. This critical component links the media plugin's output to the haptic playback system. Currently, six FEs are triggered by six recurring in-game events: the presence of rain, low player health, movement on horse, strike from a projectile, in-game explosions, and player falls. Our implementation provides the option to store this mapping directly in the source code, or in a text-based JavaScript Object Notation (JSON) file
 
 	\item[FE Library (4)] is a collection of FEs. A key feature of an FE is that it correlates
-the semantic interpretation of an event with the parametric composition of the sensation in terms of physical variables, such as intensity, duration, and temporal onsets [17]. Each FE is associated with a family, and semantically, similar FEs are associated with the same family. For example, the Rain family contains FEs of light rain and heavy rain; as well that that of sprinkle, drizzle, downpour, and rain.In our implementation, each FE family is represented as a Python source file that defines parametric composition of the FE and playback sequences for the FeelCraft Playback system, and each FE is coded as preset parameters in a JSON file. FE family files are necessary to play corresponding FEs in the family, and new FE families can be developed or downloaded through the shared FE repository. The FE can also be created, stored, and shared. FE family and FE files are stored in a local directory of the plugin and loaded into FeelCraft on startup.
+the semantic interpretation of an event with the parametric composition of the sensation in terms of physical variables, such as intensity, duration, and temporal onsets \cite{Israr2014}. Each FE is associated with a family, and semantically, similar FEs are associated with the same family. For example, the Rain family contains FEs of light rain and heavy rain; as well that that of sprinkle, drizzle, downpour, and rain.In our implementation, each FE family is represented as a Python source file that defines parametric composition of the FE and playback sequences for the FeelCraft Playback system, and each FE is coded as preset parameters in a JSON file. FE family files are necessary to play corresponding FEs in the family, and new FE families can be developed or downloaded through the shared FE repository. The FE can also be created, stored, and shared. FE family and FE files are stored in a local directory of the plugin and loaded into FeelCraft on startup.
 
 	\item[Authoring and Control Interfaces (5, 6)] allow users to create and save new
-FEs and tune, edit, and play back existing FEs. Users modify an FE by varying sliders labeled as common language phrases instead of parameters such as duration and intensity (Fig. 1). Therefore, users can design and alter FEs by only using the semantic logic defining the event. The interface also allows users to map game events to new FEs and broadcast to other users, supporting a What-You-Feel- Is-What-I-Feel (WYFIWIF) interface [15].
+FEs and tune, edit, and play back existing FEs. Users modify an FE by varying sliders labeled as common language phrases instead of parameters such as duration and intensity (Fig. 1). Therefore, users can design and alter FEs by only using the semantic logic defining the event. The interface also allows users to map game events to new FEs and broadcast to other users, supporting a What-You-Feel- Is-What-I-Feel (WYFIWIF) interface \cite{Schneider2014}.
 
 	\item[Playback and Communication Protocols (7)] render FEs using the structure
 defined in FE family files and outputs them through a communication method (8) to one or more devices (9). Our implementation includes an API controlling the commercially available Vybe Haptic Gaming Pad via USB.
@@ -114,7 +123,7 @@ defined in FE family files and outputs them through a communication method (8) t
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=\textwidth]{feelcraft/FeelcraftMockupLabeled} 
-   \caption{Mockup for FeelCraft demo system (cite UIST and AH)}
+   \caption{Mockup for FeelCraft demo system.}
    \label{fig:feelcraft:mockup}
 \end{figure}
 
@@ -128,7 +137,7 @@ defined in FE family files and outputs them through a communication method (8) t
    \label{fig:feelcraft:ecosystem}
 \end{figure}
 
-FeelCraft plugins are designed to make haptics accessible to end users using existing media and technology. For example, a user may want to assign a custom vibration to a friend?s phone number, or add haptics to a game. In this case, a user would download a FeelCraft plugin for their device, browse FEs on an online feel repository, and download FE families they prefer. Once downloaded, the FeelCraft authoring inter- face allows for customization, as a rain FE for one video game may not quite suit another game. The user could create a new FE for their specific application, and once they were happy with it, upload their customFE for others to use. If the user wanted to show a friend their FE, they could use the playback system to drive output to multiple devices, or export the FE to a file and send it to them later. Figure 2 illustrates this ecosystem with application areas. Just like the Noun Project for visual icons (http:// thenounproject.com) and downloadable sound effect libraries, we envision online repositories of FEs that can be continually expanded with new FEs by users. Our current FErepository includes six original families described in [17] and an additional four new families: Ride, Explosion, Fall, and Arrow.
+FeelCraft plugins are designed to make haptics accessible to end users using existing media and technology. For example, a user may want to assign a custom vibration to a friend's phone number, or add haptics to a game. In this case, a user would download a FeelCraft plugin for their device, browse FEs on an online feel repository, and download FE families they prefer. Once downloaded, the FeelCraft authoring interface allows for customization, as a rain FE for one video game may not quite suit another game. The user could create a new FE for their specific application, and once they were happy with it, upload their custom FE for others to use. If the user wanted to show a friend their FE, they could use the playback system to drive output to multiple devices, or export the FE to a file and send it to them later. Figure 2 illustrates this ecosystem with application areas. Just like the Noun Project for visual icons (http:// thenounproject.com) and downloadable sound effect libraries, we envision online repositories of FEs that can be continually expanded with new FEs by users. Our current FErepository includes six original families described in \cite{Israr2014} and an additional four new families: Ride, Explosion, Fall, and Arrow.
 
 
 
@@ -139,7 +148,7 @@ FeelCraft plugins are designed to make haptics accessible to end users using exi
 
 
 
-\section{Feel Messenger}
+\section{Feel Messenger: Expressive Effects with Commodity Systems}
 \label{sec:applications:feelmessenger}
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
@@ -150,11 +159,14 @@ FeelCraft plugins are designed to make haptics accessible to end users using exi
 \end{figure}
 
 
-In \autoref{sec:applications:feelcraft}, we designed expressive spatial VT Feel Effects using existing infrastructure via a plugin architecture for desktop applications.
-In \autoref{sec:applications:feelmessenger}, we look at the expressiveness of existing infrastructure on Android smartphones for customizable VT effects by implementing customizable VT emojis in a chat program, Feel Messenger \cite{Israr2015}.
+\noindent
+In \autoref{sec:applications:feelcraft}, we designed expressive spatial VT Feel Effects using existing infrastructure, using a plugin architecture to link desktop applications to new VT hardware.
+In \autoref{sec:applications:feelmessenger}, we look at the expressiveness of existing infrastructure and actuation methods with Android smartphones for customizable VT effects by implementing customizable VT emojis in a chat program, Feel Messenger.
 As explained previously by \autoref{fig:vib:lofidesign} in \autoref{ch:hapturk}, APIs for vibrotactile feedback are limited to a series of pulses.
-Here we really wanted to push the limit on what was possible with commodity hardware and APIs, and explore how VT effects could fit into current devices.
-In this project, I play the role of a haptic UX designer.
+With Feel Messenger, we were able to produce expressive VT icons for emojis using the built-in Android API, including customizable effects like a heartbeat that varies in both rate and intensity.
+We found VT icons were effective when they had an engaging visual icon to frame the vibration, \eg, a cat emoji helped the user understand purring vibration was a purr.
+\autoref{fig:feelmessenger:fig1} presents a concept sketch.
+
 %Touch is particularly significant in interpersonal communication [3].
 %Ranging from mutual user interactions, such as handshakes and hugs, to directing a user's attention by poking or tapping on the shoulder; the channel of touch has also been used in children games in which one child draws patterns on another child's body usin ga finger, and the recipient child guesses what is drawn on the body [7].
 %Many authors have explored the haptic channel to artificially communicate, enhance and augment interactions on custom-made handheld and wearable devices [3, 4, 5, 16]. This paper explores the use of haptic feedback in social interactions, such as instant messaging, social networking and everyday social use on embedded mobile devices.
@@ -181,13 +193,13 @@ In this project, I play the role of a haptic UX designer.
 In this section, we present the architecture (backend) and user interface (frontend) of a messenger application that allows users to create and share haptic content through a network connection. The critical components of the application are shown in Figure 2.
 
 \inlineHeading{Architecture}
-To account for the limited computation, storage and communication capabilities of a simple microcontroller unit, we introduce feelbits and feelgits. Feelgits (short from ``feel widgets") are installed piece of software that define parametric compositions of a set of haptic patterns (called a family). Feelbits are parametric settings of a feelgit to produce a particular haptic pattern (called a feel effect [9]). For example, the feelgit of pulse is defined as two successive onsets of vibration, separated by a timing parameter. The feelbits are timing and intensity of onset parameters. Therefore, by varying feelbits, a user can personalize the haptic effect to be calm (low intensity, long temporal separation) or racing (high intensity, short temporal separation) heartbeat.
+To account for the limited computation, storage and communication capabilities of a simple microcontroller unit, we introduce feelbits and feelgits. Feelgits (short from ``feel widgets") are installed piece of software that define parametric compositions of a set of haptic patterns (called a family). Feelbits are parametric settings of a feelgit to produce a particular haptic pattern (called a feel effect \cite{Israr2014}). For example, the feelgit of pulse is defined as two successive onsets of vibration, separated by a timing parameter. The feelbits are timing and intensity of onset parameters. Therefore, by varying feelbits, a user can personalize the haptic effect to be calm (low intensity, long temporal separation) or racing (high intensity, short temporal separation) heartbeat.
 
 A library of haptic patterns is stored as parametric models (feelgits) with preset parameters (feelbits). New feelgits and feelbits can be downloaded, personalized and saved. The haptic engine idly waits for incoming haptic messages and renders haptic patterns on demand. Once the message is received, the corresponding feelgit is executed with parameters defined as feelbits. Once the pattern is completely rendered, the engine waits idly for the next message.
 
-Additionally, the response characteristics of the VT motor are also stored in the memory. These characteristics are generally represented by simple first-order functions relating the digital value (such as data byte) to the perceived intensity judged by users [10], which could be used to maintain the quality of experience across wide variety of mobile phones and hardware technologies.
+Additionally, the response characteristics of the VT motor are also stored in the memory. These characteristics are generally represented by simple first-order functions relating the digital value (such as data byte) to the perceived intensity judged by users \cite{Jones2008tactors}, which could be used to maintain the quality of experience across wide variety of mobile phones and hardware technologies.
 
-Finally, we introduce a communication protocol that shares feelgits and feelbits along with text messages. For example, the frontend application sends a function playpattern(?pulse?, p1, p2) to play the feelgit pulse with parameters defined as feelbits p1 and p2; or playpulse(?soft?) plays a predefine soft pulse. Note that in order for the device to play a haptic pattern, the corresponding feelgit must be stored in the device; the communication packet includes feelbits and the name or id of the corresponding feelgit.
+Finally, we introduce a communication protocol that shares feelgits and feelbits along with text messages. For example, the frontend application sends a function playpattern(``pulse", p1, p2) to play the feelgit pulse with parameters defined as feelbits p1 and p2; or playpulse(``soft") plays a predefine soft pulse. Note that in order for the device to play a haptic pattern, the corresponding feelgit must be stored in the device; the communication packet includes feelbits and the name or id of the corresponding feelgit.
 
 
 %\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
@@ -208,7 +220,7 @@ Finally, we introduce a communication protocol that shares feelgits and feelbits
 %Below the message interface are three icons buttons, shown in Figure 2 (2). The leftmost icon allows users to attach a predefined FE (Figure 3A). The center icon opens a Feel Editor display (Figure 3B), and the right most buttons connects to the users (Figure 3C).
 
 \inlineHeading{Predefined Patterns}
-The predefined patterns (Figure 3A) allow users to quickly attach a haptic pattern to the IM. These patterns can be stored from incoming messages or created by using stored haptic families. Each pattern is defined by a set of feelbits that plays when the corresponding feelgit is executed. These presets can be shown as text, images or emotion icons.
+The predefined patterns allow users to quickly attach a haptic pattern to the IM. These patterns can be stored from incoming messages or created by using stored haptic families. Each pattern is defined by a set of feelbits that plays when the corresponding feelgit is executed. These presets can be shown as text, images or emotion icons.
 
 \inlineHeading{Authoring interface}
 The Feel Editor displays available FE families (feelgits) and allows users to personalize, play, save and share haptic patterns.
@@ -226,12 +238,13 @@ By clicking a FE icon, sliders corresponding to parameters (feelbits) are enable
 
 
 \subsection{Haptic Vocabulary}
-The vocabulary of haptic effect is critical for expressive and precise communication between users. In this preliminary implementation, we explore three types of haptic vocabularies. Type 1 is adapted from feel effects defined in [9], where haptic patterns are semantically characterize by a phrase. Type 2 is change in physical parameters as in [4, 12] but can also be simultaneously played with feel effects. Type 3 predefined coded patterns. Figure 4 shows the icons for haptic language. Note, that the two feel effects cannot be simultaneously played. This will result is overflow of the user?s bandwidth, especially with a low-fidelity VT actuator.
+The vocabulary of haptic effect is critical for expressive and precise communication between users. In this preliminary implementation, we explore three types of haptic vocabularies. Type 1 is adapted from feel effects defined in \cite{Israr2014}, where haptic patterns are semantically characterize by a phrase. Type 2 is change in physical parameters as in \cite{Brewster2004,MacLean2003} but can also be simultaneously played with feel effects. Type 3 predefined coded patterns.
+\autoref{fig:feelmessenger:fig4} shows the icons for haptic language. Note, that the two feel effects cannot be simultaneously played. This will result in overflow of the user's bandwidth, especially with a low-fidelity VT actuator.
 
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=0.4\textwidth]{feelmessenger/fig4} 
+   \includegraphics[width=0.6\textwidth]{feelmessenger/fig4} 
    \caption{Graphical representation of haptic vocabularies and icons.}
    \label{fig:feelmessenger:fig4}
 \end{figure}
@@ -239,7 +252,7 @@ The vocabulary of haptic effect is critical for expressive and precise communica
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=0.4\textwidth]{feelmessenger/fig5} 
+   \includegraphics[width=0.6\textwidth]{feelmessenger/fig5} 
    \caption{Some examples of expressive haptic messages embedded with normal text messages.}
    \label{fig:feelmessenger:fig5}
 \end{figure}
@@ -255,7 +268,7 @@ A set of feel effects is defined that delivers emotional, attentional and contex
 \end{description}
 
 \inlineHeading{Type 2: Physical Effects}
-These effects are associated with direct variation in tactile patterns. Previous studies (e.g. [1, 4, 12]) have used variation in amplitude, duration as typical variation. Our library includes:
+These effects are associated with direct variation in tactile patterns. Previous studies (\eg, \cite{Brewster2004,MacLean2003}) have used variation in amplitude, duration as typical variation. Our library includes:
 
 \begin{description}
 	\item[Ramp-up:] gradual increase in intensity; parameters are peak intensity and the rate of increase.
@@ -263,17 +276,17 @@ These effects are associated with direct variation in tactile patterns. Previous
 	\item[Spacer:] keeps steady intensity; parameters are intensity and duration. This can be used for putting a delay (or spaces) between two haptic effects.
 \end{description}
 
-These effects create new haptic effects and can also be combined with feel effects. Such as the message Ramp-up | Motor followed by Ramp-down creates a new pattern that gradually increases the rumbling and then decays linearly as shown in Fig 5.
+These effects create new haptic effects and can also be combined with feel effects. Such as the message Ramp-up | Motor followed by Ramp-down creates a new pattern that gradually increases the rumbling and then decays linearly as shown in \autoref{fig:feelmessenger:fig5}.
 
 \inlineHeading{Type 3: Coded Effects}
-This type demonstrates symbolic vocabularies, such as one adapted from International Morse Code that consists of pre-stored pulses of dots and dashes. Other examples can be vibratese language [16], emoticon, and input from peripheral sensors.
+This type demonstrates symbolic vocabularies, such as one adapted from International Morse Code that consists of pre-stored pulses of dots and dashes. Other examples can be vibratese language \cite{Tan1997}, emoticon, and input from peripheral sensors.
 
 
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=\textwidth]{feelmessenger/FeelMessenger-WHC15} 
-   \caption{Implemented Feel Messenger application demo at World Haptics 2015 (cite).}
+   \caption{Implemented Feel Messenger demo at World Haptics 2015.}
    \label{fig:feelmessenger:demo}
 \end{figure}
 
@@ -294,15 +307,15 @@ VT effects are felt when editing, when received, and when the user taps a messag
 All effects were implemented using built-in Android APIs.
 
 
-\section{RoughSketch}
+\section{RoughSketch: Designing for an Alternative Modality}
 \label{sec:applications:roughsketch}
 
 FeelCraft (\autoref{sec:applications:feelcraft}) and Feel Messenger (\autoref{sec:applications:feelmessenger}) used existing infrastructure to conduct VT design, but how do other types of feedback vary?
-In Sections \ref{sec:applications:roughsketch} to \ref{sec:applications:cuddlebit}, we investigate other modalities in other applications.
+In Sections \ref{sec:applications:roughsketch} to \ref{sec:applications:cuddlebit}, we investigate other modalities in other applications: programmable friction for touchscreen drawing, force-feedback for education, and affective robots for emotional expression.
 Here, in \autoref{sec:applications:roughsketch}, we describe RoughSketch, a drawing application for the TPad Phone.
 
 The TPad Phone (www.thetpadphone.com) is a programmable friction display mounted on an Android phone.
-It uses piezo-actuated mechanical vibration to create a \osC{TODO: need actual name for the effect, and probably to cite original TPad papers}.
+It uses piezo-actuated mechanical vibration to create a cushion of air, reducing friction \cite{Winfield2007a}.
 As part of the World Haptics 2015 Student Innovation Challenge, we built RoughSketch, a mobile drawing application to explore friction displays for digital mark-making.
 We looked at several mark-making interaction techniques including:
 \begin{itemize}
@@ -327,21 +340,25 @@ We looked at several mark-making interaction techniques including:
    \label{fig:roughsketch:poster}
 \end{figure}
 
-To implement RoughSketch, we adapted an open-source Android application (todo) and used the TPad Phone API to control friction using two methods:
-pre-loaded textures defined by bitmaps, and
-code-based envelopes that programmatically adapt friction based on input values or time.
-We used a variety of real-world metaphors to inspire our designs, and rapidly iterated on them.
-Illustrations of these are available in \autoref{fig:roughsketch:handout}.
+\noindent
+To implement RoughSketch, we adapted an open-source Android drawing application, Markers (\url{https://github.com/dsandler/markers}) and used the TPad Phone API to control friction using two methods:
+static textures defined by bitmaps, and
+temporal envelopes that programmatically adapt friction based on input values or time.
+We used a variety of real-world metaphors to inspire our designs; these are
+illustrated in \autoref{fig:roughsketch:handout}.
 While designing and developing RoughSketch, we exposed a design space, finding conflicts for our metaphors, specifically, should TPad sensations feel like their real-world equivalent, or are they unique to the TPad; and 
 should rendered textures represent the drawing process, or the finished product?
-We also explored how they would be adapted if the user interacted with RoughSketch using an app rather than their finger.
-These findings are outlined in \autoref{fig:roughsketch:poster}.
+%We also explored how they would be adapted if the user interacted with RoughSketch using an app rather than their finger.
 
-\osC{TODO: here or in final discussion, put findings like, some styli worked, and others didn't; and that turning off the tactile sensation was important for convincing people that haptics was valuable, especially when it was subtle; maybe reflect on pinch/zoom? }
+Our findings are outlined in \autoref{fig:roughsketch:poster}.
+In addition to developing different effects, we informally compared haptic feedback to non haptic feedback by including a toggle to friction feedback.
+Although some effects were subtle, once disabled, users immediately noticed the difference and preferred to have haptic feedback.
+We also explored stylus use, finding that a rubber tip would barely transmit any sensation, while a more rigid tip would propagate the (dampened) effect.
 
 
 
-\section{HandsOn}
+
+\section{HandsOn: Designing Force-Feedback for Education}
 \label{sec:applications:handson}
 
 \begin{figure} [bt]
@@ -353,8 +370,7 @@ These findings are outlined in \autoref{fig:roughsketch:poster}.
   \label{fig:conceptOverview}
 \end{figure}
 
-
-In \autoref{sec:applications:handson}, we investigate creative control of 1-degree of freedom (DOF) force-feedback display for education.
+\inlineHeading{Preface} In \autoref{sec:applications:handson}, we investigate creative control of 1-degree of freedom (DOF) force-feedback display for education.
 Education literature has established that embodied, physical interaction can improve learning by making abstractions concrete \cite{montessori_advanced_1917,papert1980,piaget_science_1970}.
 Meanwhile,
 online courses and interactive lesson plans have increased education access and versatility. 
@@ -436,6 +452,7 @@ accessible software that enables students to creatively explore haptic environme
 %
 %% \paragraph{Requirements:}  % Note - there's another "requirements" under Apparatus.
 %\subsubsection{Approach and Present Objectives:}
+\subsection{Introduction}
 To study \textit{how} to unlock the potential of hapticized virtual environments in STEM education, we need a viable front-end.
 %
 % Here, we take the first step towards these requirements with a graphical learning interface which presents a \textit{single} lesson as an evaluation instrument with several purposes. It must allow us to 
@@ -1194,22 +1211,39 @@ Future interfaces can both increase physical model complexity and breadth (e.g.,
 %Our findings (on interface usability, task effectiveness, and impact of haptic feedback on learning strategies, understanding and curiosity) underscore this approach's promise, as we proceed to study haptic influence on learning outcomes themselves.
 
 
-\section{CuddleBit Design Tools}
+\section{CuddleBit Design Tools: Sketching and Refining Affective Robot Behaviours}
 \label{sec:applications:cuddlebit}
 As robots begin to take a larger role in our lives, they require natural ways of interacting with people.
 Notably, they need to communicate affectively with humans, recognizing and expressing emotion, or behaving with a life-like personality.
-This is important for both everyday interactions with robots, and targeted health applications: robot-based therapy can measurably relax people by breathing (Seidfeger).
+This is important for both everyday interactions with robots, and targeted health applications: robot-based therapy can measurably relax people by breathing \cite{Sefidgar2016}.
 
 The Haptic Creature project \cite{Yohanan2011} explores the role of touch-based interactions with furry, zoomorphic robots.
 However, an early prototype of a multi-DoF haptic robot, the CuddleBit, suffers from slow iteration for both hardware form-factor and software behaviours.
 To explore these concepts more thoroughly, we developed the CuddleBits \cite{cang2015cuddlebits}: simple, affective robot pals built with a rapid prototyping (sketching) ethic.
-To control CuddleBit behaviour and inform \haxd support tools in this complex domain, we developed two software design tools: MacaronBit and Voodle.
+To control CuddleBit behaviour and inform \haxd support tools in this complex domain, we developed two software design tools: MacaronBit and Voodle (\autoref{fig:cuddlebitdesigntools}).
 
-MacaronBit (Figure XX) is an adaptation of Macaron (\autoref{ch:macaron}) to control 1-DoF CuddleBit using a familiar track-based metaphor.
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \begin{subfigure}{\textwidth}
+   	   \includegraphics[width=\textwidth]{cuddlebit/MacaronBitScreenshot} 
+	      \caption{MacaronBit, a version of Macaron (\autoref{ch:macaron}) extended to control CuddleBits.}
+	      \label{fig:macaronbit}
+   \end{subfigure}
+ 
+   \begin{subfigure}{\textwidth}
+   	   \includegraphics[width=\textwidth]{cuddlebit/VoodleScreenshot} 
+	      \caption{Voodle, a vocal doodling interface that uses voice to control the CuddleBit. The circle in the middle visualizes the CuddleBit's movement on-screen, while  additional controls adjust algorithms for vocal processing.}
+	      \label{fig:voodle}
+   \end{subfigure}
+   \caption{CuddleBit design tools. MacaronBit enables \emph{refining} of affective robot behaviours, while Voodle enables initial \emph{sketching}.}
+   \label{fig:cuddlebitdesigntools}
+\end{figure}
+
+MacaronBit (\autoref{fig:macaronbit}) is an adaptation of Macaron (\autoref{ch:macaron}) to control 1-DoF CuddleBit using a familiar track-based metaphor.
 Instead of two tracks controlling amplitude and frequency, MacaronBit has five: low-frequency amplitude and frequency (for breathing); high-frequency amplitude and frequency (for ``shakiness" or ``noise"), and bias (asymmetry in the signal), determined during piloting.
 MacaronBit has been deployed in two studies to develop a set of verified CuddleBit behaviours expressing five emotions from Russel's affective grid: TODO.
 
-Voodle (from ``vocal doodling") is a novel sketching interface to easily create 1-DoF behaviours using non-speech voice, in particular, sub-linguistic ideomorphs \cite{Dingemanse2012} like ``Ooooh" and ``Bwooop."
+Voodle (\autoref{fig:voodle}), from ``vocal doodling", is a novel sketching interface to easily create 1-DoF behaviours using non-speech voice, in particular, ideophones \cite{Dingemanse2012} like ``Ooooh" and ``Bwooop."
 It is inspired by the onomatopoeia descriptions found with our initial exploration (\autoref{ch:hapticinstrument}) and previous work \cite{Seifi2015,Watanabe2012}.
 Through a series of user studies, we developed a prioritized set of ideophones and how they mapped to movements of the CuddleBit.
 At the time of writing, Voodle is in active development; we are using participatory design to further identify critical features, Voodle's expressive capability, and how it might fit into a design tool suite for the CuddleBit alongside Macaron.
