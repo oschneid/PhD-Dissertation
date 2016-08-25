@@ -358,53 +358,61 @@ This could be done \emph{in-situ}, or during manufacturing for different device 
 % Section - Meaning
 %
 %%%%%%%%%%%%%%%%%%
-\subsection{Designing Meaning}
-Because of the novelty of haptic design, we found that conceptual schemas are important for understanding the intent of haptic sensations.
+\subsection{Framing and Meaning}
+Because of the novelty of haptic design, we found that conceptual framing is important for understanding the intent of haptic sensations.
 \osC{TODO: \cite{Brunet2013a}}
+We have suggest three ways of designing meaning into haptic experiences:
+schemas and metaphors,
+design languages,
+and reinforcement through narrative context and other modalities.
+
+
+
+\subsubsection{Schemas and Metaphors}
 Schemas are existing conceptual models used as transitionary objects to understanding new concepts \cite{Papert1980}.
 We found this procedure occurred not only in educational contexts, but also in design.
 In our early Haptic Instrument exploration, we found our participants' prior experience was a lens through which they interpreted haptic sensations.
 For example, one cat-owning participant interpreted likened sensations to cat purring, while another drew more on their knowledge of engines and cars.
 Heartbeats and rain \cite{Israr2014} are effects that were easily understand by general participants, and verified using perceptual studies.
 Schemas are useful both for framing user interpretation of haptic experiences, and for designers themselves.
-We have also found the concept of design languages and narrative as helpful ideas when creating experiences.
-
-\subsubsection{Schemas as a tool for users}
-\osC{KM: This part was mostly written by Hasti. However, browse emerged partially }
-To interpret haptic signals, people employ a number of conceptual or translational  schemas, often combining them.  % frameworks
-We might compare a haptic sensation to a natural one (``This is like a cat purring''), 
- to emotions and feelings (``This is boring'''), or
-consider its potential usage (when a quickening tactile pulse sequence is described as a ``speed up''). 
-%
-The meaning someone chooses is typically influenced by the sensation itself but also by the context of use and the user's background and past experiences~\cite{seifi2015vibviz, schneider2014improvising, Obrist2013}. 
-
-%\begin{figure}[bt]
-%        \centering
-%        \includegraphics[height=2.5in]{figures/InterpretiveFacets3}
-%        \caption{People use a variety of cognitive frameworks to make sense of haptic signals.}
-%        \label{fig:interpSchemas}
-%    \end{figure}
-    
-\textit{Facets} are a concept originating from the domain of library and information retrieval which nicely capture the multiplicity and flexibility of users' sense-making schemas for haptic sensations. A facet is a set of related properties or labels that describe an aspect of an object~\cite{facetedbrowsing2010}. Five descriptive facets have been proposed and examined for haptic vibrotactile stimuli \cite{seifi2015vibviz}: physical properties, sensory properties, emotional connotations, metaphors, and usage examples.
- 
-%    \textit{\textbf{Physical}} properties that can be measured -- such as duration, energy
-%    
-%    \textit{\textbf{Sensory}} properties -- roughness, softness
-%    
-%    \textit{\textbf{Emotional}} connotations -- pleasantness, urgency 
-%        
-%    \textit{\textbf{Metaphors}} or familiar examples to describe a vibration's feel -- drumbeat, cat purring
-%    
-%    \textit{\textbf{Usage examples}} or types of events where a vibration fits -- ``speed up'', ``time's up''
-
-If a designer neglects a consistent consideration of these meaning assignment facets % frameworks, 
-the result is likely to be confusion and bad user experience.
-Leveraged properly, facet-driven 
-mappings can be lead to more intuitive, consistent results and highlight pathways to work around individual differences, for example through tools that allow users to efficiently customize their interfaces.
-
-Schemas can also be used for haptic designers to help frame their design processes.
 As covered in \autoref{ch:rw}, many previous systems have their roots in other, non-haptic concepts, \eg Touch TV \cite{}.
 This enables transfer effects; as we showed with Tactile Animation (\autoref{ch:tactileanimation}), visual animators were able to easily create tactile designs.
+
+%\osC{KM: This part was mostly written by Hasti. However, browse emerged partially }
+%To interpret haptic signals, people employ a number of conceptual or translational  schemas, often combining them.  % frameworks
+%We might compare a haptic sensation to a natural one (``This is like a cat purring''), 
+% to emotions and feelings (``This is boring'''), or
+%consider its potential usage (when a quickening tactile pulse sequence is described as a ``speed up''). 
+%%
+%The meaning someone chooses is typically influenced by the sensation itself but also by the context of use and the user's background and past experiences~\cite{seifi2015vibviz, schneider2014improvising, Obrist2013}. 
+%
+%%\begin{figure}[bt]
+%%        \centering
+%%        \includegraphics[height=2.5in]{figures/InterpretiveFacets3}
+%%        \caption{People use a variety of cognitive frameworks to make sense of haptic signals.}
+%%        \label{fig:interpSchemas}
+%%    \end{figure}
+%    
+%\textit{Facets} are a concept originating from the domain of library and information retrieval which nicely capture the multiplicity and flexibility of users' sense-making schemas for haptic sensations. A facet is a set of related properties or labels that describe an aspect of an object~\cite{facetedbrowsing2010}. Five descriptive facets have been proposed and examined for haptic vibrotactile stimuli \cite{seifi2015vibviz}: physical properties, sensory properties, emotional connotations, metaphors, and usage examples.
+% 
+%%    \textit{\textbf{Physical}} properties that can be measured -- such as duration, energy
+%%    
+%%    \textit{\textbf{Sensory}} properties -- roughness, softness
+%%    
+%%    \textit{\textbf{Emotional}} connotations -- pleasantness, urgency 
+%%        
+%%    \textit{\textbf{Metaphors}} or familiar examples to describe a vibration's feel -- drumbeat, cat purring
+%%    
+%%    \textit{\textbf{Usage examples}} or types of events where a vibration fits -- ``speed up'', ``time's up''
+%
+%If a designer neglects a consistent consideration of these meaning assignment facets % frameworks, 
+%the result is likely to be confusion and bad user experience.
+%Leveraged properly, facet-driven 
+%mappings can be lead to more intuitive, consistent results and highlight pathways to work around individual differences, for example through tools that allow users to efficiently customize their interfaces.
+%
+%Schemas can also be used for haptic designers to help frame their design processes.
+%As covered in \autoref{ch:rw}, many previous systems have their roots in other, non-haptic concepts, \eg Touch TV \cite{}.
+%This enables transfer effects; as we showed with Tactile Animation (\autoref{ch:tactileanimation}), visual animators were able to easily create tactile designs.
 
 \subsubsection{Design Languages}
 Another way of framing a haptic experience is to use a \emph{design language} like Google's Material Design (\url{https://material.google.com}).
@@ -425,7 +433,7 @@ In early piloting, these were not very helpful for understanding.
 Adding in vibrant cartoon emoji icons, and using  a cat's face (for a purr) rather than a motor image were much more effective in sending haptic icons.
 
 It is also worth mentioning the role of realism in a haptic experience.
-There are two types of realism, photo-realism (veridicality) and real-seeming (verisimillitude) (cite McCloud).
+There are two types of realism, photo-realism (veridicality) and real-seeming (verisimillitude) \cite{mccloud1993understanding}.
 For example, cartoons and animation are clearly not depictions of reality (they do not display veridicality), but they can appear life-like (they display verisimilitude).
 In this dissertation, we focused on verisimillitude rather than veridicality; the latter is often already accommodated by realistic rendering techniques.
 We believe both require a design process, but more photo-realistic approaches have different challenges than cartoony ones, and may require more of an engineering perspective than a design perspective.
@@ -435,33 +443,34 @@ That said, sometimes combining the two is helpful; much like how in computer gra
 
 
 %%%%%%%%%%%%%%%%%%
-% SubSection - Customization
+% SubSection - Adaptable Interfaces
 %%%%%%%%%%%%%%%%%%
-\subsection{Customization}
+\subsection{Adaptable Interfaces}
 \label{sec:conclusion:adaptableinterfaces}
 We've shown how individual differences are a prominent feature of haptic perception and psychology.
 Furthermore,  variability in and poor designer control over context --  user attention and  device form factor and manner of connection, as well as use environment -- mean that haptic sensations often need to be tuned to both each person and each use case.
+In \autoref{ch:hapticianinterviews}, we suggested that adaptable interfaces could help manage changing context and encourage consistency and appropriate feedback.
 
 The most likely solution   is to make it easy for end-users in populations that might benefit from a haptic modality to \textit{customize} aspects of haptic design elements, whether by choosing pre-formed settings and ``skins'', adapting defaults, or wholly designing their own. 
 Possible approaches range from volume-like slider controls, options to select sensations from curated collections, or, at the more complex end, perceptually-confirmed filters like those found in Instagram or PhotoShop~\cite{Seifi2014,seifi2015vibviz,SchneiderAsiaHaptics2014}.
 
 
-\inlineHeading{Volume Controls}
-As found in our interviews with designers, the end-user context is sometimes unknowable.
-There is not much designers can do other than putting a volume control on their design to facillitate customization.
-In informal discussions with engineers from commercial companies (\eg D-Box), volume controls were a critical, early addition to their haptic chairs.
-As explored in our FeelCraft and FeelChat projects, the extra level of volume control is implementable, expressive, reduces footprints, but is more limiting for designers and requires programming expertise.
-While there is a great deal of noise in perceptual parameters for high-level controls, careful investigation can improve this \cite{Israr2014,Seifi2014}.
-
-
-
-\inlineHeading{Novelty and Irritation}
-Haptic sensations are new, giving them great power and great responsibility.
-They can grab attention, but designers must take care not to annoy with constant haptic feedback.
-The balance is tricky. 
-Good design might be not even noticed when present.
-With RoughSketch, we found that allowing a button to remove haptic feedback was very persuasive for appropriate, non-irritating designs.
-We also found that muting features were essential for \haxd design tools.
+%\inlineHeading{Volume Controls}
+%As found in our interviews with designers, the end-user context is sometimes unknowable.
+%There is not much designers can do other than putting a volume control on their design to facillitate customization.
+%In informal discussions with engineers from commercial companies (\eg D-Box), volume controls were a critical, early addition to their haptic chairs.
+%As explored in our FeelCraft and FeelChat projects, the extra level of volume control is implementable, expressive, reduces footprints, but is more limiting for designers and requires programming expertise.
+%While there is a great deal of noise in perceptual parameters for high-level controls, careful investigation can improve this \cite{Israr2014,Seifi2014}.
+%
+%
+%
+%\inlineHeading{Novelty and Irritation}
+%Haptic sensations are new, giving them great power and great responsibility.
+%They can grab attention, but designers must take care not to annoy with constant haptic feedback.
+%The balance is tricky. 
+%Good design might be not even noticed when present.
+%With RoughSketch, we found that allowing a button to remove haptic feedback was very persuasive for appropriate, non-irritating designs.
+%We also found that muting features were essential for \haxd design tools.
 
 
 
@@ -481,7 +490,7 @@ Finally, we conclude with some comments on our evaluation methodology and how fu
 % SubSection - Online Communities
 %%%%%%%%%%%%%%%%%%
 \subsection{Communities and On-line Deployment}
-Unfortunately, haptic technology faces obstacles to Browsing and Sharing, especially when under development; this has typically confined distribution and exposure to lab prototypes available only to in-person visitors.
+Unfortunately, haptic technology faces obstacles to \emph{browsing} and \emph{sharing}, especially when under development; this has typically confined distribution and exposure to lab prototypes available only to in-person visitors.
 Demos are difficult to setup and there is little infrastructure in place for distribution.
 While synchronous, collocated collaboration is effective with demos, remote or asynchronous collaboration is rife with trouble.
 Consistency must be maintained, and setup can be painful for those not trained in setting up devices.
@@ -496,7 +505,7 @@ The trend will accelerate as the field matures, but there will need to be concur
 \subsubsection{Crowdsourcing and broadcasting:} 
     We reviewed some of the substantial challenges and spoke of one type of solution.
     In HapTurk (\autoref{ch:hapturk}), we showed proxies of high quality haptic experiences  can communicate key aspects on more shareable media, to gain access to crowdsource evaluation tools like Mechanical Turk.
-    Proxies might be able to generalize in other ways, for example, using video to infer feedback about physically moving objects like the CuddleBits (\eg as in \cite{Pedersen2014}).
+    Proxies might be able to generalize in other ways, for example, using video to infer feedback about physically moving objects like the CuddleBits (\eg, as in \cite{Pedersen2014}).
 
     Proxies can do more than elicit feedback from crowds.
     It might also be a viable way to translate sensations between representations, analogous to downsampling high-definition video broadcasts for standard definition televisions.
@@ -522,16 +531,6 @@ The Haptic Instrument showed evidence for deictic features - what do you think o
 In Macaron, exposing the underlying structure of examples lead to improved understanding of how to develop sensations and developed haptic idioms.
 
 
-
-
-
-\inlineHeading{Risk}
-Adding haptics is risky.
-\osC{we say this quite well in the previous 8.4 discussion, why should we repeat it?}
-
-
-
-
 %%%%%%%%%%%%%%%%%%
 %
 % Section - Towards Mature Tool Suite
@@ -545,13 +544,13 @@ Adding haptics is risky.
 % SubSection - Examples
 %%%%%%%%%%%%%%%%%%
 
-\inlineHeading{Soft Features}
+\subsubsection{Soft Features}
 Repeatedly, participants asked for ``soft features", associated with more polished tools.
 This includes features like copy and paste, undo and redo, saving and loading, grouping, looping, reduced delay, and high-fidelity rendering.
 We increasingly found, as we iteratively developed \haxd tools, that these features are more important than getting the right paradigm.
 As long as a designer is able to freely and accurately create, they can work around awkward design metaphors.
 
-\inlineHeading{Low barrier, wide walls, high ceiling}
+\subsubsection{Low barrier, wide walls, high ceiling}
 A major goal of our work was to support creativity with haptic technology, and to support low barriers, wide walls, and a high ceiling \cite{Shneiderman2007,Resnick2008}.
 We've confirmed that this is critical for \haxd, and found ways of accomplishing it.
 As we mentioned, our participants found soft features essential, which helped to free them to make mistakes, explore various options, and provide both accessibility (low barriers) and refinement (high ceilings).
@@ -559,53 +558,53 @@ For example, in Tactile Animation, participants found the animation objects easi
 Similarly, we found the more flexible track-based paradigm used by Macaron to allow for various paths through the interface, and was generalizable to other sensations like simple 1-DOF robots.
 
 
-
-Making haptics means different things at different stages in the process (Section~\ref{sec:4:Making}). 
-Media creation in other modalities is supported with a wealth of tool specializations that recognize these diverse needs. Haptic making has reached a maturity that demands tool power, nuance, and specialization as well.
-
-Some of the important ground to cover here includes better support for \textit{sketching}, \textit{high-level manipulations}, \textit{multimodal qualitative analysis} and \textit{browsing}, as well as workflow integration and addition of specific useful features to tools that already do exist.
+%
+%Making haptics means different things at different stages in the process. 
+%Media creation in other modalities is supported with a wealth of tool specializations that recognize these diverse needs. Haptic making has reached a maturity that demands tool power, nuance, and specialization as well.
+%
+%Some of the important ground to cover here includes better support for \textit{sketching}, \textit{high-level manipulations}, \textit{multimodal qualitative analysis} and \textit{browsing}, as well as workflow integration and addition of specific useful features to tools that already do exist.
 
 %
 % SubSub - Sketching
 %
-\subsubsection{Allowing Sketchiness}
-Early design needs support for low-cost, rapid ideation that elevates key points without extraneous detail. Haptic design presents a few challenges; solving these will further empower designers.
-
-\textit{Ambiguous sketches} show only necessary detail or relevant view points, helping a designer work with half-formed ideas and questions, but a haptic sensation requires a physical implementation which must be exactly specified. 
+%\subsubsection{Allowing Sketchiness}
+%Early design needs support for low-cost, rapid ideation that elevates key points without extraneous detail. Haptic design presents a few challenges; solving these will further empower designers.
 %
-We need to explore different approaches to quick prototyping of different haptic aspects -- \eg, feel, form factor, timing. One approach is \textit{modularity}: prototyping one aspect at a time, then integrating into more expensive engineering prototypes once the design space has been narrowed. Here, the tool need is both for ready-to-go platforms to explore single-aspect ideas, and ways to efficiently extract, port, or integrate best-of-breed sketches into later design stages.
-    
-\inlineHeading{Good defaults:} In another approach, designers will be able to select from carefully chosen default settings, and/or specify  any known constraints with other details be filled in automatically. 
-    
-\inlineHeading{Annotation:} Sketching should supply markup support for both early-stage designers themselves and the stakeholders they share with, to  annotate sketches, circle problem areas, and write down related ideas.
-    
-\inlineHeading{Ad-hoc use:} Finally, tools should be easy to access. With a pen, any napkin is a canvas. Haptics (and multimodal interactions in general) need napkins too. 
-
-
+%\textit{Ambiguous sketches} show only necessary detail or relevant view points, helping a designer work with half-formed ideas and questions, but a haptic sensation requires a physical implementation which must be exactly specified. 
+%%
+%We need to explore different approaches to quick prototyping of different haptic aspects -- \eg, feel, form factor, timing. One approach is \textit{modularity}: prototyping one aspect at a time, then integrating into more expensive engineering prototypes once the design space has been narrowed. Here, the tool need is both for ready-to-go platforms to explore single-aspect ideas, and ways to efficiently extract, port, or integrate best-of-breed sketches into later design stages.
+%    
+%\inlineHeading{Good defaults:} In another approach, designers will be able to select from carefully chosen default settings, and/or specify  any known constraints with other details be filled in automatically. 
+%    
+%\inlineHeading{Annotation:} Sketching should supply markup support for both early-stage designers themselves and the stakeholders they share with, to  annotate sketches, circle problem areas, and write down related ideas.
+%    
+%\inlineHeading{Ad-hoc use:} Finally, tools should be easy to access. With a pen, any napkin is a canvas. Haptics (and multimodal interactions in general) need napkins too. 
 %
-% SubSub - Low-level
 %
-\subsubsection{Fluid control of low-level parameters}
-A viable approach enabled by our real-time tools is an implicit understanding of the sensations by designers, who were able to work with low-level engineering parameters like frequency, amplitude, or even voltage.
-In the Tactile Animation study, we found that while animation objects were more used and described are more accessible for non-animators, vector sensations (directly controlling each actuator) were described as useful for finer, expert control.
-Learning to control low-level parameters is important for ``high ceilings" in \haxd support tools.
-
-
-
+%%
+%% SubSub - Low-level
+%%
+%\subsubsection{Fluid control of low-level parameters}
+%A viable approach enabled by our real-time tools is an implicit understanding of the sensations by designers, who were able to work with low-level engineering parameters like frequency, amplitude, or even voltage.
+%In the Tactile Animation study, we found that while animation objects were more used and described are more accessible for non-animators, vector sensations (directly controlling each actuator) were described as useful for finer, expert control.
+%Learning to control low-level parameters is important for ``high ceilings" in \haxd support tools.
 %
-% SubSub - High-level
 %
-\subsubsection{High-Level Manipulations} 
-The haptics community currently has access to a number of editing tools which together exhibit a variety of approaches to editing and authoring, primarily of low level effect detail (Section~\ref{sec:make_tools}).
-However, being able to manipulate sensations in the large or in an expressive way will enable designers to access a larger design space, and do more in less time.
-
-In other modalities (Photoshop for graphic media, Audacity for sound), this kind of functionality appears in a variety of ways.  
-\textit{Filters} are essentially ``tuners'' that move a sensation along dimensions of direct design interest.
-\textit{Transformations} allow users to alter or distort a segment, \eg, to darken or brighten it,  stretch its time base in a linear or nonlinear way, or shift component balance.
 %
-\textit{Large-scale manipulations} can move, combine, subtract and otherwise alter design elements.
-
-The scope of such manipulations should span perceptual, informational, and affective perspectives. Research is underway to understanding these manipulations from user perceptual and subjective standpoints, and implement them algorithmically. 
+%%
+%% SubSub - High-level
+%%
+%\subsubsection{High-Level Manipulations} 
+%The haptics community currently has access to a number of editing tools which together exhibit a variety of approaches to editing and authoring, primarily of low level effect detail (Section~\ref{sec:make_tools}).
+%However, being able to manipulate sensations in the large or in an expressive way will enable designers to access a larger design space, and do more in less time.
+%
+%In other modalities (Photoshop for graphic media, Audacity for sound), this kind of functionality appears in a variety of ways.  
+%\textit{Filters} are essentially ``tuners'' that move a sensation along dimensions of direct design interest.
+%\textit{Transformations} allow users to alter or distort a segment, \eg, to darken or brighten it,  stretch its time base in a linear or nonlinear way, or shift component balance.
+%%
+%\textit{Large-scale manipulations} can move, combine, subtract and otherwise alter design elements.
+%
+%The scope of such manipulations should span perceptual, informational, and affective perspectives. Research is underway to understanding these manipulations from user perceptual and subjective standpoints, and implement them algorithmically. 
 
 
 %
@@ -629,14 +628,14 @@ Researchers are good at pioneering individual steps and features, but integratio
 Which task focus and development pipelines are to be supported, including multimodal design and integration,  will be driven by application areas with urgent needs and a promising economic prognosis:  \eg, for movie special effects versus surgical simulations or end-user customizations.
 
 
-%
-% SubSub - Engineering features into mature tools
-%
-\subsubsection{Iteration}
-In our interviews, we found iteration was extremely painful.
-Despite this, we've found iteration is necessary (as with all design processes), but even more so because it is difficult to understand requirements or identify a good design without feeling it.
-Many of our designers would iterate until it ``felt right".
-Thus, iteration is very necessary yet very painful.
+%%
+%% SubSub - Engineering features into mature tools
+%%
+%\subsubsection{Iteration}
+%In our interviews, we found iteration was extremely painful.
+%Despite this, we've found iteration is necessary (as with all design processes), but even more so because it is difficult to understand requirements or identify a good design without feeling it.
+%Many of our designers would iterate until it ``felt right".
+%Thus, iteration is very necessary yet very painful.
 
 
 
@@ -652,7 +651,7 @@ From these three implementations, and from attempting to distribute or deploy th
 Many of these are straightforward applications of software engineering, but we particularly found recently developed web tools to be especially useful when managing the complex interfaces required by design tools.
 
 \inlineHeading{Observer Pattern}
-Well established as a design pattern \cite{}, the found the observer pattern was critical in keeping the complex interfaces of our design tools synchronized.
+Well established as a software engineering design pattern, we found the observer pattern was critical in keeping the complex interfaces of our design tools synchronized.
 This is especially critical because we need to synchronize haptic, audio, and video playback, and allow implementations through both temporal and spatial means.
 In Mango, we implemented this pattern ourselves, but in Macaron, we used React \cite{} which automates the process.
 This latter approach was more efficient and facillitated programming.
@@ -673,8 +672,8 @@ Our tools would check JSON files for designed features - like amplitude tracks i
 These structures were simple, human-readable, ignored extraneous detail, and could gracefully fail when poorly formatted.
 Because we need to accommodate different paradigms in \haxd tools, lightweight data types make a lot of sense.
 
-\inlineHeading{Existing data structures like .WAV}
-Audio control useful, Arduino connection useful - but how to connect to web?
+%\inlineHeading{Existing data structures like .WAV}
+%Audio control useful, Arduino connection useful - but how to connect to web?
 
 
 \inlineHeading{Web Deployment}
@@ -687,8 +686,8 @@ Documentation for use
 In interviews with designers, we found that delay was critical; multimodal sensations had to be tightly synchronized.
 We found similar problems with our tools.
 mHIVE had a short delay which was distracting to participants, particularly when they tried to play very short pulses.
-Macaron's real-time audio synthesizer sometimes created a ``muddy" effect (P?) because it had a limited update rate.
-We found this disappeared after implemented .WAV exporting function.
+Macaron's real-time audio synthesizer sometimes created a ``muddy" effect because it had a limited update rate.
+We found this disappeared after we implemented a .WAV exporting function.
 Combined with our findings that users would switch between focused, in-depth editing and more reflective experiencing, we suggest (and are working to implement) a pre-feel/render model, like with visual effects tools.
 This is one potential problem with current web implementations of our design tools, especially when attempting to communicate to embodied devices like Arduino.
 
@@ -724,28 +723,28 @@ Logging and analytics not a problem; should record these features (from Macaron,
 %%%%%%%%%%%%%%%%%%
 % SubSection - Flow, learning, scaffolding
 %%%%%%%%%%%%%%%%%%
-\subsubsection{Flow, Learning, Scaffolding, and Embodiment}
+%\subsubsection{Flow, Learning, Scaffolding, and Embodiment}
 
 
 
 
-\subsubsection{Exploratory Analysis and Visualization Tools (Haptic Analytics)} 
-Haptic researchers frequently analyze haptic datasets with the goal of informing next steps in a design use case or deriving design guidelines for the haptic community. 
-Such an  investigation usually involves exploratory analysis of quantitative and qualitative attributes of signals and users' perceptions. 
-Currently, designers use a potpourri of general-purpose software (\eg, Matlab, R, SPSS, Tableau) for their analysis. Each tool provides just a partial view of the data; the difficutly of integrating their insights hinders the analysis process. 
-
-Visual analytics interfaces, which support analytical reasoning through interactive visualization of datasets, are largely absent from haptics at this time. 
-Examples of desirable functionalities  include easy access to the feel and source of signals, enabling rapid and flexible organization of haptic signals according to their various properties, allowing researchers (and the crowd) to attach metadata (tags, genealogy, annotations) to elements and subsets of a haptic collection, and do analytics on this metadata.
-
-
-The first steps towards haptic analytic interfaces (Section~\ref{sec:make_tools}) have exposed some of the work that's needed to make these truly useful. Much of it is the same underlying perceptual knowledge and  algorithmic advances required for authoring and manipulation, \eg, of perceptual dimensions and user's mental organization and ways of differentiating and interpreting sensations, and this is well underway. 
+%\subsubsection{Exploratory Analysis and Visualization Tools (Haptic Analytics)} 
+%Haptic researchers frequently analyze haptic datasets with the goal of informing next steps in a design use case or deriving design guidelines for the haptic community. 
+%Such an  investigation usually involves exploratory analysis of quantitative and qualitative attributes of signals and users' perceptions. 
+%Currently, designers use a potpourri of general-purpose software (\eg, Matlab, R, SPSS, Tableau) for their analysis. Each tool provides just a partial view of the data; the difficutly of integrating their insights hinders the analysis process. 
 %
-Connection to or integration of multimodal functionality -- \eg, suitability for coordinating with design elements from other modalities, in various communication roles (Section~\ref{sec:IM_roles}) -- will develop along with our experience in working with these modalities. 
+%Visual analytics interfaces, which support analytical reasoning through interactive visualization of datasets, are largely absent from haptics at this time. 
+%Examples of desirable functionalities  include easy access to the feel and source of signals, enabling rapid and flexible organization of haptic signals according to their various properties, allowing researchers (and the crowd) to attach metadata (tags, genealogy, annotations) to elements and subsets of a haptic collection, and do analytics on this metadata.
+%
+%
+%The first steps towards haptic analytic interfaces (Section~\ref{sec:make_tools}) have exposed some of the work that's needed to make these truly useful. Much of it is the same underlying perceptual knowledge and  algorithmic advances required for authoring and manipulation, \eg, of perceptual dimensions and user's mental organization and ways of differentiating and interpreting sensations, and this is well underway. 
+%%
+%Connection to or integration of multimodal functionality -- \eg, suitability for coordinating with design elements from other modalities, in various communication roles (Section~\ref{sec:IM_roles}) -- will develop along with our experience in working with these modalities. 
 
 
 
 \inlineHeading{Post interviews}
-Early in our investigation, we found that participants found traditional think-aloud [] protocols challenging.
+Early in our investigation, we found that participants found traditional think-aloud protocols challenging.
 This appeared to be due to a split attention of paying close attention to sensory input on their hand while simultaneously designing sensations.
 Even without thinking-aloud, this was cognitively challenging, and participants wanted looping, or would step back to refine and feel their sensations.
 In response, we adopted unintrusive logging and post-interviews, both of which were effective in capturing aspects of the haptic design process. 
@@ -756,7 +755,7 @@ This perspective was useful for rigorous examination of our participants' interv
 In addition, the practical techniques, considering each meaning unit and clustering them into both in-vivo language and analytical language, very useful, especially when later combined with Grounded Theory techniques.
 
 \inlineHeading{Grounded Theory}
-To better equip ourselves to analyze larger sets of data and develop a broader theory, we also drew upon Grounded Theory as described by Corbin and Strauss [].
+To better equip ourselves to analyze larger sets of data and develop a broader theory, we also drew upon Grounded Theory as described by Corbin and Strauss \cite{Corbin2008}.
 Especially when analyzing screen-captured video, coding techniques were valuable in identifying countable data, strategies, and adding a second layer of data analysis techniques to complement those provided by phenomenology.
 
 \inlineHeading{Analytics and Logs}
