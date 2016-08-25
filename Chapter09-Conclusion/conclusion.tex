@@ -19,85 +19,81 @@ We conclude with directions future work and final remarks on supporting \haxd.
 %
 %%%%%%%%%%%%%%%%%%
 \section{Summary of Research Findings}
-\osC{KM: I am going to merge the following itemized lists with the Depth/Breadth/Ground subsections that I moved from the Intro; and weave through sketch/refine/browse/share. Is this the right place for it?}
+We summarize our more specific findings organized by approach: depth, breadth, and grounded capstone.
 
-Through Chapters \ref{ch:hapticinstrument} to \ref{ch:macaron} we designed, built, and studied a trio of \haxd support tools.
-We began with an initial hypothesis: that real-time feedback and collaboration could improve the haptic design process.
-Through our tools, this hypothesis was confirmed, but more importantly, elaborated and refined:
-\begin{itemize}
-	\item mHIVE showed us that rapid exploration was possible with real-time feedback, demonstrated value in informal, collocated collaboration, and gave evidence that showing rather telling about haptic sensations could circumvent an impoverished language (\eg, what do you think of \emph{that}).
-	\item mHIVE also showed us that there are distinct roles to be played by different tools: mHIVE was successful for early sketches, but did not enable refinement and had a learning curve.
-	\item Mango followed up on these themes with a focus on implementation. We established a rendering pipeline for both design and playback. A direct-manipulation metaphor let participants both sketch in real-time, and refine their designs. In addition, an animation paradigm enabled our visual animators to transfer their skills to tactile animation.
-	\item In our Mango studies, we found evidence for reuse - repetition played a large role in tactile animations, and participants again drew inspiration from their experience or external examples (\eg, a YouTube video of a heartbeat) - and noted the engagement of multimodal design, \eg, designing for an audio clip. These both informed Macaron.
-	\item In Macaron, we were able to easily implement the system (drawing from Mango's architecture), allowing us to study our process more closely. We found a number of concrete recommendations for \haxd tools, and confirmed the value of using examples: we found different strategies for using examples in the initial design process, and open or visualized examples helped designers learn how to conduct VT design.
-	\item Macaron also helped us find our more nuanced understanding of our initial hypotheses. Real-time feedback is useful as a preview, to get the right frequency, amplitude, or timing. However, participants would also step back to feel the entire design in its entirety, something that can be done
-\end{itemize}
 
-Together, mHIVE, Mango, and Macaron have informed us on both important features and roles for design tools, given us insight into implementation and evaluation, and helped to study \haxd as a process.
-To further our understanding, we conducted several focused projects which broadened our understanding of collaboration (\autoref{ch:hapturk}) and different devices and application areas (\autoref{ch:applications}):
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=\textwidth]{HaXDTheoryCaseStudyOutline-2016-08-11}
+\caption{Vibrotactile design case studies. Each studied an aspect of vibrotactile design with a varied set of users, devices, platforms, and foci.}
+\label{fig:intro:casestudyoverview}
+\end{center}
+\end{figure}
 
-\begin{itemize}
-	\item HapTurk (\autoref{ch:hapturk}) allowed us to study collaboration more thoroughly, as we focused on other aspects of design with Mango and Macaron. We found that VT icons could be deployed over MTurk to elicit large-scale feedback from remote users. We also found affective qualities of VT icons could be communicated through proxies, suggesting we can express haptic ideas in different modalities.
-	\item FeelCraft and Feel Messenger ...
-\end{itemize}
-
-Finally \osC{OS resume here}
 
 
 \subsection{Depth: Vibrotactile Design Tool Case Studies}
+Through Chapters \ref{ch:hapticinstrument}-\ref{ch:macaron} we designed, built, and studied a trio of \haxd support tools.
+Each case study investigated a different set of design concepts with varying user populations, VT device, and design challenges (\autoref{fig:intro:casestudyoverview}).
+Each followed three design steps: \emph{gather}, finding requirements and previous design elements; \emph{create}, where we design and build the tool; and \emph{evaluate}, where we test the tool with its target population and consolidate lessons learned.
+We include HapTurk (\autoref{ch:hapturk}), a VT \emph{sharing} technique, in this discussion.
+We began with an initial hypothesis: that real-time feedback and collaboration could improve the haptic design process.
+Through our tools, this hypothesis was confirmed, but more importantly, elaborated and refined.
 
-Each case study investigates a different set of design concepts with varying user populations, VT device, and design challenges.
-We iteratively develop three \haxd support tools (\autoref{fig:intro:casestudyoverview}), but restricts scope to VT sensations.
-This offers a deep look into an expressive and increasingly common class of haptic devices, allowing us to explore critical features in a somewhat controlled fashion.
-An iterative approach allows us to refine ideas and methods, and so each case study follows three steps: \emph{gather}, finding requirements and previous design elements; \emph{create}, where we design and build the tool; and \emph{evaluate}, where we test the tool with its target population and consolidate lessons learned.
-We also include a collaborative study for a VT design technique (``HapTurk").
-
-
-\begin{description}
-
-\item[Initial Exploration: The Haptic Instrument (\autoref{ch:hapticinstrument})]
+\inlineHeading{Initial Exploration: The Haptic Instrument (\autoref{ch:hapticinstrument})}
 In Study 1, the Haptic Instrument, we focus on real-time, rapid design of VT sensations with a first look into themes of real-time design and collaboration.
-When participants worked with our tool, mHIVE (a ``mobile Haptic Instrument for Vibrotactile Exploration"), compositions couldn't be edited, suggesting mHIVE was suitable for exploration and improvised communication, but not as suited to refining ideas.
-We also found informal, collocated collaboration useful, but leave future examination of collaboration support to side projects (described next in \autoref{ch:intro:approach:breadth}).
+%When participants worked with our tool, mHIVE, compositions couldn't be edited, suggesting mHIVE was suitable for exploration and improvised communication, but not as suited to refining ideas.
+%We also found informal, collocated collaboration useful, but leave future examination of collaboration support to side projects (described next in \autoref{ch:intro:approach:breadth}).
+Our implemented haptic instrument, mHIVE, showed us that rapid exploration was possible with real-time feedback, demonstrated value in informal, collocated collaboration, and gave evidence that showing rather telling about haptic sensations could circumvent an impoverished language (\eg, what do you think of \emph{that}).
+ mHIVE also showed us that there are distinct roles to be played by different tools: mHIVE was successful for early \emph{sketching}, but did not enable \emph{refinign} and had a learning curve.
 
-\item[Direct Manipulation Pipeline: Tactile Animation (\autoref{ch:tactileanimation})]
-In Study 2, Tactile Animation, we developed a single abstracted animation object directly manipulated in both space and time.
-In this study, we focused on building a usable tool to support exploration and refinement, and investigate a generalized rendering pipeline in detail to understand how to build haptic design tools.
-Animators found our tactile animation tool, Mango, easy-to-use, and confirmed our findings about the value of real-time exploration.
-We also found that ``soft features", like copy/paste and undo/redo, were extremely important.
 
-\item[Example Use and Analytics: Macaron (\autoref{ch:macaron})]
-One stand-out result from both Mango and mHIVE is that designers drew from their experience or examples found in the world, and wanted to re-use what they had created (e.g., through copy and paste).
-In Study 3, we explore the role of examples in haptic design with a web-based tool, ``Macaron", a vibrotactile track-based editor with visible, incorporable examples directly embedded in the interface.
-Macaron was implemented using the understanding we gained from Study 2, giving us more opportunity to focus on capturing and studying the design process, especially using interaction logs to investigate example use.
-%This study is codenamed ``Project Macaron" and consists of two phases.
-%Phase I, ``algorithms and interaction techniques", builds a set of perceptually-verified ways to manipulate examples and incorporate them into designs.
-%In Phase II, we use the results of Phase I to create a haptic design gallery interface, and study how and when users incorporate examples into their VT designs.
-%In this way we hope to consolidate our findings from mHIVE and Mango, and capture our participants' design process more concretely through logging of user actions.
-We found examples were used primarily as templates to inform initial design, making each individual design easier but also scaffolding the user's understanding of how to create VT effects.
-%These studies are described in more detail in \autoref{ch:hapticinstrument},  \autoref{ch:tactileanimation}, and \autoref{ch:macaron}.
+\inlineHeading{Direct Manipulation Pipeline: Tactile Animation (\autoref{ch:tactileanimation})}
+%In Study 2, Tactile Animation, we developed a single abstracted animation object directly manipulated in both space and time.
+%In this study, we focused on building a usable tool to support exploration and refinement, and investigate a generalized rendering pipeline in detail to understand how to build haptic design tools.
+%Animators found our tactile animation tool, Mango, easy-to-use, and confirmed our findings about the value of real-time exploration.
+%We also found that ``soft features", like copy/paste and undo/redo, were extremely important.
+Our second tool, Mango, followed up on these themes with a focus on implementation.
+We established a rendering pipeline for both design and playback.
+A direct-manipulation metaphor let participants both \emph{sketch} in real-time, and \emph{refine} their designs.
+In addition, an animation paradigm enabled our visual animators to transfer their skills to tactile animation.
+Our evaluation study found evidence for reuse: repetition played a large role in tactile animations, and participants again drew inspiration from their experience or external examples (\eg, a YouTube video of a heartbeat) - and noted the engagement of multimodal design, \eg, designing for an audio clip.
+These both informed Macaron.
 
-	\item[Feedback at Scale: HapTurk (\autoref{ch:hapturk})]
+
+\inlineHeading{Example Use and Analytics: Macaron (\autoref{ch:macaron})}
+%One stand-out result from both Mango and mHIVE is that designers drew from their experience or examples found in the world, and wanted to re-use what they had created (e.g., through copy and paste).
+%In Study 3, we explore the role of examples in haptic design with a web-based tool, ``Macaron", a vibrotactile track-based editor with visible, incorporable examples directly embedded in the interface.
+%Macaron was implemented using the understanding we gained from Study 2, giving us more opportunity to focus on capturing and studying the design process, especially using interaction logs to investigate example use.
+%%This study is codenamed ``Project Macaron" and consists of two phases.
+%%Phase I, ``algorithms and interaction techniques", builds a set of perceptually-verified ways to manipulate examples and incorporate them into designs.
+%%In Phase II, we use the results of Phase I to create a haptic design gallery interface, and study how and when users incorporate examples into their VT designs.
+%%In this way we hope to consolidate our findings from mHIVE and Mango, and capture our participants' design process more concretely through logging of user actions.
+%We found examples were used primarily as templates to inform initial design, making each individual design easier but also scaffolding the user's understanding of how to create VT effects.
+%%These studies are described in more detail in \autoref{ch:hapticinstrument},  \autoref{ch:tactileanimation}, and \autoref{ch:macaron}.
+With our third tool, Macaron, we were able to easily implement the system (drawing from Mango's architecture), allowing us to study our participants' process more closely.
+We found a number of concrete recommendations for \haxd tools, and confirmed the value of \emph{browsing} examples: we found different strategies for using examples in the initial design process, and open or visualized examples helped designers learn how to conduct VT design.
+ Macaron also helped us find our more nuanced understanding of our initial hypotheses. Real-time feedback is useful as a preview, to get the right frequency, amplitude, or timing. However, participants would also step back to feel the entire design in its entirety, something that can be done
+
+\inlineHeading{Feedback at Scale: HapTurk (\autoref{ch:hapturk})}
 	%is a collaboration with PhD candidate Hasti Seifi on different techniques to crowdsource feedback on VT icons. Master's student Salma Kashani and undergraduate Matthew Chun are developing visualizations and low-fidelity VT icons during summer 2015.
 	While not an iterative design tool study, HapTurk is a focused investigation of a VT design technique for collecting large-scale feedback on VT icons.
-	Haptic devices cannot be sent to hundreds or thousands of people for feedback, but collecting in-lab feedback can be expensive, and informal feedback from colleagues is limited in scope.
-	We investigate whether visual or low-fidelity \emph{proxies} can stand in for high-fidelity VT effects, with implications for both collecting feedback and broadcasting VT sensations more widely.
-
-\end{description}
-
-
+%	Haptic devices cannot be sent to hundreds or thousands of people for feedback, but collecting in-lab feedback can be expensive, and informal feedback from colleagues is limited in scope.
+%	We investigate whether visual or low-fidelity \emph{proxies} can stand in for high-fidelity VT effects, with implications for both collecting feedback and broadcasting VT sensations more widely.	
+	HapTurk (\autoref{ch:hapturk}) allowed us to study collaboration more thoroughly, as we focused on other aspects of design with Mango and Macaron. We found that VT icons could be \emph{shared} over MTurk to elicit large-scale feedback from remote users. We also found affective qualities of VT icons could be communicated through proxies, suggesting we can express haptic ideas in different modalities.
 
 
 \subsection{Breadth: Focused Haptic Design Projects}
-\label{ch:intro:approach:breadth}
-Each case study provides concrete knowledge for building a VT authoring tool, and some insight into the VT design process.
-However, VT technology can be used in many different scenarios, and there are many devices and experiences that involve other haptic modalities.
+\label{ch:conclusion:approach:breadth}
+Together, mHIVE, Mango, and Macaron have informed us on both important features and roles for design tools, given us insight into implementation and evaluation, and helped to study \haxd as a process.
+HapTurk extended this investigation to collaboration.
+%To further our understanding, we conducted several focused projects which broadened our understanding of different devices and application areas.
 To broaden our understanding of haptic design, we undertook several more focused haptic design projects to look at different activities, application areas, and haptic modalities.
 In \textbf{\autoref{ch:applications}}, we describe several smaller projects that gave opportunities for practicing haptic design and exploring other types of haptic feedback:
 
 \begin{description}
 	\item[FeelCraft (\autoref{sec:applications:feelcraft})] is a plug-in architecture that augments media with customizable spatial VT effects.
-	We use FeelCraft to explore existing infrastructure for haptic media, and to design VT effects for a popular video game, MineCraft.
+	FeelCraft explored existing infrastructure for haptic media, and to design VT effects for a popular video game, MineCraft.
 	
 	\item[Feel Messenger (\autoref{sec:applications:feelmessenger})] is a chat program augmented with expressive, customizable VT effects using commodity hardware and APIs.
 	
@@ -108,7 +104,6 @@ In \textbf{\autoref{ch:applications}}, we describe several smaller projects that
 
 	\item[CuddleBit (\autoref{sec:applications:cuddlebit})] is a project inspired by the Haptic Creature \cite{Yohanan2011affectivetouch,Yohanan2011affectdisplay,Chang2010} and CuddleBot project \cite{Allen2015cuddlebot}.
 	We use small, breathing robots to explore the display of emotion, and extend our findings from VT design tools into new tools for this modality: Voodle and MacaronBit.
-
 \end{description}
 
 
@@ -118,15 +113,13 @@ In \textbf{\autoref{ch:applications}}, we describe several smaller projects that
 \subsection{Ground: Data from Haptic Experience Designers}
 In \textbf{\autoref{ch:hapticianinterviews}}, we complement our design-based inquiry with data from haptic experience designers, or hapticians.
 Haptic designers are difficult to access as they are both rare and often work in proprietary contexts, with limited ability to speak about their process.
-To include hapticians' perspectives without severely hindering our design tool development, we conduct a grounded theory analysis of interviews with six haptic designers.
-We characterize cross-cutting themes at three levels of scope: 1) the holistic nature of haptic experiences; 2) the collaborative ecosystem of haptic designers and related stakeholders; and 3) the larger cultural context of haptics in the public consciousness.
-We augment these interview findings with those from a workshop organized at a major international haptics conference, World Haptics 2015, which let us connect with designers more widely.
+To include hapticians' perspectives without severely hindering our design tool development, we conducted a grounded theory analysis of interviews with six haptic designers.
+We characterized cross-cutting themes at three levels of scope: 1) the holistic nature of haptic experiences; 2) the collaborative ecosystem of haptic designers and related stakeholders; and 3) the larger cultural context of haptics in the public consciousness.
+We augmented these interview findings with those from a workshop organized at a major international haptics conference, World Haptics 2015, which let us connect with designers more widely.
 
-Our findings show that haptic designers follow a general user-experience design process, but with added challenges because they work with haptics.
-We articulate these challenges, concrete recommendations on how to make progress on them, and finally give a vision of haptic experience design as it might be practiced in the near future.
+Our findings showed that haptic designers follow a general user-experience design process, but with added challenges because they work with haptics.
+We articulated these challenges, concrete recommendations on how to make progress on them, and finally gave a vision of haptic experience design as it might be practiced in the near future.
 These results overlap with our findings from our design-based inquiry: some conclusions are confirmed, with similar themes emerging both from expert hapticians and our design studies; others emerged from only one source.
-We synthesize larger trends from all of our depth, breadth, and grounded findings in the conclusion, \autoref{ch:conclusion}.
-
 
 
 
@@ -177,16 +170,6 @@ We have found this distinction useful when developing suites of tools, most expl
 Voodle is a free-form Sketching tool, which can hand off to MacaronBit for Refinement.
 Future work remains to be done to establish whether there are discrete levels of focus, or if they lie along a continuum.
 In general, we've found two main features important for supporting Sketching: \textit{abstraction and ambiguity}, and \textit{rapid iteration}.
-
-
-
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width=\textwidth]{HaXDTheoryCaseStudyOutline-2016-08-11}
-\caption{Vibrotactile design case studies. Each studies an aspect of vibrotactile design with a varied set of users, devices, platforms, and foci.}
-\label{fig:intro:casestudyoverview}
-\end{center}
-\end{figure}
 
 
 
