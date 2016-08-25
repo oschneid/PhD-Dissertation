@@ -134,7 +134,7 @@ In this section, we examine our findings about the \haxd process. %, including c
 In \autoref{ch:hapticianinterviews}, we saw that haptic designers follow a familiar design process.
 However, we also saw that there are unique challenges that differentiate \haxd from other modalities of design, which are confirmed by our work into \haxd support tools and our focused design projects.
 
-We begin by discussing four design activities that occur generally in design, but need to be explicitly supported for \haxd: browse, sketch, refine, share.
+We begin by discussing four design activities that occur generally in design, but need to be explicitly supported for \haxd: \emph{browse}, \emph{sketch}, \emph{refine}, \emph{share}.
 Then, we comment on some approaches for handling the diverse devices and modalities employed by haptic technology.
 After, we discuss some techniques to imbue haptic experiences with meaning and realism.
 Finally, we talk about the importance of customization and how to support it.
@@ -148,8 +148,6 @@ mHIVE was also able to support collaboration in certain ways.
 In our followup studies, we explored these activities that draw upon a designer's context, eventually arriving at four that we found are valuable when thinking about tool design: browsing examples, sketching new ideas, refining existing ideas, and sharing ideas with others.
 These activities can occur at any point in the design process, and we do not propose them as an exhaustive list; for example, ``framing" \cite{Schon1982,Warr2005} could be claimed as an activity for design which may overlap with activities like Browsing and Sketching.
 We focus on their utility in motivating features and specific tools to aid haptic experience designers.
-\autoref{fig:conclusion:buxtonaugmented} shows how these activities fit in the design process.
-
 
 
 
@@ -159,15 +157,15 @@ We focus on their utility in motivating features and specific tools to aid hapti
 \subsubsection{Sketch}
 Sketching allows people to form abstracted, partial views of a problem or design, iterate very rapidly and explore concepts.
 The generalized notion of sketching can support other activities: sketches are a notation that can be shared, and provide a vehicle for annotating and iterating on designs.
-Here, we use ``Sketch" in contrast with Refinement, to refer to embodied exploration, concept generation, and initial design.
+Here, we use \emph{sketch} in contrast with \emph{refine}, to refer to embodied exploration, concept generation, and initial design.
 
 Early in our exploration, we found that our Haptic Instrument, mHIVE, excelled for exploring a design space but faltered for refining sensations.
 A real-time direct manipulation model in Tactile Animation facilitated both.
 In Macaron, we observed different levels of exploration and refinement, discovering a pattern of focused adjustment and repeated reflection \cite{Schon1982}, where the designers stepped back to feel their design in its entirety, and zoomed in to adjust parts in detail.
 We find this is a repeated pattern, where participants iteratively zoom in and out to different levels.
 The mixture of focus also depended on the stage of design - early on, exploration and execution take a more prominent role, while later refinement has smaller adjustments and more reflection.
-We have found this distinction useful when developing suites of tools, most explicitly when supporting design of CuddleBit behaviours.
-Voodle is a free-form Sketching tool, which can hand off to MacaronBit for Refinement.
+We have found this distinction useful when developing suites of tools, most explicitly when supporting design of CuddleBit behaviours: 
+Voodle is a free-form \emph{sketching} tool, which can hand off to MacaronBit for \emph{refinement}.
 Future work remains to be done to establish whether there are discrete levels of focus, or if they lie along a continuum.
 In general, we've found two main features important for supporting Sketching: \textit{abstraction and ambiguity}, and \textit{rapid iteration}.
 
@@ -179,53 +177,62 @@ In general, we've found two main features important for supporting Sketching: \t
 %
 
 
-\inlineHeading{Abstractability and ambiguity:}
+\inlineHeading{Abstractability and ambiguity}
 	Haptics suffers from a dearth of notation.
 	Sketching of physical devices or interfaces is well supported, with paper and pencil and innumerable software assists.
 	Sketching \textit{motion}, and in particular showing what is or might be felt in, say, a vibrotactile experience, is  trickier.
 	While we can sketch a visual interface and look at it, it is much harder to sketch a haptic sensation and imagine it without feeling it.
+%Most directly, \citet{Moussette2011} teach Haptic Sketching with physical scraps and materials, combined with manual actuator and tools like Arduino, to build effective interactive haptic prototypes physically and programmatically  in minutes or hours.
+%Simple display-only sensations can be sketched (\eg, VT icons)  using interactive design tools \cite{schneider2014improvising,Hong2013}.
+%\osC{What about a planning/execution/reflection pattern?}
 
-Creative approaches are emerging.
-Most directly, \citet{Moussette2011} teach Haptic Sketching with physical scraps and materials, combined with manual actuator and tools like Arduino, to build effective interactive haptic prototypes physically and programmatically  in minutes or hours.
-Simple display-only sensations can be sketched (\eg, VT icons)  using interactive design tools \cite{schneider2014improvising,Hong2013}.
-\osC{What about a planning/execution/reflection pattern?}
-
+\inlineHeading{Rapid Iteration}
+Design requires fluid, playful interaction with potential designs and the associated problem space.
+Haptic design sometimes requires fuzzy goals like feeling ``just right"; these types of problems require designers and users to feel variations until they get the experience right.
+When iteration is slow, it is painful and distracting.
 
 
 %
 % SubSub - Refine
 %
 \subsubsection{Refine}
-Clearly apparent in \autoref{fig:conclusion:buxton}, design requires iteration to refine an initial set of ideas into a single well-developed one through concept generation followed by iterative revision, problem-solving and  evaluation, until only small tweaks are necessary.
+Design requires iteration to \emph{refine} an initial set of ideas into a single well-developed one through concept generation followed by iterative revision, problem-solving and  evaluation, until only small tweaks are necessary.
 This long view of the design process is necessary to see designs through to the end;
 further, tweaking final designs is a valuable way to accommodate individual differences, and was adopted by our haptic designers in \autoref{ch:hapticianinterviews}.
 
 Incorporating haptic technology into a design is an extremely vertical process,  dependent on  specifics of hardware, firmware, software, application, and multimodal context.
 With the complexity of these many components, there can be a significant initial cost to setup a first haptic experience; then, adding this complexity to the time needed to program, recompile, or download to a microcontroller means iteration cycles have the potential to be slow and painful. 
+There are two stand-out features to support refinement: mature, polished tools, and adaptable interfaces.
 %
 % Of course, there has been progress, and more is on the way. 
-Thus, increasing refinement fluidity is ripe for innovation. For example:
+%Thus, increasing refinement fluidity is ripe for innovation. For example:
 
-\inlineHeading{Pipelines} now connect initial design seamlessly through to final refinement \cite{schneider2015tactile,Schneider2016macaron}.
-Continuity in future tools will provide fluid, transparent (rather than cumbersome, many-staged) connection between hardware and software tools at different design stages.
+\inlineHeading{Mature design tools}
+Implemented design tools a glut of features, \eg, picture the sheer number of commands, shortcuts, and organizational scaffolding supplied by image editing software like Photoshop.
+This power and precision can improve refinement, especially when integrated into haptic media pipelines to fluidly move initial ideas to final experiences. 
+We describe the road to mature tools in \autoref{sec:conclusion:maturetoolsuite}.
 
-\inlineHeading{Evaluation} is as crucial as for any human-centered refinement cycle. While it will often require some form of \textit{sharing} (coming up next), here we simply point out that the full spectrum of evaluative mechanisms and supports found in user experience development can be gainfully applied to haptic design, from lab-based comparative performance studies to qualitative examination of how usage strategies change when a physical dimension is deployed (\eg, \cite{minaker:2016:EH:handson}).
+%\inlineHeading{Evaluation} is as crucial as for any human-centered refinement cycle. While it will often require some form of \textit{sharing} (coming up next), here we simply point out that the full spectrum of evaluative mechanisms and supports found in user experience development can be gainfully applied to haptic design, from lab-based comparative performance studies to qualitative examination of how usage strategies change when a physical dimension is deployed (\eg, \cite{minaker:2016:EH:handson}).
 
-\inlineHeading{Customization tools} are appearing at least at level of prototyping and requirements generation \cite{SchneiderAsiaHaptics2014,Seifi2014}. 
-Force-feedback virtual environments support iteration and refinement through code, once the initial environment is setup.
-Software platforms like Unity\footnote{https://unity3d.com/} offer immediate control of variables in the UI itself.
+%\inlineHeading{Customization tools} are appearing at least at level of prototyping and requirements generation \cite{SchneiderAsiaHaptics2014,Seifi2014}. 
+%Force-feedback virtual environments support iteration and refinement through code, once the initial environment is setup.
+%Software platforms like Unity\footnote{https://unity3d.com/} offer immediate control of variables in the UI itself.
 
-\inlineHeading{Context} -- calibration, customization, and sensing -- in tools will help final haptic designs remain consistent depending on user activity (\eg, running impairs vibration sensitivity), individual differences, or other contextual concerns.
+\inlineHeading{Adaptable interfaces} 
+Calibration, customization, and sensing were identified in \autoref{ch:hapticianinterviews} as one major approach for handling the varied end-user context. 
+These techniques will be essential to ensure consistency and quality of refined sensations, or to let designers and users alike fine-tune their experiences.
+We describe these in more detail in \autoref{sec:conclusion:adaptableinterfaces}.
+%in tools will help final haptic designs remain consistent depending on user activity (\eg, running impairs vibration sensitivity), individual differences, or other contextual concerns.
 
 
 %
 % SubSub - Browse
 %
 \subsubsection{Browse} 
-``Browse" can have specific meanings for interacting with data (cite Munzner).
-Here, we use ``Browse" to refer more generally to the act of looking at examples (\eg, corkboards of previous designs \cite{Buxton2007}, drawing from previous personal and professional experiences (\eg one's repertoire \cite{Schon1982} or real-life sources to inform a design.
+``Browse" can have specific meanings for interacting with data \cite{munzner2014visualization}.
+Here, we use \emph{browse} to refer more generally to the act of looking at examples, \eg, corkboards of previous designs \cite{Buxton2007}; drawing from previous personal and professional experiences, \eg, one's repertoire \cite{Schon1982}; or real-life sources to inform a design.
 We found this emerged in different ways:
-in \autoref{ch:hapticinstrument}, participants used their personal experiences to interpret sensation meaning (\ie schemas, discussed more later);
+in \autoref{ch:hapticinstrument}, participants used their personal experiences to interpret sensation meaning (\ie, schemas, discussed more later);
 in \autoref{ch:tactileanimation}, one animator brought up a YouTube video of a heartbeat to ground his animation;
 in \autoref{ch:hapticianinterviews} several participants described collecting examples or using guide books.
 
@@ -259,12 +266,10 @@ We highlight three main challenges to supporting browsing in \haxd: representati
     Compare this to sound: most musical terms have a long tradition with a clearly defined lexicon (\eg, crescendo, staccato); non-musical sound effects generally ``sound like'' something, and are often literal.
     With vision, one does not have to be a graphic designer or artist to instinctively understand ``warm" and ``cool" colours; the color wheel is introduced to us in grade school.  
     
-   \inlineHeading{Overviews and skimming:} 
+   \inlineHeading{Overviews, search, and skimming:} 
     Collections of examples, especially visual or physical collections, are often displayed spatially for ambient reference or to enable quick scanning.
     When you can't feel multiple things, it can be hard to get the big picture or swiftly peruse a collection.
     Both designer and end-users have needs for finding similar/different vibrations in a collection, requiring a low barrier-to-entry on any overview technique.
-    \osC{also comment on search.}
-
 
 
 %
@@ -272,19 +277,20 @@ We highlight three main challenges to supporting browsing in \haxd: representati
 %
 \subsubsection{Share} 
 Sharing designs is valuable at different stages of the design process \cite{Kulkarni2012}, whether for informal feedback from friends and colleagues, formal evaluation when refining designs, or distributing to the target audience for use and community for re-use \cite{Shneiderman2007}.
-
 As haptic experiences must be felt, this process works best when collocated with only a few collaborators, whether by having collaborators work in the same lab, or by showing final experience in physical demos.
 During ideation, ideas can be generated when collaborating remotely, but physical devices need to be shipped back and forth and it is difficult to troubleshoot and confirm that configuration and physical setup are the exact same.
 Feedback also typically needs to be collocated, using in-lab studies or feedback, or shipping devices between collaborators.
 Furthermore, visual and audio design support very easy capture of ideas to share later, through smartphone cameras and microphones, that could later be browsed.
+We suggest two  directions for future work: easy capture of design ideas to share for later, and remote sharing through proxies.
 
-So far, haptic broadcasting, analogous to broadcasting radio or television (\eg, Touch TV \cite{Modhrain2001}) has been envisioned and explored.
-Followup work has added haptics to YouTube \cite{AbdurRahman2010} and movies \cite{Kim2009}.
-Low-cost devices like the HapKit \cite{Martinez2016}\footnote{\url{http://hapkit.stanford.edu/}} and Haply \cite{Gallacher2016}\footnote{\url{http://www.haply.co}} make haptics more ubiquitous, but remain troublesome to calibrate.
-To share ideas remotely on phones, proxies like visualizations or other types of haptics (phone vibrations) could be used \cite{Schneider2016b}\footnote{\url{http://www.cs.ubc.ca/labs/spin/hapturk}}.
-Features like automatic calibration and proxies for use in online evaluation, and online communities more generally, are still in development.
+\inlineHeading{Capturing ideas}
+Inspiration can strike at any time.
+In order to \emph{browse} ideas later, or to snap a haptic picture and \emph{share}, we need advanced haptic cameras \cite{MacLean1996}.
+Repositories are only useful when they are populated; easy capturing methods can encourage crowds to upload their own content for later use, perhaps leading to stock haptic experiences (like stock images) and a viable venue for freelance haptic designers.
 
-
+\inlineHeading{Remotely or asycnhronously share haptics}
+Touch is a proximal sense, and difficult to share asycnhronously or over large distances.
+Techniques like proxy sensations (\autoref{ch:hapturk}), easy calibration (\autoref{sec:conclusion:adaptableinterfaces}), and fabricated haptics using, \eg, 3D printers \cite{torres2015hapticprint} can all help \emph{share} these physical sensations around the world.
 
 
 %%%%%%%%%%%%%%%%%%
@@ -364,6 +370,7 @@ Schemas are useful both for framing user interpretation of haptic experiences, a
 We have also found the concept of design languages and narrative as helpful ideas when creating experiences.
 
 \subsubsection{Schemas as a tool for users}
+\osC{KM: This part was mostly written by Hasti. However, browse emerged partially }
 To interpret haptic signals, people employ a number of conceptual or translational  schemas, often combining them.  % frameworks
 We might compare a haptic sensation to a natural one (``This is like a cat purring''), 
  to emotions and feelings (``This is boring'''), or
@@ -431,6 +438,7 @@ That said, sometimes combining the two is helpful; much like how in computer gra
 % SubSection - Customization
 %%%%%%%%%%%%%%%%%%
 \subsection{Customization}
+\label{sec:conclusion:adaptableinterfaces}
 We've shown how individual differences are a prominent feature of haptic perception and psychology.
 Furthermore,  variability in and poor designer control over context --  user attention and  device form factor and manner of connection, as well as use environment -- mean that haptic sensations often need to be tuned to both each person and each use case.
 
@@ -530,6 +538,7 @@ Adding haptics is risky.
 %
 %%%%%%%%%%%%%%%%%%
 \subsection{Towards a Mature \haxd Tool Suite}
+\label{sec:conclusion:maturetoolsuite}
 
 
 %%%%%%%%%%%%%%%%%%
