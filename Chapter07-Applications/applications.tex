@@ -11,7 +11,7 @@
 %\end{figure}
 
 In \autoref{ch:applications}, we complement the vibrotactile tools and techniques in Chapters \ref{ch:hapticinstrument}-\ref{ch:hapturk}, broadening 
-our scope to include application areas like gaming and education, non-vibrotactile haptic devices, and concepts like customization and other methods of \emph{sharing}.
+our scope to include application areas like gaming and education, non-vibrotactile haptic devices, and \osE{other design concerns} like customization\osE{.} % and other methods of \emph{sharing}.
 We adopt a haptic designer's role to gain first-hand knowledge into \haxd in a more natural design setting than our one-session lab-based evaluations.
 We include five design projects:
 %Chapters \ref{ch:hapticinstrument}-\ref{ch:macaron} describe provide rich provide rich but focused data on how to create vibrotactile (VT) experience design tools, and Chapter 7 provides a detailed look at a VT technique for large-scale feedback.
@@ -31,12 +31,11 @@ We include five design projects:
     %\footnote{\inlineCitation{Martinez-demo-hapkit2016}}
     
     \item[\bf\ref{sec:applications:cuddlebit}]
-    \textbf{CuddleBit Design Tools: Sketching and Refining Affective Robot Behaviours}\footnote{\fullCitation{Bucci2016}} Voodle and MacaronBit are design tools for CuddleBits, simple affective robots.
+    \textbf{CuddleBit Design Tools: Sketching and Refining Affective Robot Behaviours}\footnote{\fullCitation{Bucci2016}}, Voodle and MacaronBit are design tools for CuddleBits, simple affective robots.
 \end{enumerate}
 
 \noindent
-Sections \ref{sec:applications:feelcraft}-\ref{sec:applications:roughsketch} and \ref{sec:applications:cuddlebit} were primarily presented as demos with associated papers; we present these in a summary format rather than full reproduction.
-Section \ref{sec:applications:handson} is fully reproduced with a preface.
+\osE{Most of this chapter (Sections \ref{sec:applications:feelcraft}-\ref{sec:applications:roughsketch}) and \ref{sec:applications:cuddlebit}}  were primarily presented as demos with associated papers\osE{. As such,} we present \osE{this chapter's work} in a summary format rather than full reproduction\osE{, and exclude prefaces.}
 
 \section{FeelCraft: Sharing Customized Effects for Games}
 \label{sec:applications:feelcraft}
@@ -46,7 +45,7 @@ Section \ref{sec:applications:handson} is fully reproduced with a preface.
 As shown in prior work \cite{Seifi2013,Seifi2014}, and as we will discuss in \autoref{ch:hapticianinterviews}, customization is an important feature for haptic experiences.
 In addition, haptic media must be built around existing infrastructure, as it is not directly supported by most media types.
 FeelCraft is a media plugin architecture that monitors events and activities in the media, and associates them to user-defined haptic content in a seamless, structured way.
-The FeelCraft plugin allows novice users to generate, recall, save, and share haptic content, and play and broadcast them to other users to feel the same haptic experience, without having any skill in haptic content generation.
+The FeelCraft plugin allows novice users to generate, recall, save, and share haptic content, and play and broadcast them to other users to feel the same haptic experience, without requiring any skill in haptic content generation.
 In this chapter, we describe the plug-in architecture, envisioned applications, and our implementation for VT grid arrays displaying Feel Effects (FEs) \cite{Israr2014} for a popular video game, Minecraft.
 Our implementations uses the Marvel Avengers Vybe Haptic Gaming Pad by Comfort Research (\url{http://comfortresearch.com}), a chair-shaped pad with 12 actuators (6 voice coils and 6 rumble motors).
 We designed effects that leveraged this display, \eg, voice coils simulating rain on the user's back when there is rain in-game, and rumble motors creating a galloping sensation on the chair's seat when the user rides an virtual horse.
@@ -160,7 +159,7 @@ FeelCraft plugins are designed to make haptics accessible to end users using exi
 \noindent
 In \autoref{sec:applications:feelcraft}, we designed expressive spatial VT Feel Effects using existing infrastructure, using a plugin architecture to link desktop applications to new VT hardware.
 In \autoref{sec:applications:feelmessenger}, we look at the expressiveness of existing infrastructure and actuation methods with Android smartphones for customizable VT effects by implementing customizable VT emojis in a chat program, Feel Messenger.
-As explained previously by \autoref{fig:vib:lofidesign} in \autoref{ch:hapturk}, APIs for vibrotactile feedback are limited to a series of pulses.
+As illustrated previously by \autoref{fig:vib:lofidesign} in \autoref{ch:hapturk}, APIs for vibrotactile feedback are currently limited to a series of pulses.
 With Feel Messenger, we were able to produce expressive VT icons for emojis using the built-in Android API, including customizable effects like a heartbeat that varies in both rate and intensity.
 We found VT icons were effective when they had an engaging visual icon to frame the vibration, \eg, a cat emoji helped the user understand purring vibration was a purr.
 \autoref{fig:feelmessenger:fig1} presents a concept sketch.
@@ -368,30 +367,31 @@ We also explored stylus use, finding that a rubber tip would barely transmit any
   \label{fig:conceptOverview}
 \end{figure}
 
-\inlineHeading{Preface} In \autoref{sec:applications:handson}, we investigate creative control of 1-degree of freedom (DOF) force-feedback display for education.
+%\inlineHeading{Preface}
+In \autoref{sec:applications:handson}, we investigate creative control of 1-degree of freedom (DOF) force-feedback display for education.
 Force-feedback is interactive, with output dependent on input, but also controllable when the user holds their hand stationary, unlike programmable friction feedback explored in \autoref{sec:applications:roughsketch}.
 The application area, science education, offers important design constraints: feedback must enhance learning without distraction, and in this project, enable creative exploration for students.
 We thus both design haptic feedback and enable students to design while they learn.
 To manage this, we model feedback as a system of springs, easy to adjust and design, but scalable to more complex tasks by combining multiple springs in series or parallel.
 
 
-\subsection{Abstract}
-Embodied, physical interaction can improve learning by making abstractions concrete, 
-while 
-online courses and interactive lesson plans have increased education access and versatility. 
-Haptic technology could integrate these benefits, but requires both low-cost hardware (recently enabled by low-cost DIY devices) and accessible software that enables students to creatively explore haptic environments without writing code.
-To investigate haptic e-learning without user programming, 
-we developed \HandsOn, a conceptual model for exploratory, embodied STEM education software; and implemented it with the \SpringSim interface and a task battery for high school students. 
-%structure graphically presented STEM educational lessons, conveyed through affordable, self-assembled force feedback devices.
-%limits the latter; as such, e-learning haptics has never been evaluated.
-%puts haptic exploration out of reach for most schools or self-learners.
-%We provide this missing \HandsOn, a conceptual model on which we can structure graphically presented STEM educational lessons, conveyed through affordable, self-assembled force feedback devices.
+%\subsection{Abstract}
+%Embodied, physical interaction can improve learning by making abstractions concrete, 
+%while 
+%online courses and interactive lesson plans have increased education access and versatility. 
+%Haptic technology could integrate these benefits, but requires both low-cost hardware (recently enabled by low-cost DIY devices) and accessible software that enables students to creatively explore haptic environments without writing code.
+%To investigate haptic e-learning without user programming, 
+%we developed \HandsOn, a conceptual model for exploratory, embodied STEM education software; and implemented it with the \SpringSim interface and a task battery for high school students. 
+%%structure graphically presented STEM educational lessons, conveyed through affordable, self-assembled force feedback devices.
+%%limits the latter; as such, e-learning haptics has never been evaluated.
+%%puts haptic exploration out of reach for most schools or self-learners.
+%%We provide this missing \HandsOn, a conceptual model on which we can structure graphically presented STEM educational lessons, conveyed through affordable, self-assembled force feedback devices.
+%%
+%%a need to write code.
+%In two studies, we confirm that low-cost devices can render haptics adequately for this purpose, 
+%find qualitative impact of \SpringSim on student strategies and curiosity,
+%and identify directions for tool improvement and extension.
 %
-%a need to write code.
-In two studies, we confirm that low-cost devices can render haptics adequately for this purpose, 
-find qualitative impact of \SpringSim on student strategies and curiosity,
-and identify directions for tool improvement and extension.
-
 
 
 
@@ -1283,10 +1283,10 @@ Our findings (on interface usability, task effectiveness, and impact of haptic f
 In \autoref{sec:applications:cuddlebit}, we explore a third non-vibrotactile modality - furry, affective, breathing robots called CuddleBits (\autoref{fig:cuddlebits}).
 These robots are multimodal: they visibly move, and their breathing can be felt.
 Their form factor and affordances can vary; for example, they can be flexible (\autoref{fig:flexibit}) or rigid (\autoref{fig:ribbit}).
-We use the CuddleBits as a rich design problem - supporting engaging, emotional, lifelike behaviour design - and as a means to explore the interplay between two design tools, each supporting different activities: \emph{skecthing} and \emph{refining}.
+We use the CuddleBits as a rich design problem - supporting engaging, emotional, lifelike behaviour design - and as a means to explore the interplay between two design tools, each supporting different activities: \emph{sketching} and \emph{refining}.
 
 As robots begin to take a larger role in our lives, they require natural ways of interacting with people.
-Notably, they need to communicate affectively with humans, recognizing and expressing emotion, or behaving with a life-like personality.
+Notably, they need to communicate affectively with humans, recognizing and expressing emotion, or behaving with a \osE{believable} personality.
 This is important for both everyday interactions with robots, and targeted health applications: robot-based therapy can measurably relax people by breathing \cite{Sefidgar2016}.
 
 
