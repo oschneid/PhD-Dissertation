@@ -18,8 +18,8 @@ Throughout the chapter, we contextualize this work and \haxd in both the haptics
 % SECTION: What is haptics?
 %
 %%%%%%%%%%%%
-\section{An Overview of Haptic Technology and Perception}
-The term ``haptic" was coined by German researcher Max Dessoir to refer to the study of touch, in a similar to ``optic" for sight and ``acoustic" for sound \cite{Grunwald2008}.
+\section{An Overview of Haptic\osE{s}}
+The term ``haptic" was coined by German researcher Max Dessoir to refer to the study of touch, similar to ``optic" for sight and ``acoustic" for sound \cite{Grunwald2008}.
 Today, it refers to both the study of the psychology and perception of the senses of touch, and the technology that employs touch as a method of feedback.
 Haptic technology is typically separated into two classes based on the main sense modality: \emph{tactile} (or \emph{cutaneous}) sensations, and \emph{proprioception}, or the sense of body location and force;  the latter includes \emph{kinaesthetic} senses of force and motion.
 These two types of feedback are useful for different purposes, \eg, people use their fingerpad's tactile senses to derive texture, but kinaesthetic feedback to infer weight \cite{Lederman1987};
@@ -28,14 +28,12 @@ For an overview of the haptic senses, we direct the reader to \citet{Lederman200
 We focus our coverage on the sensations directly studied by this dissertation, while also portraying the diversity of haptic experiences and technology.
 
 \subsection{Tactile Perception and Technology}
-%\osC{Goal: Explain the main mechanisms we use in the dissertation's studies, persuade the reader that I know enough about tactile perception, and show the variety of tactile displays and experiences.}
 Tactile sensations rely on multiple sensory organs in the skin, each of which detect different properties, \eg, Merkel disks detect pressure or fine details, Meissner corpuscles detect fast, light sensations (flutter), Ruffini endings detect stretch, and Pacinian corpuscles detect vibration \cite{ChoiKuchenbecker2013}.
-%Temperature and pain are also detected through \osC{todo}.
-Of these, the Pacinian corpuscle is most widely targeted by technology through vibrotactile (VT) sensations, where vibrations stimulate the skin.
-VT sensations are accessible, well-studied, and increasingly widespread, and can be passively felt, easing implementation.
-Our in-depth design tool studies thus focus on VT experiences.
+\osE{Haptic technology has evolved along two parallel paths: stimulating sensory mechanisms, or mimic realistic environments.}
+\osE{Tactile technologies are at least as diverse as the senses they stimulate and the environments they simulate.}
 
-VT actuators can take may forms.
+\osE{Vibrotactile (VT) sensations, where vibrations stimulate the skin, target} the Pacinian corpuscle.
+VT actuators can take may forms\osE{; the more affordable techniques tend to directly stimulate skin.}
 Eccentric mass motors (sometimes ``rumble motors" or ``pager motors") are found in many mobile devices and game controllers, and are affordable but inexpressive.
 %An unbalanced mass is mounted on the motor, which provides dramatic shaking of the device.
 More expressive mechanisms such as voice coils %  implemented in a variety of ways and 
@@ -43,15 +41,17 @@ offer independent control of two degrees of freedom, frequency and amplitude.
 Piezo actuation is a very responsive technique that is typically more expensive than other vibrotactile technology.
 % One of the more common and expressive is the C2 tactor, intended to directly stimulate the skin through contact or a thin membrane; the tactile animation project [] uses an array of C2 tactors.
 While voice coils typically directly stimulate the skin, linear resonant actuators (LRAs) shake a mass back and forth to vibrate a handset in an expressive way; a common research example is the Haptuator \cite{Yao2010}.
-Instead of directly stimulating the skin, this actuator typically shakes another device held by the user, such as a mobile device \cite{Yoo2014} or pen \cite{Culbertson2014}.
+Instead of directly stimulating the skin, this actuator typically shakes another device held by the user, such as a mobile device \cite{Yoo2014} or pen \cite{Culbertson2014}\osE{; this approach is amenable to both designed artifical stimulation and physical realism}.
 As of 2016, LRAs are increasingly deployed in consumer products (\eg, Apple's Taptic Engine).
 
+\osE{VT sensations are accessible, well-studied, and increasingly widespread, and can be passively felt, easing implementation.}
+\osE{Our in-depth design tool studies thus focus on VT experiences.}
 %%%%In contrast to displacing the entire user body, recent multichannel haptic devices create percepts of dynamic and localized haptic sensations directly on the user's skin \cite{Israr2011} and in the mid-air \cite{Wilson2014}.
-Actuators like VT devices can be used alone or put together spatial multiactuator displays like seats \cite{Israr2012,Israr2010}, belts \cite{Pielot2009,Paneels2013}, wristbands \cite{Arab2015,Paneels2013,Gupta2016}, vests \cite{Prasad2014,Jones2004}, and gloves \cite{Park2016,Kim2009}.
-These can be arrange into grids, either dense tactile pixels (``taxels") \cite{Kim2009} or sparse arrays \cite{Israr2012,Israr2010}, to provide 2D output on a plane.
+Actuators like VT devices can be used alone or put together in spatial multiactuator displays like seats \cite{Israr2012,Israr2010}, belts \cite{Pielot2009,Paneels2013}, wristbands \cite{Arab2015,Paneels2013,Gupta2016}, vests \cite{Prasad2014,Jones2004}, and gloves \cite{Park2016,Kim2009}.
+These can be arranged into grids, either dense tactile pixels (``taxels") \cite{Kim2009} or sparse arrays \cite{Israr2012,Israr2010}, to provide 2D output on a plane.
 Multiactuator arrays increasingly exploit tactile illusions to create effects of motion or phantom sensations in-between actuators.
 
-Another emerging tactile feedback mechanism is programmable friction.
+Another emerging tactile feedback mechanism is programmable friction\osE{, creating shear forces on the skin to target sensations of skin stretch.}
 Surface friction, for example on a mobile touch screen, can be manipulated by both mechanical motion or electrical adhesion.
 The TPad \cite{Winfield2007} vibrates a plate at ultrasonic frequencies to create a cushion of air between the surface and the user's finger.
 This effect is programmable, and can be used to with a number of interactive scenarios \cite{Levesque2011}.
@@ -63,20 +63,20 @@ There are many other types of tactile stimulation used in haptic experiences.
 2-dimensional pin-based grids like Optacon \cite{Bliss1970} and HyperBraille (\url{www.hyperbraille.de}) can display Braille and 2D images to the blind and visually impaired, and can operate as a generic computer display \cite{Prescher2010}. 
 %"Survey on communication through touch" by pasquero, "Optical to tqactile image conversion for the blind by Bliss et all 1970.
 Similar multi-point displays have been deployed on mobile devices.
-Edge Haptics uses dozens of linearly-actuated pins on the edge of a mobile device for tactile stimulation, similar to a 2-dimensional braille pin display \cite{Jang2016}, while laterally moving pins can use skin-stretch as a display mechanism \cite{Luk2006}.
+Edge Haptics uses dozens of linearly-actuated pins on the edge of a mobile device for tactile stimulation, similar to braille pin displays \cite{Jang2016}, while laterally moving pins can use skin-stretch as a display mechanism \cite{Luk2006}.
 Electrocutaneous stimulation, where electrodes directly stimulate the skin, has been deployed for spatial tongue displays \cite{Bach-y-Rita1998}.
 Temperature displays exploit warm and cold receptors in thea skin for display, using Peltier junctions \cite{Jones2002}.
 Tactile sensations can be created at a distance using ultrasonic transducers \cite{Obrist2013,Carter2013} and vortex cannons that shoot puffs of air \cite{Sodhi2013}.
 
 
 
-\subsection{Proprioception and Force Feedback}
-%\osC{Goal: Explain the main mechanisms we use in the dissertation's studies, persuade the reader that I know enough about proprioception, and show the variety of force-feedback displays. This section will be smaller than the tactile section, and should make the distinction of verisimilitude and veridicality a bit clearer, because with FF we often have a virtual environment and are more concerned with passivity, stiffness, etc.}
+\subsection{Proprioceptive \osE{Perception and Technology}}
 Proprioception, the sense of force and position, is synthesized from multiple sensors as well: the muscle spindle (embedded in muscles), golgi-tendon organ (GTO) in tendons, and tactile and visual cues \cite{Kandel2000}.
-We distinguish proprioception from the related term kinaesthetic by being the general, synthesized sense, where kinaesthetic sensation is strictly the sense of motion \osC{KM: make sure this is correct}.
+We distinguish proprioception from the related term kinaesthetic by being the general, synthesized sense, where kinaesthetic sensation is strictly the sense of motion.
 Force displays are common in precise, specialized applications like robot-assisted surgery \cite{Okamura2009} or realistic sensorimotor training environments \cite{VanDerMeijden2009}.
+\osE{The focus is usually on simulation, creating forces on the user from a virtual environment.}
 
-Force-feedback devices might have degrees of freedom of feedback (DoF), the number of forces or torques they can display.
+Force-feedback devices \osE{differ in their} degrees of freedom of feedback (DoF), the number of \osE{variables needed to express their kinematic state}.
 These devices render a \emph{virtual environment}, with simulated forces depending on the input from the user.
 Common consumer-facing 3-DoF devices include the Geomagic Touch (previously the Sensable PHANTOM) and Falcon devices, offering force in three directions.
 2-DoF designs like the pantograph \cite{Ramstein1994,Campion2005} can provide displays on screens, walls, and tables.
@@ -85,20 +85,22 @@ Open-hardware, self-assembled versions of these devices, such as WoodenHaptics \
 Much previous work has been done on handling technical concerns, \eg, displaying complex polygonal objects with a ``God object" \cite{Zilles1995}, coordinating remotely situated devices or shared environments \cite{Buttolo1997}, and improving collision realism with transient forces \cite{Kuchenbecker2006}.
 More complex environments are primarily programmed in using APIs like CHAI3D, OpenHaptics, or Unity.
 
-Another approach is to use simple force feedback, especially for haptics education \cite{Jones2014}.
+Another approach is to use simple force feedback, \osE{for example,} for haptics education \cite{Jones2014}.
 1-DoF devices include linear actuators pushing on the user and haptic knobs, \eg, the UBC Twiddler \cite{Shaver2003,Enriquez2003,MacLean2009a}, and paddles, \eg, the HapKit \cite{Martinez2016}.
 The UBC SPIN lab has also adopted 1-DoF force feedback in its affective robot, the Haptic Creature \cite{Yohanan2011affectdisplay,Yohanan2011affectivetouch}, the CuddleBot \cite{Allen2015cuddlebot}, and CuddleBits \cite{cang2015cuddlebits}.
 We explore force-feedback design with the HapKit and CuddleBits in \autoref{ch:applications}.
 
 
 \subsection{Haptic Illusions}
-Like the stroboscopic effect transforming a series of images into the perception of motion for visual displays, illusions play a valuable role in haptic sensations \cite{Hayward2016}.
-Some effects are influenced by other senses.
+Like the stroboscopic effect transforming a series of images into the perception of motion for visual displays, illusions play a valuable role in haptic sensations \cite{Hayward2016}\osE{:}
+\osE{they let a designer create convincing sensations without directly recreating physical environments.}
+Some are influenced by other senses.
 In the classic size-weight illusion \cite{charpentier1891analyse}, when two weights have the same mass but different sizes, the smaller is perceived to be heavier, whether size is seen or felt \cite{Hayward2016}.
+\osE{Similar effects occur with synthesized haptic effects: perceived stiffness of a spring changes with both visual distortion of the spring's position \cite{Srinivasan1996impact} and the sound that is played \cite{DiFranco1997effect}.}
 A striking, recent example is the use of visual dominance to use a single physical block to provide haptic feedback for multiple virtual blocks by distorting the visual position of the user's arm \cite{Azmandian2016}.
 We employ similar techniques in our FeelCraft and Feel Messenger projects, using visual feedback to prime users to haptic sensations (\autoref{ch:applications}).
 
-Other illusions are purely tactile and useful for multiactuator displays.
+Other illusions are purely tactile and useful for multiactuator displays\osE{; in these cases, they expand the haptic palette.}
 Phantom tactile sensations \cite{Alles1970}, create illusory vibrations in between two or more VT actuators, opening up the space in-between actuators for display.
 Continuous motion can be simulated, \eg, \citet{Seo2010} created a perceived motion flow between two VT actuators mounted on the ends of a handheld device by controlling their intensity.
 Similarly, \citet{Lee2012a} created across-the-body and out-of-the-body illusions on a mobile device using up to four % inexpensive 
@@ -107,6 +109,8 @@ The Tactile Brush algorithm \cite{Israr2011a} combined phantom tactile sensation
 Other spatio-temporal VT illusions such as the ``cutaneous rabbit"  \cite{Tan2009}, where carefully timed discrete tactile stimuli create perceived motion, and Tau and Kappa effects \cite{Hayward2008,Hayward2016}, where perceived distance between stimuli depending on their timing, can also be used with VT arrays.
 Similar illusions are possible using other tactile modalities, including temperature displays \cite{Singhal2016} and electrocutaneous stimulation \cite{Tanie1980}.
 We extend phantom VT sensations to 2D interpolation (\eg, between 3 actuators) to enable Tactile Animation (\autoref{ch:tactileanimation}).
+
+%\osE{Force feedback in a plane can feel like bumps and curves \cite{Morgenbesser1996force}.}
 
 
 Of course, haptic perception can depend on the user's physical and attentional connection with the device, especially important in wearable contexts.
@@ -147,8 +151,8 @@ impairment or impairing situations, \eg, when a user has limited sight or hearin
 ambient displays, \eg, keeping a user aware of a piece of information without interrupting them;
 or nature of the information, \eg, communicating emotion.
 %It can increase general usability and provide an alternative path for information when other modalities are not available (\eg, the users are visually-impaired) or not appropriate (\eg, looking at a screen would be socially inappropriate).
-Sensory substitution, first pioneered by Bach-y-Rita \cite{Bach-y-Rita1969}, is a dramatic technique often using haptic senses to augment or replace other senses.
-A wide variety of devices have been developed and studied for the visually impaired (\eg, \cite{Prescher2010,Bliss1970}).
+\osE{For example, touch can be used a substitute for other senses} \cite{Bach-y-Rita1969}, \osE{and the result can be dramatic, \eg, a blind person using a tongue-based display to seeing a rolling ball well enough to bat it as it falls \cite{Bach-y-Rita2003}.}
+\osE{Many} other devices have been developed and studied for the visually impaired (\eg, \cite{Prescher2010,Bliss1970}).
 
 Of course, touch is a unique, rich sense in its own right.
 Like sound, touch can be invisible; like vision, it can be spatial.
@@ -160,19 +164,6 @@ Touch can also be used for artistic expression; \citet{Gunther2002} studied a fu
 While haptic feedback can improve usability and task performance \cite{Pielot2009,Chan2008}, touch is especially connected to visceral, emotional connections.
 Marketing research has studied multiple ways that touch can connect with customers:
 the way a smartphone feels can influence a purchase over an alternative that might work better, and customers prefer to shop at stores that let them touch products \cite{Spence2011,Jansson-Boyd2011}.
-
-To study emotion and technology, researchers commonly draw from two affective models:
-Ekman's basic emotions and Russell's affect grid.
-Ekman's basic emotions \cite{Ekman1992,Ekman1971} are a discrete set of emotions identified from a cross-cultural study of facial expressions; we use this model's emotions as the design task in \autoref{ch:hapticinstrument}.
-Russell's affect grid \cite{Russell1989circumplexmodel,Russell1989affectgrid} separates emotions into dimensions of arousal (low to high energy) and valence (positive and negative emotions); this work informs much of our work on expressivity and especially the CuddleBit work in \autoref{sec:applications:cuddlebit}.
-
-Researchers are starting to develop design guidelines to express emotions through haptic experiences.
-Low-level parameters like amplitude, frequency, and duration have been linked to emotions: \citet{YongjaeYoo2015} showed that VT icons can express arousal and valence;
-\citet{Obrist2015} established design parameters for mid-air ultrasound stimulation.
-Because touch can be bidirectional, affective sensing can accompany haptic display.
-The Haptic Creature project established a touch dictionary of gestures used to emotionally communicate with robots \cite{Yohanan2011affectivetouch}.
-Touch-based surfaces can detect these gestures \cite{Flagg2013} through technologies like conductive fur and fabric \cite{Flagg2012}.
-
 
 
 
@@ -196,34 +187,47 @@ Touch-based surfaces can detect these gestures \cite{Flagg2013} through technolo
 
 
 \subsection{Applications}
-While realistic virtual environments for force-feedback haptic feedback is helpful in medical or training applications  \cite{Okamura2009,VanDerMeijden2009}, we focus on applications that find increased value in an explicit design step.
+While realistic virtual environments for force-feedback haptic feedback is helpful in medical or training applications  \cite{Okamura2009,VanDerMeijden2009}, we focus on applications \osE{that benefit from} an explicit design step.
 
 
 \subsubsection{Immersion}
-A popular application for haptic experiences is augmented, immersive media experiences.
+\osE{Touch can subtly draw a user into an experience.}
+A popular application is augmented, immersive media experiences.
 Actuated tactile feedback has been used as early as 1959 in the movie \emph{The Tingler}  \cite{IJsselsteijn2003}.
 4D theatres and theme park rides use bursts of air or water sprays to engage the audience.
 Companies like D-Box (\url{www.d-box.com}) augment films with haptic tracks that both low-frequency movements and high-frequency vibrations, and can be found in theatres across the world.
 Buttkicker (\url{www.thebuttkicker.com}) also augments 4D theatres, and provides products for home theatre setups.
 
-Haptic experiences are also increasingly of interest in virtual reality (VR) environments.
-Skin stretch techniques, explored in \cite{Guinan2014} and now commercialized by Tactical Haptics (\url{tacticalhaptics.com}), augments virtual-reality setups by simulating forces and torques using handheld controllers, lending stronger immersion for virtual environments and VR games.
+Haptic experiences are also increasingly of interest in virtual reality (VR) environments \osE{for, \eg, entertainment, training, and education.}
+Skin stretch techniques, \osE{measured by \citet{Levesque2003lateralskinstrain}, have been explored in mobile displays \cite{Luk2006,Guinan2014}} and are now commercialized by Tactical Haptics (\url{tacticalhaptics.com}) \osE{to augment} virtual-reality setups by simulating forces and torques using handheld controllers, lending stronger immersion for virtual environments and VR games.
 Haptic Turk \cite{Cheng2014} and TurkDeck \cite{Cheng2015} are innovative explorations of high-fidelity haptic experiences in virtual environments using people as actuators.
-Impacto uses electrical muscle stimulation and a solenoid actuator to create wearable haptic feedback with both kinaesthetic and tactile feedback \cite{Lopes2015}.
+Impacto uses electrical muscle stimulation and a solenoid actuator to create wearable kinaesthetic and tactile feedback \cite{Lopes2015}.
 Haptic retargeting distorts visual feedback to re-use a single physical block in a virtual block-building game \cite{Azmandian2016}.
-
 
 Previous work has also attempted to add greater immersion to broadcast media by including haptic sensations.
 \citet{Modhrain2001} present an early vision of Touch TV, using active touch with two-DOF actuators embedded in remote controllers; \citet{Gaw2006} follow up with editable position playback on a force-feedback device, played alongside movies or cartoons.
 More recently, the proliferation of online streaming video has developed opportunities to add haptic sensations using novel data formats.
 Researchers have looked at how to integrate a haptic track into Tactile Movies \cite{Kim2009}, YouTube  \cite{Gao2013}, or haptic-audiovisual (HAV) content \cite{Danieau2013}, complete with compositional guidelines drawing inspiration from film and animation \cite{Guillotel2016}.
 
+%\subsubsection{Low-attention feedback}
+%Subtle haptics, and display information without interruption
+
 
 \subsubsection{Affect}
-We've discussed how touch is closely connected to emotion.
-This has implications for design;
-%emotional connection and relationship can influence preferred interaction models;
-for example, couples are more comfortable with a ``hand stroke" metaphor for two remotely coupled haptic devices than strangers, who prefer a more less intimate ``ping-pong" metaphor \cite{Smith2007}.
+Researchers are \osE{developing} design guidelines to express emotions through haptic experiences.
+Low-level parameters like amplitude, frequency, and duration have been linked to emotions\osE{, \eg, with VT icons} \citet{YongjaeYoo2015} \osE{and mid-air ultrasound stimulation}
+\citet{Obrist2015}.
+Because touch can be bidirectional, affective sensing can accompany haptic display.
+The Haptic Creature project established a touch dictionary of gestures used to emotionally communicate with robots \cite{Yohanan2011affectivetouch}.
+Touch-based surfaces can detect these gestures \cite{Flagg2013} through technologies like conductive fur and fabric \cite{Flagg2012}.
+
+To study emotion and technology, researchers commonly draw from two affective models:
+Ekman's basic emotions and Russell's affect grid.
+Ekman's basic emotions \cite{Ekman1992,Ekman1971} are a discrete set of emotions identified from a cross-cultural study of facial expressions; we use this model's emotions as the design task in \autoref{ch:hapticinstrument}.
+Russell's affect grid \cite{Russell1989circumplexmodel,Russell1989affectgrid} separates emotions into dimensions of arousal (low to high energy) and valence (positive and negative emotions); this work informs much of our work on expressivity and especially the CuddleBit work in \autoref{sec:applications:cuddlebit}.
+
+\osE{The emotional nature of touch} has implications for design;
+for example, couples are more comfortable \osE{than strangers when using} a ``hand stroke" metaphor for two remotely coupled haptic devices \cite{Smith2007}.
 Emotional display through touch has therapeutic applications.
 \citet{Bonanni2006} created TapTap, a wearable that can record and playback VT equivalents of affectionate touch to support users in therapy.
 Tactile displays target improved mental health \cite{Vaucelle2009} and aiding emotional understanding for autism \cite{Changeon2012}.
@@ -234,10 +238,10 @@ this furry, zoomorphic robot can measurably relax users when they feel it breath
 
 
 
-\subsubsection{Communication}
+\subsubsection{\osE{Expressive Interpersonal} Communication}
 %interpersonal touch, and haptic interpretations of it
 Touch is extremely important for interpersonal communication, from greeting a new acquaintance with firm handshake, to showing affection to a loved one; see \citet{Gallace2010} for an overview.
-Of course, technologically can mediate touch between people, \eg, in remote collaboration or shared virtual environments \cite{Haans2006}.
+Of course, technology can mediate touch between people, \eg, in remote collaboration or shared virtual environments \cite{Haans2006}.
 \citet{Brave1997} introduced ``inTouch", mechanically linked rollers that enabled playful touch interactions at a distance.
 ComTouch \cite{Chang2002a} used pressure input to send vibrations with between mobile phones, finding it was used for attention, turn-taking, and emphasis.
 \citet{Hoggan2012} elaborated these findings a one month-study found users sent ``Pressages" (pressure messages) both for greetings and to emphasize speech or emotional messages.
@@ -252,7 +256,7 @@ ComTouch \cite{Chang2002a} used pressure input to send vibrations with between m
 Mobile contexts are rife with opportunities for haptic feedback.
 Ambient tactile displays can provide awareness can provide awareness and alerts without distracting the user.
 VT feedback is affordable, low-power, and can be added to watches and wrist-bands \cite{Brunet2013a,Arab2015}, belts, vests, and other wearables.
-Tactons \cite{Brown2006} are a type of haptic icon \cite{MacLean2003} that provide VT feedback, commonly in mobile applications.
+\osE{Haptic icons \cite{MacLean2003} are analogous to visual icons but transmitted through touch. Tactons \cite{Brown2006} are a type of haptic icon which} provide VT feedback, \eg, in mobile applications.
 Rhythm opens up a large design space, letting users learn 84 different icons \cite{Ternes2008} and can be applied with even light, low-cost rumble motors.
 A 28-day study showed that rhythmic VT icons do not disturb users in daily activities and can communicate ambient information \cite{Cauchard2016}.
 \citet{Hemmert2008} explored a life-like metaphor of pulsing and breathing to provide alerts, but found care needed to be taken to not be annoying.
@@ -333,8 +337,9 @@ In \autoref{ch:applications} we describe results from an early learning interfac
 %
 %%%%%%%%%%%%
 \section{Non-Haptic Design and Creativity Tools}
-Design has an increasingly studied topic in non-haptic contexts, providing both guidelines and inspiration for \haxd.
-In this section, we present related work on non-haptic design organized into three major elements: problem preparation, hands-on design, and collaboration.
+\osE{Design thinking is a process and approach to solving problems by creatively and iteratively developing solutions.}
+Design is increasingly studied in non-haptic contexts, providing both guidelines and inspiration for \haxd.
+In this section, we present related work on \osE{general design thinking} organized into three major elements: problem preparation, hands-on design, and collaboration.
 
 \subsection{Problem Preparation}
 Creative tasks, like design, are often defined as the recombination of existing ideas, with a twist of novelty or spark of innovation by the individual creator \cite{Warr2005}.
@@ -363,8 +368,9 @@ In our work, the design activity of \emph{browse} overlaps significantly with pr
 %To work effectively with \emph{examples}, we need to have ways to capture, visualize, and recall them \cite{Herring2009}.
 
 \subsection{Hands-On Design}
-There has recently been a shift in how we interpret the act of thinking.
-No longer is thinking relegated to the head; cognition is now seen as being situated in the physical world \cite{Hutchins1995}.
+%There has recently been a shift in how we interpret the act of thinking.
+%No longer is t
+\osE{Thinking is not} relegated to the head, \osE{but} situated in the physical world \cite{Hutchins1995}.
 The designer must iteratively generate a varied set of initial ideas  (ideation) and then prune them (evaluation), repeating this step many times to settle on a single design \cite{Buxton2007}.
 Working with multiple ideas simultaneously is a boon to good design.
 Developing interfaces in parallel can facilitate generation and evaluation, delaying commitment to a single design \cite{Hartmann2008, Resnick2008}, while
@@ -385,13 +391,15 @@ Our design activity of \emph{sketching} refers to exploration and demonstration 
 In other works, sketching can encompass iteration, annotation, and some level of refinement.
 
 \subsection{Collaboration}
-Design is a collaborative process with the potential for generating more varied ideas \cite{Warr2005}, and is important for creativity support tools \cite{Resnick2008,Shneiderman2000}.
+Design is a collaborative process\osE{.}
+\osE{Working in groups has} the potential for generating more varied ideas \cite{Warr2005} \osE{than working individually}, and is important for creativity support tools \cite{Resnick2008,Shneiderman2000}.
 Although sometimes group dynamics influence the design process negatively, proper group management and sharing of multiple ideas results in more creativity and better designs \cite{Herring2009}.
 Shneiderman in particular has championed collaboration in design \cite{Shneiderman2000}, and suggests two different types of collaboration to be supported by creativity tools: relating, informal discussions with colleagues, and donating, disseminating information to the public/annals of time.
 Orthogonal to these intended purposes (relating and donating) is the collaboration context.
 Computer-supported collaborative work often separates interactions into four contexts ordered into two dimensions: collocated (same location) or distributed (different locations), and synchronous (simultaneous)  or asynchronous (at different times) \cite{Ellis1991}.
-Collaboration is notable because it is inherently challenging to haptic design: two people can look at the same image or hear the same sound from across a room, but touch is a local sense, far easier in a collocated, synchronous setting.
-We explore informal collaboration briefly in \autoref{ch:hapticinstrument}, and explore the design activity of \emph{sharing} in more detail in Chapters \ref{ch:hapturk} and \ref{ch:applications}.
+\osE{This distinction is useful for scoping challenges facing \haxd: touch is proximal and context-dependent, inhibiting asynchronous and remote collaboration.}
+%Collaboration is notable because it is inherently challenging to haptic design: two people can look at the same image or hear the same sound from across a room, but touch is a local sense, far easier in a collocated, synchronous setting.
+We explore informal collaboration briefly in \autoref{ch:hapticinstrument}, and explore \osE{aspects} of \emph{sharing} in more detail in Chapters \ref{ch:hapturk} and \ref{ch:applications}.
 \autoref{ch:hapticianinterviews} characterizes how professional haptic designers collaborate.
 
 % (\autoref{tab:groupware}).
@@ -491,7 +499,7 @@ However, these approaches embrace the separate control of different actuators, r
 
 \subsection{Platforms}
 
-There are many software libraries aim to support developers.
+There are many software libraries to support developers.
 The UPenn Texture Toolkit contains 100 texture models created from recorded data, rendered through VT actuators and impedance-type force feedback devices \cite{Culbertson2014}.
 The HapticTouch Toolkit \cite{Ledo2012} and Feel Effect library \cite{Israr2014} control sensations using semantic parameters, like ``softness" or ``heartbeat intensity" respectively.
 %and Feel Effects  provide examples for vibrotactile actuators, like those found in game controllers and mobile devices.
@@ -509,7 +517,7 @@ More recently, Wooden Haptics gives open-source access to fast laser cutting tec
 % Projects like 
 faBrickation streamlines prototyping for 3D printing \cite{Mueller2014}. % and other manufacturing techniques.
 These platforms, especially Arduino, have made significant improvements to enable rapid iteration and hardware sketching.
-However, I believe we can do much better: these platforms require programming, hardware, and haptics expertise, and include inherent time costs like compilation, uploading, and debugging.
+\osE{W}e can do better: these platforms require programming, hardware, and haptics expertise, and include inherent time costs like compilation, uploading, and debugging.
 
 
 
@@ -522,7 +530,7 @@ Haptic illusions can serve as concise ways to explore the sense of touch, explai
 Haptic Cinematography \cite{Danieau2014} uses a film-making lens, discussing physical effects using cinematographic concepts.
 The notion of distributed cognition \cite{Hutchins1995} has particular relevance for haptic design, % provides an important perspective for haptic design in particular, 
 suggesting that people situate their thinking both in their bodies and in the environment.
-Haptics courses are taught with a variety of foci including perception, control, and design, providing students with an initial repertoire of skills \cite{Okamura2012, Jones2014}.
+Haptics courses are taught with a variety of foci \osE{todo: pedagogical viewpoints, purposes, priorities?} including perception, control, and design, providing students with an initial repertoire of skills \cite{Okamura2012, Jones2014}.
 
 Haptics has often made use of metaphors from other fields.
 Haptic icons  \cite{MacLean2003}, tactons \cite{Brewster2004}, and haptic phonemes \cite{Enriquez2006} are small, compositional, iconic representations of haptic ideas.
@@ -559,48 +567,71 @@ However, this work is far from complete; touch is difficult to describe, and som
 %
 %%%%%%%%%%%%
 \section{Methodology}
-
+\osE{In this dissertation, we use a mixed-method approach.}
+\osE{We combine design with qualitative and quantitative analysis to gather complementary information.}
+\osE{The particular blend of methods depends on each project.}
 %Studying design process, creativity support tools, and haptic sensations is challenging and requires a robust methodology.
-We use mixed methods to explore our research questions of process, strategies, and experience.
+%We use mixed methods to explore our research questions of process, strategies, and experience.
 %As we have seen in our discussion of creativity and design support, systems of creativity tools are complex and noisy.
-We begin by using qualitative techniques to gather rich, generative data from design tools and design processes, and to inform iteration.
-Through our work, we increasingly complement this data with quantitative methods, moving towards large-scale data collection for our generated theories with deployed tools.
+We begin \osE{design and} qualitative techniques to gather rich, generative data from design tools\osE{.} %and design processes, and to inform iteration.
+\osE{We then iteratively refine our qualitative methods, and build} towards large-scale data collection for our generated theories with \osE{quantitative analysis and} deployed tools.
 %Furthermore, this work is an early inquiry requiring inductive models of thinking to generate theories, and the flexibility to accommodate invention as part of the inquiry, \eg letting us build tools iteratively based on participant feedback.
 %As such, we turn to qualitative methodologies first and foremost, and as we gather findings, we gradually apply more hypothesis-testing-based approaches in a quantitative tradition.
 
 
-In this dissertation, we draw from the philosophical and methodological traditions of phenomenology, and the methodology of grounded theory.
+\osE{
+We take a design approach to understanding \haxd.
+%Prototypes manifest design ideas \cite{Lim2008}.
+By building usable support tools, we gain direct knowledge of how to work haptic devices.
+A design approach is constructive;
+working tools exactly specify design ideas, can be shared with haptic designers as a practical contribution, and provide an extendable platform to facillitate future research.
+For example, implementing Tactile Animation informed how to architect Macaron, which we could then directly extend as MacaronBit (\autoref{sec:applications:cuddlebit})
+% letting us easily follow up on subsequent research questions.
+}
+
+\osE{
+Qualitative research methods let us study of complex phenomena in flexible, rigorous way.
+They are generative, supporting building a hypothesis from observations with few theoretical assumptions.
+Qualitative frameworks support diverse, rich data, including observational findings, interview, and screen-captured video.
+This data helps us capture the experience of \haxd and develop guidelines for iteration on our tools' early implementations.
+We draw from two methodologies in our qualitative studies: phenomenology and grounded theory.
+}
+
+%In this dissertation, we draw from the philosophical and methodological traditions of phenomenology, and the methodology of grounded theory.
 Phenomenology is both a philosophical tradition and a social science methodology based upon that tradition that involves the study of subjective experience.
 We use \citet{Moustakas1994} as our primary guide through both, as it focuses on practical methodological concerns but provides a strong philosophical background; \citet{Creswell2013} provided an overview of various methodologies and resources for phenomenology.
-Critical components include \emph{horizonalization}, or preparing oneself to consider all of the participant's statements equally and with fresh eyes; distinguishing and synthesizing \emph{textural} descriptions, \eg the participant's verbatim explanation of the experience, with \emph{structural} description, or the analytical interpretation through psychology (or HCI) theories; and the documentation of the researcher's own experience with the phenomenon of study.
-Phenomology as a methodology has been used in psychology to investigate topics ranging from visual illusions to tactile experience \cite{Richer1978, Obrist2013, Creswell2013}.
-
-Methodologies, like phenomenology, often include a set of methods combined with their philosophical and epistemological underpinnings.
+%Critical components include \emph{horizonalization}, or preparing oneself to consider all of the participant's statements equally and with fresh eyes; distinguishing and synthesizing \emph{textural} descriptions, \eg the participant's verbatim explanation of the experience, with \emph{structural} description, or the analytical interpretation through psychology (or HCI) theories; and the documentation of the researcher's own experience with the phenomenon of study.
+Phenomenology as a methodology has been used in psychology to investigate topics ranging from visual illusions to tactile experience \cite{Richer1978, Obrist2013, Creswell2013}.
+%Methodologies, like phenomenology, often include a set of methods combined with their philosophical and epistemological underpinnings.
 In this work, we specifically use the Stevick-Colaizzi-Keen methods as described by \citet{Moustakas1994}.
-Transcripts are divided into non-overlapping, non-redundant statements about the phenomena known as Meaning Units (MUs).
-This considers every statement that the participants make, and does not discount any due to bias or selective searching.
-Then, MUs are clustered into emergent themes through affinity diagrams, writing and re-writing of thematic descriptions, and reflection guided by phenomenological philosophy.
-We use this technique exactly in our first exploratory study (\autoref{ch:hapticinstrument}), and later combine it with Grounded Theory methods.
+\osE{This technique handles textual data: t}ranscripts are divided into non-overlapping, non-redundant statements about the phenomenon known as Meaning Units (MUs).
+%This considers every statement that the participants make, and does not discount any due to bias or selective searching.
+MUs are then clustered into emergent themes through affinity diagrams, writing and re-writing of thematic descriptions, and reflection guided by phenomenological philosophy.
+%We use this technique exactly in o
+\osE{O}ur first exploratory study (\autoref{ch:hapticinstrument}) \osE{directly follows phenomenology; in later studies, we combine phenomenology with grounded theory.}
 
-Grounded Theory is another well-known methodology first described by \citet{glaser1966awareness}.
+Grounded theory is another well-known methodology first described by \citet{glaser1966awareness}.
 We adopt the more flexible methodology described by \citet{Corbin2008}, as it allowed us to integrate with our phenomenological methods.
-We principally adapt the methods used in Grounded Theory, specifically, memoing (writing about each focused quotation or MU), constant comparison (comparing each new memo and codes to previous ones), and open and axial coding (creating codes, or concepts, linking them together, then categorizing statements or observations based on codes).
+We principally adapt the methods used in grounded theory, specifically, memoing (writing about each focused quotation), constant comparison (comparing each new memo and codes to previous ones), and open and axial coding (creating codes, or concepts, linking them together, then categorizing statements or observations based on codes).
 This technique especially facillitated video analysis in \autoref{ch:tactileanimation} and \autoref{ch:macaron}, and allowed for quantitative count-based data and simple statistics to complement our interview-based findings.
 
-We also note that researchers who use methods from the umbrella term ``qualitative research" often blend techniques from many methodologies.
-Phenomenology and grounded theory are two such methodologies, others include hermeneutics, ethnography \cite{Moustakas1994}, ethnomethodology, and thematic analysis \cite{Ryan2003}.
-For example, ethnography introduces the concept of ``thick description" \cite{}, where the research tries to use detailed, evocative language to convey a rich sense of being in the observed environment.
-This technique is used more generally in observational notes and when writing up qualitative results to provide the rich data studied by qualitative methods.
+%We also note that researchers who use methods from the umbrella term ``qualitative research" often blend techniques from many methodologies.
+%Phenomenology and grounded theory are two such methodologies, others include hermeneutics, ethnography \cite{Moustakas1994}, ethnomethodology, and thematic analysis \cite{Ryan2003}.
+%For example, ethnography introduces the concept of ``thick description" \cite{}, where the research tries to use detailed, evocative language to convey a rich sense of being in the observed environment.
+%This technique is used more generally in observational notes and when writing up qualitative results to provide the rich data studied by qualitative methods.
 
-While some design scholars adopt qualitative techniques \cite{Schon1982,Cross2007,Cross2011}, others have developed quantitative techniques.
+While some design scholars \osE{employ} qualitative techniques \cite{Schon1982,Cross2007,Cross2011}, others have developed quantitative techniques.
+\osE{Statistical analysis and other quantitative methods can analyze large data sets and complement qualitative research questions.}
 When studying graphic design for ads, \citet{Dow2011} used ratings by experts as well as click-through rates and other online analytics for actual deployed ads from their study.
-\citet{Kulkarni2012} used MTurk to generate sketches of aliens in several conditions (of exposure to examples), then deployed another MTurk task to label each drawing with features like antennae or feet.
+\citet{Kulkarni2014} used MTurk to generate sketches of aliens in several conditions (of exposure to examples), then deployed another MTurk task to label each drawing with features like antennae or feet.
 \citet{Lee2010a} had end-users rate graphic designs in both an in-lab study and over Mechanical Turk, and recorded time participant designers spent on each component.
-These approaches allow for hypothesis testing for specific research questions, but require infrastructure unavailable to haptics, notably, crowd deployment, rating scales, and mature input tools.
-In our early work, we found qualitative feedback to be sufficient while developing our understanding of how to build design tools.
-Later, we begin to approach this infrastructure, using an online editor with analytic logs in Macaron (\autoref{ch:macaron}), and examining the potential for crowdsourced feedback with HapTurk (\autoref{ch:hapturk}).
+%These approaches allow for hypothesis testing for specific research questions, but require infrastructure unavailable to haptics, notably, crowd deployment, rating scales, and mature input tools.
+%In our early work, we found qualitative feedback to be sufficient while developing our understanding of how to build design tools.
+\osE{Large-scale online studies are currently not available for haptic technology, which requires data collection infrastructure.}
+\osE{As we start to use quantitative data, we also begin building this infrastructure} using an online editor with analytic logs in Macaron (\autoref{ch:macaron}) and examining the potential for crowdsourced feedback with HapTurk (\autoref{ch:hapturk}).
 While a valuable goal, large-scale quantitative feedback on \haxd remains outside the scope of this dissertation.
 
+\osC{Todo: Final paragraph for methodology summing this all up?}
 
 
 %%%%Unfortunately, these approaches do not scale to %\kmC{slc} % KM: seems like references to 'feedback' 'donate' etc should all be italicized because of their special sense.
@@ -697,7 +728,6 @@ While a valuable goal, large-scale quantitative feedback on \haxd remains outsid
 %%%%%
 %%%%%
 %%%%%\subsection{Mechanical Turk (MTurk)}
-%%%%%MTurk is a platform for receiving feedback from a large number of users, in a short time at a low cost~\cite{mutrkgeneral,visualperceptionturk}. These large, fast, cheap samples have proved useful for many cases including running perceptual studies~\cite{visualperceptionturk}, developing taxonomies~\cite{taxonomyturk}, feedback on text \cite{Siangliulue2015}, graphic design \cite{Xu2014}, and sonic imitations \cite{Cartwright2015}.
 %%%%%
 %%%%%\purple{Crowdsourced studies have drawbacks. The  remote, asynchronous study environment is not controlled; compared to a quiet lab, participants may be subjected to unknown interruptions, and may spend less time on task with more response variability~\cite{mutrkgeneral}.
 %%%%%MTurk is not suitable for getting rich, qualitative feedback or following up on performance or strategy~\cite{behavioralturk}. Best practices -- e.g., simplifying tasks to be confined to a singular activity, or using instructions complemented with example responses -- are used to reduce task ambiguity and improve response quality~\cite{Amazon.comInc.2015}.
@@ -722,7 +752,6 @@ While a valuable goal, large-scale quantitative feedback on \haxd remains outsid
 %%%
 %%%
 %%%\subsection{Mechanical Turk (MTurk)}
-%%%MTurk is a platform for receiving feedback from a large number of users, in a short time at a low cost~\cite{mutrkgeneral,visualperceptionturk}. These large, fast, cheap samples have proved useful for many cases including running perceptual studies~\cite{visualperceptionturk}, developing taxonomies~\cite{taxonomyturk}, feedback on text \cite{Siangliulue2015}, graphic design \cite{Xu2014}, and sonic imitations \cite{Cartwright2015}.
 %%%
 %%%\purple{Crowdsourced studies have drawbacks. The  remote, asynchronous study environment is not controlled; compared to a quiet lab, participants may be subjected to unknown interruptions, and may spend less time on task with more response variability~\cite{mutrkgeneral}.
 %%%MTurk is not suitable for getting rich, qualitative feedback or following up on performance or strategy~\cite{behavioralturk}. Best practices -- e.g., simplifying tasks to be confined to a singular activity, or using instructions complemented with example responses -- are used to reduce task ambiguity and improve response quality~\cite{Amazon.comInc.2015}.
