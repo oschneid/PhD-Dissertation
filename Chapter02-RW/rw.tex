@@ -455,40 +455,41 @@ We explore informal collaboration briefly in \autoref{ch:hapticinstrument}, and 
 %%%%%%%%%%%%
 \section{Previous Efforts for Haptic Experience Design}
 We are not the first to look into haptic media production or to apply design thinking to haptic design.
-While we present a cohesive look on \haxd process linked to general guidelines for \haxd support tools, previous work has developed authoring tools, supportive software and hardware platforms, and conceptual frameworks to facilitate \haxd.
+While we present a cohesive look on \haxd process linked to general guidelines for \haxd support tools, previous work has developed \osE{interactive software} tools, supportive software and hardware platforms, and conceptual frameworks to facilitate \haxd.
 
 
-\subsection{Editors and design tools}
+\subsection{\osE{Interactive Software Tools}}
 As long as designers have considered haptic effects for entertainment media, they have needed compositional tools % to facilitate their design 
 \cite{Gunther2002}.
-Custom editors (such as D-Box Motion Code Editor) and software plugins are provided to media designers that overlaid the visual and audio content with haptics, and allow designers to generate, tune and save frame-by-frame haptic content in an allocated track for it to play simultaneously with the media content. 
+\osE{Here, we report on interactive software tools for editing haptic sensations.}
 
-By tuning parameters of these effects, users could personalize  haptic content, embed it in games and share effects with other users.
-Similar devices and authoring schemes are also developed for online social interactions using custom multi-actuator haptic devices \cite{Kim2009,Tsetserukou2009,Paneels2013}. %Tsetserukou, D. and Neviarouskaya, A. iFeel_IM!: augmenting emotions during online communication. Comp. Graphics & Applications 30 (2009), IEEE, 72-80.
-A great deal of previous work has focused on how to prototype or author haptic phenomena using non-programming methods. 
 
-Many user-friendly interfaces help designers create % control 
-haptic sensations, especially with vibrotactile devices.
+\subsubsection{\osE{Track-based editors}}
+Many user-friendly interfaces help designers create \osE{haptic effects}.
 The Hapticon editor \cite{Enriquez2003}, Haptic Icon Prototyper \cite{Swindells2006}, and posVibEditor \cite{Ryu2008} use graphical mathematical representations to edit either waveforms or profiles of dynamic parameters (torque, frequency) over time.
-The Vibrotactile Score \cite{Lee2009} was shown to be generally preferable to programming in C and XML, but required familiarity with musical notation \cite{Lee2012}. 
-%Mobile tools make haptic design more accessible.
+\osE{H-Studio \cite{Danieau2013c} enables editing of multi-DOF force feedback for video.}
+\osE{A less orthodox approach is t}he Vibrotactile Score \cite{Lee2009}\osE{, which uses musical notation. The Vibrotactile Score was} shown to be generally preferable to programming in C and XML, but required familiarity with musical notation \cite{Lee2012}.
+\osE{In industry, editors like the D-Box Motion Code Editor overlay} visual and audio content with haptics, and allow designers to generate, tune and save frame-by-frame haptic content. 
+Vivitouch Studio allows for haptic prototyping of different effects alongside video (screen captures from video games) and audio, and supports features like A/B testing \cite{Swindells2014}.
+\osE{While most existing editors focus on vibration effects or simple forces, other types of actuation are now receiving attention, \eg, the Tactile Paintbrush creates friction profiles for the TPad \cite{Meyer2016}.}
+
+
+
+\subsubsection{\osE{Mobile Design Tools}}
+Mobile tools make haptic design more accessible.
 The Demonstration-Based Editor \cite{Hong2013} allows control of frequency and intensity by moving graphical objects on a touchscreen.
 %mHIVE, a Haptic Instrument \cite{Schneider2014} controls frequency, intensity, waveform and amplitude envelope of two tactors with touchscreen gestures.
 Similar to the SPIN lab's Haptic Instrument (mHIVE, \autoref{ch:hapticinstrument}), this mobile tool was shown to be intuitive and easy to use for exploration or communication, but faltered when refining more elaborate sensations. %for a set context.
+Commercially, Apple's end-user vibration editor has been present in iOS since 2011 (iOS 5) but only produces binary on/off timing information\osE{;}
+Immersion Touch Effects Studio lets users enhance a video from a  library of tactile icons supplied on a mobile platform.
 
-The Haptic Application Meta Language (HAML) \cite{Eid2006} is an XML-based data format for adding haptics to MPEG-7 video, eventually augmented with the HAML Authoring Tool (HAMLAT) \cite{,Ferre2008}.
-\citet{AbdurRahman2010} adapted an XML approach to YouTube, and \citet{Gao2013} developed related online MPEG-V haptic editing.
-Augmented media experiences and HAV content \cite{Danieau2013},  have used different methods of input.
+
+\subsubsection{\osE{Automatic Generation}}
 One approach is to use camera motion sourced from accelerometers \cite{Danieau2012} to actuate audience members' hands and head in a HapSeat \cite{Danieau2013a,Danieau2012a}.
-Later editable with H-Studio \cite{Danieau2013c}, this work has proposed the concept of Haptic Cinemotography \cite{Danieau2014}, including basic principles of composition when combined with video \cite{Guillotel2016}.
-Other approaches include automatic conversion of audio content
 Several studies have looked into automatic conversion from audio streams \cite{Lee2013,Chang2005,Hwang2014} or video streams \cite{Kim2014} to VT or force-feedback output.
+\osE{Automatic techniques can be combined with later editing to populate a design before a designer works with it.}
 
-Commercially, Apple's end-user vibration editor has been present in iOS since 2011 (iOS 5) but only produces binary on/off timing information.
-Immersion provides two tools: TouchSense Engage is a software solution for developers, while Touch Effects Studio lets users enhance a video from a  library of tactile icons supplied on a mobile platform.
-Vivitouch Studio allows for haptic prototyping of different effects alongside video (screen captures from video games) and audio, and supports features like A/B testing \cite{Swindells2014}.
-%More recently, Vivitouch Studio \cite{Swindells2014} allows for haptic prototyping of different effects alongside video (screen captures from video games) and audio, including features like A/B testing for simultaneous comparison of haptic content and exporting of a haptic video channel.
-
+\subsubsection{\osE{Multi-actuator Tools}}
 The control of multi-actuator outputs has been explored by TactiPEd \cite{Paneels2013}, Cuartielles' proposed editor \cite{Cuartielles2012}, and the tactile movie editor \cite{Kim2009}; the latter combined spatial and temporal control using a tactile video metaphor for dense, regular arrays of tactile pixels (``taxels"), including a feature of sketching a path on video frames. 
 However, these approaches embrace the separate control of different actuators, rather than a single perceived sensation produced by the multi-actuator device, which we address with tactile illusions in \autoref{ch:tactileanimation}.
 
@@ -498,43 +499,60 @@ However, these approaches embrace the separate control of different actuators, r
 
 
 \subsection{Platforms}
+\osE{Prototyping platforms help users rapidly build haptic effects.}
+\osE{We first report software platforms, then hardware.}
 
+\subsubsection{\osE{Software Libraries}}
 There are many software libraries to support developers.
+\osE{Some are collections of effects available to designers.}
 The UPenn Texture Toolkit contains 100 texture models created from recorded data, rendered through VT actuators and impedance-type force feedback devices \cite{Culbertson2014}.
 The HapticTouch Toolkit \cite{Ledo2012} and Feel Effect library \cite{Israr2014} control sensations using semantic parameters, like ``softness" or ``heartbeat intensity" respectively.
 %and Feel Effects  provide examples for vibrotactile actuators, like those found in game controllers and mobile devices.
+\osE{VibViz is an online tool organizing 120 vibrations into perceptual facets \cite{Seifi2015}.}
 Vibrotactile libraries like Immersion's Haptic SDK (immersion.com) connect to mobile applications, augmenting Android's native vibration library.
 %FeelCraft's plugin architecture connects feel effects to various media types \cite{SchneiderAsiaHaptics2014}.
-Force feedback devices have software platforms like CHAI3D (chai3d.org), H3D (h3dapi.org), and OpenHaptics (geomagic.com). 
+\osE{Collections of effects can help a designer start their design, but few are open and modifiable, which we establish as a valuable feature in \autoref{ch:macaron}.}
 
-Hardware prototyping platforms like
-Arduino (arduino.cc) provide an open source microcontroller % platform 
-and development platform % environment
-for physical prototyping.
+\osE{Other software libraries facillitate programming.}
+Force feedback devices have \osE{mature APIs} like CHAI3D (chai3d.org), H3D (h3dapi.org), and OpenHaptics (geomagic.com). 
+Immersion's TouchSense Engage is a software solution for \osE{vibration feedback for} developers.
+The Haptic Application Meta Language (HAML) \cite{Eid2006} is an XML-based data format for adding haptics to MPEG-7 video, eventually augmented with the HAML Authoring Tool (HAMLAT) \cite{,Ferre2008}.
+\citet{AbdurRahman2010} adapted an XML approach to YouTube, and \citet{Gao2013} developed related online MPEG-V haptic editing.
+\osE{Programming is extremely flexible, but are abstract; designers are usually not be able to feel what they design.}
+
+\subsubsection{\osE{Hardware Prototyping Platforms}}
+Hardware prototyping platforms \osE{speed physical development.}
+Arduino (arduino.cc) \osE{is a popular} open source microcontroller % platform 
+and development platform\osE{with a dedicated editor}.
 Phidgets (phidgets.com) facilitate rapid hardware prototyping with over 20 programming languages 
 \cite{Greenberg2001}.
-More recently, Wooden Haptics gives open-source access to fast laser cutting techniques for force feedback development \cite{Forsslund2015}, and
-% Projects like 
-faBrickation streamlines prototyping for 3D printing \cite{Mueller2014}. % and other manufacturing techniques.
+More recently, Wooden Haptics gives open-source access to fast laser cutting techniques for force feedback development \cite{Forsslund2015}.
 These platforms, especially Arduino, have made significant improvements to enable rapid iteration and hardware sketching.
 \osE{W}e can do better: these platforms require programming, hardware, and haptics expertise, and include inherent time costs like compilation, uploading, and debugging.
 
 
 
 \subsection{Conceptual Tools}
+\osE{Design can be supported by having a good metaphor to frame it.}
+\osE{Here, we report on different ways to approach a haptic design: higher-level perspectives, metaphors for designers, and the language of touch.}
+
+\subsubsection{\osE{Perspectives}}
 Some higher-level perspectives offer outcome targets or design attitudes to guide haptic practitioners.
 ``DIY Haptics'' categorize  feedback styles and design principles \cite{Hayward2007,MacLean2008}.
 ``Ambience'' is proposed as one target for a haptic experience \cite{MacLean2009}.
 Haptic illusions can serve as concise ways to explore the sense of touch, explain concepts to novices and inspire interfaces \cite{Hayward2008}.
 ``Simple Haptics'', epitomized by \emph{haptic sketching}, emphasizes rapid, hands-on exploration of a creative space \cite{Moussette2010,Moussette2011}. % with a design perspective \cite{Moussette2010,Moussette2011}.
 Haptic Cinematography \cite{Danieau2014} uses a film-making lens, discussing physical effects using cinematographic concepts.
-The notion of distributed cognition \cite{Hutchins1995} has particular relevance for haptic design, % provides an important perspective for haptic design in particular, 
-suggesting that people situate their thinking both in their bodies and in the environment.
-Haptics courses are taught with a variety of foci \osE{todo: pedagogical viewpoints, purposes, priorities?} including perception, control, and design, providing students with an initial repertoire of skills \cite{Okamura2012, Jones2014}.
+%The notion of distributed cognition \cite{Hutchins1995} has particular relevance for haptic design, % provides an important perspective for haptic design in particular, 
+%suggesting that people situate their thinking both in their bodies and in the environment.
+Haptics courses are taught with a variety of \osE{pedagogical} viewpoints, including perception, control, and design\osE{; they provide} students with an initial repertoire of skills \cite{Okamura2012, Jones2014}.
 
+\subsubsection{\osE{Metaphors for design}}
 Haptics has often made use of metaphors from other fields.
 Haptic icons  \cite{MacLean2003}, tactons \cite{Brewster2004}, and haptic phonemes \cite{Enriquez2006} are small, compositional, iconic representations of haptic ideas.
 Touch TV \cite{Modhrain2001},  tactile movies \cite{Kim2009}, haptic broadcasting \cite{Cha2009}, and Feel Effects \cite{Israr2014} attempt to add haptics to existing media types, especially video.
+Haptic Cinemotography \cite{Danieau2013,Danieau2014} uses a film-making lens for haptic-augmented multimedia, including basic principles of composition when combined with video \cite{Guillotel2016}.
+
 
 Musical analogies have frequently been used to inspire haptic design tools, especially VT sensations. %unique.
 The Vibrotactile Score, a graphical editing tool representing vibration patterns as musical notes, is a major example \cite{Lee2012, Lee2009}.
@@ -544,15 +562,19 @@ Earcons and tactons are represented with musical notes \cite{Brewster1993,Brewst
 tactile analogues of crescendos and sforzandos \cite{Brown2006}.
 The concept of a VT concert found relevant tactile analogues to musical pitch, rhythm, and timbre for artistic purposes \cite{Gunther2002}.
 Correspondingly, tactile dimensions have been also been used to describe musical ideas \cite{Eitan2010}.
+\osE{Though music lends its vocabulary to touch, describe non-temporal properties remain difficult-to-describe.}
 
 
 %\subsection{Language of Tactile Stimuli}
+\subsubsection{\osE{Language of Touch}}
 The language of tactile perception, especially affective (emotional) terms, is another way of framing haptic design.
 %The language of tactile stimuli has a long history in psychological studies \cite{Okamoto2013}.
 Many psychophysical studies have been conducted to determine the main tactile dimensions with both synthetic haptics and real-world materials  \cite{Enriquez2003,Okamoto2013}.
 Language is a promising way of capturing user experience \cite{Obrist2013}, and can reveal useful parameters, e.g., how pressure influences affect \cite{Zheng2012}.
 Tools for customization by end-users, rather than expert designers, are another way to understand perceptual dimensions \cite{Seifi2014, Seifi2015}.
 However, this work is far from complete; touch is difficult to describe, and some even question the existence of a tactile language \cite{Jansson-Boyd2011}.
+\osE{In this dissertation, we encounter the language of touch in some chapters (\autoref{ch:hapticinstrument}, \autoref{ch:hapturk}).}
+\osE{However, we approach our design tools without an imposed language, giving designers fast, powerful control over low-level parameters like frequency and amplitude.}
 %There is a clear need to empirically investigate the subjective experience of touch-based interfaces, for which phenomenology is ideal \cite{Creswell2013, Moustakas1994}.
 %Start with hapticons, tactons, vibrotactile icons, Earcons, Auditory icons...
 %Participants described two different sensations, one oscillating at 16 Hz and the other at 250 Hz.
@@ -608,7 +630,7 @@ In this work, we specifically use the Stevick-Colaizzi-Keen methods as described
 %This considers every statement that the participants make, and does not discount any due to bias or selective searching.
 MUs are then clustered into emergent themes through affinity diagrams, writing and re-writing of thematic descriptions, and reflection guided by phenomenological philosophy.
 %We use this technique exactly in o
-\osE{O}ur first exploratory study (\autoref{ch:hapticinstrument}) \osE{directly follows phenomenology; in later studies, we combine phenomenology with grounded theory.}
+\osE{O}ur first exploratory study (\autoref{ch:hapticinstrument}) \osE{directly follows phenomenology.} %; in later studies, we combine phenomenology with grounded theory.}
 
 Grounded theory is another well-known methodology first described by \citet{glaser1966awareness}.
 We adopt the more flexible methodology described by \citet{Corbin2008}, as it allowed us to integrate with our phenomenological methods.
@@ -631,7 +653,7 @@ When studying graphic design for ads, \citet{Dow2011} used ratings by experts as
 \osE{As we start to use quantitative data, we also begin building this infrastructure} using an online editor with analytic logs in Macaron (\autoref{ch:macaron}) and examining the potential for crowdsourced feedback with HapTurk (\autoref{ch:hapturk}).
 While a valuable goal, large-scale quantitative feedback on \haxd remains outside the scope of this dissertation.
 
-\osC{Todo: Final paragraph for methodology summing this all up?}
+\osC{Todo: Final paragraph for methodology summing this all up? Not sure what to say if so.}
 
 
 %%%%Unfortunately, these approaches do not scale to %\kmC{slc} % KM: seems like references to 'feedback' 'donate' etc should all be italicized because of their special sense.
