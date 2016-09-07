@@ -234,15 +234,17 @@ To our knowledge, this is the first attempt to run a haptic study on a crowdsour
 
 
 \begin{figure}[tb]
-\begin{subfigure}{0.75\textwidth}
+\centering
+\begin{subfigure}{0.5\textwidth}
         		\centering
-	    	 \includegraphics[width=\textwidth, height=1.2in]{VibViz-Screenshot}
+	    	 \includegraphics[width=\textwidth, height=1.5in]{VibViz-Screenshot}
             \caption{VibViz interface ~\cite{Seifi2015}}
             \label{fig:vibviz}
-         \end{subfigure}~
-	\begin{subfigure}{0.19\textwidth}
+         \end{subfigure}
+         \qquad
+	\begin{subfigure}{0.35\textwidth}
     	\centering
-     	 \includegraphics[width=\textwidth, height=1.2in]{C2-Tactor-Held2}
+     	 \includegraphics[width=\textwidth, height=1.5in]{C2-Tactor-Held2}
             \caption{C2 tactor}
             \label{fig:c2tactor}
          \end{subfigure}
@@ -277,15 +279,17 @@ Because VibViz was designed for a C2 tactor, we used a handheld C2 in the presen
 
        \begin{figure}
         \centering
-        \begin{subfigure}{0.15\textwidth}
+        \begin{subfigure}{0.25\textwidth}
             \centering
             \includegraphics[width=\textwidth]{v-09-09-8-24}
         \end{subfigure}
-        \begin{subfigure}{0.15\textwidth}
+        \qquad
+        \begin{subfigure}{0.25\textwidth}
             \centering
             \includegraphics[width=\textwidth]{v-09-10-7-34}
         \end{subfigure}
-        \begin{subfigure}{0.15\textwidth}
+        \qquad
+        \begin{subfigure}{0.25\textwidth}
             \centering
             \includegraphics[width=\textwidth]{v-10-21-3-11}
         \end{subfigure}
@@ -483,7 +487,7 @@ As with \linear, we developed \lofi~vibrations iteratively, first with team feed
     
     \begin{figure}
         \centering
-        \includegraphics[width=0.42\textwidth, height=1.65in]{VibratorTime}
+        \includegraphics[width=0.6\textwidth, height=2in]{VibratorTime}
         \caption{Example of \lofi\ proxy design. Pulse duration was hand-tuned to represent length and intensity, using duty cycle to express dynamics such as ramps and oscillations.}
         \label{fig:vib:lofidesign}
     \end{figure}
@@ -635,9 +639,9 @@ To interpret this plot, look for
 We structure our discussion around how the three modalities represent the different rating scales. 
 We refer to the number of \textit{equivalents} and \textit{differents} in a given cell as [$x$:$z$], with $y=$ number of \textit{uncertains}, and $x+y+z=10$.
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
-	\includegraphics[width=\textwidth, height=3in]{LocalStudy-CameraReadyPlot-2015-01-08-0021}
+	\includegraphics[width=\textwidth, height=2.5in]{LocalStudy-CameraReadyPlot-2015-01-08-0021}
 	\caption{95\% confidence intervals and equivalence test results for Study 1 - Proxy Validation. Grey represents  \hifi~ratings. Dark green maps equivalence within our defined threshold, and red a statistical difference indicating an introduced bias; light green results are inconclusive. Within each cell, variation of \hifi~ratings means vibrations were rated differently compared to each other, suggesting they have different perceptual features and represent a varied set of source stimuli.
 	}
 		%\kmC{Needs explanation. SLC}
@@ -648,11 +652,11 @@ We refer to the number of \textit{equivalents} and \textit{differents} in a give
 	% ALSO: back where defining the VIS proxies, I didn't get clear sense of why it's called LINEAR. is this the best name for it (now?) Implication is of a simplification - a linearization.  }
 	
 	\label{fig:results:study1}
-\end{figure*}
+\end{figure}
 
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.6\textwidth]{Fig8-new4}
+	\includegraphics[width=0.75\textwidth]{Fig8-new4}
 	\caption{Rating distributions from Study 1, using V6 Energy as an example. These violin plots illustrate 1) the large variance in participant ratings, and 2) how equivalence thresholds reflect the data. When equivalent, proxy ratings are visibly similar to \hifi. When uncertain, ratings follow a distribution with unclear differences. When different, there is a clear shift.}
 %	\kmC{I think this is important to have, but I can't follow explanation. Also: what we can conclude from this fig for this stim, and what can you generalize to the other stim? How representative is it? minor: bigger labels}}
 	\label{fig:violinplot}
@@ -737,13 +741,13 @@ We refer to the number of \textit{equivalents} and \textit{differents} in a give
     By contrast, V9 was the only vibration that had an equivalency for every rating scale, and in fact could be represented across all ratings with \lofi.
     V9 was a set of distinct pulses, with no dynamic ramps; it thus may have been well suited to translation to \lofi.
     
-\begin{figure*}[tb]
+\begin{figure}[tb]
 	\centering
-	\includegraphics[width=\textwidth, height=3in]{MTurkStudy-cameraready-2015-08-0116}
+	\includegraphics[width=\textwidth, height=2.5in]{MTurkStudy-cameraready-2015-08-0116}
 	\caption{95\% Confidence Intervals and Equivalence Test Results for Study 2 - MTurk Deployment Validation. Equivalence is indicated with dark green, difference is indicated with red, and uncertainty with light green. Red star indicates statistically significant difference between remote and local proxy ratings. 
 	}
 	\label{fig:results:study2}
-\end{figure*}
+\end{figure}
 
 \subsubsection{Summary}
 In general, these results indicate promise, but also need improvement and combination of proxy modalities.
