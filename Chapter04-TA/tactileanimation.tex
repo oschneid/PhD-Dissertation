@@ -29,7 +29,7 @@ An artist draws an animated sequence in the user interface and the user experien
 This work expanded to spatial vibrotactile designs with professional non-haptic media designers.
 We surveyed critical haptic authoring tool features and developed a full rendering pipeline for the tactile animation object, an abstraction able to handle diverse spatial vibrotactile arrays. %We describe Mango's interface, rendering pipeline, and perceptually-optimized interpolation algorithm.
 We evaluated the implemented tool, Mango, with both phenomenology and methods from grounded theory and iterated on our study tasks.
-Professional animators transferred their non-haptic design skills to both explore (sketch) and iterate (refine), but missed features to reuse design elements and gather inspiration from examples.
+Professional animators transferred their non-haptic design skills to both explore (\emph{sketch}) and iterate (\emph{refine}), but missed features to reuse design elements and gather inspiration from examples.
 This theme, also glimpsed in \autoref{ch:hapticinstrument}, lead to the third design activity: \emph{browse}\osE{, which we cover in \autoref{ch:macaron}.}
 %Furthermore, the tactile animation metaphor is a generalizable concept that can extend to several devices.
 %, which we explore before concluding.
@@ -487,20 +487,15 @@ Mango uses a device configuration file (LR4) and the rendering engine to create 
 Animation objects can be combined in novel ways, organized in groups, or generate other tactile animations like a particle generator as in a graphical animation tool, and can have paths that constrain motion to a pre-determined trajectory.
 We prototyped an early version of the tactile animation object in Mango; however, the data type is extensible.% for future expansion. 
 
-\begin{figure}[tbh] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=0.77\textwidth]{Mango-Screenshot-Labeled-2015-04-12-1132} 
-   \caption{Mango graphical user interface. Key components are labeled and linked to corresponding design requirements.}
-   \label{fig:implementation:screenshot}
-\end{figure}
 
-% The rendering scheme computes output waveforms for each hardware actuator channel. % of the hardware.
- \begin{figure*}[t] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=1.0\textwidth]{images/Fig2-FeelTaxonomy-2015-04-14-1332}%FeelTaxonomy-2014-09-22-0256} 
-   \caption{Tactile animation rendering pipeline. Users can: (a) create tactile animation objects; (b) render objects to actuator parameter profiles (such as amplitude) with our rendering algorithm; (c) rasterize vector sensations into frames; (d) play the sensation on the device.}
-   \label{fig:feel:taxonomy}
-\end{figure*}
+
+%% The rendering scheme computes output waveforms for each hardware actuator channel. % of the hardware.
+% \begin{figure*}[t] %  figure placement: here, top, bottom, or page
+%   \centering
+%   \includegraphics[width=1.0\textwidth]{images/Fig2-FeelTaxonomy-2015-04-14-1332}%FeelTaxonomy-2014-09-22-0256} 
+%   \caption{Tactile animation rendering pipeline. Users can: (a) create tactile animation objects; (b) render objects to actuator parameter profiles (such as amplitude) with our rendering algorithm; (c) rasterize vector sensations into frames; (d) play the sensation on the device.}
+%   \label{fig:feel:taxonomy}
+%\end{figure*}
 
 \textbf{Vector formats} are similar to those in previous work (e.g., \cite{Enriquez2003}).
 Instead of objected-based definitions, as in tactile animation objects, parameters are defined for individual actuation. % in the vector format 
@@ -520,6 +515,13 @@ This data type is also used for real-time feedback during authoring.
 %In our implementation, all data types are stored as JavaScript Object Notation (JSON) files.
 %In the following, we describe features of an authoring interface for designers to create animation sequence; and the empirically determined, high-definition VT rendering method. % for high definition sensations on the VT hardware.
 
+
+\begin{figure}[tbh] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=0.77\textwidth]{Mango-Screenshot-Labeled-2015-04-12-1132} 
+   \caption{Mango graphical user interface. Key components are labeled and linked to corresponding design requirements.}
+   \label{fig:implementation:screenshot}
+\end{figure}
 
 %%%%%%%%%%%%%%
 %
