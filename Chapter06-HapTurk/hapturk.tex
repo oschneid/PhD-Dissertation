@@ -496,7 +496,7 @@ As with \linear, we developed \lofi~vibrations iteratively, first with team feed
     \begin{figure*}
         \centering
                 \includegraphics[width=\textwidth]{AllVISNewNumbering}
-                \caption{Vibrations visualized as both \original\ (left of each pair) and \linear.}
+                \caption{Vibrations visualized as both \original\ (left) and \linear.}
             \label{fig:vis:ref:comparison}
         \end{figure*}
 
@@ -821,7 +821,7 @@ Here we discuss high level implications from our findings and relate them to our
 %V9	V5  6-27		1.1
 %V7	V8  7-26		4.4
 
-    \subsection{Proxy modalities are viable for crowdsourcing (G1,G2:feasibility)} % feasibility
+    \subsection{Proxy modalities are viable for crowdsourcing (G1,G2: feasibility)} % feasibility
    Our studies showed that proxy modalities can represent %both physical and 
    affective qualities of vibrations within reasonably chosen error bounds, depending on the vibration.
    These results largely translate to deployment on MTurk.
@@ -829,7 +829,7 @@ Here we discuss high level implications from our findings and relate them to our
    This evidence also suggests that we may be able to deploy directly to MTurk for future validation.
    Our two-step validation was important as a first look at whether ratings shift dramatically; and we saw no indications of bias or overall shift between locally running proxy modalities and remotely deploying them.
    \vspace{0.35in}
-    \subsection{Triangulation (G3:promising directions/proxies)}
+    \subsection{Triangulation (G3: promising directions/proxies)}
 	Most vibrations received equivalent ratings for most scales in at least one proxy modality.
 	Using proxy modalities in tandem might help improve response accuracy.
 	For example, V6 could be rendered with \lofi~for a pleasantness rating, then as \linear~for Urgency.
@@ -837,7 +837,7 @@ Here we discuss high level implications from our findings and relate them to our
 %	Taken in tandem, this might improve response accuracy.
 	
 
-    \subsection{Animate visualizations (G3:promising directions)}
+    \subsection{Animate visualizations (G3: promising directions)}
     Speed and Urgency were not as effectively transmitted with our visualizations as with our vibration.
     Nor was Duration well portrayed with  \original, which had a shorter time axis than the exaggerated \linear.
     It may be more difficult for visual representations to portray time effectively: perhaps it is hard for users to distinguish Speed/Urgency, or the time axis is not at an effective granularity.
@@ -845,7 +845,7 @@ Here we discuss high level implications from our findings and relate them to our
     As with triangulation, this might also be accomplished through multimodal proxies which augment a visualization with a time-varying sense using sounds or vibration.
     Note, however, that Duration was more accurately portrayed by \linear, suggesting that direct representation of physical features \textit{can} be translated.
     
-    \subsection{Sound could represent Energy (G3:promising directions)}
+    \subsection{Sound could represent Energy (G3: promising directions)}
 Our high-fidelity reference is a voice-coil actuator, also used in audio applications.
 Indeed, in initial pilots we played vibration sound files through speakers. Sound is the closest to vibration in the literature, and a vibration signal's sound output is correlated with the vibration energy and sensation. 
 
@@ -854,7 +854,7 @@ However, in our pilots, sometimes the vibration sound did not match the sensatio
 Thus, while the raw sound files are not directly translatable, a sound proxy definitely has potential. It could, for example, supplement where the \original~\ waveform failed to perform well on any metric (aside from Duration) but a more expressive visual proxy (\linear) performed better.
 
 
-    \subsection{Device dependency and need for Energy model for Vibrations (G4:challenges)}
+    \subsection{Device dependency and need for Energy model for Vibrations (G4: challenges)}
      Energy did not translate well.
      This could be a linguistic confusion, but also a failure to translate this feature.
      For the visualization proxies, it may be a matter of finding the right representation, which we continue to work on.
@@ -881,20 +881,20 @@ Thus, while the raw sound files are not directly translatable, a sound proxy def
         %Developing an energy model for vibrations on MTurk is critical -> provides motivation for  Oliverâ??s earlier MTurk project proposal!!		
 		
 	\subsection{VT %Perceptual
-	affective ratings are generally noisy (G4:challenges)}
+	affective ratings are generally noisy (G4: challenges)}
    Taken as a group, participants were not highly consistent among one another when rating these %perceptual
    affective studies, whether local or remote.
   This is in line with previous work \cite{Seifi2015}, and highlights a need to further develop rating scales for affective touch.
    Larger sample sizes, perhaps gathered through crowdsourcing, may help reduce or characterize this error. Alternatively, it gives support to the need to develop mechanisms for individual customization. If there are ``types'' of users who do share preferences and interpretations, crowdsourcing can help with this as well.
    
-\subsection{Response \& data quality for MTurk \lofi\ vibrations (G4:challenges)}
+\subsection{Response \& data quality for MTurk \lofi\ vibrations (G4: challenges)}
 When deploying vibrations over MTurk, 8/29 participants (approximately 31\%) completed the survey using non-Android based OSes (Mac OS X, Windows 7,8.1, NT) despite these requirements being listed in the HIT and the survey. One participant reported not being able to feel the vibrations despite using an Android phone. 
 This suggests that enforcing a remote survey to be taken on the phone is challenging, and that additional screens are needed to identify participants not on a particular platform.
 Future work might investigate additional diagnostic tools to ensure that vibrations are being generated, through programmatic screening of platforms, well-worded questions and instructions, and (possibly) ways of detecting vibrations actually being played, perhaps through the microphone or accelerometer).
 
 
 
-\subsection{Automatic translation (G4:challenges)}
+\subsection{Automatic translation (G4: challenges)}
 Our proxy vibrations were developed by hand, to focus on the feasibility of crowdsourcing.
 However, this additional effort poses a barrier for designers that might negate the benefits of using a platform of MTurk.
 As this approach becomes better defined, we anticipate automatic translation heuristics for proxy vibrations using validated algorithms.
