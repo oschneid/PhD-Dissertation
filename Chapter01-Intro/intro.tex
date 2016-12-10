@@ -98,8 +98,15 @@ one or more perceived senses of touch, possibly as part of a multimodal or multi
 We use \haxd instead of ``haptic design", which can also refer to design practices related to haptics but not directly involving the user experience, \eg, mechanical design of a new display mechanism. % or software design of a new control method.
 %Our definition also includes pseudo-haptics \cite{Pusch2011} and other illusions that trick the user into thinking haptic feedback is occurring without direct tactile or kinesthetic stimulation.
 %OS 06.09 should we also include tangibles?
-\revRG{For brevity, w}e use ``haptic designers" or ``hapticians" to refer to haptic \emph{experience} designers (those who practice \haxd).
-%In this work, we shed light on \haxd, documenting the challenges that are unique to or accentuated in haptic design, and applying  design thinking to those challenges.
+
+\revFinal{We refer our intended supported designer as a \emph{haptician}:
+\begin{quote}
+\it One who is skilled at making haptic sensations, technology, or experiences.
+\end{quote}
+We use ``haptician" to capture the diversity of people who currently make haptics, and the diversity of their goals.
+Many users with a need to design with haptics may not have formal design training, and may not have a focus on creating entire experiences of haptics.
+}
+%\revRG{For brevity, w}e use ``haptic designers" or ``hapticians" to refer to haptic \emph{experience} designers (those who practice \haxd).
 
 In this dissertation, we take a systems approach to design.
 Designers do not exist in a vacuum, but rather in a physical, personal, social, and cultural context. %, and are shaped by their personal experiences.
@@ -161,7 +168,8 @@ We approach this problem with three strategies: vibrotactile design tool case st
 focused design projects for breadth, and data from haptic designers to ground our findings  (\autoref{fig:intro:methodologyoverview}).
 
 \subsection{Depth: Vibrotactile Design Tool Case Studies (Chapters \ref{ch:hapticinstrument}-\ref{ch:hapturk})}
-To understand design, we take a design perspective.
+To understand design, we \revFinal{practice design.}
+\revFinal{The larger part of our inquiry follows \emph{research through design} \cite{}, where we create artifacts to draw TODO.}
 In each of three case studies, we design, build, and evaluate a tool or technique to support an aspect of \haxd, scoped to \emph{vibrotactile} (VT) design.
 Each of these results in concrete implications for designing tools and a small window onto the larger HaXD process.
 Contributions include algorithms, data structures, interaction techniques, features, analytic techniques, and working software tools that have been employed by designers.
@@ -181,12 +189,23 @@ To complement our primarily design-based approach and ground it with haptic desi
 
 
 
-\section{Outline and Contributions}
+\section{\revFinal{Contributions and Outline}}
+\revFinal{This dissertation makes two primary contributions, the first directed towards the haptics community and the second towards the design research community.
+To the haptics community, we repeatedly find value in applying design thinking to haptic media.
+A haptic designer and a graphic designer follow a similar process, and design tools can be improved by considering a wider context than simple editing interfaces: collaborators, examples, and designer experience all provide value.
+However, applying design thinking to haptic media is not always straightforward.
+To the design research community, we present HaXD as a frontier that challenges underlying assumptions about design.
+Several basic activities that are taken for granted in non-haptic fields need explicit support when conducted with haptics.}
+
+
 This dissertation continues as follows.
 First, in \autoref{ch:rw}, we present the necessary background with an overview of haptic technology and perception, the value of haptics and related applications,  design theory from non-haptic fields,  existing haptic design tools and techniques, and \revRG{the methodology underlying} our work.
 
 Then, we \revRG{describe} %outline
 each VT case study in Chapters \ref{ch:hapticinstrument}-\ref{ch:hapturk}.
+\revFinal{Through these four case studies, we practice Research through Design \cite{}, manifesting design thinking ideas into practical support tools for hapticians.
+Increasingly, we found ourselves drawing directly from modern non-haptic design tools, but needing to solve new problems to accommodate haptic technology.}
+
 In \autoref{ch:hapticinstrument}, we present findings from our first vibrotactile design tool, the haptic instrument, which supported easy exploration and informal feedback (\emph{sketching}), but identified a key problem: it did not support \emph{refining} designs.
 
 In \autoref{ch:tactileanimation}, we present findings from our second vibrotactile design tool, Mango, which established a generalized pipeline and was able to support both \emph{sketching} and \emph{refining} for expert visual animators; it highlighted reuse as an important next step.
@@ -200,6 +219,7 @@ In \autoref{ch:hapturk}, we document findings from HapTurk, a technique for \emp
 %Each chapter is presented as a direct outline of what will appear in the final dissertation, summarizing either methods and results (\autoref{ch:hapticinstrument} and \autoref{ch:hapticanimation}) or proposed methods and possible results (\autoref{ch:hapticexamples}).
 We then describe focused haptic design projects in \autoref{ch:applications}\revRG{.} %, and the results from our grounded data collection in \autoref{ch:hapticianinterviews}.\
 In \autoref{ch:applications}, we synthesize together findings from our side projects, showing generality by applying our understanding of haptic design explicitly in several domains and gaining practical experience designing haptic experience.
+\revFinal{This allowed us to reflect upon our own design process as practitioners \cite{Schon1982}.}
 
 In \autoref{ch:hapticianinterviews}, we complement our design-based inquiry through interviews with professional haptic designers and a workshop run to elicit feedback from the community; this captures a description of haptic design, reinforc\revRG{es} our findings for important support tools, and identifies more systematic challenges.
 
