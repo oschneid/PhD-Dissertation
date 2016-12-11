@@ -351,10 +351,11 @@ In \autoref{ch:applications} we describe results from an early learning interfac
 %
 %%%%%%%%%%%%
 \section{Non-Haptic Design and Creativity Tools}
-\osE{Design thinking is a process and approach to solving problems \revRG{\cite{Buxton2007}}.}
-\osE{Designers rapidly generate and evaluate multiple ideas, iteratively exploring a problem space by articulating and manifesting a solution space; ideas then converge to a final developed concept (or set of concepts).}
+\osE{Design thinking is a process and approach to solving problems.}
+\revFinal{Although often used without a definition \cite{Zimmerman2007rtd}, design thinking always involves rapidly generating and evaluating multiple ideas, and iteratively exploring a problem space by articulating and manifesting a solution space; ideas then converge to a final developed concept (or set of concepts) \cite{Buxton2007}}.
 Design is increasingly studied as a field in non-haptic contexts, providing both guidelines and inspiration for \haxd.
 In this section, we present related work on \osE{general design thinking} organized into three major elements: problem preparation, hands-on design, and collaboration.
+\revFinal{We then briefly discuss the relationship between design and research.}
 
 \subsection{Problem Preparation}
 Creative tasks, like design, are often defined as the recombination of existing ideas, with a twist of novelty or spark of innovation by the individual creator \cite{Warr2005}.
@@ -416,6 +417,38 @@ Computer-supported collaborative work often separates interactions into four con
 %Collaboration is notable because it is inherently challenging to haptic design: two people can look at the same image or hear the same sound from across a room, but touch is a local sense, far easier in a collocated, synchronous setting.
 We explore informal collaboration briefly in \autoref{ch:hapticinstrument}, and explore \osE{aspects} of \emph{sharing} in more detail in Chapters \ref{ch:hapturk} and \ref{ch:applications}.
 \autoref{ch:hapticianinterviews} characterizes how professional haptic designers collaborate.
+
+
+\subsection{\revFinal{Design Research}}
+\revFinal{
+The HCI community is actively exploring the relationships between design and research.
+Both are intertwined for interactive systems.
+Current discourse revolves around how HCI research can draw knowledge from design methods, and how knowledge gained from research can inform design practice.
+}
+
+\revFinal{
+\citet{Frayling1993research} challenges popular stereotypes about design, art, and scientific research. 
+He suggests three different different relationships: research \emph{into} design (and art), research \emph{through} design, and research \emph{for} design.
+Research into design is common, including historical research, aesthetic or perceptual research, and perspectives or theories about design.
+Research for design is ``small 'r'" research, and includes the gathering of reference materials, examples, and previous artifacts to support the design of a product or experience, not for knowledge creation.
+Research through design (RtD) involves practicing design with the explicit goal of creating research, including materials research by creating artifacts, customizing or developing technology, or action research.
+}
+
+\revFinal{
+\citet{Zimmerman2007rtd} suggests RtD as a model to involve design into HCI research.
+Designers can be involved in knowledge-making by attempting to "make the right thing."
+Knowledge is embedded into artifacts and the process of their creation, integrating both ``true" and ``how" knowledge.
+To develop RtD into a more formal methodology, \citet{Zimmerman2010} conducted interviews with leading HCI design researchers and found that design projects in a research context can serve as a common vocabulary between researchers and inspiration for future projects.
+\citet{Gaver2012researchthroughdesign} points out that RtD fits into scientific paradigms by supporting theory development, but cautions against too much formalization of this methodology.
+Instead, Gaver argues that diversity of design approaches is a virtue, and that annotated portfolios may uphold design's advantages while providing reusable knowledge.
+}
+
+\revFinal{
+Consistently, design is proposed as a means to progress solving ``wicked problems" \cite{Rittel1973dilemmas}.
+The core value of design in research is its ability to resolve between these ill-posed problems and potential solution spaces.
+Sketching and prototyping remain core techniques to interactively have a dialogue with a problem \cite{Schon1982}, but this can happen when design embedded within a research context: ``design-oriented research")\cite{Fallman2003designoriented}.
+In this dissertation, we use RtD to explore the problem space of creating \haxd support tools (Chapters 3-6), and in practicing \haxd as a designer (Chapter 7). 
+}
 
 % (\autoref{tab:groupware}).
 %Considering these different contexts illuminates specific goals when supporting haptic experience design.
@@ -604,27 +637,28 @@ However, this work is far from complete; touch is difficult to describe, and som
 %
 %%%%%%%%%%%%
 \section{Methodology}
-\osE{We used a mixed-method approach to the work presented in this dissertation.}
-\osE{We combined design with qualitative and quantitative analysis to gather complementary information.}
-\osE{The particular blend of methods depended on \revRG{the} project.} %each project.}
+We used a mixed-method approach to the work presented in this dissertation.
+We combined \revFinal{research through design} with qualitative and quantitative analysis to gather complementary information.
+The particular blend of methods depended on \revRG{the} project. %each project.}
 %Studying design process, creativity support tools, and haptic sensations is challenging and requires a robust methodology.
 %We use mixed methods to explore our research questions of process, strategies, and experience.
 %As we have seen in our discussion of creativity and design support, systems of creativity tools are complex and noisy.
-We began with \osE{design and} qualitative techniques to gather rich, generative data from design tools\osE{.} %and design processes, and to inform iteration.
-\osE{We then iteratively refined our qualitative methods, and built} towards large-scale data collection for our generated theories with \osE{quantitative analysis and} deployed tools.
+We began with design and qualitative techniques to gather rich, generative data from design tools. %and design processes, and to inform iteration.
+We then iteratively refined our qualitative methods, and built towards large-scale data collection for our generated theories with quantitative analysis and deployed tools.
 %Furthermore, this work is an early inquiry requiring inductive models of thinking to generate theories, and the flexibility to accommodate invention as part of the inquiry, \eg letting us build tools iteratively based on participant feedback.
 %As such, we turn to qualitative methodologies first and foremost, and as we gather findings, we gradually apply more hypothesis-testing-based approaches in a quantitative tradition.
 
 
-\osE{
-We took a design approach to understanding \haxd.
+\revFinal{We began our research process using research through design \cite{Zimmerman2007rtd}.
+Beginning with design allowed us to iteratively frame our questions \cite{Zimmerman2010} while generating initial theories \cite{Gaver2012researchthroughdesign}.}
+%We took a design approach to understanding \haxd.
 %Prototypes manifest design ideas \cite{Lim2008}.
-By building usable support tools, we gained direct knowledge of how to work haptic devices.
+\revFinal{In addition, b}y building usable support tools, we gained direct knowledge of how to work haptic devices.
 A design approach is constructive;
 working tools exactly specify design ideas, can be shared with haptic designers as a practical contribution, and provide an extendable platform to facillitate future research.
 For example, implementing Tactile Animation informed how to architect Macaron, which we could then directly extend as MacaronBit (\autoref{sec:applications:cuddlebit})
 % letting us easily follow up on subsequent research questions.
-}
+
 
 \osE{
 Qualitative research methods let us \revRG{study complex} phenomena in flexible, rigorous way.
@@ -645,7 +679,11 @@ In this work, we specifically use the Stevick-Colaizzi-Keen methods as described
 %This considers every statement that the participants make, and does not discount any due to bias or selective searching.
 MUs are then clustered into emergent themes through affinity diagrams, writing and re-writing of thematic descriptions, and reflection guided by phenomenological philosophy.
 %We use this technique exactly in o
-\osE{O}ur first exploratory study (\autoref{ch:hapticinstrument}) \osE{directly followed phenomenology.} %; in later studies, we combine phenomenology with grounded theory.}
+%\osE{O}ur first exploratory study (\autoref{ch:hapticinstrument}) \revFinal{drew primarily from} phenomenology. 
+\revFinal{Because \haxd is not a commonly experienced phenomenon, we drew from phenomenological methods to examine the limited experiences of in-lab stimuli.
+This approach is similar to previous work on sensory perception, \eg, geometric illusions \cite{Richer1978}, or mid-air tactile displays \cite{Obrist2013}.
+In our case, we studied the experience of design haptic sensations using our provided design tools.
+}
 
 Grounded theory is another well-known methodology first described by \citet{glaser1966awareness}.
 We adopted the more flexible methodology described by \citet{Corbin2008}, as it allowed us to integrate with our phenomenological methods.
