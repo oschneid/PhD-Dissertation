@@ -56,7 +56,7 @@ We include five design projects:
 %In recent years, haptic feedback has shown promise to enhance user experience in movies, games, rides, virtual simulations, and social and educational media [1?3]. However, current mainstream media has yet to use the richness of haptic modality within its content. The lack of haptic authoring tools, production infrastructure,
 %standardized playback protocols, and skilled and trained workers has contributed to the difficulty of integrating haptic content with accompanying media. To reduce the gap between haptics and mainstream communication, haptic feedback must be expressive, coherent, and synchronized with the content of the media, and also meet user expectations. We believe that allowing end users to access, customize, and share haptic media will create an intimate, engaging, and personalized experience, and proliferate the use of haptics.
 
-As shown in prior work \cite{Seifi2013,Seifi2014}, and as we will discuss in \autoref{ch:hapticianinterviews}, customization is an important feature for haptic experiences.
+As shown in prior work \cite{Seifi2013,Seifi2014}, and as we discuss in \autoref{ch:hapticianinterviews}, customization is an important feature for haptic experiences.
 In addition, haptic media must be built around existing infrastructure, as it is not directly supported by most media types.
 FeelCraft is a media plugin architecture that monitors events and activities in the media, and associates them to user-defined haptic content in a seamless, structured way.
 The FeelCraft plugin allows novice users to generate, recall, save, and share haptic content, and play and broadcast them to other users to feel the same haptic experience, without requiring any skill in haptic content generation.
@@ -201,7 +201,8 @@ We found VT icons were effective when they had an engaging visual icon to frame 
 %
 
 \subsection{Feel Messenger Application}
-In this section, we present the architecture (backend) and user interface (frontend) of a messenger application that allows users to create and share haptic content through a network connection. The critical components of the application are shown in Figure 2.
+In this section, we present the architecture (backend) and user interface (frontend) of a messenger application that allows users to create and share haptic content through a network connection.
+%The critical components of the application are shown in Figure 2.
 
 \inlineHeading{Architecture}
 To account for the limited computation, storage and communication capabilities of a simple microcontroller unit, we introduce feelbits and feelgits. Feelgits (short from ``feel widgets") are installed piece of software that define parametric compositions of a set of haptic patterns (called a family). Feelbits are parametric settings of a feelgit to produce a particular haptic pattern (called a feel effect \cite{Israr2014}). For example, the feelgit of pulse is defined as two successive onsets of vibration, separated by a timing parameter. The feelbits are timing and intensity of onset parameters. Therefore, by varying feelbits, a user can personalize the haptic effect to be calm (low intensity, long temporal separation) or racing (high intensity, short temporal separation) heartbeat.
@@ -249,7 +250,7 @@ By clicking a FE icon, sliders corresponding to parameters (feelbits) are enable
 
 
 \subsection{Haptic Vocabulary}
-The vocabulary of haptic effect is critical for expressive and precise communication between users. In this preliminary implementation, we explore three types of haptic vocabularies. Type 1 is adapted from feel effects defined in \cite{Israr2014}, where haptic patterns are semantically characterize by a phrase. Type 2 is change in physical parameters as in \cite{Brewster2004,MacLean2003} but can also be simultaneously played with feel effects. Type 3 predefined coded patterns.
+The vocabulary of haptic effect is critical for expressive and precise communication between users. In this preliminary implementation, we explore three types of haptic vocabularies. Type 1 is adapted from feel effects defined in \cite{Israr2014}, where haptic patterns are semantically characterize\revRG{d} by a phrase. Type 2 is change in physical parameters as in \cite{Brewster2004,MacLean2003} but can also be simultaneously played with feel effects. Type 3 \revRG{is} predefined coded patterns.
 \autoref{fig:feelmessenger:fig4} shows the icons for haptic language. Note, that the two feel effects cannot be simultaneously played. This will result in overflow of the user's bandwidth, especially with a low-fidelity VT actuator.
 
 
@@ -279,7 +280,7 @@ A set of feel effects is defined that delivers emotional, attentional and contex
 \end{description}
 
 \inlineHeading{Type 2: Physical Effects}
-These effects are associated with direct variation in tactile patterns. Previous studies (\eg, \cite{Brewster2004,MacLean2003}) have used variation in amplitude, duration as typical variation. Our library includes:
+These effects are associated with direct variation in tactile patterns. Previous studies (\eg, \cite{Brewster2004,MacLean2003}) have used variation in amplitude \revRG{and} duration as typical variation. Our library includes:
 
 \begin{description}
 	\item[Ramp-up:] gradual increase in intensity; parameters are peak intensity and the rate of increase.
@@ -321,7 +322,7 @@ All effects were implemented using built-in Android APIs.
 \section{RoughSketch: Designing for an Alternative Modality}
 \label{sec:applications:roughsketch}
 
-FeelCraft (\autoref{sec:applications:feelcraft}) and Feel Messenger (\autoref{sec:applications:feelmessenger}) used existing infrastructure to conduct VT design, but how do other types of feedback vary?
+%FeelCraft (\autoref{sec:applications:feelcraft}) and Feel Messenger (\autoref{sec:applications:feelmessenger}) used existing infrastructure to conduct VT design, but how do other types of feedback vary?
 In Sections \ref{sec:applications:roughsketch} to \ref{sec:applications:cuddlebit}, we investigate other modalities in other applications: programmable friction for touchscreen drawing, force-feedback for education, and affective robots for emotional expression.
 Here, in \autoref{sec:applications:roughsketch}, we describe RoughSketch, a drawing application for the TPad Phone.
 
