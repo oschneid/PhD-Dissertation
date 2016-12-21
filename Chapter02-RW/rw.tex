@@ -25,7 +25,7 @@ Haptic technology is typically separated into two classes based on the main sens
 These two types of feedback are useful for different purposes, \eg, people use their fingerpad's tactile senses to derive texture, but kinaesthetic feedback to infer weight \cite{Lederman1987};
 different senses can be combined for more convincing results \cite{Okamura1998}.
 For an overview of the haptic senses, we direct the reader to \citet{Lederman2009survey}; for a practical introduction to haptic technology, we suggest \citet{Hayward2007}.
-We focus our coverage on the sensations directly studied by this dissertation \revRG{(vibrotactile feedback, programmable friction, simple force-feedback, simple haptic robots)}, while also portraying the diversity of haptic experiences and technology.
+We focus our coverage on the sensations directly studied \revFinalKM{within} this dissertation \revRG{(vibrotactile feedback, programmable friction, simple force-feedback, simple haptic robots)}, while also portraying the diversity of haptic experiences and technology.
 
 \subsection{Tactile Perception and Technology}
 Tactile sensations rely on multiple sensory organs in the skin, each of which detect different properties, \eg, Merkel disks detect pressure or fine details, Meissner corpuscles detect fast, light sensations (flutter), Ruffini endings detect stretch, and Pacinian corpuscles detect vibration \cite{ChoiKuchenbecker2013}.
@@ -266,7 +266,7 @@ Ambient tactile displays \revRG{can provide awareness} and alerts without distra
 \revRG{Because} VT feedback is affordable \revRG{and} low-power, \revRG{it} can be added to watches and wrist-bands \cite{Brunet2013a,Arab2015}, belts, vests, and other wearables.
 \osE{Haptic icons \cite{MacLean2003} are analogous to visual icons but transmitted through touch. Tactons \cite{Brown2006} are a type of haptic icon which} provide VT feedback, \eg, in mobile applications.
 %Rhythm opens up a large design space, letting users learn 84 different icons \cite{Ternes2008} and can be applied with even light, low-cost rumble motors.
-\revRG{Rhythm opens up a large, learnable design space; \citet{Ternes2008} found users could learn up to 84 different rhythmic icons.} %  and can be applied with even light, low-cost rumble motors.}
+\revRG{Rhythm opens up a large, learnable design space;  \revFinalKM{users can discern between \cite{Ternes2008} and learn \cite{Swerdfeger2009thesis}} 84 different rhythmic icons.} %  and can be applied with even light, low-cost rumble motors.}
 A 28-day study showed that rhythmic VT icons do not disturb users in daily activities and can communicate ambient information \cite{Cauchard2016}.
 \citet{Hemmert2008} explored a life-like metaphor of pulsing and breathing to provide alerts, but found \revRG{that designers needed to take care to not be annoying}.
 Multiple actuators can be combined in mobile handheld devices to provide differentiable spatial information, enriching the VT icon design space \cite{Yatani2009a}.
@@ -350,7 +350,7 @@ In \autoref{ch:applications} we describe results from an early learning interfac
 % SECTION: What other inspirations can we draw from? How are we approaching the above-mentioned problem? What scope is reasonable.
 %
 %%%%%%%%%%%%
-\section{Non-Haptic Design and Creativity Tools}
+\section{Non-Haptic Design and Creativity \revFinalKM{Support}}
 \osE{Design thinking is a process and approach to solving problems.}
 \revFinal{Although often used without a definition \cite{Zimmerman2007rtd}, design thinking always involves rapidly generating and evaluating multiple ideas, and iteratively exploring a problem space by articulating and manifesting a solution space; ideas then converge to a final developed concept (or set of concepts) \cite{Buxton2007}}.
 Design is increasingly studied as a field in non-haptic contexts, providing both guidelines and inspiration for \haxd.
@@ -420,23 +420,24 @@ We explore informal collaboration briefly in \autoref{ch:hapticinstrument}, and 
 
 
 \subsection{\revFinal{Design Research}}
+\label{sec:rw:designresearch}
 \revFinal{
-The HCI community is actively exploring the relationships between design and research.
-Both are intertwined for interactive systems.
-Current discourse revolves around how HCI research can draw knowledge from design methods, and how knowledge gained from research can inform design practice.
+The HCI community is actively exploring the relationships between design and research\revFinalKM{, which} are intertwined for interactive systems.
+Current discourse revolves around how HCI research can draw \revFinalKM{generalizable} knowledge from design methods, and how knowledge gained from research can inform design practice.
 }
 
 \revFinal{
 \citet{Frayling1993research} challenges popular stereotypes about design, art, and scientific research. 
 He suggests three different different relationships: research \emph{into} design (and art), research \emph{through} design, and research \emph{for} design.
 Research into design is common, including historical research, aesthetic or perceptual research, and perspectives or theories about design.
-Research for design is ``small 'r'" research, and includes the gathering of reference materials, examples, and previous artifacts to support the design of a product or experience, not for knowledge creation.
+Research for design is ``small `r'" research, and includes the gathering of reference materials, examples, and previous artifacts to support the design of a product or experience, not for knowledge creation.
 Research through design (RtD) involves practicing design with the explicit goal of creating research, including materials research by creating artifacts, customizing or developing technology, or action research.
+\revFinalKM{This final approach -- RtD -- is the kind we use most in this dissertation.}
 }
 
 \revFinal{
-\citet{Zimmerman2007rtd} suggests RtD as a model to involve design into HCI research.
-Designers can be involved in knowledge-making by attempting to "make the right thing."
+\citet{Zimmerman2007rtd} suggests RtD as a model to \revFinalKM{use design skills to conduct} HCI research.
+Designers can be involved in knowledge-making by attempting to ``make the right thing."
 Knowledge is embedded into artifacts and the process of their creation, integrating both ``true" and ``how" knowledge.
 To develop RtD into a more formal methodology, \citet{Zimmerman2010} conducted interviews with leading HCI design researchers and found that design projects in a research context can serve as a common vocabulary between researchers and inspiration for future projects.
 \citet{Gaver2012researchthroughdesign} points out that RtD fits into scientific paradigms by supporting theory development, but cautions against too much formalization of this methodology.
@@ -445,9 +446,16 @@ Instead, Gaver argues that diversity of design approaches is a virtue, and that 
 
 \revFinal{
 Consistently, design is proposed as a means to progress solving ``wicked problems" \cite{Rittel1973dilemmas}.
-The core value of design in research is its ability to resolve between these ill-posed problems and potential solution spaces.
-Sketching and prototyping remain core techniques to interactively have a dialogue with a problem \cite{Schon1982}, but this can happen when design embedded within a research context: ``design-oriented research")\cite{Fallman2003designoriented}.
+The core value of design in research is its ability to \revFinalKM{simultaneously resolve} ill-posed problems and potential solution spaces \revFinalKM{into a question with a solution}.
+Sketching and prototyping remain core techniques to \revFinalKM{supporting interactive dialogue} with a problem \cite{Schon1982}, but \revFinalKM{are valid means of inquiry} when design \revFinalKM{is} embedded within a research context\revFinalKM{, \eg,} ``design-oriented research" \cite{Fallman2003designoriented}.
+}
+
+\revFinal{
 In this dissertation, we use RtD to explore the problem space of creating \haxd support tools (Chapters 3-6), and in practicing \haxd as a designer (Chapter 7). 
+}
+\revFinalKM{
+We complement RtD with qualitative inquiry, using methods from grounded theory and phenomenology, and quantitative analysis, using statistics and visualization.
+We discuss our larger methodological framework in \autoref{sec:rw:methodology}.
 }
 
 % (\autoref{tab:groupware}).
@@ -637,6 +645,7 @@ However, this work is far from complete; touch is difficult to describe, and som
 %
 %%%%%%%%%%%%
 \section{Methodology}
+\label{sec:rw:methodology}
 We used a mixed-method approach to the work presented in this dissertation.
 We combined \revFinal{research through design} with qualitative and quantitative analysis to gather complementary information.
 The particular blend of methods depended on \revRG{the} project. %each project.}
@@ -656,8 +665,9 @@ Beginning with design allowed us to iteratively frame our questions \cite{Zimmer
 \revFinal{In addition, b}y building usable support tools, we gained direct knowledge of how to work haptic devices.
 A design approach is constructive;
 working tools exactly specify design ideas, can be shared with haptic designers as a practical contribution, and provide an extendable platform to facillitate future research.
-For example, implementing Tactile Animation informed how to architect Macaron, which we could then directly extend as MacaronBit (\autoref{sec:applications:cuddlebit})
+For example, implementing Tactile Animation informed how to architect Macaron, which we could then directly extend as MacaronBit (\autoref{sec:applications:cuddlebit}).
 % letting us easily follow up on subsequent research questions.
+\revFinalKM{We discuss the relationship between design and research in \autoref{sec:rw:designresearch}.}
 
 
 \osE{
