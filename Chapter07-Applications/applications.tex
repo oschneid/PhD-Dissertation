@@ -61,11 +61,19 @@ We include five design projects:
 
 As shown in prior work \cite{Seifi2013,Seifi2014}, and as we discuss in \autoref{ch:hapticianinterviews}, customization is an important feature for haptic experiences.
 In addition, haptic media must be built around existing infrastructure, as it is not directly supported by most media types.
+\revFinalAgain{In this chapter, we describe the plug-in architecture, envisioned applications, and our implementation for VT grid arrays displaying Feel Effects (FEs) \cite{Israr2014} for a popular video game, Minecraft.}
+
+\revFinalAgain{This project put Tactile Animation (\autoref{ch:tactileanimation}) in context, as we designed for the same VT grid and domain: multimedia entertainment.
+We used a variety of metaphors to create our designs, from established effects (heartbeat, rain \cite{Israr2014}) to new ones (explosion and horse galloping), and found only synchronized visual-audio-haptic effects were effective.
+We had to develop the software vertically, writing the Minecraft plugin in tandem with the rendering system and final effects.
+Iteration was slow without a mature animation tool.
+However, we were able to start quickly, as our software architecture was able to use the same low-level rendering platform as Tactile Animation, and we were able to refine designs easily using human-readable, declarative JSON files.}
+
 FeelCraft is a media plugin architecture that monitors events and activities in the media, and associates them to user-defined haptic content in a seamless, structured way.
 The FeelCraft plugin allows novice users to generate, recall, save, and share haptic content, and play and broadcast them to other users to feel the same haptic experience, without requiring any skill in haptic content generation.
-In this chapter, we describe the plug-in architecture, envisioned applications, and our implementation for VT grid arrays displaying Feel Effects (FEs) \cite{Israr2014} for a popular video game, Minecraft.
 Our implementations uses the Marvel Avengers Vybe Haptic Gaming Pad by Comfort Research (\url{http://comfortresearch.com}), a chair-shaped pad with 12 actuators (6 voice coils and 6 rumble motors).
 We designed effects that leveraged this display, \eg, voice coils simulating rain on the user's back when there is rain in-game, and rumble motors creating a galloping sensation on the chair's seat when the user rides an virtual horse.
+
 
 %In the current implementation, we concentrate on the vibrotactile array as the source of sensation and the back as the surface for stimulation; however, the FeelCraft architecture can be easily adapted for other haptic feedback modalities. We begin by presenting relevant background work related to haptic media
 %infrastructure. We then present the FeelCraft architecture and describe in detail each component of the system. Finally, we conclude the paper with our envisioned application ecosystem.
@@ -176,9 +184,15 @@ FeelCraft plugins are designed to make haptics accessible to end users using exi
 \noindent
 In \autoref{sec:applications:feelcraft}, we designed expressive spatial VT Feel Effects using existing infrastructure, using a plugin architecture to link desktop applications to new VT hardware.
 In \autoref{sec:applications:feelmessenger}, we look at the expressiveness of existing infrastructure and actuation methods with Android smartphones for customizable VT effects by implementing customizable VT emojis in a chat program, Feel Messenger.
-As illustrated previously by \autoref{fig:vib:lofidesign} in \autoref{ch:hapturk}, APIs for vibrotactile feedback are currently limited to a series of pulses.
+\revFinalAgain{Both projects were a chance to practice VT design and contextualize our in-depth design tools.}
+
+\revFinalAgain{With Feel Messenger, we found that even extremely simple VT icons could be engaging.}
+As illustrated previously by \autoref{fig:vib:lofidesign} in \autoref{ch:hapturk}, APIs for \revFinalAgain{VT} feedback are currently limited to a series of pulses.
 With Feel Messenger, we were able to produce expressive VT icons for emojis using the built-in Android API, including customizable effects like a heartbeat that varies in both rate and intensity.
-We found VT icons were effective when they had an engaging visual icon to frame the vibration, \eg, a cat emoji helped the user understand purring vibration was a purr.
+
+\revFinalAgain{However, we had to ensure that the haptic feedback fit into a narrative.}
+We found VT icons were effective \revFinalAgain{only} when they had an engaging visual icon to frame the vibration\revFinalAgain{: a cartoon} cat emoji helped the user understand purring vibration was a purr\revFinalAgain{, but a more abstract motor icon was ineffective.}
+\revFinalAgain{We also found that each phone had different dynamics and motors, so the set of designs needed to be adapted for each device.}
 \autoref{fig:feelmessenger:fig1} presents a concept sketch.
 
 %Touch is particularly significant in interpersonal communication [3].
