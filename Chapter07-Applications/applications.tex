@@ -67,7 +67,7 @@ In addition, haptic media must be built around existing infrastructure, as it is
 We used a variety of metaphors to create our designs, from established effects (heartbeat, rain \cite{Israr2014}) to new ones (explosion and horse galloping), and found only synchronized visual-audio-haptic effects were effective.
 We had to develop the software vertically, writing the Minecraft plugin in tandem with the rendering system and final effects.
 Iteration was slow without a mature animation tool.
-However, we were able to start quickly, as our software architecture was able to use the same low-level rendering platform as Tactile Animation, and we were able to refine designs easily using human-readable, declarative JSON files.}
+However, we were able to start quickly, as our software architecture was able to use the same low-level rendering platform as Tactile Animation, and we were able to \emph{refine} designs easily using human-readable, declarative JSON files.}
 
 FeelCraft is a media plugin architecture that monitors events and activities in the media, and associates them to user-defined haptic content in a seamless, structured way.
 The FeelCraft plugin allows novice users to generate, recall, save, and share haptic content, and play and broadcast them to other users to feel the same haptic experience, without requiring any skill in haptic content generation.
@@ -348,16 +348,16 @@ It uses piezo-actuated mechanical vibration to create a cushion of air, reducing
 As part of the World Haptics 2015 Student Innovation Challenge, we built RoughSketch, a mobile drawing application to explore friction displays for digital mark-making.
 
 \revFinalAgain{When working with friction feedback, some design activities were more supported than others.}
-\revFinalAgain{The TPad Phone was accompanied by a mature API which supported sketching for spatial friction profiles: a image could be easily and quickly loaded to create a static profile.
-We found it was more difficult to sketch complex interactions that reacted to input velocity or multitouch.
-In both cases, refining designs was slow, as the program needed to be recompiled each time.}
+\revFinalAgain{The TPad Phone was accompanied by a mature API which supported \emph{sketching} for spatial friction profiles: a image could be easily and quickly loaded to create a static profile.
+We found it was more difficult to \emph{sketch} complex interactions that reacted to input velocity or multitouch.
+In both cases, \emph{refining} designs was slow, as the program needed to be recompiled each time.}
 \revFinalAgain{This project also revealed the complexities of creating a design language, a set of principles for a consistent look and feel, when designing for haptics.
 We found this in the diverse metaphors we used to frame friction feedback for different mark making techniques.}
 
-We looked at \revFinalAgain{five} mark-making interaction techniques\revFinalAgain{:}
+We looked at \revFinalAgain{six} mark-making interaction techniques\revFinalAgain{:}
 \begin{itemize}
     \item \textit{Paintbrush}, where you feel paint leaving your finger,
-    \item \textit{Pen and eraser}, based on real-world writing utensils,
+    \item \textit{Pen} and \textit{eraser}, based on real-world writing utensils,
     \item \textit{Spray paint}, where you feel the roughness of paint on the screen as you spray,
     \item \textit{Pinch/zoom}, inspired by compressing and stretching rubber, and
     \item \textit{Feel finger}, the ability to feel your drawing on the paper.
@@ -1388,6 +1388,20 @@ Voodle and MacaronBit are symbiotic.
 Users can record voodles and export them to MacaronBit; initial result suggest that they each support different goals for users.
 Together, Voodle and MacaronBit represent \emph{sketching} (\autoref{ch:hapticinstrument}) and \emph{refining} (\autoref{ch:tactileanimation}), showing that this dichotomy provides a useful framing when creating \haxd support tools and applies to other display types beyond VT icon design.
 Research is ongoing in a series of user studies, exploring expressiveness and consistency of designed behaviours, the specific capabilities and roles of the two tools, and important considerations for future development.
+
+
+
+\subsection{Takeaways}
+
+\revFinalAgain{
+Our focused design projects reinforced our findings from our in-depth studies and expanded our understanding of \haxd.
+We consistently found that the narrative framing or chosen metaphors were important to frame haptic experiences, both to facilitate design and to help users interpret intended meaning.
+Visual, audio, and haptic feedback need to be tightly coordinated and designed together, necessitating a holistic and vertical view for designs.
+Design activities of \emph{sketching}, \emph{refining}, \emph{browsing} and \emph{sharing} are sometimes supported, but help to identify opportunities for new tools and techniques.
+Different feedback modalities, and even different devices (\eg, mobile phones), need customized haptic feedback.
+When successful, the haptic actuation can be rudimentary or high-fidelity, as long as the entire experience is considered and designed.
+These results informally enrich our final takeaways in \autoref{ch:conclusion}, and directly inform our suggestions for handling the diversity of haptic experiences (\autoref{sec:generalizingdevices}) and conceptually framing haptic designs (\autoref{ch:conclusion:framing}) with narrative and metaphor.
+}
 
 
 \endinput
